@@ -14,26 +14,26 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://reisi007.bplaced.net/program/</PublishUrl>
+    <PublishUrl>D:\SI-GUI-EXE\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>1</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://reisi007.bplaced.com/program/</InstallUrl>
+    <InstallUrl>http://dev-builds.libreoffice.org/si-gui/</InstallUrl>
     <SupportUrl>http://libreoffice-server-installation-gui.5927.n7.nabble.com/</SupportUrl>
     <ErrorReportUrl>https://github.com/reisi007/LibreOffice_Server_Installation_GUI/issues%3fmilestone=none&amp;state=open</ErrorReportUrl>
     <ProductName>Server Install GUI</ProductName>
     <PublisherName>Reisisoft</PublisherName>
     <SuiteName>LibreOffice Tools</SuiteName>
-    <MinimumRequiredVersion>3.0.0.1</MinimumRequiredVersion>
+    <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

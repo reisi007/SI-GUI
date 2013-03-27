@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
           
       }
       public string program_version()
-      { return "4.0.1"; }
+      { return "4.0.1 L"; }
 
       public void  save_settings(SETTINGS set)
         {

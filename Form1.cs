@@ -22,6 +22,8 @@ using System.Xml.Serialization;
 using Microsoft.VisualBasic;
 
 
+//Used for translating: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor (I will forget it soon)...
+
 namespace WindowsFormsApplication1
 {
 
