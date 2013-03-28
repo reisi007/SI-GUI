@@ -62,7 +62,8 @@
             "Sl",
             "Da",
             "He",
-            "Pt"});
+            "Pt",
+            "Nl"});
             this.lang_chooser.Location = new System.Drawing.Point(401, 429);
             this.lang_chooser.Name = "lang_chooser";
             this.lang_chooser.Size = new System.Drawing.Size(71, 21);

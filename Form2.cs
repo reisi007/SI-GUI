@@ -60,6 +60,7 @@ namespace WindowsFormsApplication1
             string es = getstring("es") + " ";
             string he = getstring("he") + " ";
             string pt = getstring("pt") + " ";
+            string nl = getstring("nl") + " ";
             string programmer = getstring("programmer") + " ";
             string florei = "Florian Reisinger";
             string nemo = "NEMO ;)";
@@ -74,6 +75,7 @@ namespace WindowsFormsApplication1
             abouttxt += da + "Leif Lodahl"+ Environment.NewLine;
             abouttxt += pt + "Carlos Moreira" + Environment.NewLine; 
             abouttxt += he + "Yaron Shahrabani" + Environment.NewLine;
+            abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
             about.Text = abouttxt;
             this.Text = getstring("about");
             lang_chooser.Sorted = true;

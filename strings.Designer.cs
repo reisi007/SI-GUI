@@ -196,7 +196,7 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit bootdtrap.ini.
+        ///   Looks up a localized string similar to Edit bootstrap.ini.
         /// </summary>
         internal static string edit_bs_ini {
             get {
@@ -241,7 +241,7 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The file has sucsessfully been saved!.
+        ///   Looks up a localized string similar to The file has successfully been saved!.
         /// </summary>
         internal static string filesave {
             get {
@@ -457,6 +457,15 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dutch:.
+        /// </summary>
+        internal static string nl {
+            get {
+                return ResourceManager.GetString("nl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No install directory choosen!.
         /// </summary>
         internal static string no_installdir {
@@ -664,7 +673,7 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download langpack of the selected language of the older branch.
+        ///   Looks up a localized string similar to Download langpack of the selected language of the older branch..
         /// </summary>
         internal static string tt_hp_ob {
             get {
@@ -718,7 +727,7 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Link to the soffice.exe of the parallel installation (Automatically added).
+        ///   Looks up a localized string similar to Path to the soffice.exe of the parallel installation (Automatically added).
         /// </summary>
         internal static string tt_path_to_exe {
             get {

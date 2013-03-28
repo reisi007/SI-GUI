@@ -118,243 +118,240 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="dirnotfound" xml:space="preserve">
-    <value>Directory does not exist!</value>
-  </data>
+		<value>Directory bestaat niet!</value>
+	</data>
 	<data name="dirnotfoundmessage" xml:space="preserve">
-    <value>Please check your choosen directory!</value>
-  </data>
+		<value>Gelieve uw gekozen directory na te kijken!</value>
+	</data>
 	<data name="Error" xml:space="preserve">
-    <value>Error!</value>
-  </data>
+		<value>Error!</value>
+	</data>
 	<data name="filesave" xml:space="preserve">
-    <value>The file has successfully been saved!</value>
-  </data>
+		<value>Het bestand is succesvol opgeslagen!</value>
+	</data>
 	<data name="go_back" xml:space="preserve">
-    <value>Go back?</value>
-  </data>
+		<value>Ga terug?</value>
+	</data>
 	<data name="help_runasadmin" xml:space="preserve">
-    <value>It might help to run this program as administrator.</value>
-  </data>
+		<value>Het kan helpen om dit programma als administrator uit te voeren.</value>
+	</data>
 	<data name="installerror" xml:space="preserve">
-    <value>Installation could not be startet due to the following error:</value>
-  </data>
+		<value>De installatie kon niet worden gestart door volgende fout:</value>
+	</data>
 	<data name="installnostart" xml:space="preserve">
-    <value>Installation could not be started!</value>
-  </data>
+		<value>De installatie kon niet worden gestart!</value>
+	</data>
 	<data name="no_installdir" xml:space="preserve">
-    <value>No install directory choosen!</value>
-  </data>
+		<value>Geen installatiedirectory gekozen!</value>
+	</data>
 	<data name="no_installfile" xml:space="preserve">
-    <value>You did not choose a LibreOffice Installation file!</value>
-  </data>
+		<value>U hebt geen LibreOffice installatiebestand gekozen!</value>
+	</data>
 	<data name="si" xml:space="preserve">
-    <value>Security Issue</value>
-  </data>
+		<value>Veiligheidsprobleem</value>
+	</data>
 	<data name="si_message" xml:space="preserve">
-    <value>You do not have the right to write into this folder.</value>
-  </data>
+		<value>U hebt geen schrijfrechten in deze map.</value>
+	</data>
 	<data name="standarderror" xml:space="preserve">
-    <value>An error occoured! Message:</value>
-  </data>
+		<value>Er is een fout opgetreden! Boodschap:</value>
+	</data>
 	<data name="title_filesave" xml:space="preserve">
-    <value>File saved</value>
-  </data>
+		<value>Bestand opgeslagen</value>
+	</data>
 	<data name="warning" xml:space="preserve">
-    <value>Warning!</value>
-  </data>
+		<value>Waarschuwing!</value>
+	</data>
 	<data name="de" xml:space="preserve">
-    <value>German:</value>
-  </data>
+		<value>Duits:</value>
+	</data>
 	<data name="en" xml:space="preserve">
-    <value>English:</value>
-  </data>
+		<value>Engels:</value>
+	</data>
 	<data name="fr" xml:space="preserve">
-    <value>French:</value>
-  </data>
+		<value>Frans:</value>
+	</data>
 	<data name="lang" xml:space="preserve">
-    <value>Language</value>
-  </data>
+		<value>Taal</value>
+	</data>
 	<data name="programmer" xml:space="preserve">
-    <value>Programmer:</value>
-  </data>
+		<value>Programmeur:</value>
+	</data>
 	<data name="translations" xml:space="preserve">
-    <value>--- Translations ---</value>
-  </data>
+		<value>--- Vertalingen ---</value>
+	</data>
 	<data name="translator" xml:space="preserve">
-    <value>Translator:</value>
-  </data>
+		<value>Vertaler:</value>
+	</data>
 	<data name="about" xml:space="preserve">
-    <value>About / Change language</value>
-  </data>
+		<value>Over / Wijzig taal</value>
+	</data>
 	<data name="tt_lb" xml:space="preserve">
-    <value>Latest build of latest branch.</value>
-  </data>
+		<value>Laatste build van de laatste branch.</value>
+	</data>
 	<data name="tt_m" xml:space="preserve">
-    <value>Latest daily build.</value>
-  </data>
+		<value>Laatste daily build.</value>
+	</data>
 	<data name="tt_ob" xml:space="preserve">
-    <value>Latest build of older branch.</value>
-  </data>
+		<value>Laatste build van de oudste branch.</value>
+	</data>
 	<data name="tt_tb" xml:space="preserve">
-    <value>Latest testing build.</value>
-  </data>
+		<value>Laatste testbuild.</value>
+	</data>
 	<data name="language_change_success" xml:space="preserve">
-    <value>The language setting will apply at the next startup!</value>
-  </data>
+		<value>De taalwijziging zal bij een heropstart toegepast worden. </value>
+	</data>
 	<data name="success" xml:space="preserve">
-    <value>Success!</value>
-  </data>
+		<value>Geslaagd!</value>
+	</data>
 	<data name="tt_bootstrap" xml:space="preserve">
-    <value>You may use the following instead of the line starting with “UserInstallation=” from the text field above in order to not override your existing user profile.</value>
-  </data>
+		<value>Je kan de regel "UserInstallation=" in het tekstveld hierboven gebruiken om je bestaande gebruikersprofiel niet te overschrijven.</value>
+	</data>
 	<data name="update_lang" xml:space="preserve">
-    <value>Change language:</value>
-  </data>
+		<value>Wijzig taal:</value>
+	</data>
 	<data name="versiondl" xml:space="preserve">
-    <value>Should %version really be downloaded?</value>
-  </data>
+		<value>Moet %version gedownload worden?</value>
+	</data>
 	<data name="bdllb" xml:space="preserve">
-    <value>Download latest branch</value>
-  </data>
+		<value>Download laatste branch</value>
+	</data>
 	<data name="open_help" xml:space="preserve">
-    <value>Open LibreOffice help installer</value>
-  </data>
+		<value>Open LibreOffice help installer</value>
+	</data>
 	<data name="config_installdir" xml:space="preserve">
-    <value>Configure installation directory</value>
-  </data>
+		<value>Configureer installatiedirectory</value>
+	</data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
-    <value>Open bootstrap.ini</value>
-  </data>
+		<value>Open bootstrap.ini</value>
+	</data>
 	<data name="dlmaster" xml:space="preserve">
-    <value>Download latest master</value>
-  </data>
+		<value>Download laatste master</value>
+	</data>
 	<data name="dltesting" xml:space="preserve">
-    <value>Download latest testing build</value>
-  </data>
+		<value>Download laatste testbuild</value>
+	</data>
 	<data name="dl_ob" xml:space="preserve">
-    <value>Download older branch</value>
-  </data>
+		<value>Download oudere branch</value>
+	</data>
 	<data name="edit_bs_ini" xml:space="preserve">
-    <value>Edit bootstrap.ini</value>
-  </data>
+		<value>Wijzig bootstrap.ini</value>
+	</data>
 	<data name="progress" xml:space="preserve">
-    <value>Progress:</value>
-  </data>
+		<value>Voortgang:</value>
+	</data>
 	<data name="open_bootstrap_title" xml:space="preserve">
-    <value>Open bootstrap.ini</value>
-  </data>
+		<value>Open bootstrap.ini</value>
+	</data>
 	<data name="open_installer" xml:space="preserve">
-    <value>Open LibreOffice installer</value>
-  </data>
+		<value>Open LibreOffice installer</value>
+	</data>
 	<data name="startdl" xml:space="preserve">
-    <value>Should the file be downloaded?</value>
-  </data>
+		<value>Moet het bestand gedownload worden?</value>
+	</data>
 	<data name="start_install" xml:space="preserve">
-    <value>Start installation</value>
-  </data>
+		<value>Start installatie</value>
+	</data>
 	<data name="where_to_install" xml:space="preserve">
-    <value>Choose installation directory</value>
-  </data>
+		<value>Kies installatiedirectory</value>
+	</data>
 	<data name="save_bootstrap_ini" xml:space="preserve">
-    <value>Save bootstrap.ini</value>
-  </data>
+		<value>opslaan bootstrap.ini</value>
+	</data>
 	<data name="subfolder_do" xml:space="preserve">
-    <value>Should a subfolder be created automatically? Name of the subfolder:</value>
-  </data>
+		<value>Moet een submap automatisch worden aangemaakt? Naam van de submap:</value>
+	</data>
 	<data name="es" xml:space="preserve">
-    <value>Spanish:</value>
-  </data>
+		<value>Spaans:</value>
+	</data>
 	<data name="sl" xml:space="preserve">
-    <value>Slovenian:</value>
-  </data>
+		<value>Slovaaks:</value>
+	</data>
 	<data name="da" xml:space="preserve">
-    <value>Danish:</value>
-  </data>
+		<value>Deens:</value>
+	</data>
 	<data name="help" xml:space="preserve">
-    <value>Help</value>
-  </data>
+		<value>Help</value>
+	</data>
 	<data name="dl_finished" xml:space="preserve">
-    <value>The download has been finished and is ready for installation.</value>
-  </data>
+		<value>Downloaden beëindigd en is klaar voor installatie.</value>
+	</data>
 	<data name="dl_finished_title" xml:space="preserve">
-    <value>Download finished!</value>
-  </data>
+		<value>Klaar met downloaden!</value>
+	</data>
 	<data name="dl_started" xml:space="preserve">
-    <value>A download has been started!</value>
-  </data>
+		<value>Dowloaden is gestart!</value>
+	</data>
 	<data name="dl_started_title" xml:space="preserve">
-    <value>Download started!</value>
-  </data>
+		<value>Download gestart!</value>
+	</data>
 	<data name="helppack" xml:space="preserve">
-    <value>Download helppack</value>
-  </data>
+		<value>Download helppakket</value>
+	</data>
 	<data name="tt_hp_lb" xml:space="preserve">
-    <value>Download helppack of the selected language of the latest branch.</value>
-  </data>
+		<value>Download helppakket van de geselecteerde taal van de laatste branch.</value>
+	</data>
 	<data name="tt_hp_ob" xml:space="preserve">
-    <value>Download langpack of the selected language of the older branch.</value>
-  </data>
+		<value>Download helppakket van de geselecteerde taal van de oudere branch.</value>
+	</data>
 	<data name="tt_hp_test" xml:space="preserve">
-    <value>Download helppack of the selected language of the latest testing build.</value>
-  </data>
+		<value>Download helppakket van de geselecteerde taal van de laatste testbuild.</value>
+	</data>
 	<data name="he" xml:space="preserve">
-    <value>Hebrew:</value>
-  </data>
+		<value>Hebreeuws</value>
+	</data>
 	<data name="pt" xml:space="preserve">
-    <value>Portuguese:</value>
-  </data>
+		<value>Portugees</value>
+	</data>
 	<data name="error_langpack_nolang" xml:space="preserve">
-    <value>You have to choose a language before starting the download!</value>
-  </data>
+		<value>U moet een taal kiezen voordat u begint met downloaden!</value>
+	</data>
 	<data name="mai_abort" xml:space="preserve">
-    <value>Abort</value>
-  </data>
+		<value>Afbreken</value>
+	</data>
 	<data name="mai_config_path" xml:space="preserve">
-    <value>Configure path</value>
-  </data>
+		<value>Configuratiepad</value>
+	</data>
 	<data name="mai_ok" xml:space="preserve">
-    <value>Okay</value>
-  </data>
+		<value>OK</value>
+	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
-    <value>Path to the soffice.exe of the parallel installation</value>
-  </data>
+		<value>Pad naar soffice.exe van de parallele installatie</value>
+	</data>
 	<data name="mai_text" xml:space="preserve">
-    <value>Manually add parallel installation</value>
-  </data>
+		<value>Voeg manueel parallele installatie toe</value>
+	</data>
 	<data name="man_addinstall" xml:space="preserve">
-    <value>Manually add installation</value>
-  </data>
+		<value>Voeg manueel installatie toe</value>
+	</data>
 	<data name="man_del" xml:space="preserve">
-    <value>Delete selected</value>
-  </data>
+		<value>Verwijder geselecteerden</value>
+	</data>
 	<data name="man_exit" xml:space="preserve">
-    <value>Exit</value>
-  </data>
+		<value>Afsluiten</value>
+	</data>
 	<data name="man_title" xml:space="preserve">
-    <value>Manager</value>
-  </data>
+		<value>Beheerder</value>
+	</data>
 	<data name="ink_des" xml:space="preserve">
-    <value>Shortcut to a parallel installed LibreOffice %version.</value>
-  </data>
+		<value>Snelkoppeling naar de parallel geïnstalleerde LibreOffice %version.</value>
+	</data>
 	<data name="ink_error_1" xml:space="preserve">
-    <value>No version specified!</value>
-  </data>
+		<value>Geen versie gespecifieerd!</value>
+	</data>
 	<data name="tt_ink" xml:space="preserve">
-    <value>Create a desktop shortcut for this parallel installation</value>
-  </data>
+		<value>Creëer een snelkoppeling op het bureaublad voor deze parallele installatie </value>
+	</data>
 	<data name="tt_path_to_exe" xml:space="preserve">
-    <value>Path to the soffice.exe of the parallel installation (Automatically added)</value>
-  </data>
+		<value>Pad naar soffice.exe van de parallele installatie (automatisch toegevoegd)</value>
+	</data>
 	<data name="b_create_shortcut" xml:space="preserve">
-    <value>Create Shortcut</value>
-  </data>
+		<value>Maak snelkoppeling</value>
+	</data>
 	<data name="msb_lnk_title" xml:space="preserve">
-    <value>Shortcut created!</value>
-  </data>
+		<value>Snelkoppeling aangemaakt!</value>
+	</data>
 	<data name="msb_lnk_txt" xml:space="preserve">
-    <value>Shortcut has sucessfully been created!</value>
-  </data>
-	<data name="nl" xml:space="preserve">
-    <value>Dutch:</value>
-  </data>
+		<value>Snelkoppeling met succesvol aangemaakt!</value>
+	</data>
 </root>

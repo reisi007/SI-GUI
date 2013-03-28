@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project>
+  <configuration createBackupFiles="True" hideEmptyRows="False" hideTranslatedRows="True" useSpellChecker="True" neutralLanguageCode="en-us" languagesToDisplay="">
+    <globalSetting name="Filter-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
+  &lt;property name="#LayoutVersion" /&gt;
+  &lt;property name="ActiveFilterString" /&gt;
+&lt;/XtraSerializer&gt;</globalSetting>
+    <globalSetting name="Sort-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
+  &lt;property name="#LayoutVersion" /&gt;
+&lt;/XtraSerializer&gt;</globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="5861689390" /&gt;&lt;/items&gt;</globalSetting>
+    <globalSetting name="CreateNewFileForm.prefixTextBox.Text">####</globalSetting>
+    <globalSetting name="CreateNewFileForm.prefixCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFileForm.referenceLanguageComboBox.SelectedIndex">0</globalSetting>
+    <globalSetting name="CreateNewFileForm.newLanguageComboBox.SelectedIndex">166</globalSetting>
+    <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">False</globalSetting>
+    <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian\Desktop\import.xls</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
+    </globalSetting>
+    <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1;2;3;4;5;6;7;8</globalSetting>
+    <globalSetting name="ReadOnlyFileOverwriteBehaviour">0</globalSetting>
+    <globalSetting name="OmitEmptyItems">True</globalSetting>
+    <globalSetting name="ShowCommentsColumnInGrid">False</globalSetting>
+    <globalSetting name="IgnoreWindowsFormsResourcesWithDesignerFiles">True</globalSetting>
+    <globalSetting name="HideInternalDesignerRows">True</globalSetting>
+    <globalSetting name="UseShallowGridDataCumulation">True</globalSetting>
+    <globalSetting name="HideFileGroupFilesInTree">True</globalSetting>
+    <globalSetting name="NeutralLanguageFileNamePattern">[basename][optionaldefaulttypes].[extension]</globalSetting>
+    <globalSetting name="NonNeutralLanguageFileNamePattern">[basename][optionaldefaulttypes].[languagecode].[extension]</globalSetting>
+    <globalSetting name="BaseNameDotCount">0</globalSetting>
+    <globalSetting name="DefaultFileTypesToIgnore">.aspx;.ascx;.asmx;.master;.sitemap</globalSetting>
+    <globalSetting name="Project-PersistGridSettings">True</globalSetting>
+    <globalSetting name="ColorifyNullCells">True</globalSetting>
+    <globalSetting name="EnableExcelExportSnapshots">True</globalSetting>
+    <userSetting name="Florian@Home-PC.filesInitialDir">D:\SI-GUI</userSetting>
+    <userSetting name="Florian@Home-PC.FindText">
+    </userSetting>
+    <userSetting name="Florian@Home-PC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
+    <description>
+    </description>
+  </configuration>
+  <fileGroups>
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="fa93bca7-c732-47fa-979e-a3bcd41a6e7b">
+      <file filePath="strings.resx" absoluteFilePath="D:\SI-GUI\strings.resx" uniqueID="be20a222-829b-4ba1-81e4-4b0c1409de35" />
+      <file filePath="strings.da.resx" absoluteFilePath="D:\SI-GUI\strings.da.resx" uniqueID="6bd9bbba-beea-4757-bfe0-8a91d08fcefa" />
+      <file filePath="strings.de.resx" absoluteFilePath="D:\SI-GUI\strings.de.resx" uniqueID="d27b7ae7-55bd-48bc-ad26-091157d40881" />
+      <file filePath="strings.es.resx" absoluteFilePath="D:\SI-GUI\strings.es.resx" uniqueID="cb92c445-63cb-4bad-aa5e-c3ce9205d3d1" />
+      <file filePath="strings.fr.resx" absoluteFilePath="D:\SI-GUI\strings.fr.resx" uniqueID="5b2d6512-2d28-4da7-96b6-a9b69e6db0fe" />
+      <file filePath="strings.he.resx" absoluteFilePath="D:\SI-GUI\strings.he.resx" uniqueID="acef10c1-b1c5-4b82-87d0-16199cb21b88" />
+      <file filePath="strings.nl.resx" absoluteFilePath="D:\SI-GUI\strings.nl.resx" uniqueID="ee0066df-017d-448f-bdad-93d6fc957017" />
+      <file filePath="strings.pt.resx" absoluteFilePath="D:\SI-GUI\strings.pt.resx" uniqueID="71d5ec69-e1cf-4cf5-aef0-fb8ac577a868" />
+      <file filePath="strings.sl.resx" absoluteFilePath="D:\SI-GUI\strings.sl.resx" uniqueID="b72197df-5f92-46ea-8a95-52a366315613" />
+      <remarks>
+      </remarks>
+    </fileGroup>
+  </fileGroups>
+  <projectFolders />
+</project>
