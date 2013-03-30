@@ -108,6 +108,7 @@
             this.MaximumSize = new System.Drawing.Size(376, 167);
             this.MinimumSize = new System.Drawing.Size(376, 167);
             this.Name = "manually_add_installation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Manually add parallel installation";
             this.Load += new System.EventHandler(this.manually_add_installation_Load);
             this.ResumeLayout(false);

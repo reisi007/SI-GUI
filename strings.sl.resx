@@ -343,7 +343,7 @@
 		<value>Ustvari bližnjico na namizju za to vzporedno namestitev</value>
 	</data>
 	<data name="tt_path_to_exe" xml:space="preserve">
-		<value>Povezava na soffice.exe vzporedne namestitve (dodana samodejno)</value>
+		<value>Pot do soffice.exe vzporedne namestitve (dodana samodejno)</value>
 	</data>
 	<data name="b_create_shortcut" xml:space="preserve">
 		<value>Ustvari bližnjico</value>
@@ -353,5 +353,8 @@
 	</data>
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>Bližnjica uspešno ustvarjena.</value>
+	</data>
+	<data name="nl" xml:space="preserve">
+		<value>Nizozemščina:</value>
 	</data>
 </root>

@@ -334,4 +334,7 @@
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>O atalho foi criado com sucesso!</value>
 	</data>
+	<data name="nl" xml:space="preserve">
+		<value>Holandês:</value>
+	</data>
 </root>

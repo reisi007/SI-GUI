@@ -354,4 +354,7 @@
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>El acceso directo se ha creado correctamente.</value>
 	</data>
+	<data name="nl" xml:space="preserve">
+		<value>Neerlandés:</value>
+	</data>
 </root>

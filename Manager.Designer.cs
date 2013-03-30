@@ -99,6 +99,7 @@
             this.MaximumSize = new System.Drawing.Size(600, 600);
             this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "Manager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Manager";
             this.Load += new System.EventHandler(this.Manager_Load);
             this.ResumeLayout(false);

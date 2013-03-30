@@ -125,7 +125,7 @@
 		<value>לא נבחרה תיקייה להתקנה!</value>
 	</data>
 	<data name="no_installfile" xml:space="preserve">
-		<value>בדרך כלל עדיף לך לבחור בקובץ התקנה של LibreOffice! </value>
+		<value>בדרך כלל עדיף לך לבחור בקובץ התקנה של LibreOffice!</value>
 	</data>
 	<data name="si" xml:space="preserve">
 		<value>בעיית אבטחה</value>
@@ -333,5 +333,8 @@
 	</data>
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>קיצור הדרך נוצר בהצלחה!</value>
+	</data>
+	<data name="nl" xml:space="preserve">
+		<value>הולנדית;</value>
 	</data>
 </root>

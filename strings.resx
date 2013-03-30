@@ -357,4 +357,10 @@
 	<data name="nl" xml:space="preserve">
     <value>Dutch:</value>
   </data>
+	<data name="testing_which" xml:space="preserve">
+    <value>Which of these two pre-release version should be downloaded?</value>
+  </data>
+	<data name="testing_title" xml:space="preserve">
+    <value>2 pre-release version detected!</value>
+  </data>
 </root>
