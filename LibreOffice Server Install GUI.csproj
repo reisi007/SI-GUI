@@ -61,16 +61,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>3ED904EE5642E2BC57BB9E95912F35F6E4234B71</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>6B965D55E4D79C19677A5694598AD1243372A5DE</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>LibreOffice Server Install GUI_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>LibreOffice Server Install GUI_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
