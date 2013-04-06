@@ -28,8 +28,12 @@ namespace WindowsFormsApplication1
                 value = (SETTINGS)ser.Deserialize(sr);
                 sr.Close();
             }
-            catch (Exception )
-            {}
+            catch (Exception ex)
+            {
+#if DEBUG
+MessageBox.Show(ex.Message);
+#endif
+            }
             return value;
         }
       private string getpath()
@@ -49,8 +53,12 @@ namespace WindowsFormsApplication1
                 ser.Serialize(str, set);
                 str.Close();
             }
-            catch (Exception)
-            { }
+            catch (Exception ex)
+            {
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+            }
     }
       public string[] update_manager_array(string[] old_array, string toadd)
       {

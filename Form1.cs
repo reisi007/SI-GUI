@@ -250,6 +250,7 @@ namespace WindowsFormsApplication1
             catch (Exception ex)
             {
                 exeptionmessage(ex.Message);
+                go_on = false;
 
             }
             finally
