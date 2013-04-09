@@ -337,4 +337,10 @@
 	<data name="nl" xml:space="preserve">
 		<value>הולנדית;</value>
 	</data>
+	<data name="testing_which" xml:space="preserve">
+		<value>איזו מבין שתי הגרסאות הטרומיות האלה להוריד?</value>
+	</data>
+	<data name="testing_title" xml:space="preserve">
+		<value>זוהו שתי גרסגאות טרום הפצה!</value>
+	</data>
 </root>

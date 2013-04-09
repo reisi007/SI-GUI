@@ -173,7 +173,7 @@
 		<value>Última compilação diária.</value>
 	</data>
 	<data name="tt_ob" xml:space="preserve">
-		<value>Última compilação da última ramificação.</value>
+		<value>Última compilação de ramificação anterior.</value>
 	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Última compilação de testes</value>
@@ -336,5 +336,11 @@
 	</data>
 	<data name="nl" xml:space="preserve">
 		<value>Holandês:</value>
+	</data>
+	<data name="testing_which" xml:space="preserve">
+		<value>Qual destas versões de pré-lançamento deve ser transferida?</value>
+	</data>
+	<data name="testing_title" xml:space="preserve">
+		<value>2 versões de pré-lançamento detetadas</value>
 	</data>
 </root>

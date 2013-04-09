@@ -8,14 +8,14 @@
     <globalSetting name="Sort-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
   &lt;property name="#LayoutVersion" /&gt;
 &lt;/XtraSerializer&gt;</globalSetting>
-    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items /&gt;</globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="5861689390" /&gt;&lt;/items&gt;</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixTextBox.Text">####</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixCheckBox.Checked">False</globalSetting>
     <globalSetting name="CreateNewFileForm.referenceLanguageComboBox.SelectedIndex">0</globalSetting>
     <globalSetting name="CreateNewFileForm.newLanguageComboBox.SelectedIndex">166</globalSetting>
     <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">False</globalSetting>
     <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
-    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian\Desktop\import.xls</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian\Desktop\LibreOffice Server Installation GUI.xls</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
     </globalSetting>
     <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1;2;3;4;5;6;7;8</globalSetting>
@@ -36,8 +36,7 @@
     <userSetting name="Florian@Home-PC.filesInitialDir">D:\SI-GUI</userSetting>
     <userSetting name="Florian@Home-PC.FindText">
     </userSetting>
-    <userSetting name="Florian@Home-PC.RecentFiles">
-    </userSetting>
+    <userSetting name="Florian@Home-PC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
     <description>
     </description>
   </configuration>

@@ -334,7 +334,7 @@
 		<value>Gestor</value>
 	</data>
 	<data name="ink_des" xml:space="preserve">
-		<value>Acceso directo a LibreOffice %version instalada en paralelo.</value>
+		<value>Acceso directo a LibreOffice %version instalado en paralelo.</value>
 	</data>
 	<data name="ink_error_1" xml:space="preserve">
 		<value>No se especificó una versión.</value>
@@ -356,5 +356,11 @@
 	</data>
 	<data name="nl" xml:space="preserve">
 		<value>Neerlandés:</value>
+	</data>
+	<data name="testing_which" xml:space="preserve">
+		<value>¿Qué versión de prelanzamiento quiere descargar?</value>
+	</data>
+	<data name="testing_title" xml:space="preserve">
+		<value>Se detectaron dos versiones de prelanzamiento</value>
 	</data>
 </root>

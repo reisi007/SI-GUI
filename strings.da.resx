@@ -352,4 +352,10 @@
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>Genvejen blev oprettet!</value>
 	</data>
+	<data name="testing_which" xml:space="preserve">
+		<value>Hvilken af følgende testversioner ønsker du at downloade?</value>
+	</data>
+	<data name="testing_title" xml:space="preserve">
+		<value>2 testversioner blev fundet!</value>
+	</data>
 </root>
