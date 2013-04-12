@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
         private void form3load(object sender, EventArgs e)
         {
             this.Text = getstring("help");
-            string url = "http://reisi007.bplaced.com/program/doc.html";
+            string url = "http://dev-builds.libreoffice.org/si-gui/doc.html";
             Uri uriurl = new Uri(url);
             help_browser.Url = uriurl;
         }

@@ -654,7 +654,7 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(852, 444);
-            this.MinimumSize = new System.Drawing.Size(852, 360);
+            this.MinimumSize = new System.Drawing.Size(852, 444);
             this.Name = "Form1";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Installation GUI";

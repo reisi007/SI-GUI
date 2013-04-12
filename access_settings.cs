@@ -42,7 +42,7 @@ MessageBox.Show(ex.Message);
           
       }
       public string program_version()
-      { return "4.0.2 R0"; }
+      { return "4.0.2 R1"; }
 
       public void  save_settings(SETTINGS set)
         {

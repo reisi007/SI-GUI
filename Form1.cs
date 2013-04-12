@@ -622,14 +622,19 @@ namespace WindowsFormsApplication1
                     MessageTB = new choose_TB(version, getstring("testing_which"), getstring("testing_title"));
                     /* MessageBox.Show(getstring("tb_yes") + "\t" + version[0] + "\n" + getstring("tb_no") + "\t" + version[1]
                      * , getstring("tb_which"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);*/
-                    do
+                    if (version[1] != "http:")
                     {
-                        MSB_dialog = MessageTB.ShowDialog();
-                    } while (MSB_dialog == System.Windows.Forms.DialogResult.Cancel); 
-                    if (MSB_dialog == System.Windows.Forms.DialogResult.Yes)
-                        chosen_index = 0;
+                        do
+                        {
+                            MSB_dialog = MessageTB.ShowDialog();
+                        } while (MSB_dialog == System.Windows.Forms.DialogResult.Cancel);
+                        if (MSB_dialog == System.Windows.Forms.DialogResult.Yes)
+                            chosen_index = 0;
+                        else
+                            chosen_index = 1;
+                    }
                     else
-                        chosen_index = 1;
+                        chosen_index = 0;
                         
                     string link = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/?C=S;O=D";
                     httpfile = downloadfile(link);
