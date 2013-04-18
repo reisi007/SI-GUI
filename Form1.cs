@@ -574,10 +574,10 @@ namespace WindowsFormsApplication1
             // Download
             bool cont = true;
             string[] version = new string[2];
-            int chosen_index = -1;
-            DialogResult MSB_dialog;
             string lang = Convert.ToString(hp_lang_select.SelectedItem);
-            choose_TB MessageTB;
+            /*int chosen_index = -1;
+            DialogResult MSB_dialog;
+            choose_TB MessageTB;*/
             try
             {
                 if (helppack)
@@ -608,8 +608,13 @@ namespace WindowsFormsApplication1
                 }
                 else if (testing)
                 {
+                    int starting_position = httpfile.IndexOf("href=\"LibreOffice") + 6;
+                    url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
+                    httpfile = httpfile.Remove(0, starting_position);
+                    starting_position = httpfile.IndexOf("msi") + 3;
+                    httpfile = httpfile.Remove(starting_position);
+                    /* If URL is http://download.documentfoundation.org/libreoffice/testing/
                     int starting_position = httpfile.IndexOf("Directory</a>");
-
                     httpfile = httpfile.Remove(0, starting_position);
                     starting_position = httpfile.IndexOf("<a href=\"");
                     starting_position += 9;
@@ -620,8 +625,6 @@ namespace WindowsFormsApplication1
                     httpfile = httpfile.Remove(0, starting_position);
                     version[1] = httpfile.Remove(5);
                     MessageTB = new choose_TB(version, getstring("testing_which"), getstring("testing_title"));
-                    /* MessageBox.Show(getstring("tb_yes") + "\t" + version[0] + "\n" + getstring("tb_no") + "\t" + version[1]
-                     * , getstring("tb_which"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);*/
                     if (version[1] != "http:")
                     {
                         do
@@ -642,6 +645,7 @@ namespace WindowsFormsApplication1
                         httpfile = httpfile.Remove(0, starting_position);
                         starting_position = httpfile.IndexOf(".msi") + 4;
                         httpfile = httpfile.Remove(starting_position);
+                     */
                         if (helppack)
                         {
                             string vers2  = httpfile;
@@ -651,7 +655,8 @@ namespace WindowsFormsApplication1
                             vers2 += insert;
                             httpfile = vers2;
                         }
-                    url = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/";
+                   // url = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/";
+
 
                 }
                 else if (latest_branch)
@@ -771,7 +776,8 @@ namespace WindowsFormsApplication1
 
         private void b_dl_testing_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/testing/", true, false, false, false);
+            // startasyncdownload("http://download.documentfoundation.org/libreoffice/testing/", true, false, false, false);
+            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false);
         }
 
         private void b_dl_ob_Click(object sender, EventArgs e)
@@ -889,7 +895,8 @@ namespace WindowsFormsApplication1
 
         private void dl_hp_2_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/testing/", true, false, false, false, true);
+            //startasyncdownload("http://download.documentfoundation.org/libreoffice/testing/", true, false, false, false, true);
+            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false, true);
         }
 
         private void dl_hp_3_Click(object sender, EventArgs e)
