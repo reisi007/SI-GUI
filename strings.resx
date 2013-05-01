@@ -363,4 +363,16 @@
 	<data name="testing_title" xml:space="preserve">
     <value>2 pre-release version detected!</value>
   </data>
+	<data name="s_version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+	<data name="s_and" xml:space="preserve">
+    <value>and</value>
+  </data>
+	<data name="notest_ti" xml:space="preserve">
+    <value>No test version!</value>
+  </data>
+	<data name="notest_txt" xml:space="preserve">
+    <value>No testversion available at the moment.</value>
+  </data>
 </root>

@@ -484,6 +484,24 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No test version!.
+        /// </summary>
+        internal static string notest_ti {
+            get {
+                return ResourceManager.GetString("notest_ti", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No testversion available at the moment..
+        /// </summary>
+        internal static string notest_txt {
+            get {
+                return ResourceManager.GetString("notest_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open bootstrap.ini.
         /// </summary>
         internal static string open_bootstrap_ini {
@@ -543,6 +561,24 @@ namespace WindowsFormsApplication1 {
         internal static string pt {
             get {
                 return ResourceManager.GetString("pt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to and.
+        /// </summary>
+        internal static string s_and {
+            get {
+                return ResourceManager.GetString("s_and", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        internal static string s_version {
+            get {
+                return ResourceManager.GetString("s_version", resourceCulture);
             }
         }
         

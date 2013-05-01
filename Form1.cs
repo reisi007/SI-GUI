@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         public Form1()
         {
-            
+
             //l10n import
             string[] rtl = new string[] { "He" };
             try
@@ -42,12 +42,12 @@ namespace WindowsFormsApplication1
 
                 SETTINGS temp = set.open_settings();
                 string lang = temp.l10n;
-                if (lang != null) 
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
+                if (lang != null)
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
 
                 if (rtl.Contains(lang))
                     this.RightToLeftLayout = true;
-               
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -58,33 +58,33 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SETTINGS temp = set.open_settings(); 
+            SETTINGS temp = set.open_settings();
             string lang = temp.l10n;
             string[] rtl_lang = new string[] { "He" };
-           
+
 
 
             if (rtl_lang.Contains(lang))
             {
-               
+
                 bootinipath.RightToLeft = System.Windows.Forms.RightToLeft.No;
 
                 bootstrap_text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-               
+
                 path_to_file_ondisk.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                
+
                 subfolder.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                
+
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
-               
+
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
-              
+
                 path_main.RightToLeft = System.Windows.Forms.RightToLeft.No;
-               
+
 
 
             }
-            
+
             //l10n start
             string dl_hp_txt = getstring("helppack");
             dl_hp_1.Text = dl_hp_txt;
@@ -109,10 +109,11 @@ namespace WindowsFormsApplication1
             cb_subfolder.Text = getstring("subfolder_do");
             create_lnk.Text = getstring("b_create_shortcut");
             button5.Text = getstring("man_title");
+            label1.Text = getstring("s_version");
 
             // Update version information
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
-                     
+
             /* l10n end
              * Start Setting tooltips */
             ToolTip ink = new ToolTip();
@@ -156,7 +157,7 @@ namespace WindowsFormsApplication1
              *  Loading settings*/
             loadsettinmgs();
 
-            
+
             button1.Text = getstring("about");
             help.Text = getstring("help");
             give_message.BalloonTipClicked += new EventHandler(gm_do);
@@ -165,7 +166,7 @@ namespace WindowsFormsApplication1
             give_message.DoubleClick += new EventHandler(gm_do);
             this.BringToFront();
 
-           
+
 
         }
         private void loadsettinmgs()
@@ -213,7 +214,7 @@ namespace WindowsFormsApplication1
 
 
         }
-       
+
 
         private void config_installdir(object sender, EventArgs e)
         {
@@ -296,7 +297,7 @@ namespace WindowsFormsApplication1
             if (cb_subfolder.Checked && (subfolder.Text != ""))
             {
 
-                path +=   "\\" + subfolder.Text;
+                path += "\\" + subfolder.Text;
             }
             path = path.Replace("\\\\", "\\");
             final_installpath = path;
@@ -349,9 +350,9 @@ namespace WindowsFormsApplication1
         {
             bool working = true;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "abc.txt";
-           if(final_installpath != null)
-               path = final_installpath + "\\" + "program"+"\\" + "bootstrap.ini";
-           
+            if (final_installpath != null)
+                path = final_installpath + "\\" + "program" + "\\" + "bootstrap.ini";
+
             try
             {
                 bootstrap_text.Text = System.IO.File.ReadAllText(path);
@@ -551,9 +552,9 @@ namespace WindowsFormsApplication1
 
 
             give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-            
-                path_help.Text = path_to_file_on_disk_2.Text;
-            
+
+            path_help.Text = path_to_file_on_disk_2.Text;
+
             progressBar2.Value = 0;
             percent2.Text = "0 %";
             dl_hp_1.Enabled = true;
@@ -593,174 +594,180 @@ namespace WindowsFormsApplication1
             {
                 exeptionmessage(ex.Message);
             }
-            if(cont)
+            if (cont)
             {
-            string httpfile = downloadfile(url);
-            if (httpfile != "error")
-            {
-                string filename = "";
-                if (master)
+                string httpfile = downloadfile(url);
+                if (httpfile != "error")
                 {
-                    int starting_position = httpfile.IndexOf("<a href=\"master~");
-                    httpfile = httpfile.Remove(0, 9 + starting_position);
-                    starting_position = httpfile.IndexOf(".msi");
-                    httpfile = httpfile.Remove(starting_position + 4);
-                }
-                else if (testing)
-                {
-                    int starting_position = httpfile.IndexOf("href=\"LibreOffice") + 6;
-                    url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
-                    httpfile = httpfile.Remove(0, starting_position);
-                    starting_position = httpfile.IndexOf("msi") + 3;
-                    httpfile = httpfile.Remove(starting_position);
-                    /* If URL is http://download.documentfoundation.org/libreoffice/testing/
-                    int starting_position = httpfile.IndexOf("Directory</a>");
-                    httpfile = httpfile.Remove(0, starting_position);
-                    starting_position = httpfile.IndexOf("<a href=\"");
-                    starting_position += 9;
-                    httpfile = httpfile.Remove(0, starting_position);
-                    version[0] = httpfile.Remove(5);
-                    starting_position = httpfile.IndexOf("<a href=\"");
-                    starting_position += 9;
-                    httpfile = httpfile.Remove(0, starting_position);
-                    version[1] = httpfile.Remove(5);
-                    MessageTB = new choose_TB(version, getstring("testing_which"), getstring("testing_title"));
-                    if (version[1] != "http:")
+                    string filename = "";
+                    if (master)
                     {
-                        do
-                        {
-                            MSB_dialog = MessageTB.ShowDialog();
-                        } while (MSB_dialog == System.Windows.Forms.DialogResult.Cancel);
-                        if (MSB_dialog == System.Windows.Forms.DialogResult.Yes)
-                            chosen_index = 0;
-                        else
-                            chosen_index = 1;
+                        int starting_position = httpfile.IndexOf("<a href=\"master~");
+                        httpfile = httpfile.Remove(0, 9 + starting_position);
+                        starting_position = httpfile.IndexOf(".msi");
+                        httpfile = httpfile.Remove(starting_position + 4);
                     }
-                    else
-                        chosen_index = 0;
-                        
-                    string link = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/?C=S;O=D";
-                    httpfile = downloadfile(link);
-                        starting_position = httpfile.IndexOf("Lib");
+                    else if (testing)
+                    {
+                        int starting_position = httpfile.IndexOf("href=\"LibreOffice") + 6;
+                        url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
                         httpfile = httpfile.Remove(0, starting_position);
-                        starting_position = httpfile.IndexOf(".msi") + 4;
+                        starting_position = httpfile.IndexOf("msi") + 3;
                         httpfile = httpfile.Remove(starting_position);
-                     */
+                        /* If URL is http://download.documentfoundation.org/libreoffice/testing/
+                        int starting_position = httpfile.IndexOf("Directory</a>");
+                        httpfile = httpfile.Remove(0, starting_position);
+                        starting_position = httpfile.IndexOf("<a href=\"");
+                        starting_position += 9;
+                        httpfile = httpfile.Remove(0, starting_position);
+                        version[0] = httpfile.Remove(5);
+                        starting_position = httpfile.IndexOf("<a href=\"");
+                        starting_position += 9;
+                        httpfile = httpfile.Remove(0, starting_position);
+                        version[1] = httpfile.Remove(5);
+                        MessageTB = new choose_TB(version, getstring("testing_which"), getstring("testing_title"));
+                        if (version[1] != "http:")
+                        {
+                            do
+                            {
+                                MSB_dialog = MessageTB.ShowDialog();
+                            } while (MSB_dialog == System.Windows.Forms.DialogResult.Cancel);
+                            if (MSB_dialog == System.Windows.Forms.DialogResult.Yes)
+                                chosen_index = 0;
+                            else
+                                chosen_index = 1;
+                        }
+                        else
+                            chosen_index = 0;
+                        
+                        string link = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/?C=S;O=D";
+                        httpfile = downloadfile(link);
+                            starting_position = httpfile.IndexOf("Lib");
+                            httpfile = httpfile.Remove(0, starting_position);
+                            starting_position = httpfile.IndexOf(".msi") + 4;
+                            httpfile = httpfile.Remove(starting_position);
+                         */
                         if (helppack)
                         {
-                            string vers2  = httpfile;
-                            string insert = "_helppack_"+lang + ".msi";
-                            starting_position = vers2.IndexOf("x86")+3;
+                            string vers2 = httpfile;
+                            string insert = "_helppack_" + lang + ".msi";
+                            starting_position = vers2.IndexOf("x86") + 3;
                             vers2 = vers2.Remove(starting_position);
                             vers2 += insert;
                             httpfile = vers2;
                         }
-                   // url = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/";
+                        // url = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/";
 
 
-                }
-                else if (latest_branch)
-                {
-                    int i = httpfile.IndexOf("Metadata");
-                    httpfile = httpfile.Remove(0, i);
-                    for (int j = 0; j < 3; j++)
-                    {
-                        i = httpfile.IndexOf("href=");
-                        httpfile = httpfile.Remove(0, i + 6);
                     }
-                    httpfile = httpfile.Remove(5);
-                    url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                    if (helppack)
-                        httpfile = "LibreOffice_"+httpfile+"_Win_x86_helppack_"+lang+".msi";
-                    else
-                        httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
-
-                }
-                else if (older_branch)
-                {
-                    int i = httpfile.IndexOf(">Parent Directory<");
-                    httpfile = httpfile.Remove(0, i);
-                    i = httpfile.IndexOf("a href");
-                    i += 8;
-                    httpfile = httpfile.Remove(0, i);
-                    i = httpfile.IndexOf("/");
-                    httpfile = httpfile.Remove(i);
-                    url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                    if (helppack)
-                        httpfile = "LibO_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
-                    else
-                        httpfile = "LibO_" + httpfile + "_Win_x86_install_multi.msi";
-
-                }
-                filename = httpfile;
-                progressBar1.Minimum = 0;
-                progressBar1.Maximum = 10000;
-                progressBar2.Minimum = 0;
-                progressBar2.Maximum = 10000;
-                string path = Path.GetTempPath();
-                WebClient downloadmaster = new WebClient();
-                WebClient download_hp = new WebClient();
-                string ua = "LibreOffice Server Install Gui " + set.program_version();
-                downloadmaster.Headers["User-Agent"] = ua;
-                download_hp.Headers["User-Agent"] = ua;
-                download_hp.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_hp_changed);
-                download_hp.DownloadFileCompleted += new AsyncCompletedEventHandler(download_hp_dl_completed);
-                downloadmaster.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
-                downloadmaster.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
-                Uri uritofile = new Uri(url + httpfile);
-                if (helppack)
-                {
-                    if (testing)
-                        path += "libotesting_hp.msi";
                     else if (latest_branch)
-                        path += "libolbranch_hp.msi";
+                    {
+                        int i = httpfile.IndexOf("Metadata");
+                        httpfile = httpfile.Remove(0, i);
+                        for (int j = 0; j < 3; j++)
+                        {
+                            i = httpfile.IndexOf("href=");
+                            httpfile = httpfile.Remove(0, i + 6);
+                        }
+                        httpfile = httpfile.Remove(5);
+                        url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
+                        if (helppack)
+                            httpfile = "LibreOffice_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
+                        else
+                            httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
+
+                    }
                     else if (older_branch)
-                        path += "liboobranch_hp.msi";
-                }
-                else
-                {
-                    if (master)
-                        path += "libomaster.msi";
-                    else if (testing)
-                        path += "libotesting.msi";
-                    else if (latest_branch)
-                        path += "libolbranch.msi";
-                    else if (older_branch)
-                        path += "liboobranch.msi";
-                }
-                if (helppack)
-                    path_to_file_on_disk_2.Text = path;
-                else
-                    path_to_file_ondisk.Text = path;
-                string mb_question = getstring("versiondl");
-                mb_question = mb_question.Replace("%version", filename);
+                    {
+                        int i = httpfile.IndexOf(">Parent Directory<");
+                        httpfile = httpfile.Remove(0, i);
+                        i = httpfile.IndexOf("a href");
+                        i += 8;
+                        httpfile = httpfile.Remove(0, i);
+                        i = httpfile.IndexOf("/");
+                        httpfile = httpfile.Remove(i);
+                        url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
+                        if (helppack)
+                            httpfile = "LibO_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
+                        else
+                            httpfile = "LibO_" + httpfile + "_Win_x86_install_multi.msi";
 
-
-
-                if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
+                    }
+                    filename = httpfile;
+                    progressBar1.Minimum = 0;
+                    progressBar1.Maximum = 10000;
+                    progressBar2.Minimum = 0;
+                    progressBar2.Maximum = 10000;
+                    string path = Path.GetTempPath();
+                    WebClient downloadmaster = new WebClient();
+                    WebClient download_hp = new WebClient();
+                    string ua = "LibreOffice Server Install Gui " + set.program_version();
+                    downloadmaster.Headers["User-Agent"] = ua;
+                    download_hp.Headers["User-Agent"] = ua;
+                    download_hp.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_hp_changed);
+                    download_hp.DownloadFileCompleted += new AsyncCompletedEventHandler(download_hp_dl_completed);
+                    downloadmaster.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
+                    downloadmaster.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
+                    Uri uritofile = new Uri(url + httpfile);
                     if (helppack)
-                        download_hp.DownloadFileAsync(uritofile, path);
-                    else
-                        downloadmaster.DownloadFileAsync(uritofile, path);
-                    int k =0;
-                    if (!master)
                     {
-                        k = filename.IndexOf("_") + 1;
-                        filename = filename.Remove(0, k);
-                        k = filename.IndexOf("_");
-                        filename = filename.Remove(k);
+                        if (testing)
+                            path += "libotesting_hp.msi";
+                        else if (latest_branch)
+                            path += "libolbranch_hp.msi";
+                        else if (older_branch)
+                            path += "liboobranch_hp.msi";
                     }
                     else
                     {
-                        k = filename.IndexOf("_");
-                        filename = filename.Remove(k);
+                        if (master)
+                            path += "libomaster.msi";
+                        else if (testing)
+                            path += "libotesting.msi";
+                        else if (latest_branch)
+                            path += "libolbranch.msi";
+                        else if (older_branch)
+                            path += "liboobranch.msi";
                     }
-                    if(!helppack)
-                    subfolder.Text = filename;
+                    if (helppack)
+                        path_to_file_on_disk_2.Text = path;
+                    else
+                        path_to_file_ondisk.Text = path;
+                    string mb_question = getstring("versiondl");
+                    mb_question = mb_question.Replace("%version", filename);
+
+
+                    if (filename != "TY")
+                    {
+                        if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
+                            if (helppack)
+                                download_hp.DownloadFileAsync(uritofile, path);
+                            else
+                                downloadmaster.DownloadFileAsync(uritofile, path);
+                            int k = 0;
+                            if (!master)
+                            {
+                                k = filename.IndexOf("_") + 1;
+                                filename = filename.Remove(0, k);
+                                k = filename.IndexOf("_");
+                                filename = filename.Remove(k);
+                            }
+                            else
+                            {
+                                k = filename.IndexOf("_");
+                                filename = filename.Remove(k);
+                            }
+                            if (!helppack)
+                                subfolder.Text = filename;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-           }
             }
         }
 
@@ -855,13 +862,13 @@ namespace WindowsFormsApplication1
 
 
             set.save_settings(thingstosave);
-            
 
-        
-       
+
+
+
 
         }
-        
+
 
         private void help_Click(object sender, EventArgs e)
         {

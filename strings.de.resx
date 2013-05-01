@@ -363,4 +363,16 @@
 	<data name="nl" xml:space="preserve">
 		<value>Niederländisch:</value>
 	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>Version:</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>und</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>Keine Testversion!</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>Momentan kann keine Testversion heruntergeladen werden.</value>
+	</data>
 </root>
