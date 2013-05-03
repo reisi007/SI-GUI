@@ -576,9 +576,6 @@ namespace WindowsFormsApplication1
             bool cont = true;
             string[] version = new string[2];
             string lang = Convert.ToString(hp_lang_select.SelectedItem);
-            /*int chosen_index = -1;
-            DialogResult MSB_dialog;
-            choose_TB MessageTB;*/
             try
             {
                 if (helppack)
@@ -614,40 +611,8 @@ namespace WindowsFormsApplication1
                         httpfile = httpfile.Remove(0, starting_position);
                         starting_position = httpfile.IndexOf("msi") + 3;
                         httpfile = httpfile.Remove(starting_position);
-                        /* If URL is http://download.documentfoundation.org/libreoffice/testing/
-                        int starting_position = httpfile.IndexOf("Directory</a>");
-                        httpfile = httpfile.Remove(0, starting_position);
-                        starting_position = httpfile.IndexOf("<a href=\"");
-                        starting_position += 9;
-                        httpfile = httpfile.Remove(0, starting_position);
-                        version[0] = httpfile.Remove(5);
-                        starting_position = httpfile.IndexOf("<a href=\"");
-                        starting_position += 9;
-                        httpfile = httpfile.Remove(0, starting_position);
-                        version[1] = httpfile.Remove(5);
-                        MessageTB = new choose_TB(version, getstring("testing_which"), getstring("testing_title"));
-                        if (version[1] != "http:")
-                        {
-                            do
-                            {
-                                MSB_dialog = MessageTB.ShowDialog();
-                            } while (MSB_dialog == System.Windows.Forms.DialogResult.Cancel);
-                            if (MSB_dialog == System.Windows.Forms.DialogResult.Yes)
-                                chosen_index = 0;
-                            else
-                                chosen_index = 1;
-                        }
-                        else
-                            chosen_index = 0;
-                        
-                        string link = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/?C=S;O=D";
-                        httpfile = downloadfile(link);
-                            starting_position = httpfile.IndexOf("Lib");
-                            httpfile = httpfile.Remove(0, starting_position);
-                            starting_position = httpfile.IndexOf(".msi") + 4;
-                            httpfile = httpfile.Remove(starting_position);
-                         */
-                        if (helppack)
+                       
+                        if (helppack && (httpfile.Length != 2))
                         {
                             string vers2 = httpfile;
                             string insert = "_helppack_" + lang + ".msi";
@@ -656,9 +621,7 @@ namespace WindowsFormsApplication1
                             vers2 += insert;
                             httpfile = vers2;
                         }
-                        // url = "http://download.documentfoundation.org/libreoffice/testing/" + version[chosen_index] + "/win/x86/";
-
-
+                        
                     }
                     else if (latest_branch)
                     {
