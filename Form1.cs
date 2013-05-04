@@ -672,26 +672,7 @@ namespace WindowsFormsApplication1
                     downloadmaster.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
                     downloadmaster.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
                     Uri uritofile = new Uri(url + httpfile);
-                    if (helppack)
-                    {
-                        if (testing)
-                            path += "libotesting_hp.msi";
-                        else if (latest_branch)
-                            path += "libolbranch_hp.msi";
-                        else if (older_branch)
-                            path += "liboobranch_hp.msi";
-                    }
-                    else
-                    {
-                        if (master)
-                            path += "libomaster.msi";
-                        else if (testing)
-                            path += "libotesting.msi";
-                        else if (latest_branch)
-                            path += "libolbranch.msi";
-                        else if (older_branch)
-                            path += "liboobranch.msi";
-                    }
+                    path += httpfile;
                     if (helppack)
                         path_to_file_on_disk_2.Text = path;
                     else

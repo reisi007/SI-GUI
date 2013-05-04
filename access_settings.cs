@@ -42,7 +42,7 @@ MessageBox.Show(ex.Message);
           
       }
       public string program_version()
-      { return "4.0.3.4"; }
+      { return "4.0.3.5"; }
 
       public void  save_settings(SETTINGS set)
         {
