@@ -186,15 +186,6 @@
 	<data name="about" xml:space="preserve">
 		<value>Acerca de / Cambiar idioma</value>
 	</data>
-	<data name="tt_lb" xml:space="preserve">
-		<value>Última compilación de la rama más reciente:</value>
-	</data>
-	<data name="tt_m" xml:space="preserve">
-		<value>Compilación diaria más reciente.</value>
-	</data>
-	<data name="tt_ob" xml:space="preserve">
-		<value>Compilación más reciente de una rama anterior.</value>
-	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Compilación para pruebas más reciente.</value>
 	</data>
@@ -213,9 +204,6 @@
 	<data name="versiondl" xml:space="preserve">
 		<value>¿Realmente descargar %version?</value>
 	</data>
-	<data name="bdllb" xml:space="preserve">
-		<value>Descargar rama más reciente</value>
-	</data>
 	<data name="open_help" xml:space="preserve">
 		<value>Abrir instalador de ayuda de LibreOffice</value>
 	</data>
@@ -224,15 +212,6 @@
 	</data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
 		<value>Abrir bootstrap.ini</value>
-	</data>
-	<data name="dlmaster" xml:space="preserve">
-		<value>Descargar «master» más reciente</value>
-	</data>
-	<data name="dltesting" xml:space="preserve">
-		<value>Descargar compilación para pruebas más reciente</value>
-	</data>
-	<data name="dl_ob" xml:space="preserve">
-		<value>Descargar rama anterior</value>
 	</data>
 	<data name="edit_bs_ini" xml:space="preserve">
 		<value>Editar bootstrap.ini</value>
@@ -284,18 +263,6 @@
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
 		<value>Descarga iniciada.</value>
-	</data>
-	<data name="helppack" xml:space="preserve">
-		<value>Descargar paquete de ayuda</value>
-	</data>
-	<data name="tt_hp_lb" xml:space="preserve">
-		<value>Descargar paquete de ayuda en el idioma seleccionado de la última rama.</value>
-	</data>
-	<data name="tt_hp_ob" xml:space="preserve">
-		<value>Descargar paquete de ayuda en el idioma seleccionado de la rama anterior</value>
-	</data>
-	<data name="tt_hp_test" xml:space="preserve">
-		<value>Descargar paquete de ayuda en el idioma seleccionado de la última compilación de pruebas.</value>
 	</data>
 	<data name="he" xml:space="preserve">
 		<value>Hebreo:</value>

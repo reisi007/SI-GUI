@@ -186,15 +186,6 @@
 	<data name="about" xml:space="preserve">
 		<value>Spremeni jezik</value>
 	</data>
-	<data name="tt_lb" xml:space="preserve">
-		<value>Zadnja gradnja najnovejše veje.</value>
-	</data>
-	<data name="tt_m" xml:space="preserve">
-		<value>Zadnja dnevna gradnja.</value>
-	</data>
-	<data name="tt_ob" xml:space="preserve">
-		<value>Zadnja gradnja starejše veje.</value>
-	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Zadnja preskusna gradnja.</value>
 	</data>
@@ -213,9 +204,6 @@
 	<data name="versiondl" xml:space="preserve">
 		<value>Resnično želite prenesti %version?</value>
 	</data>
-	<data name="bdllb" xml:space="preserve">
-		<value>Prenesi zadnjo vejo</value>
-	</data>
 	<data name="open_help" xml:space="preserve">
 		<value>Odpri namestitveni program pomoči LibreOffice</value>
 	</data>
@@ -224,15 +212,6 @@
 	</data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
 		<value>Odpri bootstrap.ini</value>
-	</data>
-	<data name="dlmaster" xml:space="preserve">
-		<value>Prenesi zadnjo glavno gradnjo</value>
-	</data>
-	<data name="dltesting" xml:space="preserve">
-		<value>Prenesi zadnjo preskusno gradnjo</value>
-	</data>
-	<data name="dl_ob" xml:space="preserve">
-		<value>Prenesi starejšo vejo</value>
 	</data>
 	<data name="edit_bs_ini" xml:space="preserve">
 		<value>Uredi bootdtrap.ini</value>
@@ -284,18 +263,6 @@
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
 		<value>Prenos poteka!</value>
-	</data>
-	<data name="helppack" xml:space="preserve">
-		<value>Prenesi paket s pomočjo</value>
-	</data>
-	<data name="tt_hp_lb" xml:space="preserve">
-		<value>Prenesi paket s pomočjo v izbranem jeziku za zadnjo vejo.</value>
-	</data>
-	<data name="tt_hp_ob" xml:space="preserve">
-		<value>Prenesi paket s pomočjo v izbranem jeziku za starejšo vejo.</value>
-	</data>
-	<data name="tt_hp_test" xml:space="preserve">
-		<value>Prenesi paket s pomočjo v izbranem jeziku z zadnjo preskusno gradnjo</value>
 	</data>
 	<data name="he" xml:space="preserve">
 		<value>Hebrejščina:</value>

@@ -63,7 +63,6 @@ namespace WindowsFormsApplication1
             string nl = getstring("nl") + " ";
             string programmer = getstring("programmer") + " ";
             string florei = "Florian Reisinger";
-            string nemo = "NEMO ;)";
             string sl = getstring("sl") + " ";
             string da = getstring("da") + " ";
             abouttxt = programmer + florei + Environment.NewLine + translations + Environment.NewLine  ;

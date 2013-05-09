@@ -7,6 +7,7 @@
 &lt;/XtraSerializer&gt;</globalSetting>
     <globalSetting name="Sort-ResourceEditorGrid">&lt;XtraSerializer version="1.0" application="View"&gt;
   &lt;property name="#LayoutVersion" /&gt;
+  &lt;property name="SortInfo"&gt;~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuOC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAAAAAAJAwAAAAAAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAQAAAAYJAAAAB2NvbE5hbWUL&lt;/property&gt;
 &lt;/XtraSerializer&gt;</globalSetting>
     <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="5861689390" /&gt;&lt;/items&gt;</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixTextBox.Text">####</globalSetting>
@@ -33,6 +34,34 @@
     <globalSetting name="Project-PersistGridSettings">True</globalSetting>
     <globalSetting name="ColorifyNullCells">True</globalSetting>
     <globalSetting name="EnableExcelExportSnapshots">True</globalSetting>
+    <globalSetting name="advancedOptionsPanel.Visible">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory">C:\Users\Florian\Desktop</globalSetting>
+    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\Users\Florian\Desktop\export.xls</globalSetting>
+    <globalSetting name="sendFileToTranslator.fileGroupsListBox">strings</globalSetting>
+    <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Dänisch (da)###{{{}}}###Deutsch (de)###{{{}}}###Spanisch (es)###{{{}}}###Französisch (fr)###{{{}}}###Hebräisch (he)###{{{}}}###Niederländisch (nl)###{{{}}}###Portugiesisch (pt)###{{{}}}###Slowenisch (sl)</globalSetting>
+    <globalSetting name="sendFileToTranslator.referenceLanguageComboBoxEdit.SelectedIndex">2</globalSetting>
+    <globalSetting name="sendFileToTranslator.openFileAfterGeneratingCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.openAfterGeneratingCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.eliminateDuplicateRowsCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportWithoutDestinationTranslationOnlyCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportCompletelyEmptyRowsCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportGroupsAsOneWorkSheetCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportNameColumnCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportCommentColumnCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportReferenceLanguageColumnCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportFileGroupColumnCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportGroupsAsWorkSheetsCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportGroupsAsExcelFilesCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.useCrypticExcelExportSheetNamesCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.sendFilesToEMailReceivers2CheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.zulReceiversTextEdit.Text">someone@example.org, someone-other@example.org</globalSetting>
+    <globalSetting name="sendFileToTranslator.zulSubjectTextEdit.Text">[ZRE] Excel-Dateien zum Übersetzen des Projekts "{ProjectName}"</globalSetting>
+    <globalSetting name="sendFileToTranslator.zulBodyTextEdit.Text">Bitte laden Sie die Excel-Dokumente im Link herunter um das Projekt "{ProjectName}" zu übersetzen.
+
+Um mir die Dateien zurück zu senden, verwenden Sie einfach https://www.zeta-uploader.com
+
+Viele Grüße</globalSetting>
     <userSetting name="Florian@Home-PC.filesInitialDir">D:\SI-GUI</userSetting>
     <userSetting name="Florian@Home-PC.FindText">
     </userSetting>

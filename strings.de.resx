@@ -186,15 +186,6 @@
 	<data name="about" xml:space="preserve">
     <value>Über / Sprache ändern</value>
   </data>
-	<data name="tt_lb" xml:space="preserve">
-    <value>Herunterladen des aktuellen Installers der neusten Branch.</value>
-  </data>
-	<data name="tt_m" xml:space="preserve">
-    <value>Herunterladen des aktuellen Master Installers.</value>
-  </data>
-	<data name="tt_ob" xml:space="preserve">
-    <value>Herunterladen des aktuellen Installers der älteren Branch.</value>
-  </data>
 	<data name="tt_tb" xml:space="preserve">
     <value>Herunterladen der aktuellen Testversion.</value>
   </data>
@@ -213,9 +204,6 @@
 	<data name="versiondl" xml:space="preserve">
     <value>Soll %version wirklich heruntergeladen werden?</value>
   </data>
-	<data name="bdllb" xml:space="preserve">
-    <value>Neuere Branch herunterladen</value>
-  </data>
 	<data name="open_help" xml:space="preserve">
     <value>LibreOffice Hilfeinstaller öffnen</value>
   </data>
@@ -224,15 +212,6 @@
   </data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
     <value>bootstrap.ini öffnen</value>
-  </data>
-	<data name="dlmaster" xml:space="preserve">
-    <value>Master herunterladen</value>
-  </data>
-	<data name="dltesting" xml:space="preserve">
-    <value>Testbuild herunterladen</value>
-  </data>
-	<data name="dl_ob" xml:space="preserve">
-    <value>Ältere Branch herunterladen</value>
   </data>
 	<data name="edit_bs_ini" xml:space="preserve">
     <value>botstrap.ini bearbeiten</value>
@@ -284,18 +263,6 @@
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
 		<value>Herunterladen begonnen!</value>
-	</data>
-	<data name="helppack" xml:space="preserve">
-		<value>Hilfedateien herunterladen</value>
-	</data>
-	<data name="tt_hp_lb" xml:space="preserve">
-		<value>Hilfedateien der neueren Branch herunterladen</value>
-	</data>
-	<data name="tt_hp_ob" xml:space="preserve">
-		<value>Hilfedateien der älteren Branch herunterladen</value>
-	</data>
-	<data name="tt_hp_test" xml:space="preserve">
-		<value>Hilfedateien der aktuellen Testversion herunterladen</value>
 	</data>
 	<data name="he" xml:space="preserve">
 		<value>Hebräisch:</value>
@@ -374,5 +341,26 @@
 	</data>
 	<data name="notest_txt" xml:space="preserve">
 		<value>Momentan kann keine Testversion heruntergeladen werden.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>&amp;Herunterladen</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>Offline &amp;Hilfe</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;Installationsdatei</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>&amp;Neueste Version</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>&amp;Ältere Version</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>&amp;Testversion</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Sprache (für Hilfe)</value>
 	</data>
 </root>

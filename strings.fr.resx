@@ -186,15 +186,6 @@
 	<data name="about" xml:space="preserve">
     <value>À propos / Changer de langue</value>
   </data>
-	<data name="tt_lb" xml:space="preserve">
-    <value>Dernière version de la dernière branche.</value>
-  </data>
-	<data name="tt_m" xml:space="preserve">
-    <value>Dernière version journalière.</value>
-  </data>
-	<data name="tt_ob" xml:space="preserve">
-    <value>Dernière version de la branche précédente.</value>
-  </data>
 	<data name="tt_tb" xml:space="preserve">
     <value>Dernière version de test.</value>
   </data>
@@ -213,9 +204,6 @@
 	<data name="versiondl" xml:space="preserve">
     <value>Est-ce que la %version doit vraiment être téléchargée?</value>
   </data>
-	<data name="bdllb" xml:space="preserve">
-    <value>Télécharger la dernière version de la dernière branche</value>
-  </data>
 	<data name="open_help" xml:space="preserve">
     <value>Ouvrir l'installeur d'aide LibreOffice</value>
   </data>
@@ -224,15 +212,6 @@
   </data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
     <value>Ouvrir bootstrap.ini</value>
-  </data>
-	<data name="dlmaster" xml:space="preserve">
-    <value>Télécharger la dernière version</value>
-  </data>
-	<data name="dltesting" xml:space="preserve">
-    <value>Télécharger la dernière version de test</value>
-  </data>
-	<data name="dl_ob" xml:space="preserve">
-    <value>Télécharger la dernière version de la branche précédente</value>
   </data>
 	<data name="edit_bs_ini" xml:space="preserve">
     <value>Éditer bootdtrap.ini</value>

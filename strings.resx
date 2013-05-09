@@ -186,15 +186,6 @@
 	<data name="about" xml:space="preserve">
     <value>About / Change language</value>
   </data>
-	<data name="tt_lb" xml:space="preserve">
-    <value>Latest build of latest branch.</value>
-  </data>
-	<data name="tt_m" xml:space="preserve">
-    <value>Latest daily build.</value>
-  </data>
-	<data name="tt_ob" xml:space="preserve">
-    <value>Latest build of older branch.</value>
-  </data>
 	<data name="tt_tb" xml:space="preserve">
     <value>Latest testing build.</value>
   </data>
@@ -213,9 +204,6 @@
 	<data name="versiondl" xml:space="preserve">
     <value>Should %version really be downloaded?</value>
   </data>
-	<data name="bdllb" xml:space="preserve">
-    <value>Download latest branch</value>
-  </data>
 	<data name="open_help" xml:space="preserve">
     <value>Open LibreOffice help installer</value>
   </data>
@@ -224,15 +212,6 @@
   </data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
     <value>Open bootstrap.ini</value>
-  </data>
-	<data name="dlmaster" xml:space="preserve">
-    <value>Download latest master</value>
-  </data>
-	<data name="dltesting" xml:space="preserve">
-    <value>Download latest testing build</value>
-  </data>
-	<data name="dl_ob" xml:space="preserve">
-    <value>Download older branch</value>
   </data>
 	<data name="edit_bs_ini" xml:space="preserve">
     <value>Edit bootstrap.ini</value>
@@ -284,18 +263,6 @@
   </data>
 	<data name="dl_started_title" xml:space="preserve">
     <value>Download started!</value>
-  </data>
-	<data name="helppack" xml:space="preserve">
-    <value>Download helppack</value>
-  </data>
-	<data name="tt_hp_lb" xml:space="preserve">
-    <value>Download helppack of the selected language of the latest branch.</value>
-  </data>
-	<data name="tt_hp_ob" xml:space="preserve">
-    <value>Download langpack of the selected language of the older branch.</value>
-  </data>
-	<data name="tt_hp_test" xml:space="preserve">
-    <value>Download helppack of the selected language of the latest testing build.</value>
   </data>
 	<data name="he" xml:space="preserve">
     <value>Hebrew:</value>
@@ -374,5 +341,26 @@
   </data>
 	<data name="notest_txt" xml:space="preserve">
     <value>No testversion available at the moment.</value>
+  </data>
+	<data name="m_l10n_dl" xml:space="preserve">
+    <value>&amp;Download</value>
+  </data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+    <value>&amp;Helppack</value>
+  </data>
+	<data name="m_l10n_installer" xml:space="preserve">
+    <value>&amp;Installer</value>
+  </data>
+	<data name="m_l10n_lb" xml:space="preserve">
+    <value>&amp;Latest branch</value>
+  </data>
+	<data name="m_l10n_ob" xml:space="preserve">
+    <value>&amp;Older branch</value>
+  </data>
+	<data name="m_l10n_t" xml:space="preserve">
+    <value>&amp;Testing build</value>
+  </data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+    <value>Language (help):</value>
   </data>
 </root>

@@ -66,36 +66,21 @@ namespace WindowsFormsApplication1
 
             if (rtl_lang.Contains(lang))
             {
-
+                // Which texts should stay LTR, when using a RTL language
                 bootinipath.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
                 bootstrap_text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
                 path_to_file_ondisk.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
                 subfolder.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
                 path_main.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
-
-
             }
 
             //l10n start
-            string dl_hp_txt = getstring("helppack");
-            dl_hp_1.Text = dl_hp_txt;
-            dl_hp_2.Text = dl_hp_txt;
-            dl_hp_3.Text = dl_hp_txt;
-            b_dl_lb.Text = getstring("bdllb");
-            b_dl_master.Text = getstring("dlmaster");
-            b_dl_ob.Text = getstring("dl_ob");
-            b_dl_testing.Text = getstring("dltesting");
+            string installer = getstring("m_l10n_installer");
+            string helppack = getstring("m_l10n_helppack");
             b_open_libo_installer.Text = getstring("open_installer");
-            button1.Text = getstring("about");
+            m_about.Text = getstring("about");
             button2.Text = getstring("open_help");
             button3.Text = getstring("config_installdir");
             button4.Text = getstring("open_bootstrap_ini");
@@ -108,58 +93,39 @@ namespace WindowsFormsApplication1
             wheretoinstall.Description = getstring("where_to_install");
             cb_subfolder.Text = getstring("subfolder_do");
             create_lnk.Text = getstring("b_create_shortcut");
-            button5.Text = getstring("man_title");
             label1.Text = getstring("s_version");
-
-            // Update version information
+            m_help.Text = getstring("help");
+            m_item_lb.Text = getstring("m_l10n_lb");
+            m_item_ob.Text = getstring("m_l10n_ob");
+            m_item_tb.Text = getstring("m_l10n_t");
+            m_item_hplang_tb.Text = getstring("m_l10n_langhelptxt");
+            m_lb_h.Text = helppack;
+            m_ob_h.Text = helppack;
+            m_t_h.Text = helppack;
+            m_lb_i.Text = installer;
+            m_ob_i.Text = installer;
+            m_t_i.Text = installer;
+            /* l10n end
+             Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
 
-            /* l10n end
-             * Start Setting tooltips */
+             // Start Setting tooltips
             ToolTip ink = new ToolTip();
-            ToolTip d_lb = new ToolTip();
-            ToolTip d_m = new ToolTip();
-            ToolTip d_tb = new ToolTip();
-            ToolTip d_ob = new ToolTip();
             ToolTip bootstrapini = new ToolTip();
-            ToolTip b_hp_1 = new ToolTip();
-            ToolTip b_hp_2 = new ToolTip();
-            ToolTip b_hp_3 = new ToolTip();
             ToolTip pathtoexe = new ToolTip();
-            string tt_lb = getstring("tt_lb");
-            string tt_m = getstring("tt_m");
-            string tt_tb = getstring("tt_tb");
-            string tt_ob = getstring("tt_ob");
             string bootstrap = getstring("tt_bootstrap");
             ink.SetToolTip(this.create_lnk, getstring("tt_ink"));
-            d_lb.SetToolTip(this.b_dl_lb, tt_lb);
-            d_m.SetToolTip(this.b_dl_master, tt_m);
-            d_tb.SetToolTip(this.b_dl_testing, tt_tb);
-            d_ob.SetToolTip(this.b_dl_ob, tt_ob);
-            b_hp_1.SetToolTip(this.dl_hp_1, getstring("tt_hp_lb"));
-            b_hp_2.SetToolTip(this.dl_hp_2, getstring("tt_hp_test"));
-            b_hp_3.SetToolTip(this.dl_hp_3, getstring("tt_hp_ob"));
             bootstrapini.SetToolTip(this.bootstrap_text, bootstrap);
             pathtoexe.SetToolTip(this.path_to_exe, getstring("tt_path_to_exe"));
             bootstrapini.ShowAlways = true;
             pathtoexe.ShowAlways = true;
             ink.IsBalloon = true;
-            b_hp_1.IsBalloon = true;
-            b_hp_2.IsBalloon = true;
-            b_hp_3.IsBalloon = true;
-            d_lb.IsBalloon = true;
-            d_m.IsBalloon = true;
-            d_ob.IsBalloon = true;
-            d_tb.IsBalloon = true;
             bootstrapini.IsBalloon = true;
             pathtoexe.IsBalloon = true;
             /* End Setting tooltips
              *  Loading settings*/
             loadsettinmgs();
 
-
-            button1.Text = getstring("about");
-            help.Text = getstring("help");
             give_message.BalloonTipClicked += new EventHandler(gm_do);
             give_message.BalloonTipClosed += new EventHandler(gm_do);
             give_message.Click += new EventHandler(gm_do);
@@ -178,7 +144,7 @@ namespace WindowsFormsApplication1
                 cb_subfolder.Checked = toapply.checkbox;
                 path_installdir.Text = toapply.installdir;
                 subfolder.Text = toapply.subfolder;
-                hp_lang_select.SelectedIndex = toapply.lang;
+                m_hp_lang.SelectedIndex = toapply.lang;
                 path_to_exe.Text = toapply.last_path_to_sofficeEXE;
             }
             catch (Exception)
@@ -497,10 +463,6 @@ namespace WindowsFormsApplication1
             double bytesIn = double.Parse(e.BytesReceived.ToString());
             double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
             double percentage = bytesIn / totalBytes * 100;
-            b_dl_master.Enabled = false;
-            b_dl_lb.Enabled = false;
-            b_dl_ob.Enabled = false;
-            b_dl_testing.Enabled = false;
             start_install.Enabled = false;
             // Creating a double value like 2.5 %
             double temp = percentage * 100;
@@ -519,10 +481,6 @@ namespace WindowsFormsApplication1
             path_main.Text = path_to_file_ondisk.Text;
             progressBar1.Value = 0;
             percent.Text = "0 %";
-            b_dl_master.Enabled = true;
-            b_dl_lb.Enabled = true;
-            b_dl_ob.Enabled = true;
-            b_dl_testing.Enabled = true;
             start_install.Enabled = true;
             give_message.Text = "LibreOffice Server Installation GUI";
 
@@ -534,9 +492,6 @@ namespace WindowsFormsApplication1
             double bytesIn = double.Parse(e.BytesReceived.ToString());
             double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
             double percentage = bytesIn / totalBytes * 100;
-            dl_hp_1.Enabled = false;
-            dl_hp_2.Enabled = false;
-            dl_hp_3.Enabled = false;
             start_install.Enabled = false;
             // Creating a double value like 2.5 %
             double temp = percentage * 100;
@@ -549,17 +504,13 @@ namespace WindowsFormsApplication1
 
         void download_hp_dl_completed(object sender, AsyncCompletedEventArgs e)
         {
-
-
             give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
 
             path_help.Text = path_to_file_on_disk_2.Text;
 
             progressBar2.Value = 0;
             percent2.Text = "0 %";
-            dl_hp_1.Enabled = true;
-            dl_hp_2.Enabled = true;
-            dl_hp_3.Enabled = true;
+            
             start_install.Enabled = true;
             give_message.Text = "LibreOffice Server Installation GUI";
 
@@ -575,7 +526,7 @@ namespace WindowsFormsApplication1
             // Download
             bool cont = true;
             string[] version = new string[2];
-            string lang = Convert.ToString(hp_lang_select.SelectedItem);
+            string lang = Convert.ToString(m_hp_lang.SelectedItem.ToString());
             try
             {
                 if (helppack)
@@ -715,26 +666,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void b_dl_master_Click(object sender, EventArgs e)
-        {
-            startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6/current/", false, true, false, false);
-        }
-
-        private void b_dl_lb_Click(object sender, EventArgs e)
-        {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false);
-        }
-
-        private void b_dl_testing_Click(object sender, EventArgs e)
-        {
-            // startasyncdownload("http://download.documentfoundation.org/libreoffice/testing/", true, false, false, false);
-            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false);
-        }
-
-        private void b_dl_ob_Click(object sender, EventArgs e)
-        {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true);
-        }
+        
         private string downloadfile(string url)
         {
             WebClient httpfileclient = new WebClient();
@@ -791,7 +723,7 @@ namespace WindowsFormsApplication1
             Form2 form = new Form2();
             form.ShowDialog();
         }
-
+        // Function, which prepares the data, which should be saved for next startup
         private void savesettings(object sender, EventArgs e)
         {
             // Changing text of version
@@ -801,15 +733,9 @@ namespace WindowsFormsApplication1
             thingstosave.installdir = path_installdir.Text;
             thingstosave.subfolder = subfolder.Text;
             thingstosave.checkbox = cb_subfolder.Checked;
-            thingstosave.lang = hp_lang_select.SelectedIndex;
+            thingstosave.lang = m_hp_lang.SelectedIndex;
             thingstosave.last_path_to_sofficeEXE = path_to_exe.Text;
-
-
             set.save_settings(thingstosave);
-
-
-
-
 
         }
 
@@ -818,41 +744,6 @@ namespace WindowsFormsApplication1
         {
             Form3 fm = new Form3();
             fm.ShowDialog();
-        }
-
-
-
-        public EventHandler balloon_tip_clicked { get; set; }
-
-        private void path_to_file_ondisk_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void path_help_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void path_main_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dl_hp_1_Click(object sender, EventArgs e)
-        {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false, true);
-        }
-
-        private void dl_hp_2_Click(object sender, EventArgs e)
-        {
-            //startasyncdownload("http://download.documentfoundation.org/libreoffice/testing/", true, false, false, false, true);
-            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false, true);
-        }
-
-        private void dl_hp_3_Click(object sender, EventArgs e)
-        {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, true);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -865,6 +756,59 @@ namespace WindowsFormsApplication1
         {
             LINK lnk = new LINK();
             lnk.create_ink(path_to_exe.Text, tb_version.Text);
+        }
+
+        private void m_about_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.ShowDialog();
+        }
+
+        private void m_man_Click(object sender, EventArgs e)
+        {
+            Manager fm = new Manager();
+            fm.ShowDialog();
+        }
+
+        private void m_help_Click(object sender, EventArgs e)
+        {
+            Form3 fm = new Form3();
+            fm.ShowDialog();
+        }
+
+        private void m_lb_i_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false);
+        }
+
+        private void m_lb_h_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false, true);
+        }
+
+        private void m_ob_i_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true);
+        }
+
+        private void m_ob_h_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, true);
+        }
+
+        private void m_t_i_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false);
+        }
+
+        private void m_t_h_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false, true);
+        }
+
+        private void m_m_i_Click(object sender, EventArgs e)
+        {
+            startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6/current/", false, true, false, false);
         }
     }
 }

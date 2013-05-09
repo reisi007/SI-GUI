@@ -186,15 +186,6 @@
 	<data name="about" xml:space="preserve">
 		<value>Om / Skift sprog</value>
 	</data>
-	<data name="tt_lb" xml:space="preserve">
-		<value>Seneste version</value>
-	</data>
-	<data name="tt_m" xml:space="preserve">
-		<value>Seneste daglige version</value>
-	</data>
-	<data name="tt_ob" xml:space="preserve">
-		<value>Seneste version af tidligere udgivelse.</value>
-	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Seneste testversion</value>
 	</data>
@@ -214,9 +205,6 @@
 	<data name="versiondl" xml:space="preserve">
 		<value>Skal %version downloades?</value>
 	</data>
-	<data name="bdllb" xml:space="preserve">
-		<value>Download seneste version</value>
-	</data>
 	<data name="open_help" xml:space="preserve">
 		<value>Åbn LibreOffice's installation af hjælpen.</value>
 	</data>
@@ -225,15 +213,6 @@
 	</data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
 		<value>Åbn bootstrap.ini</value>
-	</data>
-	<data name="dlmaster" xml:space="preserve">
-		<value>Download seneste (daglig) master</value>
-	</data>
-	<data name="dltesting" xml:space="preserve">
-		<value>Download seneste testversion</value>
-	</data>
-	<data name="dl_ob" xml:space="preserve">
-		<value>Download tidligere version</value>
 	</data>
 	<data name="edit_bs_ini" xml:space="preserve">
 		<value>Rediger bootstrap.ini</value>
@@ -285,18 +264,6 @@
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
 		<value>Download begyndt!</value>
-	</data>
-	<data name="helppack" xml:space="preserve">
-		<value>Download hjælpepakke</value>
-	</data>
-	<data name="tt_hp_lb" xml:space="preserve">
-		<value>Download hjælpepakke for det markerede sprog for seneste version</value>
-	</data>
-	<data name="tt_hp_ob" xml:space="preserve">
-		<value>Download hjælpepakke for det markerede sprog for tidligere version.</value>
-	</data>
-	<data name="tt_hp_test" xml:space="preserve">
-		<value>Download hjælpepakke for det markerede sprog for seneste testversion</value>
 	</data>
 	<data name="he" xml:space="preserve">
 		<value>Hebræisk:</value>

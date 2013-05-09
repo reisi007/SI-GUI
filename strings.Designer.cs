@@ -79,15 +79,6 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download latest branch.
-        /// </summary>
-        internal static string bdllb {
-            get {
-                return ResourceManager.GetString("bdllb", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Configure installation directory.
         /// </summary>
         internal static string config_installdir {
@@ -151,15 +142,6 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download older branch.
-        /// </summary>
-        internal static string dl_ob {
-            get {
-                return ResourceManager.GetString("dl_ob", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A download has been started!.
         /// </summary>
         internal static string dl_started {
@@ -174,24 +156,6 @@ namespace WindowsFormsApplication1 {
         internal static string dl_started_title {
             get {
                 return ResourceManager.GetString("dl_started_title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Download latest master.
-        /// </summary>
-        internal static string dlmaster {
-            get {
-                return ResourceManager.GetString("dlmaster", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Download latest testing build.
-        /// </summary>
-        internal static string dltesting {
-            get {
-                return ResourceManager.GetString("dltesting", resourceCulture);
             }
         }
         
@@ -295,15 +259,6 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download helppack.
-        /// </summary>
-        internal static string helppack {
-            get {
-                return ResourceManager.GetString("helppack", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Shortcut to a parallel installed LibreOffice %version..
         /// </summary>
         internal static string ink_des {
@@ -354,6 +309,69 @@ namespace WindowsFormsApplication1 {
         internal static string language_change_success {
             get {
                 return ResourceManager.GetString("language_change_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Download.
+        /// </summary>
+        internal static string m_l10n_dl {
+            get {
+                return ResourceManager.GetString("m_l10n_dl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Helppack.
+        /// </summary>
+        internal static string m_l10n_helppack {
+            get {
+                return ResourceManager.GetString("m_l10n_helppack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Installer.
+        /// </summary>
+        internal static string m_l10n_installer {
+            get {
+                return ResourceManager.GetString("m_l10n_installer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language (help):.
+        /// </summary>
+        internal static string m_l10n_langhelptxt {
+            get {
+                return ResourceManager.GetString("m_l10n_langhelptxt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Latest branch.
+        /// </summary>
+        internal static string m_l10n_lb {
+            get {
+                return ResourceManager.GetString("m_l10n_lb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Older branch.
+        /// </summary>
+        internal static string m_l10n_ob {
+            get {
+                return ResourceManager.GetString("m_l10n_ob", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Testing build.
+        /// </summary>
+        internal static string m_l10n_t {
+            get {
+                return ResourceManager.GetString("m_l10n_t", resourceCulture);
             }
         }
         
@@ -718,65 +736,11 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download helppack of the selected language of the latest branch..
-        /// </summary>
-        internal static string tt_hp_lb {
-            get {
-                return ResourceManager.GetString("tt_hp_lb", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Download langpack of the selected language of the older branch..
-        /// </summary>
-        internal static string tt_hp_ob {
-            get {
-                return ResourceManager.GetString("tt_hp_ob", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Download helppack of the selected language of the latest testing build..
-        /// </summary>
-        internal static string tt_hp_test {
-            get {
-                return ResourceManager.GetString("tt_hp_test", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create a desktop shortcut for this parallel installation.
         /// </summary>
         internal static string tt_ink {
             get {
                 return ResourceManager.GetString("tt_ink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Latest build of latest branch..
-        /// </summary>
-        internal static string tt_lb {
-            get {
-                return ResourceManager.GetString("tt_lb", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Latest daily build..
-        /// </summary>
-        internal static string tt_m {
-            get {
-                return ResourceManager.GetString("tt_m", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Latest build of older branch..
-        /// </summary>
-        internal static string tt_ob {
-            get {
-                return ResourceManager.GetString("tt_ob", resourceCulture);
             }
         }
         

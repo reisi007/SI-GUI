@@ -166,15 +166,6 @@
 	<data name="about" xml:space="preserve">
 		<value>Sobre / Alterar o idioma</value>
 	</data>
-	<data name="tt_lb" xml:space="preserve">
-		<value>Última compilação da última ramificação.</value>
-	</data>
-	<data name="tt_m" xml:space="preserve">
-		<value>Última compilação diária.</value>
-	</data>
-	<data name="tt_ob" xml:space="preserve">
-		<value>Última compilação de ramificação anterior.</value>
-	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Última compilação de testes</value>
 	</data>
@@ -193,9 +184,6 @@
 	<data name="versiondl" xml:space="preserve">
 		<value>A versão %version deve ser transferida?</value>
 	</data>
-	<data name="bdllb" xml:space="preserve">
-		<value>Transferir última ramificação</value>
-	</data>
 	<data name="open_help" xml:space="preserve">
 		<value>Abrir instalador de ajuda LO</value>
 	</data>
@@ -204,15 +192,6 @@
 	</data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
 		<value>Abrir bootstrap.ini</value>
-	</data>
-	<data name="dlmaster" xml:space="preserve">
-		<value>Transferir última versão master</value>
-	</data>
-	<data name="dltesting" xml:space="preserve">
-		<value>Transferir última versão testes</value>
-	</data>
-	<data name="dl_ob" xml:space="preserve">
-		<value>Transferir ramificação anterior</value>
 	</data>
 	<data name="edit_bs_ini" xml:space="preserve">
 		<value>Editar bootstrap.ini</value>
@@ -264,18 +243,6 @@
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
 		<value>Transferência iniciou!</value>
-	</data>
-	<data name="helppack" xml:space="preserve">
-		<value>Transferir pacote de ajuda</value>
-	</data>
-	<data name="tt_hp_lb" xml:space="preserve">
-		<value>Transferir pacote de ajuda do idioma selecionado da última ramificação.</value>
-	</data>
-	<data name="tt_hp_ob" xml:space="preserve">
-		<value>Transferir pacote de ajuda do idioma selecionado da ramificação anterior.</value>
-	</data>
-	<data name="tt_hp_test" xml:space="preserve">
-		<value>Transferir pacote de ajuda do idioma selecionado da última compilação de testes.</value>
 	</data>
 	<data name="he" xml:space="preserve">
 		<value>Hebraico:</value>
