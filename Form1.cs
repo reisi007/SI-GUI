@@ -13,13 +13,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
-using System.Net;
 using System.Threading;
 using System.Resources;
 using System.Reflection;
 using System.Globalization;
 using System.Xml.Serialization;
-using Microsoft.VisualBasic;
 
 
 //Used for translating: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor (I will forget it soon)...
@@ -125,15 +123,18 @@ namespace WindowsFormsApplication1
             /* End Setting tooltips
              *  Loading settings*/
             loadsettinmgs();
-
+            // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
             give_message.BalloonTipClosed += new EventHandler(gm_do);
             give_message.Click += new EventHandler(gm_do);
             give_message.DoubleClick += new EventHandler(gm_do);
+            // Bring the window in the foreground
             this.BringToFront();
-
-
-
+            // Set up the progress bars 1 -> Installer 2 -> Helppack
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 10000;
+            progressBar2.Minimum = 0;
+            progressBar2.Maximum = 10000;
         }
         private void loadsettinmgs()
         {
@@ -457,241 +458,7 @@ namespace WindowsFormsApplication1
             userinstallation.Text = "UserInstallation=$ORIGIN/..";
         }
 
-        void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-
-            double bytesIn = double.Parse(e.BytesReceived.ToString());
-            double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-            double percentage = bytesIn / totalBytes * 100;
-            start_install.Enabled = false;
-            // Creating a double value like 2.5 %
-            double temp = percentage * 100;
-            temp = Math.Truncate(temp);
-            progressBar1.Value = Convert.ToInt16(temp);
-            temp /= 100;
-            string output = Convert.ToString(temp) + " %";
-            percent.Text = output;
-        }
-
-        void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-
-
-            give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-            path_main.Text = path_to_file_ondisk.Text;
-            progressBar1.Value = 0;
-            percent.Text = "0 %";
-            start_install.Enabled = true;
-            give_message.Text = "LibreOffice Server Installation GUI";
-
-
-        }
-        void download_hp_changed(object sender, DownloadProgressChangedEventArgs e)
-        {
-
-            double bytesIn = double.Parse(e.BytesReceived.ToString());
-            double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-            double percentage = bytesIn / totalBytes * 100;
-            start_install.Enabled = false;
-            // Creating a double value like 2.5 %
-            double temp = percentage * 100;
-            temp = Math.Truncate(temp);
-            progressBar2.Value = Convert.ToInt16(temp);
-            temp /= 100;
-            string output = Convert.ToString(temp) + " %";
-            percent2.Text = output;
-        }
-
-        void download_hp_dl_completed(object sender, AsyncCompletedEventArgs e)
-        {
-            give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-
-            path_help.Text = path_to_file_on_disk_2.Text;
-
-            progressBar2.Value = 0;
-            percent2.Text = "0 %";
-            
-            start_install.Enabled = true;
-            give_message.Text = "LibreOffice Server Installation GUI";
-
-
-        }
-        public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch)
-        {
-            startasyncdownload(url, testing, master, latest_branch, older_branch, false);
-        }
-
-        public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch, bool helppack)
-        {
-            // Download
-            bool cont = true;
-            string[] version = new string[2];
-            string lang = Convert.ToString(m_hp_lang.SelectedItem.ToString());
-            try
-            {
-                if (helppack)
-                {
-                    if (lang == "")
-                    {
-                        cont = false;
-                        throw new System.InvalidOperationException(getstring("error_langpack_nolang"));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                exeptionmessage(ex.Message);
-            }
-            if (cont)
-            {
-                string httpfile = downloadfile(url);
-                if (httpfile != "error")
-                {
-                    string filename = "";
-                    if (master)
-                    {
-                        int starting_position = httpfile.IndexOf("<a href=\"master~");
-                        httpfile = httpfile.Remove(0, 9 + starting_position);
-                        starting_position = httpfile.IndexOf(".msi");
-                        httpfile = httpfile.Remove(starting_position + 4);
-                    }
-                    else if (testing)
-                    {
-                        int starting_position = httpfile.IndexOf("href=\"LibreOffice") + 6;
-                        url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
-                        httpfile = httpfile.Remove(0, starting_position);
-                        starting_position = httpfile.IndexOf("msi") + 3;
-                        httpfile = httpfile.Remove(starting_position);
-                       
-                        if (helppack && (httpfile.Length != 2))
-                        {
-                            string vers2 = httpfile;
-                            string insert = "_helppack_" + lang + ".msi";
-                            starting_position = vers2.IndexOf("x86") + 3;
-                            vers2 = vers2.Remove(starting_position);
-                            vers2 += insert;
-                            httpfile = vers2;
-                        }
-                        
-                    }
-                    else if (latest_branch)
-                    {
-                        int i = httpfile.IndexOf("Metadata");
-                        httpfile = httpfile.Remove(0, i);
-                        for (int j = 0; j < 3; j++)
-                        {
-                            i = httpfile.IndexOf("href=");
-                            httpfile = httpfile.Remove(0, i + 6);
-                        }
-                        httpfile = httpfile.Remove(5);
-                        url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                        if (helppack)
-                            httpfile = "LibreOffice_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
-                        else
-                            httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
-
-                    }
-                    else if (older_branch)
-                    {
-                        int i = httpfile.IndexOf(">Parent Directory<");
-                        httpfile = httpfile.Remove(0, i);
-                        i = httpfile.IndexOf("a href");
-                        i += 8;
-                        httpfile = httpfile.Remove(0, i);
-                        i = httpfile.IndexOf("/");
-                        httpfile = httpfile.Remove(i);
-                        url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                        if (helppack)
-                            httpfile = "LibO_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
-                        else
-                            httpfile = "LibO_" + httpfile + "_Win_x86_install_multi.msi";
-
-                    }
-                    filename = httpfile;
-                    progressBar1.Minimum = 0;
-                    progressBar1.Maximum = 10000;
-                    progressBar2.Minimum = 0;
-                    progressBar2.Maximum = 10000;
-                    string path = Path.GetTempPath();
-                    WebClient downloadmaster = new WebClient();
-                    WebClient download_hp = new WebClient();
-                    string ua = "LibreOffice Server Install Gui " + set.program_version();
-                    downloadmaster.Headers["User-Agent"] = ua;
-                    download_hp.Headers["User-Agent"] = ua;
-                    download_hp.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_hp_changed);
-                    download_hp.DownloadFileCompleted += new AsyncCompletedEventHandler(download_hp_dl_completed);
-                    downloadmaster.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
-                    downloadmaster.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
-                    Uri uritofile = new Uri(url + httpfile);
-                    path += httpfile;
-                    if (helppack)
-                        path_to_file_on_disk_2.Text = path;
-                    else
-                        path_to_file_ondisk.Text = path;
-                    string mb_question = getstring("versiondl");
-                    mb_question = mb_question.Replace("%version", filename);
-
-
-                    if (filename != "TY")
-                    {
-                        if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
-                            if (helppack)
-                                download_hp.DownloadFileAsync(uritofile, path);
-                            else
-                                downloadmaster.DownloadFileAsync(uritofile, path);
-                            int k = 0;
-                            if (!master)
-                            {
-                                k = filename.IndexOf("_") + 1;
-                                filename = filename.Remove(0, k);
-                                k = filename.IndexOf("_");
-                                filename = filename.Remove(k);
-                            }
-                            else
-                            {
-                                k = filename.IndexOf("_");
-                                filename = filename.Remove(k);
-                            }
-                            if (!helppack)
-                                subfolder.Text = filename;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-        }
-
         
-        private string downloadfile(string url)
-        {
-            WebClient httpfileclient = new WebClient();
-            Uri urlhttp = new Uri(url);
-            string httpfile = "error";
-            try
-            {
-                Stream httptextraw = httpfileclient.OpenRead(urlhttp);
-                StreamReader httpreader = new StreamReader(httptextraw);
-                httpfile = httpreader.ReadToEnd();
-                httptextraw.Close();
-                httpreader.Close();
-
-            }
-            catch (System.Net.WebException ex)
-            {
-                exeptionmessage(ex.Message);
-
-            }
-            return httpfile;
-
-
-
-
-        }
 
         private void open_installer_Click(object sender, EventArgs e)
         {
@@ -715,9 +482,6 @@ namespace WindowsFormsApplication1
             return rt;
 
         }
-
-
-
         private void show_about(object sender, EventArgs e)
         {
             Form2 form = new Form2();

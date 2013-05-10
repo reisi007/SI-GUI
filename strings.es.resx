@@ -324,10 +324,4 @@
 	<data name="nl" xml:space="preserve">
 		<value>Neerlandés:</value>
 	</data>
-	<data name="testing_which" xml:space="preserve">
-		<value>¿Qué versión de prelanzamiento quiere descargar?</value>
-	</data>
-	<data name="testing_title" xml:space="preserve">
-		<value>Se detectaron dos versiones de prelanzamiento</value>
-	</data>
 </root>

@@ -321,12 +321,6 @@
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>Die Verknüpfung wurde erfolgreich hergestellt.</value>
 	</data>
-	<data name="testing_which" xml:space="preserve">
-		<value>Welche der beiden Testversion soll heruntergeladen werden?</value>
-	</data>
-	<data name="testing_title" xml:space="preserve">
-		<value>2 Testversionen erkannt!</value>
-	</data>
 	<data name="nl" xml:space="preserve">
 		<value>Niederländisch:</value>
 	</data>

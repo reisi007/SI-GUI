@@ -14,21 +14,22 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class choose_TB : Form
+    public partial class MassDL : Form
     {
-        public choose_TB(string[] version, string question, string window_title)
+        public MassDL(string[] l10n, string[] version)
         {
             InitializeComponent();
-            no.DialogResult = System.Windows.Forms.DialogResult.No;
-            yes.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            yes.Text = version[0] + " RC";
-            no.Text = version[1] + " RC";
-            text_question.Text = question;
-            this.Text = window_title;
-            text_question.Width = this.Width - 24;
+            this.Text = l10n[0];
+            okay.Text = l10n[1];
+            cancel.Text = l10n[2];
+            versions.Items.AddRange(version);
+            okay.DialogResult = System.Windows.Forms.DialogResult.OK;
+            cancel.DialogResult = System.Windows.Forms.DialogResult.Abort;
         }
 
-        private void choose_TB_Load(object sender, EventArgs e)
+        public string getSelectedVersion { get; private set; }
+
+        private void MassDL_Load(object sender, EventArgs e)
         {
 
         }

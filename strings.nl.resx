@@ -321,12 +321,6 @@
 	<data name="msb_lnk_txt" xml:space="preserve">
 		<value>Snelkoppeling met succesvol aangemaakt!</value>
 	</data>
-	<data name="testing_which" xml:space="preserve">
-		<value>Welke van deze twee pre-release versies moet geïnstalleerd worden?</value>
-	</data>
-	<data name="testing_title" xml:space="preserve">
-		<value>2 pre-release versies gedetecteerd!</value>
-	</data>
 	<data name="nl" xml:space="preserve">
 		<value>Nederlands
 </value>

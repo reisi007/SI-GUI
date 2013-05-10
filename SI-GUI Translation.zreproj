@@ -66,6 +66,9 @@ Viele Grüße</globalSetting>
     <userSetting name="Florian@Home-PC.FindText">
     </userSetting>
     <userSetting name="Florian@Home-PC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
+    <userSetting name="Florian Reisinger@PowerPC.FindText">
+    </userSetting>
+    <userSetting name="Florian Reisinger@PowerPC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
     <description>
     </description>
   </configuration>

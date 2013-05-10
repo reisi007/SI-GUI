@@ -304,12 +304,6 @@
 	<data name="nl" xml:space="preserve">
 		<value>Holandês:</value>
 	</data>
-	<data name="testing_which" xml:space="preserve">
-		<value>Qual destas versões de pré-lançamento deve ser transferida?</value>
-	</data>
-	<data name="testing_title" xml:space="preserve">
-		<value>2 versões de pré-lançamento detetadas</value>
-	</data>
 	<data name="s_version" xml:space="preserve">
 		<value>Versão:</value>
 	</data>

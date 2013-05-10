@@ -324,10 +324,4 @@
 	<data name="nl" xml:space="preserve">
 		<value>Nizozemščina:</value>
 	</data>
-	<data name="testing_which" xml:space="preserve">
-		<value>Katero od teh predizdaj želite prenesti?</value>
-	</data>
-	<data name="testing_title" xml:space="preserve">
-		<value>Zaznani sta dve različni predizdaji!</value>
-	</data>
 </root>

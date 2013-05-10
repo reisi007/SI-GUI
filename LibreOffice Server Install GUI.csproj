@@ -110,17 +110,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="access_settings.cs" />
-    <Compile Include="choose_TB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="choose_TB.Designer.cs">
-      <DependentUpon>choose_TB.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.Downloadhelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.WinFormStartHelper.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -145,6 +145,12 @@
     </Compile>
     <Compile Include="manually_add_installation.Designer.cs">
       <DependentUpon>manually_add_installation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MassDL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MassDL.Designer.cs">
+      <DependentUpon>MassDL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pictures.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -178,9 +184,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.sl.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="choose_TB.resx">
-      <DependentUpon>choose_TB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="manually_add_installation.resx">
       <DependentUpon>manually_add_installation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MassDL.resx">
+      <DependentUpon>MassDL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pictures.resx">
       <Generator>ResXFileCodeGenerator</Generator>
