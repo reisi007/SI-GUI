@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
         }
             #endregion
 
-     #region Download of Master, Testing, Latest as well as Older branch
+        #region Download of Master, Testing, Latest as well as Older branch
         public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch)
         {
             startasyncdownload(url, testing, master, latest_branch, older_branch, false);
@@ -166,58 +166,13 @@ namespace WindowsFormsApplication1
                             httpfile = "LibO_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
                         else
                             httpfile = "LibO_" + httpfile + "_Win_x86_install_multi.msi";
+                    }
 
-                    }
-                    filename = httpfile;
-                    string path = Path.GetTempPath();
-                    WebClient downloadmaster = getPreparedWebClient(false);
-                    WebClient download_hp = getPreparedWebClient(true);
-                    
-                    
-                    Uri uritofile = new Uri(url + httpfile);
-                    path += httpfile;
-                    if (helppack)
-                        path_to_file_on_disk_2.Text = path;
-                    else
-                        path_to_file_ondisk.Text = path;
-                    string mb_question = getstring("versiondl");
-                    mb_question = mb_question.Replace("%version", filename);
-
-                    // If filename is TY, then no testing build is available
-                    if (filename != "TY") 
-                    {
-                        if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
-                            if (helppack)
-                                download_hp.DownloadFileAsync(uritofile, path);
-                            else
-                                downloadmaster.DownloadFileAsync(uritofile, path);
-                            int k = 0;
-                            if (!master)
-                            {
-                                k = filename.IndexOf("_") + 1;
-                                filename = filename.Remove(0, k);
-                                k = filename.IndexOf("_");
-                                filename = filename.Remove(k);
-                            }
-                            else
-                            {
-                                k = filename.IndexOf("_");
-                                filename = filename.Remove(k);
-                            }
-                            if (!helppack)
-                                subfolder.Text = filename;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    startDL(httpfile, url, master, helppack);
                 }
             }
         }
-     #endregion
+        #endregion
         private WebClient getPreparedWebClient(bool helppack)
         {
             WebClient webc = new WebClient();
@@ -236,10 +191,99 @@ namespace WindowsFormsApplication1
             return webc;
         }
 
-        private void download_any_version(string LinktoFile, bool helppack)
+        private void startDL(string program_filename, string finallink, bool master, bool helppack)
         {
+            WebClient webc = getPreparedWebClient(helppack);
+            string path = Path.GetTempPath();
+            Uri uritofile = new Uri(finallink + program_filename);
+            path += program_filename;
+            if (helppack)
+                path_to_file_on_disk_2.Text = path;
+            else
+                path_to_file_ondisk.Text = path;
+            string mb_question = getstring("versiondl");
+            mb_question = mb_question.Replace("%version", program_filename);
 
+            // If filename is TY, then no testing build is available
+            if (program_filename != "TY")
+            {
+                if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
+                    webc.DownloadFileAsync(uritofile, path);
+                    int k = 0;
+                    if (!master)
+                    {
+                        k = program_filename.IndexOf("_") + 1;
+                        program_filename = program_filename.Remove(0, k);
+                        k = program_filename.IndexOf("_");
+                        program_filename = program_filename.Remove(k);
+                    }
+                    else
+                    {
+                        k = program_filename.IndexOf("_");
+                        program_filename = program_filename.Remove(k);
+                    }
+                    if (!helppack)
+                        subfolder.Text = program_filename;
+                }
+            }
+            else
+            {
+                MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
+        private void download_any_version(string LinktoFile, bool helppack, bool libo)
+        {
+            // Get the final download links and initialize the download
+            WebClient webc = getPreparedWebClient(helppack);
+            string httpfile;
+            if (libo)
+                httpfile = downloadfile(LinktoFile + "?C=S;O=D");
+            else
+                httpfile = downloadfile(LinktoFile);
+            int tmp;
+            if (libo)
+            {
+                tmp = httpfile.IndexOf("Parent");
+                httpfile = httpfile.Remove(0, tmp);
+                tmp = httpfile.IndexOf("href") + 6;
+                httpfile = httpfile.Remove(0, tmp);
+                tmp = httpfile.IndexOf("\"");
+                httpfile = httpfile.Remove(tmp);
+
+            }
+            else
+            {
+
+            }
+
+            if (helppack)
+            {
+                // Helppack only
+                if (libo)
+                {
+                    //LibreOffice helppack
+                    if (httpfile.Contains("install_all"))
+                    {
+                        // Old format
+                        httpfile = httpfile.Replace("install_all_lang", "helppack_" + m_hp_lang.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        // New format
+                        httpfile = httpfile.Insert(httpfile.IndexOf("86"), "helppack_" + m_hp_lang.SelectedItem.ToString());
+                    }
+
+                }
+                else
+                {
+                    //OpenOffice helppack
+                }
+                // Start download
+            }
+            startDL(httpfile, LinktoFile, false, helppack);
         }
         private string downloadfile(string url)
         {
@@ -278,29 +322,54 @@ namespace WindowsFormsApplication1
             string httpfile = downloadfile(link);
             int i;
             List<string> versions = new List<string>();
-            i = httpfile.IndexOf("Details") + 7;
-            httpfile = httpfile.Remove(0, i);
-            i = httpfile.IndexOf("latest");
-            httpfile = httpfile.Remove(i);
-            while (goon)
+            if (libo)
             {
-                try
+                // Get the version numbers of LibreOffice
+                i = httpfile.IndexOf("Details") + 7;
+                httpfile = httpfile.Remove(0, i);
+                i = httpfile.IndexOf("latest");
+                httpfile = httpfile.Remove(i);
+                while (goon)
                 {
-                    i = httpfile.IndexOf("href");
-                    httpfile = httpfile.Remove(0, i);
-                    i = httpfile.IndexOf(">") + 1;
-                    httpfile = httpfile.Remove(0, i);
-                    i = httpfile.IndexOf("<") - 1;
-                    tmp = httpfile.Remove(i);
-                    versions.Add(tmp);
+                    try
+                    {
+                        i = httpfile.IndexOf("href");
+                        httpfile = httpfile.Remove(0, i);
+                        i = httpfile.IndexOf(">") + 1;
+                        httpfile = httpfile.Remove(0, i);
+                        i = httpfile.IndexOf("<") - 1;
+                        tmp = httpfile.Remove(i);
+                        versions.Add(tmp);
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    { // End of file reached
+                        goon = false;
+                    }
                 }
-                catch (System.ArgumentOutOfRangeException)
-                { // End of file reached
-                    goon = false;
-                }
+            }
+            else
+            {
+                // Get the versions of OpenOffice
             }
             //httpfile from now on contains the selected version
             httpfile = openMassDL(libo, versions.ToArray(), out goon);
+            if (goon)
+            {
+                // Specify the link to the folder, where the release is
+                if (libo)
+                {
+                    link = "http://downloadarchive.documentfoundation.org/libreoffice/old/" + httpfile + "/win/x86/";
+                }
+                else
+                {
+
+                }
+
+                download_any_version(link, hp, libo);
+            }
+            else
+            { exeptionmessage(getstring("massdl_error")); }
+
         }
     }
 }

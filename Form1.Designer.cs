@@ -121,6 +121,7 @@
             this.path_main.ReadOnly = true;
             this.path_main.Size = new System.Drawing.Size(195, 20);
             this.path_main.TabIndex = 1;
+            this.path_main.TextChanged += new System.EventHandler(this.validate_filename);
             // 
             // path_help
             // 
@@ -131,6 +132,7 @@
             this.path_help.ReadOnly = true;
             this.path_help.Size = new System.Drawing.Size(195, 20);
             this.path_help.TabIndex = 3;
+            this.path_help.TextChanged += new System.EventHandler(this.validate_filename);
             // 
             // button2
             // 
@@ -263,7 +265,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(69, 279);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(708, 23);
+            this.progressBar1.Size = new System.Drawing.Size(688, 23);
             this.progressBar1.TabIndex = 14;
             // 
             // label2
@@ -309,11 +311,11 @@
             this.percent.AutoSize = true;
             this.percent.BackColor = System.Drawing.Color.Transparent;
             this.percent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent.Location = new System.Drawing.Point(783, 289);
+            this.percent.Location = new System.Drawing.Point(763, 289);
             this.percent.Name = "percent";
-            this.percent.Size = new System.Drawing.Size(24, 13);
+            this.percent.Size = new System.Drawing.Size(45, 13);
             this.percent.TabIndex = 18;
-            this.percent.Text = "0 %";
+            this.percent.Text = "12,34 %";
             this.percent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cb_subfolder
@@ -352,7 +354,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar2.Location = new System.Drawing.Point(69, 308);
             this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(708, 23);
+            this.progressBar2.Size = new System.Drawing.Size(688, 23);
             this.progressBar2.TabIndex = 28;
             // 
             // percent2
@@ -361,11 +363,11 @@
             this.percent2.AutoSize = true;
             this.percent2.BackColor = System.Drawing.Color.Transparent;
             this.percent2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent2.Location = new System.Drawing.Point(783, 318);
+            this.percent2.Location = new System.Drawing.Point(763, 318);
             this.percent2.Name = "percent2";
-            this.percent2.Size = new System.Drawing.Size(24, 13);
+            this.percent2.Size = new System.Drawing.Size(45, 13);
             this.percent2.TabIndex = 30;
-            this.percent2.Text = "0 %";
+            this.percent2.Text = "12,34 %";
             this.percent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -526,14 +528,14 @@
             // m_t_i
             // 
             this.m_t_i.Name = "m_t_i";
-            this.m_t_i.Size = new System.Drawing.Size(152, 22);
+            this.m_t_i.Size = new System.Drawing.Size(124, 22);
             this.m_t_i.Text = "&Installer";
             this.m_t_i.Click += new System.EventHandler(this.m_t_i_Click);
             // 
             // m_t_h
             // 
             this.m_t_h.Name = "m_t_h";
-            this.m_t_h.Size = new System.Drawing.Size(152, 22);
+            this.m_t_h.Size = new System.Drawing.Size(124, 22);
             this.m_t_h.Text = "&Helppack";
             this.m_t_h.Click += new System.EventHandler(this.m_t_h_Click);
             // 

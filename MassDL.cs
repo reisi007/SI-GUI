@@ -31,9 +31,11 @@ namespace WindowsFormsApplication1
 
         public string getSelectedVersion { get; private set; }
 
-        private void MassDL_Load(object sender, EventArgs e)
+        private void versions_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // Enable Okay, if any version is choosen
+                okay.Enabled = true;
+                getSelectedVersion = versions.SelectedItem.ToString();
         }
     }
 }

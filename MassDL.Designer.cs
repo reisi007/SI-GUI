@@ -43,6 +43,7 @@
             this.versions.Name = "versions";
             this.versions.Size = new System.Drawing.Size(260, 21);
             this.versions.TabIndex = 0;
+            this.versions.SelectedIndexChanged += new System.EventHandler(this.versions_SelectedIndexChanged);
             // 
             // whichDL
             // 
@@ -57,6 +58,7 @@
             // 
             this.okay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.okay.Enabled = false;
             this.okay.Location = new System.Drawing.Point(16, 56);
             this.okay.Name = "okay";
             this.okay.Size = new System.Drawing.Size(123, 39);
@@ -92,7 +94,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MassDL";
-            this.Load += new System.EventHandler(this.MassDL_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

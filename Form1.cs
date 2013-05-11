@@ -138,6 +138,8 @@ namespace WindowsFormsApplication1
             progressBar1.Maximum = 10000;
             progressBar2.Minimum = 0;
             progressBar2.Maximum = 10000;
+            percent.Text = "0 %";
+            percent2.Text = "0 %";
         }
         private void loadsettinmgs()
         {
@@ -594,6 +596,20 @@ namespace WindowsFormsApplication1
         {
             // Download any LibO help
             ManageMassDL(true, true);
+        }
+
+        private void validate_filename(object sender, EventArgs e)
+        {
+            if (path_main.Text.Contains("exe"))
+            {
+                path_main.Text = "";
+                MessageBox.Show("EXE files are not supported for installation", "Not supported!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (path_help.Text.Contains("exe"))
+            {
+                path_help.Text = "";
+                MessageBox.Show("EXE files are not supported for installation", "Not supported!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
