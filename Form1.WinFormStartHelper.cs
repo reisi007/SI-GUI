@@ -32,8 +32,25 @@ namespace WindowsFormsApplication1
         }
 
         // Opens Mass DL. If true LibO LibreOffice archives will be opened, otherwise OpenOffice
-        private void openMassDL(bool Libo)
+        private string openMassDL(bool Libo, string[] versions, out bool goon)
         {
+            string product;
+            if(Libo)
+                product = "LibreOffice";
+            else
+                product = "OpenOffice";
+            string[] l10n = new string[4];
+            l10n[0] = getstring("massdl_l10n_title").Replace("%product",product);
+            l10n[3] = getstring("massdl_l10n_which");
+            l10n[1] = getstring("okay");
+            l10n[2] = getstring("abort");
+            DialogResult dl;
+            goon = true;
+            MassDL mb = new MassDL(l10n, versions);
+                dl = mb.ShowDialog();
+            if (dl != System.Windows.Forms.DialogResult.OK)
+                goon = false;
+            return mb.getSelectedVersion;
 
         }
     }

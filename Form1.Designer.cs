@@ -80,6 +80,9 @@
             this.m_t_i = new System.Windows.Forms.ToolStripMenuItem();
             this.m_t_h = new System.Windows.Forms.ToolStripMenuItem();
             this.m_m_i = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_item_all_libo = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_liball_i = new System.Windows.Forms.ToolStripMenuItem();
+            this.m_liball_h = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.m_item_hplang_tb = new System.Windows.Forms.ToolStripTextBox();
             this.m_hp_lang = new System.Windows.Forms.ToolStripComboBox();
@@ -457,6 +460,7 @@
             this.m_item_ob,
             this.m_item_tb,
             this.m_m_i,
+            this.m_item_all_libo,
             this.toolStripSeparator1,
             this.m_item_hplang_tb,
             this.m_hp_lang});
@@ -522,14 +526,14 @@
             // m_t_i
             // 
             this.m_t_i.Name = "m_t_i";
-            this.m_t_i.Size = new System.Drawing.Size(124, 22);
+            this.m_t_i.Size = new System.Drawing.Size(152, 22);
             this.m_t_i.Text = "&Installer";
             this.m_t_i.Click += new System.EventHandler(this.m_t_i_Click);
             // 
             // m_t_h
             // 
             this.m_t_h.Name = "m_t_h";
-            this.m_t_h.Size = new System.Drawing.Size(124, 22);
+            this.m_t_h.Size = new System.Drawing.Size(152, 22);
             this.m_t_h.Text = "&Helppack";
             this.m_t_h.Click += new System.EventHandler(this.m_t_h_Click);
             // 
@@ -540,6 +544,29 @@
             this.m_m_i.Text = "&Master";
             this.m_m_i.Click += new System.EventHandler(this.m_m_i_Click);
             // 
+            // m_item_all_libo
+            // 
+            this.m_item_all_libo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.m_liball_i,
+            this.m_liball_h});
+            this.m_item_all_libo.Name = "m_item_all_libo";
+            this.m_item_all_libo.Size = new System.Drawing.Size(181, 22);
+            this.m_item_all_libo.Text = "All L&ibo versions";
+            // 
+            // m_liball_i
+            // 
+            this.m_liball_i.Name = "m_liball_i";
+            this.m_liball_i.Size = new System.Drawing.Size(152, 22);
+            this.m_liball_i.Text = "&Installer";
+            this.m_liball_i.Click += new System.EventHandler(this.installerToolStripMenuItem_Click);
+            // 
+            // m_liball_h
+            // 
+            this.m_liball_h.Name = "m_liball_h";
+            this.m_liball_h.Size = new System.Drawing.Size(152, 22);
+            this.m_liball_h.Text = "&Helppack";
+            this.m_liball_h.Click += new System.EventHandler(this.helppackToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -548,9 +575,9 @@
             // m_item_hplang_tb
             // 
             this.m_item_hplang_tb.Name = "m_item_hplang_tb";
-            this.m_item_hplang_tb.ReadOnly = true;
-            this.m_item_hplang_tb.Size = new System.Drawing.Size(100, 23);
+            this.m_item_hplang_tb.Size = new System.Drawing.Size(120, 23);
             this.m_item_hplang_tb.Text = "Language (help)";
+            this.m_item_hplang_tb.TextChanged += new System.EventHandler(this.m_item_hplang_tb_TextChanged);
             // 
             // m_hp_lang
             // 
@@ -737,6 +764,9 @@
         private System.Windows.Forms.ToolStripMenuItem m_ob_h;
         private System.Windows.Forms.ToolStripMenuItem m_t_i;
         private System.Windows.Forms.ToolStripMenuItem m_t_h;
+        private System.Windows.Forms.ToolStripMenuItem m_item_all_libo;
+        private System.Windows.Forms.ToolStripMenuItem m_liball_i;
+        private System.Windows.Forms.ToolStripMenuItem m_liball_h;
     }
 }
 

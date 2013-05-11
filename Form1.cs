@@ -75,6 +75,7 @@ namespace WindowsFormsApplication1
             }
 
             //l10n start
+            shplang = getstring("m_l10n_langhelptxt");
             string installer = getstring("m_l10n_installer");
             string helppack = getstring("m_l10n_helppack");
             b_open_libo_installer.Text = getstring("open_installer");
@@ -96,13 +97,15 @@ namespace WindowsFormsApplication1
             m_item_lb.Text = getstring("m_l10n_lb");
             m_item_ob.Text = getstring("m_l10n_ob");
             m_item_tb.Text = getstring("m_l10n_t");
-            m_item_hplang_tb.Text = getstring("m_l10n_langhelptxt");
+            m_item_hplang_tb.Text = shplang;
             m_lb_h.Text = helppack;
             m_ob_h.Text = helppack;
             m_t_h.Text = helppack;
+            m_liball_h.Text = helppack;
             m_lb_i.Text = installer;
             m_ob_i.Text = installer;
             m_t_i.Text = installer;
+            m_liball_i.Text = installer;
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
@@ -573,6 +576,24 @@ namespace WindowsFormsApplication1
         private void m_m_i_Click(object sender, EventArgs e)
         {
             startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6/current/", false, true, false, false);
+        }
+
+        string shplang;
+        private void m_item_hplang_tb_TextChanged(object sender, EventArgs e)
+        {
+            // Text should always stay the same
+            m_item_hplang_tb.Text = shplang;
+        }
+        private void installerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Download any LibO installer
+            ManageMassDL(false, true);
+        }
+
+        private void helppackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Download any LibO help
+            ManageMassDL(true, true);
         }
     }
 }

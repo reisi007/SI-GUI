@@ -22,9 +22,11 @@ namespace WindowsFormsApplication1
             this.Text = l10n[0];
             okay.Text = l10n[1];
             cancel.Text = l10n[2];
+            whichDL.Text = l10n[3];
             versions.Items.AddRange(version);
             okay.DialogResult = System.Windows.Forms.DialogResult.OK;
             cancel.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            getSelectedVersion = "error";
         }
 
         public string getSelectedVersion { get; private set; }

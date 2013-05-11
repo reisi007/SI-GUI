@@ -262,5 +262,45 @@ namespace WindowsFormsApplication1
             }
             return httpfile;
         }
+
+        // Manages the download of all versions
+        private void ManageMassDL(bool hp, bool libo)
+        {
+            // Goon specifies, if program should go on from time to time
+            bool goon = true;
+            // Where to find the old versions of the program?
+            string link, tmp;
+            if (libo)
+                link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
+            else
+                link = "???";
+            // Download this page and extract the versions
+            string httpfile = downloadfile(link);
+            int i;
+            List<string> versions = new List<string>();
+            i = httpfile.IndexOf("Details") + 7;
+            httpfile = httpfile.Remove(0, i);
+            i = httpfile.IndexOf("latest");
+            httpfile = httpfile.Remove(i);
+            while (goon)
+            {
+                try
+                {
+                    i = httpfile.IndexOf("href");
+                    httpfile = httpfile.Remove(0, i);
+                    i = httpfile.IndexOf(">") + 1;
+                    httpfile = httpfile.Remove(0, i);
+                    i = httpfile.IndexOf("<") - 1;
+                    tmp = httpfile.Remove(i);
+                    versions.Add(tmp);
+                }
+                catch (System.ArgumentOutOfRangeException)
+                { // End of file reached
+                    goon = false;
+                }
+            }
+            //httpfile from now on contains the selected version
+            httpfile = openMassDL(libo, versions.ToArray(), out goon);
+        }
     }
 }
