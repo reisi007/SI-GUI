@@ -24,86 +24,56 @@ namespace WindowsFormsApplication1
     {
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
-        public Form2()
+        public Form2(string[] l10n)
         {
-            //l10n import
-            string[] rtl = new string[] { "He" };
-            try
-            {
-
-                SETTINGS temp = set.open_settings();
-                string lang = temp.l10n;
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
-
-                if (rtl.Contains(lang))
-                    this.RightToLeftLayout = true;
-
-
-
-            }
-            catch (Exception )
-            { }
             InitializeComponent();
+            this.l10n = l10n;
         }
+        private string[] l10n;
 
-        
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            label1.Text = getstring("update_lang");
+            label1.Text = l10n[0];
             string abouttxt = "";
-            string translations = getstring("translations")+" ";
-            string translator = getstring("translator")+" ";
-            string de = getstring("de") + " ";
-            string en = getstring("en") + " ";
-            string fr = getstring("fr") + " ";
-            string es = getstring("es") + " ";
-            string he = getstring("he") + " ";
-            string pt = getstring("pt") + " ";
-            string nl = getstring("nl") + " ";
-            string programmer = getstring("programmer") + " ";
+            string translations = l10n[1] + " ";
+            string translator = l10n[2] + " ";
+            string de = l10n[3] + " ";
+            string en = l10n[4] + " ";
+            string fr = l10n[5] + " ";
+            string es = l10n[6] + " ";
+            string he = l10n[7] + " ";
+            string pt = l10n[8] + " ";
+            string nl = l10n[9] + " ";
+            string programmer = l10n[10] + " ";
             string florei = "Florian Reisinger";
-            string sl = getstring("sl") + " ";
-            string da = getstring("da") + " ";
-            abouttxt = programmer + florei + Environment.NewLine + translations + Environment.NewLine  ;
+            string sl = l10n[11] + " ";
+            string da = l10n[12] + " ";
+            abouttxt = programmer + florei + Environment.NewLine + translations + Environment.NewLine;
             abouttxt += en + florei + Environment.NewLine;
-            abouttxt+= de + florei + Environment.NewLine;
+            abouttxt += de + florei + Environment.NewLine;
             abouttxt += fr + "Sophie Gautier" + Environment.NewLine;
             abouttxt += es + "Adolfo Jayme Barrientos" + Environment.NewLine;
             abouttxt += sl + "Martin Srebotnjak" + Environment.NewLine;
-            abouttxt += da + "Leif Lodahl"+ Environment.NewLine;
-            abouttxt += pt + "Carlos Moreira " + getstring("s_and") + " Pedro Lino" + Environment.NewLine; 
+            abouttxt += da + "Leif Lodahl" + Environment.NewLine;
+            abouttxt += pt + "Carlos Moreira " + l10n[13] + " Pedro Lino" + Environment.NewLine;
             abouttxt += he + "Yaron Shahrabani" + Environment.NewLine;
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
             about.Text = abouttxt;
-            this.Text = getstring("about");
+            this.Text = l10n[14];
             lang_chooser.Sorted = true;
 
         }
-        public string getstring(string strMessage)
-        {
-            string rt = "???";
 
-            try
-            {
-                rt = rm.GetString(strMessage);
-            }
-            catch (Exception)
-            {
-                exeptionmessage("An error in the l10n part occured!");
-            }
-            return rt;
-
-        }
 
         public void exeptionmessage(string ex_message)
         {
-            MessageBox.Show(getstring("standarderror") + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(l10n[15] + ex_message, l10n[16], MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void update_lang(object sender, EventArgs e)
@@ -111,7 +81,7 @@ namespace WindowsFormsApplication1
             SETTINGS temp = set.open_settings();
             temp.l10n = Convert.ToString(lang_chooser.SelectedItem);
             set.save_settings(temp);
-            MessageBox.Show(getstring("language_change_success"), getstring("success"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show(l10n[17], l10n[18], MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -119,9 +89,9 @@ namespace WindowsFormsApplication1
 
         }
 
-        
-       
 
-       
+
+
+
     }
 }

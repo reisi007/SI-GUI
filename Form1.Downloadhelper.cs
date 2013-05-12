@@ -108,7 +108,6 @@ namespace WindowsFormsApplication1
                 string httpfile = downloadfile(url);
                 if (httpfile != "error")
                 {
-                    string filename = "";
                     if (master)
                     {
                         int starting_position = httpfile.IndexOf("<a href=\"master~");

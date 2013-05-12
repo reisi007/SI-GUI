@@ -529,6 +529,24 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXE files are not supported for installation!.
+        /// </summary>
+        internal static string no_valid_filename_error_text {
+            get {
+                return ResourceManager.GetString("no_valid_filename_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not supported!.
+        /// </summary>
+        internal static string no_valid_filename_error_title {
+            get {
+                return ResourceManager.GetString("no_valid_filename_error_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No test version!.
         /// </summary>
         internal static string notest_ti {

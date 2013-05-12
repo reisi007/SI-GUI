@@ -170,7 +170,6 @@
             // 
             this.wheretoinstall.Description = "Choose installation directory";
             this.wheretoinstall.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            this.wheretoinstall.HelpRequest += new System.EventHandler(this.folderBrowserDialog1_HelpRequest);
             // 
             // button3
             // 

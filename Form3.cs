@@ -24,51 +24,20 @@ namespace WindowsFormsApplication1
     {
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         access_settings set = new access_settings();
-        public Form3()
+        public Form3(string[] l10n)
         {
-            //l10n import
-            string[] rtl = new string[] { "He" };
-            try
-            {
-
-                SETTINGS temp = set.open_settings();
-                string lang = temp.l10n;
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
-
-                if (rtl.Contains(lang))
-                    this.RightToLeftLayout = true;
-
-
-
-            }
-            catch (Exception)
-            { }
             InitializeComponent();
-            
-            
+            this.l10n = l10n;
         }
+        private string[] l10n;
         public void exeptionmessage(string ex_message)
         {
-            MessageBox.Show(getstring("standarderror") + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(l10n[0] + ex_message, l10n[1], MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public string getstring(string strMessage)
-        {
-            string rt = "???";
-            try
-            {
-                rt = rm.GetString(strMessage);
-            }
-            catch (Exception)
-            {
-                exeptionmessage("An error in the l10n part occured!");
-            }
-            return rt;
-
-        }
-
+        
         private void form3load(object sender, EventArgs e)
         {
-            this.Text = getstring("help");
+            this.Text = l10n[2];
             string url = "http://dev-builds.libreoffice.org/si-gui/doc.html";
             Uri uriurl = new Uri(url);
             help_browser.Url = uriurl;

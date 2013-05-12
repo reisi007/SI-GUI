@@ -369,4 +369,10 @@
   <data name="okay" xml:space="preserve">
     <value>Okay</value>
   </data>
+  <data name="no_valid_filename_error_text" xml:space="preserve">
+    <value>EXE files are not supported for installation!</value>
+  </data>
+  <data name="no_valid_filename_error_title" xml:space="preserve">
+    <value>Not supported!</value>
+  </data>
 </root>

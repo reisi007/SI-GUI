@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Reisisoft")]
 [assembly: AssemblyProduct("LibreOffice Server Install GUI")]
-[assembly: AssemblyCopyright("Florian Reisinger  2012")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

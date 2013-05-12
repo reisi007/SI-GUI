@@ -110,7 +110,7 @@ namespace WindowsFormsApplication1
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
 
-             // Start Setting tooltips
+            // Start Setting tooltips
             ToolTip ink = new ToolTip();
             ToolTip bootstrapini = new ToolTip();
             ToolTip pathtoexe = new ToolTip();
@@ -167,9 +167,6 @@ namespace WindowsFormsApplication1
             string filename_install = openfile.FileName;
             path_main.Text = filename_install;
         }
-
-
-
         private void openLibohelp(object sender, EventArgs e)
         {
             openfile2.ShowDialog();
@@ -180,13 +177,6 @@ namespace WindowsFormsApplication1
             string filename_help = openfile2.FileName;
             path_help.Text = filename_help;
         }
-
-        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
-        {
-
-
-        }
-
 
         private void config_installdir(object sender, EventArgs e)
         {
@@ -255,10 +245,6 @@ namespace WindowsFormsApplication1
                     MessageBox.Show(getstring("installerror") + ex.Message, getstring("installnostart"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 string bootini = path_installdir + "\\program\\bootstrap.ini";
-
-
-
-
             }
         }
         private string final_installpath { get; set; }
@@ -303,10 +289,6 @@ namespace WindowsFormsApplication1
             {
                 exeptionmessage(ex.Message);
             }
-
-
-
-
             return filename;
         }
 
@@ -346,8 +328,6 @@ namespace WindowsFormsApplication1
                 {
                     working = secondtry(open_bootstrap.FileName);
                 }
-
-
                 return working;
             }
 
@@ -363,8 +343,6 @@ namespace WindowsFormsApplication1
                 bootinipath.Text = path;
             }
             return working;
-
-
         }
 
         private bool secondtry(string path)
@@ -442,19 +420,12 @@ namespace WindowsFormsApplication1
 
                 if (working)
                 {
-
                     MessageBox.Show(getstring("filesave"), getstring("title_filesave"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
                 }
                 else
                 {
-
                     exeptionmessage(exeptiontext);
-
                 }
-
-
-
             }
         }
 
@@ -462,9 +433,6 @@ namespace WindowsFormsApplication1
         {
             userinstallation.Text = "UserInstallation=$ORIGIN/..";
         }
-
-        
-
         private void open_installer_Click(object sender, EventArgs e)
         {
             openfile.ShowDialog();
@@ -487,11 +455,7 @@ namespace WindowsFormsApplication1
             return rt;
 
         }
-        private void show_about(object sender, EventArgs e)
-        {
-            Form2 form = new Form2();
-            form.ShowDialog();
-        }
+
         // Function, which prepares the data, which should be saved for next startup
         private void savesettings(object sender, EventArgs e)
         {
@@ -508,13 +472,6 @@ namespace WindowsFormsApplication1
 
         }
 
-
-        private void help_Click(object sender, EventArgs e)
-        {
-            Form3 fm = new Form3();
-            fm.ShowDialog();
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             Manager fm = new Manager();
@@ -529,8 +486,7 @@ namespace WindowsFormsApplication1
 
         private void m_about_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
-            form.ShowDialog();
+            openAbout();
         }
 
         private void m_man_Click(object sender, EventArgs e)
@@ -541,8 +497,7 @@ namespace WindowsFormsApplication1
 
         private void m_help_Click(object sender, EventArgs e)
         {
-            Form3 fm = new Form3();
-            fm.ShowDialog();
+            openHelp();
         }
 
         private void m_lb_i_Click(object sender, EventArgs e)
@@ -603,12 +558,12 @@ namespace WindowsFormsApplication1
             if (path_main.Text.Contains("exe"))
             {
                 path_main.Text = "";
-                MessageBox.Show("EXE files are not supported for installation", "Not supported!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (path_help.Text.Contains("exe"))
             {
                 path_help.Text = "";
-                MessageBox.Show("EXE files are not supported for installation", "Not supported!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
