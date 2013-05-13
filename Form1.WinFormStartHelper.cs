@@ -38,7 +38,14 @@ namespace WindowsFormsApplication1
             l10n_manager[7] = getstring("dirnotfound");
             l10n_manager[8] = getstring("si_message");
             l10n_manager[9] = getstring("si");
-            string[] l10n_mai = new string[6];
+            string[] l10n_mai = new string[7];
+            l10n_mai[0] = getstring("standarderror");
+            l10n_mai[1] = getstring("Error");
+            l10n_mai[2] = getstring("mai_path_soffice");
+            l10n_mai[3] = getstring("mai_config_path");
+            l10n_mai[4] = getstring("mai_text");
+            l10n_mai[5] = getstring("mai_ok");
+            l10n_mai[6] = getstring("mai_abort");
             Manager window = new Manager(l10n_manager, l10n_mai);
             window.ShowDialog();
         }

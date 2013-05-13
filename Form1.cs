@@ -84,7 +84,7 @@ namespace WindowsFormsApplication1
             button2.Text = getstring("open_help");
             button3.Text = getstring("config_installdir");
             button4.Text = getstring("open_bootstrap_ini");
-            groupBox1.Text = getstring("edit_bs_ini");
+            gb_bootstrap.Text = getstring("edit_bs_ini");
             label2.Text = getstring("progress");
             open_bootstrap.Title = getstring("open_bootstrap_title");
             save_file.Text = getstring("save_bootstrap_ini");
@@ -106,6 +106,13 @@ namespace WindowsFormsApplication1
             m_ob_i.Text = installer;
             m_t_i.Text = installer;
             m_liball_i.Text = installer;
+            gb_download.Text = m_dl.Text;
+            gb_create_lnk.Text = create_lnk.Text;
+            start_dl.Text = getstring("start_dl");
+            cb_installer.Text = getstring("cb_installer");
+            cb_help.Text = getstring("cb_help");
+            update_versions.Text = getstring("update_versions");
+
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();

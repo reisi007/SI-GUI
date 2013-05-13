@@ -88,6 +88,13 @@ public class SETTINGS
     public string l10n;
     public string[] manager;
     public string last_path_to_sofficeEXE;
+    public DL_UI_settings DL_saved_settings;
+}
+public struct DL_UI_settings
+{
+    public string[] version;
+    public bool cb_installer;
+    public bool cb_help;
 }
 public class LINK
 {

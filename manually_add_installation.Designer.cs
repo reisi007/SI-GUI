@@ -51,7 +51,6 @@
             this.okay.TabIndex = 0;
             this.okay.Text = "Okay";
             this.okay.UseVisualStyleBackColor = true;
-            this.okay.Click += new System.EventHandler(this.okay_Click);
             // 
             // abort
             // 

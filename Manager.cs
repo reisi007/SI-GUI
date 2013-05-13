@@ -19,7 +19,6 @@ namespace WindowsFormsApplication1
 {
     public partial class Manager : Form
     {
-        ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         access_settings set = new access_settings();
         public Manager(string[] l10n, string[] l10n_mai)
         {

@@ -310,4 +310,37 @@
 	<data name="s_and" xml:space="preserve">
 		<value>e</value>
 	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>Não existe versão de teste!</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>Não existe nenhuma versão de teste disponível neste momento!</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>&amp;Transferir</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>&amp;Pacote de Ajuda</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;Instalador</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>&amp;Ramificação actual</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>&amp;Ramificação anterior</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>&amp;Versão de testes</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Idioma (ajuda):</value>
+	</data>
+	<data name="no_valid_filename_error_text" xml:space="preserve">
+		<value>Não é suportada instalação a partir de ficheiros EXE!</value>
+	</data>
+	<data name="no_valid_filename_error_title" xml:space="preserve">
+		<value>Não suportado!</value>
+	</data>
 </root>

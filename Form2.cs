@@ -23,15 +23,12 @@ namespace WindowsFormsApplication1
     public partial class Form2 : Form
     {
         access_settings set = new access_settings();
-        ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         public Form2(string[] l10n)
         {
             InitializeComponent();
             this.l10n = l10n;
         }
         private string[] l10n;
-
-
         private void Form2_Load(object sender, EventArgs e)
         {
             label1.Text = l10n[0];
@@ -62,18 +59,11 @@ namespace WindowsFormsApplication1
             about.Text = abouttxt;
             this.Text = l10n[14];
             lang_chooser.Sorted = true;
-
         }
-
 
         public void exeptionmessage(string ex_message)
         {
             MessageBox.Show(l10n[15] + ex_message, l10n[16], MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void update_lang(object sender, EventArgs e)
@@ -83,15 +73,6 @@ namespace WindowsFormsApplication1
             set.save_settings(temp);
             MessageBox.Show(l10n[17], l10n[18], MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
 
     }
 }

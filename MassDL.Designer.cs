@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MassDL));
             this.versions = new System.Windows.Forms.ComboBox();
             this.whichDL = new System.Windows.Forms.Label();
             this.okay = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@
             this.Controls.Add(this.okay);
             this.Controls.Add(this.whichDL);
             this.Controls.Add(this.versions);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(300, 145);
             this.MinimizeBox = false;

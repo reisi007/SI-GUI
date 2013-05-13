@@ -16,7 +16,7 @@
     <globalSetting name="CreateNewFileForm.newLanguageComboBox.SelectedIndex">166</globalSetting>
     <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">False</globalSetting>
     <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
-    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian\Desktop\import.xls</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\import.xls</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
     </globalSetting>
     <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1;2;3;4;5;6;7;8</globalSetting>
@@ -35,8 +35,8 @@
     <globalSetting name="ColorifyNullCells">True</globalSetting>
     <globalSetting name="EnableExcelExportSnapshots">True</globalSetting>
     <globalSetting name="advancedOptionsPanel.Visible">True</globalSetting>
-    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory">C:\Users\Florian\Desktop</globalSetting>
-    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\Users\Florian\Desktop\export.xls</globalSetting>
+    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory">C:\Users\Florian Reisinger\Desktop</globalSetting>
+    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\import.xls</globalSetting>
     <globalSetting name="sendFileToTranslator.fileGroupsListBox">strings</globalSetting>
     <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Dänisch (da)###{{{}}}###Deutsch (de)###{{{}}}###Spanisch (es)###{{{}}}###Französisch (fr)###{{{}}}###Hebräisch (he)###{{{}}}###Niederländisch (nl)###{{{}}}###Portugiesisch (pt)###{{{}}}###Slowenisch (sl)</globalSetting>
     <globalSetting name="sendFileToTranslator.referenceLanguageComboBoxEdit.SelectedIndex">2</globalSetting>

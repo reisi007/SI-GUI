@@ -88,6 +88,24 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        internal static string cb_help {
+            get {
+                return ResourceManager.GetString("cb_help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installer.
+        /// </summary>
+        internal static string cb_installer {
+            get {
+                return ResourceManager.GetString("cb_installer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure installation directory.
         /// </summary>
         internal static string config_installdir {
@@ -237,6 +255,15 @@ namespace WindowsFormsApplication1 {
         internal static string go_back {
             get {
                 return ResourceManager.GetString("go_back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paralell installation.
+        /// </summary>
+        internal static string groupb_title {
+            get {
+                return ResourceManager.GetString("groupb_title", resourceCulture);
             }
         }
         
@@ -700,6 +727,15 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start download.
+        /// </summary>
+        internal static string start_dl {
+            get {
+                return ResourceManager.GetString("start_dl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start installation.
         /// </summary>
         internal static string start_install {
@@ -804,6 +840,15 @@ namespace WindowsFormsApplication1 {
         internal static string update_lang {
             get {
                 return ResourceManager.GetString("update_lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update list of versions.
+        /// </summary>
+        internal static string update_versions {
+            get {
+                return ResourceManager.GetString("update_versions", resourceCulture);
             }
         }
         

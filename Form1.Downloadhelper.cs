@@ -71,9 +71,8 @@ namespace WindowsFormsApplication1
             }
             give_message.Text = "LibreOffice Server Installation GUI";
         #endregion
-            #region Procerss for downloading helppacks
         }
-            #endregion
+           
 
         #region Download of Master, Testing, Latest as well as Older branch
         public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch)
