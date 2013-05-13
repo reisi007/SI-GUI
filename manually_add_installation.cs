@@ -24,12 +24,12 @@ namespace WindowsFormsApplication1
         access_settings set = new access_settings();
         public string[,] manually_added { get; private set; }
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
-        public manually_add_installation()
+        public manually_add_installation(string[] l10n)
         {
-            
             InitializeComponent();
+            this.l10n = l10n;
         }
-        
+        private string[] l10n;
         public string shared_string {get;  private set;}
         public void exeptionmessage(string ex_message)
         {

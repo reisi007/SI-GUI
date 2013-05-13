@@ -20,59 +20,58 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         #region Process for DL of main program
+        Dictionary<int, int> dl_manager = new Dictionary<int, int>();
+        Dictionary<int, bool> dl_is_hp = new Dictionary<int, bool>();
+        int sum;
+        float percentage;
         void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-
-            double bytesIn = double.Parse(e.BytesReceived.ToString());
-            double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-            double percentage = bytesIn / totalBytes * 100;
-            start_install.Enabled = false;
-            // Creating a double value like 2.5 %
-            double temp = percentage * 100;
-            temp = Math.Truncate(temp);
-            progressBar1.Value = Convert.ToInt16(temp);
-            temp /= 100;
-            string output = Convert.ToString(temp) + " %";
-            percent.Text = output;
+            sum = 0;
+            if (dl_manager.ContainsKey(sender.GetHashCode()))
+            {
+                // Known dl
+                dl_manager.Remove(sender.GetHashCode());
+            }
+            else
+            {
+                bool isHP = false;
+                if (e.TotalBytesToReceive < 104857600)
+                    isHP = true;
+                dl_is_hp.Add(sender.GetHashCode(), isHP);
+            }
+            dl_manager.Add(sender.GetHashCode(), e.ProgressPercentage);
+            foreach (KeyValuePair<int, int> kvp in dl_manager)
+            {
+                sum += kvp.Value;
+            }
+            try
+            {
+                percentage = (float)(sum / (dl_manager.Count));
+                progressBar1.Value = (int)(percentage * 100);
+                percent.Text = Convert.ToString(percentage) + " %";
+            }
+            catch (Exception) { }
         }
-
+        bool hp_or_installer;
         void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-
-
             give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-            path_main.Text = path_to_file_ondisk.Text;
-            progressBar1.Value = 0;
-            percent.Text = "0 %";
-            start_install.Enabled = true;
+            if (dl_is_hp.TryGetValue(sender.GetHashCode(), out hp_or_installer))
+            {
+                if (!hp_or_installer)
+                    path_main.Text = path_to_file_on_disk.Text;
+                else
+                    path_help.Text = path_to_file_on_disk_2.Text;
+                if (progressBar1.Value == progressBar1.Maximum)
+                {
+                    progressBar1.Value = 0;
+                    percent.Text = "0 %";
+                    dl_manager.Clear();
+                }
+            }
             give_message.Text = "LibreOffice Server Installation GUI";
         #endregion
             #region Procerss for downloading helppacks
-        }
-        void download_hp_changed(object sender, DownloadProgressChangedEventArgs e)
-        {
-
-            double bytesIn = double.Parse(e.BytesReceived.ToString());
-            double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-            double percentage = bytesIn / totalBytes * 100;
-            start_install.Enabled = false;
-            // Creating a double value like 2.5 %
-            double temp = percentage * 100;
-            temp = Math.Truncate(temp);
-            progressBar2.Value = Convert.ToInt16(temp);
-            temp /= 100;
-            string output = Convert.ToString(temp) + " %";
-            percent2.Text = output;
-        }
-
-        void download_hp_dl_completed(object sender, AsyncCompletedEventArgs e)
-        {
-            give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-            path_help.Text = path_to_file_on_disk_2.Text;
-            progressBar2.Value = 0;
-            percent2.Text = "0 %";
-            start_install.Enabled = true;
-            give_message.Text = "LibreOffice Server Installation GUI";
         }
             #endregion
 
@@ -168,38 +167,31 @@ namespace WindowsFormsApplication1
                     }
 
                     startDL(httpfile, url, master, helppack);
+                    set_progressbar();
                 }
             }
         }
         #endregion
-        private WebClient getPreparedWebClient(bool helppack)
+        private WebClient getPreparedWebClient()
         {
             WebClient webc = new WebClient();
             string ua = "LibreOffice Server Install Gui " + set.program_version();
             webc.Headers["User-Agent"] = ua;
-            if (helppack)
-            {
-                webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_hp_changed);
-                webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_hp_dl_completed);
-            }
-            else
-            {
-                webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
-                webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
-            }
+            webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
+            webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
             return webc;
         }
 
         private void startDL(string program_filename, string finallink, bool master, bool helppack)
         {
-            WebClient webc = getPreparedWebClient(helppack);
+            WebClient webc = getPreparedWebClient();
             string path = Path.GetTempPath();
             Uri uritofile = new Uri(finallink + program_filename);
             path += program_filename;
             if (helppack)
                 path_to_file_on_disk_2.Text = path;
             else
-                path_to_file_ondisk.Text = path;
+                path_to_file_on_disk.Text = path;
             string mb_question = getstring("versiondl");
             mb_question = mb_question.Replace("%version", program_filename);
 
@@ -209,6 +201,7 @@ namespace WindowsFormsApplication1
                 if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
+                    set_progressbar();
                     webc.DownloadFileAsync(uritofile, path);
                     int k = 0;
                     if (!master)
@@ -236,7 +229,7 @@ namespace WindowsFormsApplication1
         private void download_any_version(string LinktoFile, bool helppack, bool libo)
         {
             // Get the final download links and initialize the download
-            WebClient webc = getPreparedWebClient(helppack);
+            WebClient webc = getPreparedWebClient();
             string httpfile;
             if (libo)
                 httpfile = downloadfile(LinktoFile + "?C=S;O=D");
@@ -369,6 +362,19 @@ namespace WindowsFormsApplication1
             else
             { exeptionmessage(getstring("massdl_error")); }
 
+        }
+
+        private void set_progressbar()
+        {
+            if (progressBar1.Value == progressBar1.Maximum || progressBar1.Value == 0)
+            {
+                progressBar1.Maximum = 10000;
+                progressBar1.Value = 0;
+            }
+            //else
+            //{
+            //    progressBar1.Maximum += 10000;
+            //}
         }
     }
 }

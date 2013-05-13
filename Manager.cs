@@ -21,11 +21,13 @@ namespace WindowsFormsApplication1
     {
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         access_settings set = new access_settings();
-        public Manager()
+        public Manager(string[] l10n, string[] l10n_mai)
         {
-            
+            this.l10n = l10n;
+            this.l10n_mai = l10n_mai;
             InitializeComponent();
         }
+        string[] l10n, l10n_mai;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -35,30 +37,17 @@ namespace WindowsFormsApplication1
         private void Manager_Load(object sender, EventArgs e)
         {
 
-            this.Text = getstring("man_title");
-            button1.Text = getstring("man_exit");
-            button3.Text = getstring("man_addinstall");
-            button2.Text = getstring("man_del");
+            this.Text = l10n[0];
+            button1.Text = l10n[1];
+            button3.Text = l10n[2];
+            button2.Text = l10n[3];
             update_selector();
         }
         public void exeptionmessage(string ex_message)
         {
-            MessageBox.Show(getstring("standarderror") + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(l10n[4] + ex_message, l10n[5], MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        public string getstring(string strMessage)
-        {
-            string rt = "???";
-            try
-            {
-                rt = rm.GetString(strMessage);
-            }
-            catch (Exception)
-            {
-                exeptionmessage("An error in the l10n part occured!");
-            }
-            return rt;
-
-        }
+        
         private void update_selector()
         {
             SETTINGS temp = set.open_settings();
@@ -76,7 +65,7 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            manually_add_installation fm = new manually_add_installation();
+            manually_add_installation fm = new manually_add_installation(l10n_mai);
             fm.ShowDialog();
             if(fm.shared_string != null)
             {
@@ -119,11 +108,11 @@ namespace WindowsFormsApplication1
             }
             catch (System.IO.DirectoryNotFoundException)
             {
-                MessageBox.Show(getstring("dirnotfound") + getstring("dirnotfoundmessage"), getstring("dirnotfound"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(l10n[6],l10n[7] , MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (System.Security.SecurityException)
             {
-                MessageBox.Show(getstring("si_message"), getstring("si"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(l10n[8],l10n[9] , MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {

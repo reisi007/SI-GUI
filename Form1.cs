@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
                 // Which texts should stay LTR, when using a RTL language
                 bootinipath.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 bootstrap_text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                path_to_file_ondisk.RightToLeft = System.Windows.Forms.RightToLeft.No;
+                path_to_file_on_disk.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 subfolder.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -80,12 +80,12 @@ namespace WindowsFormsApplication1
             string helppack = getstring("m_l10n_helppack");
             b_open_libo_installer.Text = getstring("open_installer");
             m_about.Text = getstring("about");
+            m_man.Text = getstring("man_title");
             button2.Text = getstring("open_help");
             button3.Text = getstring("config_installdir");
             button4.Text = getstring("open_bootstrap_ini");
             groupBox1.Text = getstring("edit_bs_ini");
             label2.Text = getstring("progress");
-            label3.Text = label2.Text;
             open_bootstrap.Title = getstring("open_bootstrap_title");
             save_file.Text = getstring("save_bootstrap_ini");
             start_install.Text = getstring("start_install");
@@ -136,10 +136,7 @@ namespace WindowsFormsApplication1
             // Set up the progress bars 1 -> Installer 2 -> Helppack
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 10000;
-            progressBar2.Minimum = 0;
-            progressBar2.Maximum = 10000;
             percent.Text = "0 %";
-            percent2.Text = "0 %";
         }
         private void loadsettinmgs()
         {
@@ -472,12 +469,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Manager fm = new Manager();
-            fm.ShowDialog();
-        }
-
         private void create_ink_Click(object sender, EventArgs e)
         {
             LINK lnk = new LINK();
@@ -491,8 +482,7 @@ namespace WindowsFormsApplication1
 
         private void m_man_Click(object sender, EventArgs e)
         {
-            Manager fm = new Manager();
-            fm.ShowDialog();
+            openManager();
         }
 
         private void m_help_Click(object sender, EventArgs e)

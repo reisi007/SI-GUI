@@ -54,14 +54,11 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.path_to_file_ondisk = new System.Windows.Forms.TextBox();
+            this.path_to_file_on_disk = new System.Windows.Forms.TextBox();
             this.percent = new System.Windows.Forms.Label();
             this.cb_subfolder = new System.Windows.Forms.CheckBox();
             this.subfolder = new System.Windows.Forms.TextBox();
             this.give_message = new System.Windows.Forms.NotifyIcon(this.components);
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.percent2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.path_to_file_on_disk_2 = new System.Windows.Forms.TextBox();
             this.version = new System.Windows.Forms.Label();
             this.path_to_exe = new System.Windows.Forms.TextBox();
@@ -104,7 +101,7 @@
             // 
             this.b_open_libo_installer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.b_open_libo_installer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.b_open_libo_installer.Location = new System.Drawing.Point(12, 37);
+            this.b_open_libo_installer.Location = new System.Drawing.Point(12, 34);
             this.b_open_libo_installer.Name = "b_open_libo_installer";
             this.b_open_libo_installer.Size = new System.Drawing.Size(206, 23);
             this.b_open_libo_installer.TabIndex = 0;
@@ -116,7 +113,7 @@
             // 
             this.path_main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_main.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_main.Location = new System.Drawing.Point(224, 40);
+            this.path_main.Location = new System.Drawing.Point(224, 37);
             this.path_main.Name = "path_main";
             this.path_main.ReadOnly = true;
             this.path_main.Size = new System.Drawing.Size(195, 20);
@@ -127,7 +124,7 @@
             // 
             this.path_help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_help.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_help.Location = new System.Drawing.Point(224, 66);
+            this.path_help.Location = new System.Drawing.Point(224, 63);
             this.path_help.Name = "path_help";
             this.path_help.ReadOnly = true;
             this.path_help.Size = new System.Drawing.Size(195, 20);
@@ -138,7 +135,7 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(12, 66);
+            this.button2.Location = new System.Drawing.Point(12, 63);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(206, 23);
             this.button2.TabIndex = 2;
@@ -158,7 +155,7 @@
             this.start_install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_install.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F);
             this.start_install.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.start_install.Location = new System.Drawing.Point(12, 124);
+            this.start_install.Location = new System.Drawing.Point(12, 121);
             this.start_install.Name = "start_install";
             this.start_install.Size = new System.Drawing.Size(407, 74);
             this.start_install.TabIndex = 4;
@@ -175,7 +172,7 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(11, 95);
+            this.button3.Location = new System.Drawing.Point(11, 92);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(207, 23);
             this.button3.TabIndex = 5;
@@ -187,7 +184,7 @@
             // 
             this.path_installdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_installdir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_installdir.Location = new System.Drawing.Point(223, 97);
+            this.path_installdir.Location = new System.Drawing.Point(223, 94);
             this.path_installdir.Name = "path_installdir";
             this.path_installdir.ReadOnly = true;
             this.path_installdir.Size = new System.Drawing.Size(196, 20);
@@ -262,17 +259,18 @@
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(69, 279);
+            this.progressBar1.Location = new System.Drawing.Point(69, 280);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(688, 23);
             this.progressBar1.TabIndex = 14;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(12, 289);
+            this.label2.Location = new System.Drawing.Point(12, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 15;
@@ -296,21 +294,22 @@
             // 
             // path_to_file_ondisk
             // 
-            this.path_to_file_ondisk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.path_to_file_ondisk.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_to_file_ondisk.Location = new System.Drawing.Point(12, 253);
-            this.path_to_file_ondisk.Name = "path_to_file_ondisk";
-            this.path_to_file_ondisk.ReadOnly = true;
-            this.path_to_file_ondisk.Size = new System.Drawing.Size(206, 20);
-            this.path_to_file_ondisk.TabIndex = 17;
+            this.path_to_file_on_disk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.path_to_file_on_disk.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.path_to_file_on_disk.Location = new System.Drawing.Point(12, 250);
+            this.path_to_file_on_disk.Name = "path_to_file_ondisk";
+            this.path_to_file_on_disk.ReadOnly = true;
+            this.path_to_file_on_disk.Size = new System.Drawing.Size(206, 20);
+            this.path_to_file_on_disk.TabIndex = 17;
             // 
             // percent
             // 
-            this.percent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.percent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.percent.AutoSize = true;
             this.percent.BackColor = System.Drawing.Color.Transparent;
             this.percent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent.Location = new System.Drawing.Point(763, 289);
+            this.percent.Location = new System.Drawing.Point(763, 290);
             this.percent.Name = "percent";
             this.percent.Size = new System.Drawing.Size(45, 13);
             this.percent.TabIndex = 18;
@@ -322,7 +321,7 @@
             this.cb_subfolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_subfolder.AutoSize = true;
             this.cb_subfolder.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cb_subfolder.Location = new System.Drawing.Point(12, 204);
+            this.cb_subfolder.Location = new System.Drawing.Point(12, 201);
             this.cb_subfolder.Name = "cb_subfolder";
             this.cb_subfolder.Size = new System.Drawing.Size(348, 17);
             this.cb_subfolder.TabIndex = 22;
@@ -334,7 +333,7 @@
             // 
             this.subfolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.subfolder.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.subfolder.Location = new System.Drawing.Point(12, 227);
+            this.subfolder.Location = new System.Drawing.Point(12, 224);
             this.subfolder.Name = "subfolder";
             this.subfolder.Size = new System.Drawing.Size(407, 20);
             this.subfolder.TabIndex = 23;
@@ -347,44 +346,11 @@
             this.give_message.Text = "Libreoffice Server Installation GUI";
             this.give_message.Visible = true;
             // 
-            // progressBar2
-            // 
-            this.progressBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar2.Location = new System.Drawing.Point(69, 308);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(688, 23);
-            this.progressBar2.TabIndex = 28;
-            // 
-            // percent2
-            // 
-            this.percent2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.percent2.AutoSize = true;
-            this.percent2.BackColor = System.Drawing.Color.Transparent;
-            this.percent2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent2.Location = new System.Drawing.Point(763, 318);
-            this.percent2.Name = "percent2";
-            this.percent2.Size = new System.Drawing.Size(45, 13);
-            this.percent2.TabIndex = 30;
-            this.percent2.Text = "12,34 %";
-            this.percent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(9, 318);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Progress:";
-            // 
             // path_to_file_on_disk_2
             // 
             this.path_to_file_on_disk_2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_to_file_on_disk_2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_to_file_on_disk_2.Location = new System.Drawing.Point(224, 253);
+            this.path_to_file_on_disk_2.Location = new System.Drawing.Point(224, 250);
             this.path_to_file_on_disk_2.Name = "path_to_file_on_disk_2";
             this.path_to_file_on_disk_2.ReadOnly = true;
             this.path_to_file_on_disk_2.Size = new System.Drawing.Size(195, 20);
@@ -394,7 +360,7 @@
             // 
             this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.version.AutoSize = true;
-            this.version.Location = new System.Drawing.Point(9, 343);
+            this.version.Location = new System.Drawing.Point(9, 315);
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(188, 13);
             this.version.TabIndex = 32;
@@ -404,7 +370,7 @@
             // 
             this.path_to_exe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_to_exe.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_to_exe.Location = new System.Drawing.Point(203, 340);
+            this.path_to_exe.Location = new System.Drawing.Point(203, 312);
             this.path_to_exe.Name = "path_to_exe";
             this.path_to_exe.ReadOnly = true;
             this.path_to_exe.Size = new System.Drawing.Size(216, 20);
@@ -415,7 +381,7 @@
             // 
             this.tb_version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_version.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tb_version.Location = new System.Drawing.Point(476, 340);
+            this.tb_version.Location = new System.Drawing.Point(476, 312);
             this.tb_version.Name = "tb_version";
             this.tb_version.Size = new System.Drawing.Size(167, 20);
             this.tb_version.TabIndex = 34;
@@ -424,7 +390,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(425, 343);
+            this.label1.Location = new System.Drawing.Point(425, 315);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 35;
@@ -433,7 +399,7 @@
             // create_lnk
             // 
             this.create_lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.create_lnk.Location = new System.Drawing.Point(649, 337);
+            this.create_lnk.Location = new System.Drawing.Point(649, 309);
             this.create_lnk.Name = "create_lnk";
             this.create_lnk.Size = new System.Drawing.Size(159, 24);
             this.create_lnk.TabIndex = 36;
@@ -557,14 +523,14 @@
             // m_liball_i
             // 
             this.m_liball_i.Name = "m_liball_i";
-            this.m_liball_i.Size = new System.Drawing.Size(152, 22);
+            this.m_liball_i.Size = new System.Drawing.Size(124, 22);
             this.m_liball_i.Text = "&Installer";
             this.m_liball_i.Click += new System.EventHandler(this.installerToolStripMenuItem_Click);
             // 
             // m_liball_h
             // 
             this.m_liball_h.Name = "m_liball_h";
-            this.m_liball_h.Size = new System.Drawing.Size(152, 22);
+            this.m_liball_h.Size = new System.Drawing.Size(124, 22);
             this.m_liball_h.Text = "&Helppack";
             this.m_liball_h.Click += new System.EventHandler(this.helppackToolStripMenuItem_Click);
             // 
@@ -669,20 +635,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 373);
+            this.ClientSize = new System.Drawing.Size(820, 345);
             this.Controls.Add(this.create_lnk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_version);
             this.Controls.Add(this.path_to_exe);
             this.Controls.Add(this.version);
             this.Controls.Add(this.path_to_file_on_disk_2);
-            this.Controls.Add(this.percent2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.subfolder);
             this.Controls.Add(this.cb_subfolder);
             this.Controls.Add(this.percent);
-            this.Controls.Add(this.path_to_file_ondisk);
+            this.Controls.Add(this.path_to_file_on_disk);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.path_installdir);
@@ -698,7 +661,6 @@
             this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(836, 411);
-            this.MinimumSize = new System.Drawing.Size(836, 411);
             this.Name = "Form1";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Installation GUI";
@@ -733,14 +695,11 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox path_to_file_ondisk;
+        private System.Windows.Forms.TextBox path_to_file_on_disk;
         private System.Windows.Forms.Label percent;
         private System.Windows.Forms.CheckBox cb_subfolder;
         private System.Windows.Forms.TextBox subfolder;
         private System.Windows.Forms.NotifyIcon give_message;
-        private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.Label percent2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox path_to_file_on_disk_2;
         private System.Windows.Forms.Label version;
         private System.Windows.Forms.TextBox path_to_exe;

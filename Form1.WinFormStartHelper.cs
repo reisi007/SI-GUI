@@ -27,8 +27,20 @@ namespace WindowsFormsApplication1
         // Opens manager
         private void openManager()
         {
-            string[] l10n_manager = new string[11];
+            string[] l10n_manager = new string[10];
+            l10n_manager[0] = getstring("man_title");
+            l10n_manager[1] = getstring("man_exit");
+            l10n_manager[2] = getstring("man_addinstall");
+            l10n_manager[3] = getstring("man_del");
+            l10n_manager[4] = getstring("standarderror");
+            l10n_manager[5] = getstring("Error");
+            l10n_manager[6] = getstring("dirnotfound") + getstring("dirnotfoundmessage");
+            l10n_manager[7] = getstring("dirnotfound");
+            l10n_manager[8] = getstring("si_message");
+            l10n_manager[9] = getstring("si");
             string[] l10n_mai = new string[6];
+            Manager window = new Manager(l10n_manager, l10n_mai);
+            window.ShowDialog();
         }
 
         // Opens About / change language
