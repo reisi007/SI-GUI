@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 
 //Used for translating: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor (I will forget it soon)...
 
-namespace WindowsFormsApplication1
+namespace SI_GUI
 {
 
 

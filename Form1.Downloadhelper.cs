@@ -15,7 +15,7 @@ using System.IO;
 /*
  * This files contains all data for downloading data or files
  */
-namespace WindowsFormsApplication1
+namespace SI_GUI
 {
     public partial class Form1 : Form
     {

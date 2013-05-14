@@ -15,7 +15,7 @@ using System.Resources;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace WindowsFormsApplication1
+namespace SI_GUI
 {
     public partial class Manager : Form
     {

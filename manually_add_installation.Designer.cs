@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace SI_GUI
 {
     partial class manually_add_installation
     {

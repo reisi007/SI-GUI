@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
 
-namespace WindowsFormsApplication1
+namespace SI_GUI
 {
     class access_settings
     {

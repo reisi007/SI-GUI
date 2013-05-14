@@ -18,7 +18,7 @@ using System.Threading;
 using System.Globalization;
 
 
-namespace WindowsFormsApplication1
+namespace SI_GUI
 {
     public partial class Form3 : Form
     {

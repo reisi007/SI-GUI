@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace SI_GUI
 {
     partial class Form3
     {

@@ -93,7 +93,7 @@
     <ApplicationIcon>icons.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>WindowsFormsApplication1.Program</StartupObject>
+    <StartupObject>SI_GUI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
