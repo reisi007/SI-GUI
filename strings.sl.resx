@@ -324,4 +324,79 @@
 	<data name="nl" xml:space="preserve">
 		<value>Nizozemščina:</value>
 	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>Različica:</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>in</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>Ni poskusne različice!</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>Trenutno poskusna različica ni na voljo.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>&amp;Prenesi</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>Paket po&amp;moči</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;Namestitveni paket</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>&amp;Zadnja veja</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>&amp;Starejša veja</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>Pos&amp;kusna gradnja</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Jezik (pomoč):</value>
+	</data>
+	<data name="abort" xml:space="preserve">
+		<value>Prekini</value>
+	</data>
+	<data name="massdl_l10n_title" xml:space="preserve">
+		<value>Prenesite poljubno različico %product !</value>
+	</data>
+	<data name="massdl_l10n_which" xml:space="preserve">
+		<value>Katero različico želite prenesti?</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>V redu</value>
+	</data>
+	<data name="no_valid_filename_error_text" xml:space="preserve">
+		<value>Datoteke *.EXE niso podprte za nameščanje!</value>
+	</data>
+	<data name="no_valid_filename_error_title" xml:space="preserve">
+		<value>Datoteka ni podprta!</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>Začni s prenosom</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>Paket pomoči</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>Namestitveni paket</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>Posodobi seznam različic</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>Vzporedna namestitev</value>
+	</data>
+	<data name="massdl_error" xml:space="preserve">
+		<value>Prenos je bil prekinjen.</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>Vse različice LibreOffice</value>
+	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>Začni prenos</value>
+	</data>
 </root>

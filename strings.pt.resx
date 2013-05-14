@@ -254,7 +254,7 @@
 		<value>Deve escolher um idioma antes de iniciar a transferência!</value>
 	</data>
 	<data name="mai_abort" xml:space="preserve">
-		<value>Abortar</value>
+		<value>Cancelar</value>
 	</data>
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Configurar caminho</value>
@@ -342,5 +342,41 @@
 	</data>
 	<data name="no_valid_filename_error_title" xml:space="preserve">
 		<value>Não suportado!</value>
+	</data>
+	<data name="abort" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
+	<data name="massdl_l10n_title" xml:space="preserve">
+		<value>Transferir qualquer versão de %product !</value>
+	</data>
+	<data name="massdl_l10n_which" xml:space="preserve">
+		<value>Que versão deve ser transferida?</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>Ok</value>
+	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>Iniciar transferência</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>Iniciar transferência</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>Ajuda ???</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>Instalador</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>Actualizar lista de versões</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>Instalação em paralelo</value>
+	</data>
+	<data name="massdl_error" xml:space="preserve">
+		<value>A transferência foi cancelada!</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>Todas as versões do LibreOffice</value>
 	</data>
 </root>

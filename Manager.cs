@@ -20,8 +20,14 @@ namespace SI_GUI
     public partial class Manager : Form
     {
         access_settings set = new access_settings();
-        public Manager(string[] l10n, string[] l10n_mai)
+        bool RTL = false;
+        public Manager(string[] l10n, string[] l10n_mai, bool rtl)
         {
+            if (rtl)
+            {
+                RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+                RTL = true;
+            }
             this.l10n = l10n;
             this.l10n_mai = l10n_mai;
             InitializeComponent();
@@ -46,34 +52,34 @@ namespace SI_GUI
         {
             MessageBox.Show(l10n[4] + ex_message, l10n[5], MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
+
         private void update_selector()
         {
             SETTINGS temp = set.open_settings();
             string[] list = temp.manager_versions;
-           
+
             manager_list.Items.Clear();
-            if(list != null)
-                foreach( string s in list)
+            if (list != null)
+                foreach (string s in list)
                 {
                     manager_list.Items.Add(s);
                 }
 
         }
-        
+
 
         private void button3_Click(object sender, EventArgs e)
         {
-            manually_add_installation fm = new manually_add_installation(l10n_mai);
+            manually_add_installation fm = new manually_add_installation(l10n_mai, RTL);
             fm.ShowDialog();
-            if(fm.shared_string != null)
+            if (fm.shared_string != null)
             {
                 SETTINGS temp = set.open_settings();
                 temp.manager_versions = set.update_manager_array(temp.manager_versions, fm.shared_string);
                 set.save_settings(temp);
                 update_selector();
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -93,7 +99,7 @@ namespace SI_GUI
 
             foreach (string s in array)
             {
-                string m = s.Replace("//","/");
+                string m = s.Replace("//", "/");
                 output += "del " + m + " /s /f /q" + Environment.NewLine;
                 output += "rd " + m + " /s /q" + Environment.NewLine;
             }
@@ -102,16 +108,16 @@ namespace SI_GUI
             try
             {
                 System.IO.File.WriteAllText(filename, output);
-               Process.Start(filename);
-                
+                Process.Start(filename);
+
             }
             catch (System.IO.DirectoryNotFoundException)
             {
-                MessageBox.Show(l10n[6],l10n[7] , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(l10n[6], l10n[7], MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (System.Security.SecurityException)
             {
-                MessageBox.Show(l10n[8],l10n[9] , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(l10n[8], l10n[9], MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -130,7 +136,7 @@ namespace SI_GUI
             SETTINGS sett = set.open_settings();
             sett.manager_versions = new_manager.ToArray();
             set.save_settings(sett);
-            
+
             update_selector();
         }
 

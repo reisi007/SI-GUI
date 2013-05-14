@@ -16,8 +16,10 @@ namespace SI_GUI
 {
     public partial class MassDL : Form
     {
-        public MassDL(string[] l10n, string[] version)
+        public MassDL(string[] l10n, string[] version, bool rtl)
         {
+            if (rtl)
+                RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             this.Text = l10n[0];
             okay.Text = l10n[1];
@@ -34,8 +36,8 @@ namespace SI_GUI
         private void versions_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Enable Okay, if any version is choosen
-                okay.Enabled = true;
-                getSelectedVersion = versions.SelectedItem.ToString();
+            okay.Enabled = true;
+            getSelectedVersion = versions.SelectedItem.ToString();
         }
     }
 }

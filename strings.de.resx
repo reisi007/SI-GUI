@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,344 +59,344 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="dirnotfound" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="dirnotfound" xml:space="preserve">
     <value>Verzeichis ist nicht vorhanden!</value>
   </data>
-  <data name="dirnotfoundmessage" xml:space="preserve">
+	<data name="dirnotfoundmessage" xml:space="preserve">
     <value>Bitte überprüfen Sie Ihr gewähltes Verzeichnis</value>
   </data>
-  <data name="Error" xml:space="preserve">
+	<data name="Error" xml:space="preserve">
     <value>Fehler!</value>
   </data>
-  <data name="filesave" xml:space="preserve">
+	<data name="filesave" xml:space="preserve">
     <value>Das Speichern der Datei war erfolgreich</value>
   </data>
-  <data name="go_back" xml:space="preserve">
+	<data name="go_back" xml:space="preserve">
     <value>Zurück?</value>
   </data>
-  <data name="help_runasadmin" xml:space="preserve">
+	<data name="help_runasadmin" xml:space="preserve">
     <value>Es könnte helfen das programm als Administrator auszuführen.</value>
   </data>
-  <data name="installerror" xml:space="preserve">
+	<data name="installerror" xml:space="preserve">
     <value>Die Installation konnte wegen folgendem Fehler nicht gestartet werden:</value>
   </data>
-  <data name="installnostart" xml:space="preserve">
+	<data name="installnostart" xml:space="preserve">
     <value>Installation konnte nicht gestartet werden!</value>
   </data>
-  <data name="no_installdir" xml:space="preserve">
+	<data name="no_installdir" xml:space="preserve">
     <value>Kein Installationsverzeichnis wurde ausgewählt</value>
   </data>
-  <data name="no_installfile" xml:space="preserve">
+	<data name="no_installfile" xml:space="preserve">
     <value>Normalerweise sollten Sie eine LibreOffice Installationsdatei auswählen.</value>
   </data>
-  <data name="si" xml:space="preserve">
+	<data name="si" xml:space="preserve">
     <value>Sicherheitsfehler</value>
   </data>
-  <data name="si_message" xml:space="preserve">
+	<data name="si_message" xml:space="preserve">
     <value>Sie haben nicht die Berechtigung in diesen Ordner zu schreiben.</value>
   </data>
-  <data name="standarderror" xml:space="preserve">
+	<data name="standarderror" xml:space="preserve">
     <value>Ein Fehler trat auf. Fehlermeldung:</value>
   </data>
-  <data name="title_filesave" xml:space="preserve">
+	<data name="title_filesave" xml:space="preserve">
     <value>Datei wurde erfolgreich gespeichert</value>
   </data>
-  <data name="warning" xml:space="preserve">
+	<data name="warning" xml:space="preserve">
     <value>Achtung!</value>
   </data>
-  <data name="de" xml:space="preserve">
+	<data name="de" xml:space="preserve">
     <value>Deutsch:</value>
   </data>
-  <data name="en" xml:space="preserve">
+	<data name="en" xml:space="preserve">
     <value>Englisch:</value>
   </data>
-  <data name="fr" xml:space="preserve">
+	<data name="fr" xml:space="preserve">
     <value>Französisch:</value>
   </data>
-  <data name="lang" xml:space="preserve">
+	<data name="lang" xml:space="preserve">
     <value>Sprache:</value>
   </data>
-  <data name="programmer" xml:space="preserve">
+	<data name="programmer" xml:space="preserve">
     <value>Programmierer:</value>
   </data>
-  <data name="translations" xml:space="preserve">
+	<data name="translations" xml:space="preserve">
     <value>--- Übersetzungen ---</value>
   </data>
-  <data name="translator" xml:space="preserve">
+	<data name="translator" xml:space="preserve">
     <value>Übersetzer:</value>
   </data>
-  <data name="about" xml:space="preserve">
+	<data name="about" xml:space="preserve">
     <value>Über / Sprache ändern</value>
   </data>
-  <data name="tt_tb" xml:space="preserve">
-    <value>Herunterladen der aktuellen Testversion.</value>
-  </data>
-  <data name="language_change_success" xml:space="preserve">
+	<data name="language_change_success" xml:space="preserve">
     <value>Die Spracheinstellungen werden beim nächsten Start des Programmes übernommen!</value>
   </data>
-  <data name="success" xml:space="preserve">
+	<data name="success" xml:space="preserve">
     <value>Erfolg!</value>
   </data>
-  <data name="tt_bootstrap" xml:space="preserve">
+	<data name="tt_bootstrap" xml:space="preserve">
     <value>Bitte ersetzen Sie die Zeile beginnend mit “UserInstallation=” mit der unten vorbereiteten Zeile, um die Überschreibung des Benutzerverzeichisses zu verhindern.</value>
   </data>
-  <data name="update_lang" xml:space="preserve">
+	<data name="update_lang" xml:space="preserve">
     <value>Sprache ändern:</value>
   </data>
-  <data name="versiondl" xml:space="preserve">
+	<data name="versiondl" xml:space="preserve">
     <value>Soll %version wirklich heruntergeladen werden?</value>
   </data>
-  <data name="open_help" xml:space="preserve">
+	<data name="open_help" xml:space="preserve">
     <value>LibreOffice Hilfeinstaller öffnen</value>
   </data>
-  <data name="config_installdir" xml:space="preserve">
+	<data name="config_installdir" xml:space="preserve">
     <value>Installationsverzeichnis auswählen</value>
   </data>
-  <data name="open_bootstrap_ini" xml:space="preserve">
+	<data name="open_bootstrap_ini" xml:space="preserve">
     <value>bootstrap.ini öffnen</value>
   </data>
-  <data name="edit_bs_ini" xml:space="preserve">
+	<data name="edit_bs_ini" xml:space="preserve">
     <value>botstrap.ini bearbeiten</value>
   </data>
-  <data name="progress" xml:space="preserve">
+	<data name="progress" xml:space="preserve">
     <value>Fortschritt:</value>
   </data>
-  <data name="open_bootstrap_title" xml:space="preserve">
+	<data name="open_bootstrap_title" xml:space="preserve">
     <value>bootstap.ini öffnen</value>
   </data>
-  <data name="open_installer" xml:space="preserve">
+	<data name="open_installer" xml:space="preserve">
     <value>LibreOffice Installationsdatei öffnen</value>
   </data>
-  <data name="startdl" xml:space="preserve">
+	<data name="startdl" xml:space="preserve">
     <value>Soll die Datei wirklich heruntergeladen werden?</value>
   </data>
-  <data name="start_install" xml:space="preserve">
+	<data name="start_install" xml:space="preserve">
     <value>Installation beginnen</value>
   </data>
-  <data name="where_to_install" xml:space="preserve">
+	<data name="where_to_install" xml:space="preserve">
     <value>Installationsverzeichnis auswählen</value>
   </data>
-  <data name="save_bootstrap_ini" xml:space="preserve">
+	<data name="save_bootstrap_ini" xml:space="preserve">
     <value>bootstrap.ini speichern</value>
   </data>
-  <data name="subfolder_do" xml:space="preserve">
+	<data name="subfolder_do" xml:space="preserve">
     <value>Soll ein Unterordner automatisch erzeugt werden? Name des Unterordners:</value>
   </data>
-  <data name="es" xml:space="preserve">
+	<data name="es" xml:space="preserve">
     <value>Spanisch:</value>
   </data>
-  <data name="sl" xml:space="preserve">
+	<data name="sl" xml:space="preserve">
     <value>Slowenisch:</value>
   </data>
-  <data name="da" xml:space="preserve">
+	<data name="da" xml:space="preserve">
     <value>Dänisch:</value>
   </data>
-  <data name="help" xml:space="preserve">
+	<data name="help" xml:space="preserve">
     <value>Hilfe</value>
   </data>
-  <data name="dl_finished" xml:space="preserve">
+	<data name="dl_finished" xml:space="preserve">
     <value>Das Herunterladen wurde abgeschlossen und die Datei ist für die Installation bereit.</value>
   </data>
-  <data name="dl_finished_title" xml:space="preserve">
+	<data name="dl_finished_title" xml:space="preserve">
     <value>Herunterladen abgeschlossen!</value>
   </data>
-  <data name="dl_started" xml:space="preserve">
+	<data name="dl_started" xml:space="preserve">
     <value>Das Herunterladen einer Datei wurde gestartet!</value>
   </data>
-  <data name="dl_started_title" xml:space="preserve">
+	<data name="dl_started_title" xml:space="preserve">
     <value>Herunterladen begonnen!</value>
   </data>
-  <data name="he" xml:space="preserve">
+	<data name="he" xml:space="preserve">
     <value>Hebräisch:</value>
   </data>
-  <data name="pt" xml:space="preserve">
+	<data name="pt" xml:space="preserve">
     <value>Portugiesisch:</value>
   </data>
-  <data name="error_langpack_nolang" xml:space="preserve">
+	<data name="error_langpack_nolang" xml:space="preserve">
     <value>Sie müssen zuerst eine Sprache auswählen, bevor Sie den Download starten können!</value>
   </data>
-  <data name="mai_abort" xml:space="preserve">
+	<data name="mai_abort" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="mai_config_path" xml:space="preserve">
+	<data name="mai_config_path" xml:space="preserve">
     <value>Pfad konfigurieren</value>
   </data>
-  <data name="mai_ok" xml:space="preserve">
+	<data name="mai_ok" xml:space="preserve">
     <value>Okay</value>
   </data>
-  <data name="mai_path_soffice" xml:space="preserve">
+	<data name="mai_path_soffice" xml:space="preserve">
     <value>Pfad zur soffice.exe der Parallelinstallation</value>
   </data>
-  <data name="mai_text" xml:space="preserve">
+	<data name="mai_text" xml:space="preserve">
     <value>Parallelinstallation manuell hinzufügen</value>
   </data>
-  <data name="man_addinstall" xml:space="preserve">
+	<data name="man_addinstall" xml:space="preserve">
     <value>Parallelinstallation manuell hinzufügen</value>
   </data>
-  <data name="man_del" xml:space="preserve">
+	<data name="man_del" xml:space="preserve">
     <value>Ausgewählte löschen</value>
   </data>
-  <data name="man_exit" xml:space="preserve">
+	<data name="man_exit" xml:space="preserve">
     <value>Schließen</value>
   </data>
-  <data name="man_title" xml:space="preserve">
+	<data name="man_title" xml:space="preserve">
     <value>Manager</value>
   </data>
-  <data name="ink_des" xml:space="preserve">
+	<data name="ink_des" xml:space="preserve">
     <value>Verknüpfung zur parallel installierten LibreOffice %version.</value>
   </data>
-  <data name="ink_error_1" xml:space="preserve">
+	<data name="ink_error_1" xml:space="preserve">
     <value>Es wurde keine Version angegeben.</value>
   </data>
-  <data name="tt_ink" xml:space="preserve">
+	<data name="tt_ink" xml:space="preserve">
     <value>Eine Verknüfung für diese parallel installierte Version erstellen</value>
   </data>
-  <data name="tt_path_to_exe" xml:space="preserve">
+	<data name="tt_path_to_exe" xml:space="preserve">
     <value>Pfad zur soffice.exe der parallelen Installation (Wird automatisch erzeugt)</value>
   </data>
-  <data name="b_create_shortcut" xml:space="preserve">
+	<data name="b_create_shortcut" xml:space="preserve">
     <value>Verknüpfung erstellen</value>
   </data>
-  <data name="msb_lnk_title" xml:space="preserve">
+	<data name="msb_lnk_title" xml:space="preserve">
     <value>Verknüpfung erstellt.</value>
   </data>
-  <data name="msb_lnk_txt" xml:space="preserve">
+	<data name="msb_lnk_txt" xml:space="preserve">
     <value>Die Verknüpfung wurde erfolgreich hergestellt.</value>
   </data>
-  <data name="nl" xml:space="preserve">
+	<data name="nl" xml:space="preserve">
     <value>Niederländisch:</value>
   </data>
-  <data name="s_version" xml:space="preserve">
+	<data name="s_version" xml:space="preserve">
     <value>Version:</value>
   </data>
-  <data name="s_and" xml:space="preserve">
+	<data name="s_and" xml:space="preserve">
     <value>und</value>
   </data>
-  <data name="notest_ti" xml:space="preserve">
+	<data name="notest_ti" xml:space="preserve">
     <value>Keine Testversion!</value>
   </data>
-  <data name="notest_txt" xml:space="preserve">
+	<data name="notest_txt" xml:space="preserve">
     <value>Momentan kann keine Testversion heruntergeladen werden.</value>
   </data>
-  <data name="m_l10n_dl" xml:space="preserve">
+	<data name="m_l10n_dl" xml:space="preserve">
     <value>&amp;Herunterladen</value>
   </data>
-  <data name="m_l10n_helppack" xml:space="preserve">
+	<data name="m_l10n_helppack" xml:space="preserve">
     <value>Offline &amp;Hilfe</value>
   </data>
-  <data name="m_l10n_installer" xml:space="preserve">
+	<data name="m_l10n_installer" xml:space="preserve">
     <value>&amp;Installationsdatei</value>
   </data>
-  <data name="m_l10n_lb" xml:space="preserve">
+	<data name="m_l10n_lb" xml:space="preserve">
     <value>&amp;Neueste Version</value>
   </data>
-  <data name="m_l10n_ob" xml:space="preserve">
+	<data name="m_l10n_ob" xml:space="preserve">
     <value>&amp;Ältere Version</value>
   </data>
-  <data name="m_l10n_t" xml:space="preserve">
+	<data name="m_l10n_t" xml:space="preserve">
     <value>&amp;Testversion</value>
   </data>
-  <data name="m_l10n_langhelptxt" xml:space="preserve">
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
     <value>Sprache (für Hilfe)</value>
   </data>
-  <data name="massdl_error" xml:space="preserve">
+	<data name="massdl_error" xml:space="preserve">
     <value>Das Herunterladen wurde abgebrochen!</value>
   </data>
-  <data name="abort" xml:space="preserve">
+	<data name="abort" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="massdl_l10n_title" xml:space="preserve">
+	<data name="massdl_l10n_title" xml:space="preserve">
     <value>Irgendeine Version von %product herunterladen !</value>
   </data>
-  <data name="massdl_l10n_which" xml:space="preserve">
+	<data name="massdl_l10n_which" xml:space="preserve">
     <value>Welche Version </value>
   </data>
-  <data name="okay" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
     <value>Okay</value>
   </data>
-  <data name="no_valid_filename_error_text" xml:space="preserve">
+	<data name="no_valid_filename_error_text" xml:space="preserve">
     <value>*.EXE Dateien können nicht parallel installiert werden!</value>
   </data>
-  <data name="no_valid_filename_error_title" xml:space="preserve">
+	<data name="no_valid_filename_error_title" xml:space="preserve">
     <value>Datei wird nicht unterstützt!</value>
   </data>
-  <data name="start_dl" xml:space="preserve">
+	<data name="start_dl" xml:space="preserve">
     <value>Herunterladen beginnen</value>
   </data>
-  <data name="gb_dl_begindl" xml:space="preserve">
+	<data name="gb_dl_begindl" xml:space="preserve">
     <value>Herunterladen beginnen</value>
   </data>
-  <data name="gb_dl_help" xml:space="preserve">
+	<data name="gb_dl_help" xml:space="preserve">
     <value>Offline-Hilfedateien</value>
   </data>
-  <data name="gb_dl_installer" xml:space="preserve">
+	<data name="gb_dl_installer" xml:space="preserve">
     <value>Hauptinstallationsdatei</value>
   </data>
-  <data name="gb_dl_update" xml:space="preserve">
+	<data name="gb_dl_update" xml:space="preserve">
     <value>Versionsliste aktualisieren</value>
   </data>
-  <data name="gb_parallel_install" xml:space="preserve">
+	<data name="gb_parallel_install" xml:space="preserve">
     <value>Parallelinstallation</value>
   </data>
-  <data name="any_libo_version" xml:space="preserve">
+	<data name="any_libo_version" xml:space="preserve">
     <value>Beliebige LibO Version</value>
   </data>
+	<data name="tt_tb" xml:space="preserve">
+		<value>Herunterladen der aktuellen Testversion.</value>
+	</data>
 </root>

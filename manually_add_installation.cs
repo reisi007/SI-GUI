@@ -22,8 +22,10 @@ namespace SI_GUI
     public partial class manually_add_installation : Form
     {
         public string[,] manually_added { get; private set; }
-        public manually_add_installation(string[] l10n)
+        public manually_add_installation(string[] l10n, bool rtl)
         {
+            if (rtl)
+                RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             this.l10n = l10n;
         }

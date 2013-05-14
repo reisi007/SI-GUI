@@ -862,15 +862,6 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Latest testing build..
-        /// </summary>
-        internal static string tt_tb {
-            get {
-                return ResourceManager.GetString("tt_tb", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Change language:.
         /// </summary>
         internal static string update_lang {

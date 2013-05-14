@@ -114,7 +114,7 @@
             this.b_open_libo_installer.ForeColor = System.Drawing.SystemColors.ControlText;
             this.b_open_libo_installer.Location = new System.Drawing.Point(6, 19);
             this.b_open_libo_installer.Name = "b_open_libo_installer";
-            this.b_open_libo_installer.Size = new System.Drawing.Size(206, 23);
+            this.b_open_libo_installer.Size = new System.Drawing.Size(198, 23);
             this.b_open_libo_installer.TabIndex = 0;
             this.b_open_libo_installer.Text = "Open LibreOffice installer";
             this.b_open_libo_installer.UseVisualStyleBackColor = true;
@@ -124,10 +124,10 @@
             // 
             this.path_main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_main.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_main.Location = new System.Drawing.Point(218, 19);
+            this.path_main.Location = new System.Drawing.Point(209, 19);
             this.path_main.Name = "path_main";
             this.path_main.ReadOnly = true;
-            this.path_main.Size = new System.Drawing.Size(183, 20);
+            this.path_main.Size = new System.Drawing.Size(192, 20);
             this.path_main.TabIndex = 1;
             this.path_main.TextChanged += new System.EventHandler(this.validate_filename);
             // 
@@ -135,10 +135,10 @@
             // 
             this.path_help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_help.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_help.Location = new System.Drawing.Point(217, 53);
+            this.path_help.Location = new System.Drawing.Point(209, 53);
             this.path_help.Name = "path_help";
             this.path_help.ReadOnly = true;
-            this.path_help.Size = new System.Drawing.Size(183, 20);
+            this.path_help.Size = new System.Drawing.Size(191, 20);
             this.path_help.TabIndex = 3;
             this.path_help.TextChanged += new System.EventHandler(this.validate_filename);
             // 
@@ -148,7 +148,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(5, 51);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(206, 23);
+            this.button2.Size = new System.Drawing.Size(199, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Open LibreOffice help";
             this.button2.UseVisualStyleBackColor = true;
@@ -185,7 +185,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button3.Location = new System.Drawing.Point(5, 80);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(207, 23);
+            this.button3.Size = new System.Drawing.Size(199, 23);
             this.button3.TabIndex = 5;
             this.button3.Text = "Configure installation directory";
             this.button3.UseVisualStyleBackColor = true;
@@ -195,10 +195,10 @@
             // 
             this.path_installdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.path_installdir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_installdir.Location = new System.Drawing.Point(218, 83);
+            this.path_installdir.Location = new System.Drawing.Point(209, 83);
             this.path_installdir.Name = "path_installdir";
             this.path_installdir.ReadOnly = true;
-            this.path_installdir.Size = new System.Drawing.Size(183, 20);
+            this.path_installdir.Size = new System.Drawing.Size(192, 20);
             this.path_installdir.TabIndex = 6;
             this.path_installdir.TextChanged += new System.EventHandler(this.savesettings);
             // 
@@ -207,7 +207,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button4.Location = new System.Drawing.Point(5, 19);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(178, 23);
+            this.button4.Size = new System.Drawing.Size(159, 23);
             this.button4.TabIndex = 7;
             this.button4.Text = "Open bootstap.ini";
             this.button4.UseVisualStyleBackColor = true;
@@ -217,10 +217,10 @@
             // 
             this.bootstrap_text.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.bootstrap_text.Location = new System.Drawing.Point(6, 74);
+            this.bootstrap_text.Location = new System.Drawing.Point(9, 74);
             this.bootstrap_text.Multiline = true;
             this.bootstrap_text.Name = "bootstrap_text";
-            this.bootstrap_text.Size = new System.Drawing.Size(368, 141);
+            this.bootstrap_text.Size = new System.Drawing.Size(361, 141);
             this.bootstrap_text.TabIndex = 8;
             // 
             // open_bootstrap
@@ -234,9 +234,9 @@
             this.save_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.save_file.Enabled = false;
             this.save_file.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.save_file.Location = new System.Drawing.Point(184, 19);
+            this.save_file.Location = new System.Drawing.Point(170, 19);
             this.save_file.Name = "save_file";
-            this.save_file.Size = new System.Drawing.Size(190, 23);
+            this.save_file.Size = new System.Drawing.Size(200, 23);
             this.save_file.TabIndex = 9;
             this.save_file.Text = "Save bootstap.ini";
             this.save_file.UseVisualStyleBackColor = true;
@@ -250,7 +250,7 @@
             this.bootinipath.Location = new System.Drawing.Point(6, 48);
             this.bootinipath.Name = "bootinipath";
             this.bootinipath.ReadOnly = true;
-            this.bootinipath.Size = new System.Drawing.Size(369, 20);
+            this.bootinipath.Size = new System.Drawing.Size(365, 20);
             this.bootinipath.TabIndex = 10;
             // 
             // userinstallation
@@ -258,10 +258,10 @@
             this.userinstallation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.userinstallation.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.userinstallation.Location = new System.Drawing.Point(5, 221);
+            this.userinstallation.Location = new System.Drawing.Point(5, 222);
             this.userinstallation.Name = "userinstallation";
             this.userinstallation.ReadOnly = true;
-            this.userinstallation.Size = new System.Drawing.Size(369, 20);
+            this.userinstallation.Size = new System.Drawing.Size(365, 20);
             this.userinstallation.TabIndex = 11;
             this.userinstallation.Text = "UserInstallation=$ORIGIN/..";
             this.userinstallation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -270,9 +270,9 @@
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(277, 377);
+            this.progressBar1.Location = new System.Drawing.Point(277, 378);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(474, 23);
+            this.progressBar1.Size = new System.Drawing.Size(467, 23);
             this.progressBar1.TabIndex = 14;
             // 
             // label2
@@ -281,7 +281,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(220, 385);
+            this.label2.Location = new System.Drawing.Point(220, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 15;
@@ -289,15 +289,17 @@
             // 
             // gb_bootstrap
             // 
+            this.gb_bootstrap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_bootstrap.Controls.Add(this.button4);
             this.gb_bootstrap.Controls.Add(this.save_file);
             this.gb_bootstrap.Controls.Add(this.bootinipath);
             this.gb_bootstrap.Controls.Add(this.userinstallation);
             this.gb_bootstrap.Controls.Add(this.bootstrap_text);
             this.gb_bootstrap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gb_bootstrap.Location = new System.Drawing.Point(428, 122);
+            this.gb_bootstrap.Location = new System.Drawing.Point(426, 27);
             this.gb_bootstrap.Name = "gb_bootstrap";
-            this.gb_bootstrap.Size = new System.Drawing.Size(380, 247);
+            this.gb_bootstrap.Size = new System.Drawing.Size(376, 248);
             this.gb_bootstrap.TabIndex = 16;
             this.gb_bootstrap.TabStop = false;
             this.gb_bootstrap.Text = "Edit bootdtrap.ini";
@@ -319,7 +321,7 @@
             this.percent.AutoSize = true;
             this.percent.BackColor = System.Drawing.Color.Transparent;
             this.percent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent.Location = new System.Drawing.Point(757, 385);
+            this.percent.Location = new System.Drawing.Point(757, 386);
             this.percent.Name = "percent";
             this.percent.Size = new System.Drawing.Size(45, 13);
             this.percent.TabIndex = 18;
@@ -370,7 +372,7 @@
             // 
             this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.version.AutoSize = true;
-            this.version.Location = new System.Drawing.Point(8, 385);
+            this.version.Location = new System.Drawing.Point(8, 386);
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(188, 13);
             this.version.TabIndex = 32;
@@ -384,7 +386,7 @@
             this.path_to_exe.Location = new System.Drawing.Point(5, 23);
             this.path_to_exe.Name = "path_to_exe";
             this.path_to_exe.ReadOnly = true;
-            this.path_to_exe.Size = new System.Drawing.Size(157, 20);
+            this.path_to_exe.Size = new System.Drawing.Size(153, 20);
             this.path_to_exe.TabIndex = 33;
             this.path_to_exe.TextChanged += new System.EventHandler(this.savesettings);
             // 
@@ -392,7 +394,7 @@
             // 
             this.tb_version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_version.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tb_version.Location = new System.Drawing.Point(219, 23);
+            this.tb_version.Location = new System.Drawing.Point(215, 23);
             this.tb_version.Name = "tb_version";
             this.tb_version.Size = new System.Drawing.Size(154, 20);
             this.tb_version.TabIndex = 34;
@@ -401,7 +403,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(168, 26);
+            this.label1.Location = new System.Drawing.Point(164, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 35;
@@ -413,7 +415,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.create_lnk.Location = new System.Drawing.Point(6, 58);
             this.create_lnk.Name = "create_lnk";
-            this.create_lnk.Size = new System.Drawing.Size(368, 24);
+            this.create_lnk.Size = new System.Drawing.Size(364, 24);
             this.create_lnk.TabIndex = 36;
             this.create_lnk.Text = "Create shortcut";
             this.create_lnk.UseVisualStyleBackColor = true;
@@ -428,7 +430,7 @@
             this.m_about});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(820, 24);
+            this.menu.Size = new System.Drawing.Size(813, 24);
             this.menu.TabIndex = 37;
             this.menu.Text = "menuStrip1";
             // 
@@ -554,12 +556,13 @@
             // m_item_hplang_tb
             // 
             this.m_item_hplang_tb.Name = "m_item_hplang_tb";
+            this.m_item_hplang_tb.ReadOnly = true;
             this.m_item_hplang_tb.Size = new System.Drawing.Size(120, 23);
             this.m_item_hplang_tb.Text = "Language (help)";
-            this.m_item_hplang_tb.TextChanged += new System.EventHandler(this.m_item_hplang_tb_TextChanged);
             // 
             // m_hp_lang
             // 
+            this.m_hp_lang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.m_hp_lang.Items.AddRange(new object[] {
             "ast",
             "bg",
@@ -645,14 +648,16 @@
             // 
             // gb_download
             // 
+            this.gb_download.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_download.Controls.Add(this.start_dl);
             this.gb_download.Controls.Add(this.update_versions);
             this.gb_download.Controls.Add(this.cb_help);
             this.gb_download.Controls.Add(this.cb_installer);
             this.gb_download.Controls.Add(this.dl_versions);
-            this.gb_download.Location = new System.Drawing.Point(15, 28);
+            this.gb_download.Location = new System.Drawing.Point(15, 27);
             this.gb_download.Name = "gb_download";
-            this.gb_download.Size = new System.Drawing.Size(407, 88);
+            this.gb_download.Size = new System.Drawing.Size(403, 89);
             this.gb_download.TabIndex = 38;
             this.gb_download.TabStop = false;
             this.gb_download.Text = "Download";
@@ -661,9 +666,9 @@
             // 
             this.start_dl.AutoEllipsis = true;
             this.start_dl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start_dl.Location = new System.Drawing.Point(207, 13);
+            this.start_dl.Location = new System.Drawing.Point(206, 60);
             this.start_dl.Name = "start_dl";
-            this.start_dl.Size = new System.Drawing.Size(192, 23);
+            this.start_dl.Size = new System.Drawing.Size(195, 23);
             this.start_dl.TabIndex = 4;
             this.start_dl.Text = "Begin download";
             this.start_dl.UseVisualStyleBackColor = true;
@@ -671,9 +676,9 @@
             // 
             // update_versions
             // 
-            this.update_versions.Location = new System.Drawing.Point(5, 53);
+            this.update_versions.Location = new System.Drawing.Point(206, 19);
             this.update_versions.Name = "update_versions";
-            this.update_versions.Size = new System.Drawing.Size(196, 23);
+            this.update_versions.Size = new System.Drawing.Size(195, 23);
             this.update_versions.TabIndex = 3;
             this.update_versions.Text = "Update list of versions";
             this.update_versions.UseVisualStyleBackColor = true;
@@ -684,7 +689,7 @@
             this.cb_help.AutoSize = true;
             this.cb_help.Checked = true;
             this.cb_help.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_help.Location = new System.Drawing.Point(207, 65);
+            this.cb_help.Location = new System.Drawing.Point(7, 70);
             this.cb_help.Name = "cb_help";
             this.cb_help.Size = new System.Drawing.Size(79, 17);
             this.cb_help.TabIndex = 2;
@@ -697,7 +702,7 @@
             this.cb_installer.AutoSize = true;
             this.cb_installer.Checked = true;
             this.cb_installer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_installer.Location = new System.Drawing.Point(207, 42);
+            this.cb_installer.Location = new System.Drawing.Point(7, 47);
             this.cb_installer.Name = "cb_installer";
             this.cb_installer.Size = new System.Drawing.Size(62, 17);
             this.cb_installer.TabIndex = 1;
@@ -707,6 +712,7 @@
             // 
             // dl_versions
             // 
+            this.dl_versions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dl_versions.FormattingEnabled = true;
             this.dl_versions.Location = new System.Drawing.Point(7, 20);
             this.dl_versions.Name = "dl_versions";
@@ -716,19 +722,23 @@
             // 
             // gb_create_lnk
             // 
+            this.gb_create_lnk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_create_lnk.Controls.Add(this.path_to_exe);
             this.gb_create_lnk.Controls.Add(this.create_lnk);
             this.gb_create_lnk.Controls.Add(this.tb_version);
             this.gb_create_lnk.Controls.Add(this.label1);
-            this.gb_create_lnk.Location = new System.Drawing.Point(428, 28);
+            this.gb_create_lnk.Location = new System.Drawing.Point(429, 281);
             this.gb_create_lnk.Name = "gb_create_lnk";
-            this.gb_create_lnk.Size = new System.Drawing.Size(380, 88);
+            this.gb_create_lnk.Size = new System.Drawing.Size(376, 88);
             this.gb_create_lnk.TabIndex = 39;
             this.gb_create_lnk.TabStop = false;
             this.gb_create_lnk.Text = "Create shortcut";
             // 
             // gb_installation
             // 
+            this.gb_installation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_installation.Controls.Add(this.start_install);
             this.gb_installation.Controls.Add(this.b_open_libo_installer);
             this.gb_installation.Controls.Add(this.path_main);
@@ -740,9 +750,9 @@
             this.gb_installation.Controls.Add(this.button3);
             this.gb_installation.Controls.Add(this.path_installdir);
             this.gb_installation.Controls.Add(this.path_to_file_on_disk);
-            this.gb_installation.Location = new System.Drawing.Point(15, 122);
+            this.gb_installation.Location = new System.Drawing.Point(16, 122);
             this.gb_installation.Name = "gb_installation";
-            this.gb_installation.Size = new System.Drawing.Size(407, 247);
+            this.gb_installation.Size = new System.Drawing.Size(403, 247);
             this.gb_installation.TabIndex = 12;
             this.gb_installation.TabStop = false;
             this.gb_installation.Text = "Parallel installation";
@@ -751,7 +761,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 407);
+            this.ClientSize = new System.Drawing.Size(813, 408);
             this.Controls.Add(this.gb_installation);
             this.Controls.Add(this.gb_create_lnk);
             this.Controls.Add(this.gb_download);
@@ -764,8 +774,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(836, 445);
-            this.MinimumSize = new System.Drawing.Size(836, 445);
+            this.MaximumSize = new System.Drawing.Size(829, 446);
+            this.MinimumSize = new System.Drawing.Size(829, 446);
             this.Name = "Form1";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Installation GUI";

@@ -55,9 +55,9 @@ namespace SI_GUI
             }
             try
             {
-                percentage = 100f* sum_current / sum_total;
+                percentage = 100f * sum_current / sum_total;
                 progressBar1.Value = (int)(percentage * 100);
-                percent.Text = Math.Round(percentage,2).ToString() + " %";
+                percent.Text = Math.Round(percentage, 2).ToString() + " %";
             }
             catch (Exception) { }
         }
@@ -82,7 +82,7 @@ namespace SI_GUI
             give_message.Text = "LibreOffice Server Installation GUI";
         #endregion
         }
-           
+
 
         #region Download of Master, Testing, Latest as well as Older branch
         public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch)
@@ -270,7 +270,7 @@ namespace SI_GUI
                         // Old format
                         httpfile = httpfile.Replace("install_all_lang", "helppack_" + m_hp_lang.SelectedItem.ToString());
                     }
-                    else if(httpfile.Contains("install_multi"))
+                    else if (httpfile.Contains("install_multi"))
                     {
                         // Newer format
                         httpfile = httpfile.Replace("install_multi", "helpppack_" + m_hp_lang.SelectedItem.ToString());
@@ -311,34 +311,34 @@ namespace SI_GUI
             }
             return httpfile;
         }
-        private string[] getLibO_List_of_DL( )
+        private string[] getLibO_List_of_DL()
         {
             string link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
             List<string> versions = new List<string>();
             string httpfile = httpfile = downloadfile(link), tmp;
             int i;
             bool goon = true;
-                // Get the version numbers of LibreOffice
-                i = httpfile.IndexOf("Details") + 7;
-                httpfile = httpfile.Remove(0, i);
-                i = httpfile.IndexOf("latest");
-                httpfile = httpfile.Remove(i);
-                while (goon)
+            // Get the version numbers of LibreOffice
+            i = httpfile.IndexOf("Details") + 7;
+            httpfile = httpfile.Remove(0, i);
+            i = httpfile.IndexOf("latest");
+            httpfile = httpfile.Remove(i);
+            while (goon)
+            {
+                try
                 {
-                    try
-                    {
-                        i = httpfile.IndexOf("href");
-                        httpfile = httpfile.Remove(0, i);
-                        i = httpfile.IndexOf(">") + 1;
-                        httpfile = httpfile.Remove(0, i);
-                        i = httpfile.IndexOf("<") - 1;
-                        tmp = httpfile.Remove(i);
-                        versions.Add(tmp);
-                    }
-                    catch (System.ArgumentOutOfRangeException)
-                    { goon = false; }
+                    i = httpfile.IndexOf("href");
+                    httpfile = httpfile.Remove(0, i);
+                    i = httpfile.IndexOf(">") + 1;
+                    httpfile = httpfile.Remove(0, i);
+                    i = httpfile.IndexOf("<") - 1;
+                    tmp = httpfile.Remove(i);
+                    versions.Add(tmp);
                 }
-                    return versions.ToArray();
+                catch (System.ArgumentOutOfRangeException)
+                { goon = false; }
+            }
+            return versions.ToArray();
         }
 
 
@@ -352,7 +352,7 @@ namespace SI_GUI
             string[] versions = new string[1];
             if (libo)
             {
-              versions = getLibO_List_of_DL();
+                versions = getLibO_List_of_DL();
             }
             else
             {
@@ -363,9 +363,9 @@ namespace SI_GUI
             if (goon)
             {
                 // Specify the link to the folder, where the release is
-                
 
-                download_any_version(get_final_link(libo,httpfile), hp, libo);
+
+                download_any_version(get_final_link(libo, httpfile), hp, libo);
             }
             else
             { exeptionmessage(getstring("massdl_error")); }

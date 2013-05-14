@@ -23,8 +23,10 @@ namespace SI_GUI
     public partial class Form2 : Form
     {
         access_settings set = new access_settings();
-        public Form2(string[] l10n)
+        public Form2(string[] l10n, bool rtl)
         {
+            if (rtl)
+                RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             this.l10n = l10n;
         }

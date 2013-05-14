@@ -304,4 +304,76 @@
 	<data name="nl" xml:space="preserve">
 		<value>הולנדית;</value>
 	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>גרסה:</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>וגם</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>אין גרסת ניסוי!</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>אף גרסת ניסוי אינה זמינה כרגע.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>הו&amp;רדה</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>&amp;חבילת עזרה</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;תכנית התקנה</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>הענף ה&amp;עדכני ביותר</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>הענק הע&amp;תיק ביותר</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>בנייה &amp;ניסיונית</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>שפה (עזרה):</value>
+	</data>
+	<data name="abort" xml:space="preserve">
+		<value>ביטול</value>
+	</data>
+	<data name="massdl_l10n_title" xml:space="preserve">
+		<value>להוריד כל גרסה שהיא של %product !</value>
+	</data>
+	<data name="massdl_l10n_which" xml:space="preserve">
+		<value>איזו גרסה יש להוריד?</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>בסדר</value>
+	</data>
+	<data name="no_valid_filename_error_text" xml:space="preserve">
+		<value>אין תמיכה בהתקנת קובצי ‎*.EXE!</value>
+	</data>
+	<data name="no_valid_filename_error_title" xml:space="preserve">
+		<value>הקובץ אינו נתמך!</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>להתחיל בהורדה</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>עזרה בלתי מקוונת</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>תכנית התקנה</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>עדכון רשימת הגרסאות</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>התקנה במקביל</value>
+	</data>
+	<data name="massdl_error" xml:space="preserve">
+		<value>ההורדה בוטלה!</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>כל הגרסאות של LibO</value>
+	</data>
 </root>

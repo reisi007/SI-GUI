@@ -190,13 +190,13 @@
     <value>Dernière version de test.</value>
   </data>
 	<data name="language_change_success" xml:space="preserve">
-    <value>Les paramètres de langue s'appliqueront au prochaine démarrage !</value>
+    <value>Les paramètres de langue s'appliqueront au prochain démarrage !</value>
   </data>
 	<data name="success" xml:space="preserve">
     <value>Installation réussie !</value>
   </data>
 	<data name="tt_bootstrap" xml:space="preserve">
-    <value>Vous devrier utiliser la ligne suivante au lieu de celle commençant par “UserInstallation=” dans le champ texte ci-dessous afin de ne pas écraser le profil utilisateur existant .</value>
+    <value>Vous devriez utiliser la ligne suivante au lieu de celle commençant par “UserInstallation=” dans le champ texte ci-dessous afin de ne pas écraser le profil utilisateur existant.</value>
   </data>
 	<data name="update_lang" xml:space="preserve">
     <value>Changer de langue :</value>
@@ -220,7 +220,7 @@
     <value>Progression :</value>
   </data>
 	<data name="open_bootstrap_title" xml:space="preserve">
-    <value>Ouvrir bootstap.ini</value>
+    <value>Ouvrir bootstrap.ini</value>
   </data>
 	<data name="open_installer" xml:space="preserve">
     <value>Ouvrir l'installeur LibreOffice</value>
@@ -245,5 +245,158 @@
 	</data>
 	<data name="subfolder_do" xml:space="preserve">
 		<value>Un sous-dossier doit-il automatiquement être créé ? Nom du sous-dossier :</value>
+	</data>
+	<data name="da" xml:space="preserve">
+		<value>Danois :</value>
+	</data>
+	<data name="help" xml:space="preserve">
+		<value>Aide</value>
+	</data>
+	<data name="dl_finished" xml:space="preserve">
+		<value>Le téléchargement est terminé et est prêt pour l'installation</value>
+	</data>
+	<data name="dl_finished_title" xml:space="preserve">
+		<value>Téléchargement terminé</value>
+	</data>
+	<data name="dl_started" xml:space="preserve">
+		<value>Un téléchargement a été démarré :</value>
+	</data>
+	<data name="dl_started_title" xml:space="preserve">
+		<value>Téléchargement démarré :</value>
+	</data>
+	<data name="he" xml:space="preserve">
+		<value>Hébreu:</value>
+	</data>
+	<data name="pt" xml:space="preserve">
+		<value>Portugais :</value>
+	</data>
+	<data name="error_langpack_nolang" xml:space="preserve">
+		<value>Vous devez choisir une langue avant de démarrer le téléchargement !</value>
+	</data>
+	<data name="mai_abort" xml:space="preserve">
+		<value>Abandonner</value>
+	</data>
+	<data name="mai_config_path" xml:space="preserve">
+		<value>Configurer le chemin</value>
+	</data>
+	<data name="mai_ok" xml:space="preserve">
+		<value>Okay</value>
+	</data>
+	<data name="mai_path_soffice" xml:space="preserve">
+		<value>Chemin vers le soffice.exe de l'installation parallèle</value>
+	</data>
+	<data name="mai_text" xml:space="preserve">
+		<value>Ajouter manuellement une installation parallèle</value>
+	</data>
+	<data name="man_addinstall" xml:space="preserve">
+		<value>Ajouter manuellement une installation</value>
+	</data>
+	<data name="man_del" xml:space="preserve">
+		<value>Supprimer sélectionné</value>
+	</data>
+	<data name="man_exit" xml:space="preserve">
+		<value>Quitter</value>
+	</data>
+	<data name="man_title" xml:space="preserve">
+		<value>Gérer</value>
+	</data>
+	<data name="ink_des" xml:space="preserve">
+		<value>Raccourci vers LibreOffice %version installée </value>
+	</data>
+	<data name="ink_error_1" xml:space="preserve">
+		<value>Pas de version indiquée !</value>
+	</data>
+	<data name="tt_ink" xml:space="preserve">
+		<value>Créer un raccourci sur le bureau pour cette installation parallèle</value>
+	</data>
+	<data name="tt_path_to_exe" xml:space="preserve">
+		<value>Chemin vers le soffice.exe de l'installation parallèle (ajouté automatiquement)</value>
+	</data>
+	<data name="b_create_shortcut" xml:space="preserve">
+		<value>Créer un raccourci</value>
+	</data>
+	<data name="msb_lnk_title" xml:space="preserve">
+		<value>Raccourci créé !</value>
+	</data>
+	<data name="msb_lnk_txt" xml:space="preserve">
+		<value>Le raccourci a été créé avec succès !</value>
+	</data>
+	<data name="nl" xml:space="preserve">
+		<value>Hollandais :</value>
+	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>Version :</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>et</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>Aucune version de test !</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>Aucune version de test actuellement disponible.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>&amp;Télécharger</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>&amp;Aide</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;Installeur</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>&amp;Dernière branche</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>&amp;Ancienne branch</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>&amp;Version de test</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Langue (Aide)</value>
+	</data>
+	<data name="abort" xml:space="preserve">
+		<value>Abandonner</value>
+	</data>
+	<data name="massdl_l10n_title" xml:space="preserve">
+		<value>Télécharger toute version de %product !</value>
+	</data>
+	<data name="massdl_l10n_which" xml:space="preserve">
+		<value>Quelle version doit être téléchargée ?</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>Okay</value>
+	</data>
+	<data name="no_valid_filename_error_text" xml:space="preserve">
+		<value>Les fichiers *.EXE ne sont pas pris en charge par l'installation !</value>
+	</data>
+	<data name="no_valid_filename_error_title" xml:space="preserve">
+		<value>Fichier non pris en charge !</value>
+	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>Démarrer le téléchargement</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>Démarrer le téléchargement</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>Aide</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>Installeur</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>Actualiser la liste des versions</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>Installation parallèle</value>
+	</data>
+	<data name="massdl_error" xml:space="preserve">
+		<value>Le téléchargement a été abandonné !</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>Toutes versions LibO</value>
 	</data>
 </root>

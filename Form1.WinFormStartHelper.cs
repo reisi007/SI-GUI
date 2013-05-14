@@ -21,7 +21,7 @@ namespace SI_GUI
             l10n[0] = getstring("standarderror");
             l10n[1] = getstring("Error");
             l10n[2] = getstring("help");
-            Form3 fm = new Form3(l10n);
+            Form3 fm = new Form3(l10n, rtl_layout);
             fm.ShowDialog();
         }
         // Opens manager
@@ -46,7 +46,7 @@ namespace SI_GUI
             l10n_mai[4] = getstring("mai_text");
             l10n_mai[5] = getstring("mai_ok");
             l10n_mai[6] = getstring("mai_abort");
-            Manager window = new Manager(l10n_manager, l10n_mai);
+            Manager window = new Manager(l10n_manager, l10n_mai, rtl_layout);
             window.ShowDialog();
         }
 
@@ -73,7 +73,7 @@ namespace SI_GUI
             l10n[16] = getstring("Error");
             l10n[17] = getstring("language_change_success");
             l10n[18] = getstring("success");
-            Form2 fm = new Form2(l10n);
+            Form2 fm = new Form2(l10n, rtl_layout);
             fm.ShowDialog();
         }
 
@@ -92,7 +92,7 @@ namespace SI_GUI
             l10n[2] = getstring("abort");
             DialogResult dl;
             goon = true;
-            MassDL mb = new MassDL(l10n, versions);
+            MassDL mb = new MassDL(l10n, versions, rtl_layout);
             dl = mb.ShowDialog();
             if (dl != System.Windows.Forms.DialogResult.OK)
                 goon = false;

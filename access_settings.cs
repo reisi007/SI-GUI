@@ -18,7 +18,7 @@ namespace SI_GUI
 {
     class access_settings
     {
-      public SETTINGS  open_settings()
+        public SETTINGS open_settings()
         {
             SETTINGS value = new SETTINGS();
             try
@@ -31,20 +31,21 @@ namespace SI_GUI
             catch (Exception ex)
             {
 #if DEBUG
-MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
 #endif
+                save_settings(new SETTINGS());
             }
             return value;
         }
-      private string getpath()
-      {
-          return  Path.GetTempPath() + "libosigui.configuration";
-          
-      }
-      public string program_version()
-      { return "4.0.3.5"; }
+        private string getpath()
+        {
+            return Path.GetTempPath() + "libosigui.configuration";
 
-      public void  save_settings(SETTINGS set)
+        }
+        public string program_version()
+        { return "4.0.3.5"; }
+
+        public void save_settings(SETTINGS set)
         {
             try
             {
@@ -59,24 +60,24 @@ MessageBox.Show(ex.Message);
                 MessageBox.Show(ex.Message);
 #endif
             }
-    }
-      public string[] update_manager_array(string[] old_array, string toadd)
-      {
-          int arrylength = 1;
-          if(old_array != null) 
-           arrylength = old_array.Length + 1;
-               string[] new_array = new string[arrylength];
-               if (old_array != null)
-               {
-                   for (int i = 0; i <= (arrylength - 2); i++)
-                   {
-                       new_array[i] = old_array[i];
-                      
-                   }
-               }
-          new_array[arrylength - 1] = toadd;
-          return new_array;
-      }
+        }
+        public string[] update_manager_array(string[] old_array, string toadd)
+        {
+            int arrylength = 1;
+            if (old_array != null)
+                arrylength = old_array.Length + 1;
+            string[] new_array = new string[arrylength];
+            if (old_array != null)
+            {
+                for (int i = 0; i <= (arrylength - 2); i++)
+                {
+                    new_array[i] = old_array[i];
+
+                }
+            }
+            new_array[arrylength - 1] = toadd;
+            return new_array;
+        }
     }
 }
 public class SETTINGS
@@ -130,17 +131,18 @@ public class LINK
             if (version == null || version == "")
                 throw new Exception(getstring("ink_error_1"));
             WshShell wsh = new WshShell();
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) , "LibO Parallel " + version + ".lnk");
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "LibO Parallel " + version + ".lnk");
             IWshShortcut shortcut = (IWshShortcut)wsh.CreateShortcut(@path);
             string des = getstring("ink_des");
-            des = des.Replace("%version",version);
+            des = des.Replace("%version", version);
             shortcut.Description = des;
             shortcut.TargetPath = link_to_exe;
             shortcut.Save();
         }
         catch (Exception ex)
-        { exeptionmessage(ex.Message);
-        ok = false;
+        {
+            exeptionmessage(ex.Message);
+            ok = false;
         }
         if (ok)
             MessageBox.Show(getstring("msb_lnk_txt"), getstring("msb_lnk_title"), MessageBoxButtons.OK);

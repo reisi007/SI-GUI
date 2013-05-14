@@ -22,10 +22,11 @@ namespace SI_GUI
 {
     public partial class Form3 : Form
     {
-        ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         access_settings set = new access_settings();
-        public Form3(string[] l10n)
+        public Form3(string[] l10n, bool rtl)
         {
+            if (rtl)
+                RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             this.l10n = l10n;
         }
@@ -34,7 +35,7 @@ namespace SI_GUI
         {
             MessageBox.Show(l10n[0] + ex_message, l10n[1], MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
+
         private void form3load(object sender, EventArgs e)
         {
             this.Text = l10n[2];

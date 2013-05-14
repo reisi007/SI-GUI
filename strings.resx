@@ -186,9 +186,6 @@
 	<data name="about" xml:space="preserve">
     <value>About / Change language</value>
   </data>
-	<data name="tt_tb" xml:space="preserve">
-    <value>Latest testing build.</value>
-  </data>
 	<data name="language_change_success" xml:space="preserve">
     <value>The language setting will apply at the next startup!</value>
   </data>
@@ -399,4 +396,7 @@
 	<data name="any_libo_version" xml:space="preserve">
     <value>All LibO versions</value>
   </data>
+	<data name="tt_tb" xml:space="preserve">
+		<value>Latest testing build.</value>
+	</data>
 </root>

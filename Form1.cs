@@ -24,10 +24,9 @@ using System.Xml.Serialization;
 
 namespace SI_GUI
 {
-
-
     public partial class Form1 : Form
     {
+        private bool rtl_layout = false;
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         public Form1()
@@ -44,13 +43,14 @@ namespace SI_GUI
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
 
                 if (rtl.Contains(lang))
-                    this.RightToLeftLayout = true;
-
+                    rtl_layout = true;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
-
+            if (rtl_layout)
+                RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
+
         }
 
 
@@ -107,7 +107,7 @@ namespace SI_GUI
             m_t_i.Text = installer;
             m_liball_i.Text = installer;
             m_dl.Text = getstring("m_l10n_dl");
-            gb_download.Text = m_dl.Text.Remove(m_dl.Text.IndexOf("&"),1);
+            gb_download.Text = m_dl.Text.Remove(m_dl.Text.IndexOf("&"), 1);
             gb_create_lnk.Text = create_lnk.Text;
             start_dl.Text = getstring("gb_dl_begindl");
             cb_installer.Text = getstring("gb_dl_installer");
@@ -115,23 +115,18 @@ namespace SI_GUI
             update_versions.Text = getstring("gb_dl_update");
             gb_installation.Text = getstring("gb_parallel_install");
             m_item_all_libo.Text = getstring("any_libo_version");
+            dl_versions.Text = getstring("s_version").Remove(getstring("s_version").Length - 1);
+            m_hp_lang.Text = getstring("lang") + " " + getstring("gb_dl_help");
+
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
 
             // Start Setting tooltips
-            ToolTip ink = new ToolTip();
-            ToolTip bootstrapini = new ToolTip();
-            ToolTip pathtoexe = new ToolTip();
-            string bootstrap = getstring("tt_bootstrap");
-            ink.SetToolTip(this.create_lnk, getstring("tt_ink"));
-            bootstrapini.SetToolTip(this.bootstrap_text, bootstrap);
-            pathtoexe.SetToolTip(this.path_to_exe, getstring("tt_path_to_exe"));
-            bootstrapini.ShowAlways = true;
-            pathtoexe.ShowAlways = true;
-            ink.IsBalloon = true;
-            bootstrapini.IsBalloon = true;
-            pathtoexe.IsBalloon = true;
+
+            ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
+            ToolTip bootstrapini = get_ToolTip(bootstrap_text, getstring("tt_bootstrap"));
+            ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
             /* End Setting tooltips
              *  Loading settings*/
             loadsettinmgs();
@@ -147,6 +142,16 @@ namespace SI_GUI
             progressBar1.Maximum = 10000;
             percent.Text = "0 %";
         }
+
+        ToolTip get_ToolTip(Control c, string text)
+        {
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(c, text);
+            tt.ShowAlways = true;
+            tt.IsBalloon = true;
+            return tt;
+        }
+
         private void loadsettinmgs()
         {
             try
@@ -168,7 +173,7 @@ namespace SI_GUI
                 cb_help.Checked = toapply.DL_saved_settings.cb_help;
             }
             catch (Exception e)
-            {MessageBox.Show(e.Message); }
+            { MessageBox.Show(e.Message); }
         }
 
         private void gm_do(Object sender, EventArgs e)
@@ -598,11 +603,14 @@ namespace SI_GUI
 
         private void start_dl_Click(object sender, EventArgs e)
         {
-            string link = get_final_link(true, dl_versions.SelectedItem.ToString());
-            if (cb_installer.Checked)
-                download_any_version(link, false, true);
-            if (cb_help.Checked)
-                download_any_version(link, true, true);
+            if (dl_versions.SelectedItem != null)
+            {
+                string link = get_final_link(true, dl_versions.SelectedItem.ToString());
+                if (cb_installer.Checked)
+                    download_any_version(link, false, true);
+                if (cb_help.Checked)
+                    download_any_version(link, true, true);
+            }
 
         }
     }
