@@ -50,7 +50,7 @@ namespace SI_GUI
         private void update_selector()
         {
             SETTINGS temp = set.open_settings();
-            string[] list = temp.manager;
+            string[] list = temp.manager_versions;
            
             manager_list.Items.Clear();
             if(list != null)
@@ -69,7 +69,7 @@ namespace SI_GUI
             if(fm.shared_string != null)
             {
                 SETTINGS temp = set.open_settings();
-                temp.manager = set.update_manager_array(temp.manager, fm.shared_string);
+                temp.manager_versions = set.update_manager_array(temp.manager_versions, fm.shared_string);
                 set.save_settings(temp);
                 update_selector();
             }
@@ -128,7 +128,7 @@ namespace SI_GUI
                 new_manager.Add(o);
             }
             SETTINGS sett = set.open_settings();
-            sett.manager = new_manager.ToArray();
+            sett.manager_versions = new_manager.ToArray();
             set.save_settings(sett);
             
             update_selector();

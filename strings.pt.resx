@@ -338,7 +338,7 @@
 		<value>Idioma (ajuda):</value>
 	</data>
 	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>Não é suportada instalação a partir de ficheiros EXE!</value>
+		<value>Não é suportada instalação a partir de ficheiros *.EXE!</value>
 	</data>
 	<data name="no_valid_filename_error_title" xml:space="preserve">
 		<value>Não suportado!</value>

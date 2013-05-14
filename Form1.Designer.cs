@@ -91,7 +91,7 @@
             this.update_versions = new System.Windows.Forms.Button();
             this.cb_help = new System.Windows.Forms.CheckBox();
             this.cb_installer = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dl_versions = new System.Windows.Forms.ComboBox();
             this.gb_create_lnk = new System.Windows.Forms.GroupBox();
             this.gb_installation = new System.Windows.Forms.GroupBox();
             this.gb_bootstrap.SuspendLayout();
@@ -272,7 +272,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(277, 377);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(489, 23);
+            this.progressBar1.Size = new System.Drawing.Size(474, 23);
             this.progressBar1.TabIndex = 14;
             // 
             // label2
@@ -319,11 +319,11 @@
             this.percent.AutoSize = true;
             this.percent.BackColor = System.Drawing.Color.Transparent;
             this.percent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent.Location = new System.Drawing.Point(772, 385);
+            this.percent.Location = new System.Drawing.Point(757, 385);
             this.percent.Name = "percent";
-            this.percent.Size = new System.Drawing.Size(30, 13);
+            this.percent.Size = new System.Drawing.Size(45, 13);
             this.percent.TabIndex = 18;
-            this.percent.Text = "10 %";
+            this.percent.Text = "12,34 %";
             this.percent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cb_subfolder
@@ -384,7 +384,7 @@
             this.path_to_exe.Location = new System.Drawing.Point(5, 23);
             this.path_to_exe.Name = "path_to_exe";
             this.path_to_exe.ReadOnly = true;
-            this.path_to_exe.Size = new System.Drawing.Size(151, 20);
+            this.path_to_exe.Size = new System.Drawing.Size(157, 20);
             this.path_to_exe.TabIndex = 33;
             this.path_to_exe.TextChanged += new System.EventHandler(this.savesettings);
             // 
@@ -392,7 +392,7 @@
             // 
             this.tb_version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_version.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tb_version.Location = new System.Drawing.Point(213, 23);
+            this.tb_version.Location = new System.Drawing.Point(219, 23);
             this.tb_version.Name = "tb_version";
             this.tb_version.Size = new System.Drawing.Size(154, 20);
             this.tb_version.TabIndex = 34;
@@ -401,7 +401,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 26);
+            this.label1.Location = new System.Drawing.Point(168, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 35;
@@ -413,7 +413,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.create_lnk.Location = new System.Drawing.Point(6, 58);
             this.create_lnk.Name = "create_lnk";
-            this.create_lnk.Size = new System.Drawing.Size(362, 24);
+            this.create_lnk.Size = new System.Drawing.Size(368, 24);
             this.create_lnk.TabIndex = 36;
             this.create_lnk.Text = "Create shortcut";
             this.create_lnk.UseVisualStyleBackColor = true;
@@ -649,8 +649,7 @@
             this.gb_download.Controls.Add(this.update_versions);
             this.gb_download.Controls.Add(this.cb_help);
             this.gb_download.Controls.Add(this.cb_installer);
-            this.gb_download.Controls.Add(this.comboBox1);
-            this.gb_download.Enabled = false;
+            this.gb_download.Controls.Add(this.dl_versions);
             this.gb_download.Location = new System.Drawing.Point(15, 28);
             this.gb_download.Name = "gb_download";
             this.gb_download.Size = new System.Drawing.Size(407, 88);
@@ -668,6 +667,7 @@
             this.start_dl.TabIndex = 4;
             this.start_dl.Text = "Begin download";
             this.start_dl.UseVisualStyleBackColor = true;
+            this.start_dl.Click += new System.EventHandler(this.start_dl_Click);
             // 
             // update_versions
             // 
@@ -677,6 +677,7 @@
             this.update_versions.TabIndex = 3;
             this.update_versions.Text = "Update list of versions";
             this.update_versions.UseVisualStyleBackColor = true;
+            this.update_versions.Click += new System.EventHandler(this.update_versions_Click);
             // 
             // cb_help
             // 
@@ -689,6 +690,7 @@
             this.cb_help.TabIndex = 2;
             this.cb_help.Text = "Offline help";
             this.cb_help.UseVisualStyleBackColor = true;
+            this.cb_help.CheckedChanged += new System.EventHandler(this.savesettings);
             // 
             // cb_installer
             // 
@@ -701,14 +703,16 @@
             this.cb_installer.TabIndex = 1;
             this.cb_installer.Text = "Installer";
             this.cb_installer.UseVisualStyleBackColor = true;
+            this.cb_installer.CheckedChanged += new System.EventHandler(this.savesettings);
             // 
-            // comboBox1
+            // dl_versions
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 21);
-            this.comboBox1.TabIndex = 0;
+            this.dl_versions.FormattingEnabled = true;
+            this.dl_versions.Location = new System.Drawing.Point(7, 20);
+            this.dl_versions.Name = "dl_versions";
+            this.dl_versions.Size = new System.Drawing.Size(194, 21);
+            this.dl_versions.TabIndex = 0;
+            this.dl_versions.SelectedIndexChanged += new System.EventHandler(this.savesettings);
             // 
             // gb_create_lnk
             // 
@@ -718,7 +722,7 @@
             this.gb_create_lnk.Controls.Add(this.label1);
             this.gb_create_lnk.Location = new System.Drawing.Point(428, 28);
             this.gb_create_lnk.Name = "gb_create_lnk";
-            this.gb_create_lnk.Size = new System.Drawing.Size(374, 88);
+            this.gb_create_lnk.Size = new System.Drawing.Size(380, 88);
             this.gb_create_lnk.TabIndex = 39;
             this.gb_create_lnk.TabStop = false;
             this.gb_create_lnk.Text = "Create shortcut";
@@ -835,7 +839,7 @@
         private System.Windows.Forms.ToolStripMenuItem m_liball_i;
         private System.Windows.Forms.ToolStripMenuItem m_liball_h;
         private System.Windows.Forms.GroupBox gb_download;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox dl_versions;
         private System.Windows.Forms.Button update_versions;
         private System.Windows.Forms.CheckBox cb_help;
         private System.Windows.Forms.CheckBox cb_installer;

@@ -82,19 +82,20 @@ MessageBox.Show(ex.Message);
 public class SETTINGS
 {
     public string installdir;
-    public string subfolder;
-    public bool checkbox;
+    public string name_subfolder;
+    public bool cb_create_subfolder;
     public int lang;
     public string l10n;
-    public string[] manager;
+    public string[] manager_versions;
     public string last_path_to_sofficeEXE;
     public DL_UI_settings DL_saved_settings;
 }
 public struct DL_UI_settings
 {
-    public string[] version;
+    public string[] versions;
     public bool cb_installer;
     public bool cb_help;
+    public int versions_last_version;
 }
 public class LINK
 {

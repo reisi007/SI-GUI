@@ -361,7 +361,7 @@
     <value>Abort</value>
   </data>
 	<data name="massdl_l10n_title" xml:space="preserve">
-    <value>Download any version of %product</value>
+    <value>Download any version of %product !</value>
   </data>
 	<data name="massdl_l10n_which" xml:space="preserve">
     <value>Which version should be downloaded?</value>
@@ -370,24 +370,33 @@
     <value>Okay</value>
   </data>
 	<data name="no_valid_filename_error_text" xml:space="preserve">
-    <value>EXE files are not supported for installation!</value>
+    <value>*.EXE files are not supported for installation!</value>
   </data>
 	<data name="no_valid_filename_error_title" xml:space="preserve">
-    <value>Not supported!</value>
-  </data>
-	<data name="groupb_title" xml:space="preserve">
-    <value>Paralell installation</value>
-  </data>
-	<data name="cb_help" xml:space="preserve">
-    <value>Help</value>
-  </data>
-	<data name="cb_installer" xml:space="preserve">
-    <value>Installer</value>
+    <value>File not supported!</value>
   </data>
 	<data name="start_dl" xml:space="preserve">
     <value>Start download</value>
   </data>
-	<data name="update_versions" xml:space="preserve">
+	<data name="gb_dl_begindl" xml:space="preserve">
+    <value>Begin download</value>
+  </data>
+	<data name="gb_dl_help" xml:space="preserve">
+    <value>Offline help</value>
+  </data>
+	<data name="gb_dl_installer" xml:space="preserve">
+    <value>Installer</value>
+  </data>
+	<data name="gb_dl_update" xml:space="preserve">
     <value>Update list of versions</value>
+  </data>
+	<data name="gb_parallel_install" xml:space="preserve">
+    <value>Parallel installation</value>
+  </data>
+	<data name="massdl_error" xml:space="preserve">
+    <value>Download has been aborted!</value>
+  </data>
+	<data name="any_libo_version" xml:space="preserve">
+    <value>All LibO versions</value>
   </data>
 </root>

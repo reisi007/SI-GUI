@@ -106,13 +106,15 @@ namespace SI_GUI
             m_ob_i.Text = installer;
             m_t_i.Text = installer;
             m_liball_i.Text = installer;
-            gb_download.Text = m_dl.Text;
+            m_dl.Text = getstring("m_l10n_dl");
+            gb_download.Text = m_dl.Text.Remove(m_dl.Text.IndexOf("&"),1);
             gb_create_lnk.Text = create_lnk.Text;
-            start_dl.Text = getstring("start_dl");
-            cb_installer.Text = getstring("cb_installer");
-            cb_help.Text = getstring("cb_help");
-            update_versions.Text = getstring("update_versions");
-
+            start_dl.Text = getstring("gb_dl_begindl");
+            cb_installer.Text = getstring("gb_dl_installer");
+            cb_help.Text = getstring("gb_dl_help");
+            update_versions.Text = getstring("gb_dl_update");
+            gb_installation.Text = getstring("gb_parallel_install");
+            m_item_all_libo.Text = getstring("any_libo_version");
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
@@ -151,14 +153,22 @@ namespace SI_GUI
             {
                 SETTINGS toapply = set.open_settings();
                 //Apply settings
-                cb_subfolder.Checked = toapply.checkbox;
+                cb_subfolder.Checked = toapply.cb_create_subfolder;
                 path_installdir.Text = toapply.installdir;
-                subfolder.Text = toapply.subfolder;
+                subfolder.Text = toapply.name_subfolder;
                 m_hp_lang.SelectedIndex = toapply.lang;
                 path_to_exe.Text = toapply.last_path_to_sofficeEXE;
+                if (toapply.DL_saved_settings.versions != null)
+                {
+                    dl_list = toapply.DL_saved_settings.versions;
+                    dl_versions.Items.AddRange(dl_list);
+                    dl_versions.SelectedIndex = toapply.DL_saved_settings.versions_last_version;
+                }
+                cb_installer.Checked = toapply.DL_saved_settings.cb_installer;
+                cb_help.Checked = toapply.DL_saved_settings.cb_help;
             }
-            catch (Exception)
-            { }
+            catch (Exception e)
+            {MessageBox.Show(e.Message); }
         }
 
         private void gm_do(Object sender, EventArgs e)
@@ -275,7 +285,7 @@ namespace SI_GUI
                 System.IO.File.WriteAllText(filename, cmd_file);
                 // If CMD file created --> Add to manager...
                 SETTINGS temp = set.open_settings();
-                temp.manager = set.update_manager_array(temp.manager, path);
+                temp.manager_versions = set.update_manager_array(temp.manager_versions, path);
                 set.save_settings(temp);
                 // Create path to soffice.exe
                 path += "\\program\\soffice.exe";
@@ -463,17 +473,26 @@ namespace SI_GUI
         // Function, which prepares the data, which should be saved for next startup
         private void savesettings(object sender, EventArgs e)
         {
+            savesettings();
+        }
+
+        private void savesettings()
+        {
             // Changing text of version
             tb_version.Text = subfolder.Text;
             // Really save settings
             SETTINGS thingstosave = set.open_settings();
             thingstosave.installdir = path_installdir.Text;
-            thingstosave.subfolder = subfolder.Text;
-            thingstosave.checkbox = cb_subfolder.Checked;
+            thingstosave.name_subfolder = subfolder.Text;
+            thingstosave.cb_create_subfolder = cb_subfolder.Checked;
             thingstosave.lang = m_hp_lang.SelectedIndex;
             thingstosave.last_path_to_sofficeEXE = path_to_exe.Text;
+            // Save download settings
+            thingstosave.DL_saved_settings.cb_help = cb_help.Checked;
+            thingstosave.DL_saved_settings.cb_installer = cb_installer.Checked;
+            thingstosave.DL_saved_settings.versions = dl_list;
+            thingstosave.DL_saved_settings.versions_last_version = dl_versions.SelectedIndex;
             set.save_settings(thingstosave);
-
         }
 
         private void create_ink_Click(object sender, EventArgs e)
@@ -562,6 +581,29 @@ namespace SI_GUI
                 path_help.Text = "";
                 MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private string[] dl_list { get; set; }
+        private int selected_item;
+        private void update_versions_Click(object sender, EventArgs e)
+        {
+            dl_list = getLibO_List_of_DL();
+            selected_item = dl_versions.SelectedIndex;
+            dl_versions.BeginUpdate();
+            dl_versions.Items.Clear();
+            dl_versions.Items.AddRange(dl_list);
+            dl_versions.SelectedIndex = selected_item;
+            dl_versions.EndUpdate();
+            savesettings();
+        }
+
+        private void start_dl_Click(object sender, EventArgs e)
+        {
+            string link = get_final_link(true, dl_versions.SelectedItem.ToString());
+            if (cb_installer.Checked)
+                download_any_version(link, false, true);
+            if (cb_help.Checked)
+                download_any_version(link, true, true);
+
         }
     }
 }

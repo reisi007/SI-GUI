@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SI_GUI {
+namespace WindowsFormsApplication1 {
     using System;
     
     
@@ -79,29 +79,20 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All LibO versions.
+        /// </summary>
+        internal static string any_libo_version {
+            get {
+                return ResourceManager.GetString("any_libo_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Shortcut.
         /// </summary>
         internal static string b_create_shortcut {
             get {
                 return ResourceManager.GetString("b_create_shortcut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Help.
-        /// </summary>
-        internal static string cb_help {
-            get {
-                return ResourceManager.GetString("cb_help", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Installer.
-        /// </summary>
-        internal static string cb_installer {
-            get {
-                return ResourceManager.GetString("cb_installer", resourceCulture);
             }
         }
         
@@ -250,20 +241,56 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Begin download.
+        /// </summary>
+        internal static string gb_dl_begindl {
+            get {
+                return ResourceManager.GetString("gb_dl_begindl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offline help.
+        /// </summary>
+        internal static string gb_dl_help {
+            get {
+                return ResourceManager.GetString("gb_dl_help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installer.
+        /// </summary>
+        internal static string gb_dl_installer {
+            get {
+                return ResourceManager.GetString("gb_dl_installer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update list of versions.
+        /// </summary>
+        internal static string gb_dl_update {
+            get {
+                return ResourceManager.GetString("gb_dl_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parallel installation.
+        /// </summary>
+        internal static string gb_parallel_install {
+            get {
+                return ResourceManager.GetString("gb_parallel_install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Go back?.
         /// </summary>
         internal static string go_back {
             get {
                 return ResourceManager.GetString("go_back", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Paralell installation.
-        /// </summary>
-        internal static string groupb_title {
-            get {
-                return ResourceManager.GetString("groupb_title", resourceCulture);
             }
         }
         
@@ -493,7 +520,16 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download any version of %product.
+        ///   Looks up a localized string similar to Download has been aborted!.
+        /// </summary>
+        internal static string massdl_error {
+            get {
+                return ResourceManager.GetString("massdl_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download any version of %product !.
         /// </summary>
         internal static string massdl_l10n_title {
             get {
@@ -556,7 +592,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXE files are not supported for installation!.
+        ///   Looks up a localized string similar to *.EXE files are not supported for installation!.
         /// </summary>
         internal static string no_valid_filename_error_text {
             get {
@@ -565,7 +601,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not supported!.
+        ///   Looks up a localized string similar to File not supported!.
         /// </summary>
         internal static string no_valid_filename_error_title {
             get {
@@ -840,15 +876,6 @@ namespace SI_GUI {
         internal static string update_lang {
             get {
                 return ResourceManager.GetString("update_lang", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update list of versions.
-        /// </summary>
-        internal static string update_versions {
-            get {
-                return ResourceManager.GetString("update_versions", resourceCulture);
             }
         }
         

@@ -118,205 +118,205 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="dirnotfound" xml:space="preserve">
-		<value>Folderen eksisterer ikke!</value>
-	</data>
+    <value>Folderen eksisterer ikke!</value>
+  </data>
 	<data name="dirnotfoundmessage" xml:space="preserve">
-		<value>Kontroller venligst den folder du valgte.</value>
-	</data>
+    <value>Kontroller venligst den folder du valgte.</value>
+  </data>
 	<data name="Error" xml:space="preserve">
-		<value>Fejl!</value>
-	</data>
+    <value>Fejl!</value>
+  </data>
 	<data name="filesave" xml:space="preserve">
-		<value>Filen er gemt uden fejl.</value>
-	</data>
+    <value>Filen er gemt uden fejl.</value>
+  </data>
 	<data name="go_back" xml:space="preserve">
-		<value>Tilbage?</value>
-	</data>
+    <value>Tilbage?</value>
+  </data>
 	<data name="help_runasadmin" xml:space="preserve">
-		<value>Det hjælper måske at afvikle programmet som administrator.</value>
-	</data>
+    <value>Det hjælper måske at afvikle programmet som administrator.</value>
+  </data>
 	<data name="installerror" xml:space="preserve">
-		<value>Installationen kunne ikke starte på grund af følgende fejl:</value>
-	</data>
+    <value>Installationen kunne ikke starte på grund af følgende fejl:</value>
+  </data>
 	<data name="installnostart" xml:space="preserve">
-		<value>Installationen kunne ikke starte.</value>
-	</data>
+    <value>Installationen kunne ikke starte.</value>
+  </data>
 	<data name="no_installdir" xml:space="preserve">
-		<value>Ingen installationsfolder valgt.</value>
-	</data>
+    <value>Ingen installationsfolder valgt.</value>
+  </data>
 	<data name="no_installfile" xml:space="preserve">
-		<value>Normalt skal du vælge en LibreOffice installationsfill.</value>
-	</data>
+    <value>Normalt skal du vælge en LibreOffice installationsfill.</value>
+  </data>
 	<data name="si" xml:space="preserve">
-		<value>Sikkerhedsproblem.</value>
-	</data>
+    <value>Sikkerhedsproblem.</value>
+  </data>
 	<data name="si_message" xml:space="preserve">
-		<value>Du har ikke rettigheder til at skrive til denne folder.</value>
-	</data>
+    <value>Du har ikke rettigheder til at skrive til denne folder.</value>
+  </data>
 	<data name="standarderror" xml:space="preserve">
-		<value>Der er opstået en fejl! Besked:</value>
-	</data>
+    <value>Der er opstået en fejl! Besked:</value>
+  </data>
 	<data name="title_filesave" xml:space="preserve">
-		<value>Filen er gemt.</value>
-	</data>
+    <value>Filen er gemt.</value>
+  </data>
 	<data name="warning" xml:space="preserve">
-		<value>Advarsel!</value>
-	</data>
+    <value>Advarsel!</value>
+  </data>
 	<data name="de" xml:space="preserve">
-		<value>Tysk:</value>
-	</data>
+    <value>Tysk:</value>
+  </data>
 	<data name="en" xml:space="preserve">
-		<value>Engelsk:</value>
-	</data>
+    <value>Engelsk:</value>
+  </data>
 	<data name="fr" xml:space="preserve">
-		<value>Fransk:</value>
-	</data>
+    <value>Fransk:</value>
+  </data>
 	<data name="lang" xml:space="preserve">
-		<value>Sprog</value>
-	</data>
+    <value>Sprog</value>
+  </data>
 	<data name="programmer" xml:space="preserve">
-		<value>Programmør:</value>
-	</data>
+    <value>Programmør:</value>
+  </data>
 	<data name="translations" xml:space="preserve">
-		<value> --- Oversættelser ---</value>
-	</data>
+    <value> --- Oversættelser ---</value>
+  </data>
 	<data name="translator" xml:space="preserve">
-		<value>Oversætter:</value>
-	</data>
+    <value>Oversætter:</value>
+  </data>
 	<data name="about" xml:space="preserve">
-		<value>Om / Skift sprog</value>
-	</data>
+    <value>Om / Skift sprog</value>
+  </data>
 	<data name="tt_tb" xml:space="preserve">
-		<value>Seneste testversion</value>
-	</data>
+    <value>Seneste testversion</value>
+  </data>
 	<data name="language_change_success" xml:space="preserve">
-		<value>Valg af sprog træder i kraf ved næste opstart!</value>
-	</data>
+    <value>Valg af sprog træder i kraf ved næste opstart!</value>
+  </data>
 	<data name="success" xml:space="preserve">
-		<value>Succes!</value>
-	</data>
+    <value>Succes!</value>
+  </data>
 	<data name="tt_bootstrap" xml:space="preserve">
-		<value>Du skal måske bruge følgende i stedet for den linje, der starter med 
+    <value>Du skal måske bruge følgende i stedet for den linje, der starter med 
 “UserInstallation=” fra tekstfeltet herover, for at overskrive din eksisterende brugerprofil.</value>
-	</data>
+  </data>
 	<data name="update_lang" xml:space="preserve">
-		<value>Slift sprog:</value>
-	</data>
+    <value>Slift sprog:</value>
+  </data>
 	<data name="versiondl" xml:space="preserve">
-		<value>Skal %version downloades?</value>
-	</data>
+    <value>Skal %version downloades?</value>
+  </data>
 	<data name="open_help" xml:space="preserve">
-		<value>Åbn LibreOffice's installation af hjælpen.</value>
-	</data>
+    <value>Åbn LibreOffice's installation af hjælpen.</value>
+  </data>
 	<data name="config_installdir" xml:space="preserve">
-		<value>Konfigurere installationsfolderen</value>
-	</data>
+    <value>Konfigurere installationsfolderen</value>
+  </data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
-		<value>Åbn bootstrap.ini</value>
-	</data>
+    <value>Åbn bootstrap.ini</value>
+  </data>
 	<data name="edit_bs_ini" xml:space="preserve">
-		<value>Rediger bootstrap.ini</value>
-	</data>
+    <value>Rediger bootstrap.ini</value>
+  </data>
 	<data name="progress" xml:space="preserve">
-		<value>Fremgang:</value>
-	</data>
+    <value>Fremgang:</value>
+  </data>
 	<data name="open_bootstrap_title" xml:space="preserve">
-		<value>Åbn bootstrap.ini</value>
-	</data>
+    <value>Åbn bootstrap.ini</value>
+  </data>
 	<data name="open_installer" xml:space="preserve">
-		<value>Åbn LibreOffice installationsprogrammet</value>
-	</data>
+    <value>Åbn LibreOffice installationsprogrammet</value>
+  </data>
 	<data name="startdl" xml:space="preserve">
-		<value>Skal filen downloades?</value>
-	</data>
+    <value>Skal filen downloades?</value>
+  </data>
 	<data name="start_install" xml:space="preserve">
-		<value>Start installationen</value>
-	</data>
+    <value>Start installationen</value>
+  </data>
 	<data name="where_to_install" xml:space="preserve">
-		<value>Vælg installationsfolder</value>
-	</data>
+    <value>Vælg installationsfolder</value>
+  </data>
 	<data name="save_bootstrap_ini" xml:space="preserve">
-		<value>Gem bootstrap.ini</value>
-	</data>
+    <value>Gem bootstrap.ini</value>
+  </data>
 	<data name="subfolder_do" xml:space="preserve">
-		<value>Skal der automatisk oprettes en underfolder? Navn på underfolder:</value>
-	</data>
+    <value>Skal der automatisk oprettes en underfolder? Navn på underfolder:</value>
+  </data>
 	<data name="es" xml:space="preserve">
-		<value>Spansk:</value>
-	</data>
+    <value>Spansk:</value>
+  </data>
 	<data name="sl" xml:space="preserve">
-		<value>Slovensk:</value>
-	</data>
+    <value>Slovensk:</value>
+  </data>
 	<data name="da" xml:space="preserve">
-		<value>Dansk:</value>
-	</data>
+    <value>Dansk:</value>
+  </data>
 	<data name="help" xml:space="preserve">
-		<value>Hjælp</value>
-	</data>
+    <value>Hjælp</value>
+  </data>
 	<data name="dl_finished" xml:space="preserve">
-		<value>Doanload er afsluttet og er klar til at blive installeret.</value>
-	</data>
+    <value>Doanload er afsluttet og er klar til at blive installeret.</value>
+  </data>
 	<data name="dl_finished_title" xml:space="preserve">
-		<value>Download afsluttet!</value>
-	</data>
+    <value>Download afsluttet!</value>
+  </data>
 	<data name="dl_started" xml:space="preserve">
-		<value>Download påbegyndt!</value>
-	</data>
+    <value>Download påbegyndt!</value>
+  </data>
 	<data name="dl_started_title" xml:space="preserve">
-		<value>Download begyndt!</value>
-	</data>
+    <value>Download begyndt!</value>
+  </data>
 	<data name="he" xml:space="preserve">
-		<value>Hebræisk:</value>
-	</data>
+    <value>Hebræisk:</value>
+  </data>
 	<data name="pt" xml:space="preserve">
-		<value>Portugisisk:</value>
-	</data>
+    <value>Portugisisk:</value>
+  </data>
 	<data name="error_langpack_nolang" xml:space="preserve">
-		<value>Du skal vælge et sprog først og derefter starte download!</value>
-	</data>
+    <value>Du skal vælge et sprog først og derefter starte download!</value>
+  </data>
 	<data name="mai_abort" xml:space="preserve">
-		<value>Afbryd</value>
-	</data>
+    <value>Afbryd</value>
+  </data>
 	<data name="mai_config_path" xml:space="preserve">
-		<value>Konfigurer sti</value>
-	</data>
+    <value>Konfigurer sti</value>
+  </data>
 	<data name="mai_ok" xml:space="preserve">
-		<value>OK</value>
-	</data>
+    <value>OK</value>
+  </data>
 	<data name="mai_path_soffice" xml:space="preserve">
-		<value>Sti til soffice.exe for parallelinstallationen</value>
-	</data>
+    <value>Sti til soffice.exe for parallelinstallationen</value>
+  </data>
 	<data name="mai_text" xml:space="preserve">
-		<value>Manuelt tilføj parallelinstallation</value>
-	</data>
+    <value>Manuelt tilføj parallelinstallation</value>
+  </data>
 	<data name="man_addinstall" xml:space="preserve">
-		<value>manuelt tilføj installation</value>
-	</data>
+    <value>manuelt tilføj installation</value>
+  </data>
 	<data name="man_del" xml:space="preserve">
-		<value>Fjern det markerede</value>
-	</data>
+    <value>Fjern det markerede</value>
+  </data>
 	<data name="man_exit" xml:space="preserve">
-		<value>Forlad</value>
-	</data>
+    <value>Forlad</value>
+  </data>
 	<data name="man_title" xml:space="preserve">
-		<value>Manager</value>
-	</data>
+    <value>Manager</value>
+  </data>
 	<data name="ink_des" xml:space="preserve">
-		<value>Genvej til en parallelinstalleret LibreOffice %version.</value>
-	</data>
+    <value>Genvej til en parallelinstalleret LibreOffice %version.</value>
+  </data>
 	<data name="ink_error_1" xml:space="preserve">
-		<value>Ingen version angivet!</value>
-	</data>
+    <value>Ingen version angivet!</value>
+  </data>
 	<data name="tt_ink" xml:space="preserve">
-		<value>Opret en skrivebordsgenvej for denne parallelinstallation</value>
-	</data>
+    <value>Opret en skrivebordsgenvej for denne parallelinstallation</value>
+  </data>
 	<data name="tt_path_to_exe" xml:space="preserve">
-		<value>Opret genvej</value>
-	</data>
+    <value>Opret genvej</value>
+  </data>
 	<data name="msb_lnk_title" xml:space="preserve">
-		<value>Genvej oprettet!</value>
-	</data>
+    <value>Genvej oprettet!</value>
+  </data>
 	<data name="msb_lnk_txt" xml:space="preserve">
-		<value>Genvejen blev oprettet!</value>
-	</data>
+    <value>Genvejen blev oprettet!</value>
+  </data>
 </root>

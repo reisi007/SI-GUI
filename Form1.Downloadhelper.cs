@@ -20,35 +20,44 @@ namespace SI_GUI
     public partial class Form1 : Form
     {
         #region Process for DL of main program
-        Dictionary<int, int> dl_manager = new Dictionary<int, int>();
+        Dictionary<int, long> dl_manager_current = new Dictionary<int, long>();
+        Dictionary<int, long> dl_manager_total = new Dictionary<int, long>();
         Dictionary<int, bool> dl_is_hp = new Dictionary<int, bool>();
-        int sum;
+        float sum_current, sum_total;
         float percentage;
         void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            sum = 0;
-            if (dl_manager.ContainsKey(sender.GetHashCode()))
+            sum_current = 0;
+            sum_total = 0;
+            if (dl_manager_current.ContainsKey(sender.GetHashCode()))
             {
                 // Known dl
-                dl_manager.Remove(sender.GetHashCode());
+                dl_manager_current.Remove(sender.GetHashCode());
             }
             else
             {
+                // New download
                 bool isHP = false;
                 if (e.TotalBytesToReceive < 104857600)
                     isHP = true;
                 dl_is_hp.Add(sender.GetHashCode(), isHP);
+                dl_manager_total.Add(sender.GetHashCode(), e.TotalBytesToReceive);
             }
-            dl_manager.Add(sender.GetHashCode(), e.ProgressPercentage);
-            foreach (KeyValuePair<int, int> kvp in dl_manager)
+            // Set already downloaded bytes
+            dl_manager_current.Add(sender.GetHashCode(), e.BytesReceived);
+            foreach (KeyValuePair<int, long> kvp in dl_manager_current)
             {
-                sum += kvp.Value;
+                sum_current += kvp.Value;
+            }
+            foreach (KeyValuePair<int, long> kvp in dl_manager_total)
+            {
+                sum_total += kvp.Value;
             }
             try
             {
-                percentage = (float)(sum / (dl_manager.Count));
+                percentage = 100f* sum_current / sum_total;
                 progressBar1.Value = (int)(percentage * 100);
-                percent.Text = Convert.ToString(percentage) + " %";
+                percent.Text = Math.Round(percentage,2).ToString() + " %";
             }
             catch (Exception) { }
         }
@@ -66,7 +75,8 @@ namespace SI_GUI
                 {
                     progressBar1.Value = 0;
                     percent.Text = "0 %";
-                    dl_manager.Clear();
+                    dl_manager_current.Clear();
+                    dl_manager_total.Clear();
                 }
             }
             give_message.Text = "LibreOffice Server Installation GUI";
@@ -174,8 +184,7 @@ namespace SI_GUI
         private WebClient getPreparedWebClient()
         {
             WebClient webc = new WebClient();
-            string ua = "LibreOffice Server Install Gui " + set.program_version();
-            webc.Headers["User-Agent"] = ua;
+            webc.Headers["User-Agent"] = "LibreOffice Server Install Gui " + set.program_version();
             webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
             webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
             return webc;
@@ -261,10 +270,15 @@ namespace SI_GUI
                         // Old format
                         httpfile = httpfile.Replace("install_all_lang", "helppack_" + m_hp_lang.SelectedItem.ToString());
                     }
+                    else if(httpfile.Contains("install_multi"))
+                    {
+                        // Newer format
+                        httpfile = httpfile.Replace("install_multi", "helpppack_" + m_hp_lang.SelectedItem.ToString());
+                    }
                     else
                     {
                         // New format
-                        httpfile = httpfile.Insert(httpfile.IndexOf("86"), "helppack_" + m_hp_lang.SelectedItem.ToString());
+                        httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + m_hp_lang.SelectedItem.ToString());
                     }
 
                 }
@@ -297,24 +311,13 @@ namespace SI_GUI
             }
             return httpfile;
         }
-
-        // Manages the download of all versions
-        private void ManageMassDL(bool hp, bool libo)
+        private string[] getLibO_List_of_DL( )
         {
-            // Goon specifies, if program should go on from time to time
-            bool goon = true;
-            // Where to find the old versions of the program?
-            string link, tmp;
-            if (libo)
-                link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
-            else
-                link = "???";
-            // Download this page and extract the versions
-            string httpfile = downloadfile(link);
-            int i;
+            string link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
             List<string> versions = new List<string>();
-            if (libo)
-            {
+            string httpfile = httpfile = downloadfile(link), tmp;
+            int i;
+            bool goon = true;
                 // Get the version numbers of LibreOffice
                 i = httpfile.IndexOf("Details") + 7;
                 httpfile = httpfile.Remove(0, i);
@@ -333,34 +336,48 @@ namespace SI_GUI
                         versions.Add(tmp);
                     }
                     catch (System.ArgumentOutOfRangeException)
-                    { // End of file reached
-                        goon = false;
-                    }
+                    { goon = false; }
                 }
+                    return versions.ToArray();
+        }
+
+
+        // Manages the download of all versions
+        private void ManageMassDL(bool hp, bool libo)
+        {
+            // Goon specifies, if program should go on from time to time
+            bool goon = true;
+            // Where to find the old versions of the program?
+            string httpfile;
+            string[] versions = new string[1];
+            if (libo)
+            {
+              versions = getLibO_List_of_DL();
             }
             else
             {
                 // Get the versions of OpenOffice
             }
             //httpfile from now on contains the selected version
-            httpfile = openMassDL(libo, versions.ToArray(), out goon);
+            httpfile = openMassDL(libo, versions, out goon);
             if (goon)
             {
                 // Specify the link to the folder, where the release is
-                if (libo)
-                {
-                    link = "http://downloadarchive.documentfoundation.org/libreoffice/old/" + httpfile + "/win/x86/";
-                }
-                else
-                {
+                
 
-                }
-
-                download_any_version(link, hp, libo);
+                download_any_version(get_final_link(libo,httpfile), hp, libo);
             }
             else
             { exeptionmessage(getstring("massdl_error")); }
 
+        }
+
+        private string get_final_link(bool libo, string version)
+        {
+            if (libo)
+                return "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win/x86/";
+            else
+                return "???";
         }
 
         private void set_progressbar()
@@ -370,10 +387,6 @@ namespace SI_GUI
                 progressBar1.Maximum = 10000;
                 progressBar1.Value = 0;
             }
-            //else
-            //{
-            //    progressBar1.Maximum += 10000;
-            //}
         }
     }
 }
