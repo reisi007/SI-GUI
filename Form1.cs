@@ -26,6 +26,68 @@ namespace SI_GUI
 {
     public partial class Form1 : Form
     {
+        #region String[] alllnag
+        string[] alllang = new string[]
+        {
+            "ast",
+            "bg",
+            "bn-IN",
+            "bn",
+            "bo",
+            "bs",
+            "ca-XV",
+            "ca",
+            "cs",
+            "da",
+            "de",
+            "dz",
+            "el",
+            "en-GB",
+            "en-US",
+            "en-ZA",
+            "eo",
+            "es",
+            "et",
+            "eu",
+            "fi",
+            "fr",
+            "gl",
+            "gu",
+            "he",
+            "hi",
+            "hr",
+            "hu",
+            "id",
+            "is",
+            "it",
+            "ja",
+            "ka",
+            "km",
+            "ko",
+            "lb",
+            "nb",
+            "ne",
+            "nl",
+            "nn",
+            "om",
+            "pl",
+            "pt-BR",
+            "pt",
+            "ru",
+            "si",
+            "sk",
+            "sl",
+            "sq",
+            "sv",
+            "tg",
+            "tr",
+            "ug",
+            "uk",
+            "vi",
+            "zh-CN",
+            "zh-TW"
+        };
+        #endregion
         private bool rtl_layout = false;
         string[] dl_special;
         access_settings set = new access_settings();
@@ -51,19 +113,14 @@ namespace SI_GUI
             if (rtl_layout)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
+            choose_lang.Items.AddRange(alllang);
 
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SETTINGS temp = set.open_settings();
-            string lang = temp.l10n;
-            string[] rtl_lang = new string[] { "He" };
-
-
-
-            if (rtl_lang.Contains(lang))
+            if (rtl_layout)
             {
                 // Which texts should stay LTR, when using a RTL language
                 bootinipath.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -73,10 +130,10 @@ namespace SI_GUI
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_main.RightToLeft = System.Windows.Forms.RightToLeft.No;
+                userinstallation.RightToLeft = System.Windows.Forms.RightToLeft.No;
             }
 
             //l10n start
-            shplang = getstring("m_l10n_langhelptxt");
             string installer = getstring("m_l10n_installer");
             string helppack = getstring("m_l10n_helppack");
             b_open_libo_installer.Text = getstring("open_installer");
@@ -98,7 +155,7 @@ namespace SI_GUI
             m_item_lb.Text = getstring("m_l10n_lb");
             m_item_ob.Text = getstring("m_l10n_ob");
             m_item_tb.Text = getstring("m_l10n_t");
-            m_item_hplang_tb.Text = shplang;
+            choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
             m_lb_h.Text = helppack;
             m_ob_h.Text = helppack;
             m_t_h.Text = helppack;
@@ -117,7 +174,6 @@ namespace SI_GUI
             gb_installation.Text = getstring("gb_parallel_install");
             m_item_all_libo.Text = getstring("any_libo_version");
             dl_versions.Text = getstring("s_version").Remove(getstring("s_version").Length - 1);
-            m_hp_lang.Text = getstring("lang") + " " + getstring("gb_dl_help");
 
             /* l10n end
              Update version information */
@@ -131,7 +187,7 @@ namespace SI_GUI
             /* End Setting tooltips
              *  Loading settings*/
             dl_special = new string[] { getstring("m_l10n_lb").Remove(getstring("m_l10n_lb").IndexOf("&"), 1), getstring("m_l10n_ob").Remove(getstring("m_l10n_ob").IndexOf("&"), 1), getstring("m_l10n_t").Remove(getstring("m_l10n_t").IndexOf("&"), 1), "Master", "---" };
-            loadsettinmgs();
+            loadsettings();
             // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
             give_message.BalloonTipClosed += new EventHandler(gm_do);
@@ -143,6 +199,8 @@ namespace SI_GUI
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 10000;
             percent.Text = "0 %";
+            // Position choose_lang_label
+            choose_lang_label.Location = new Point(choose_lang.Location.X - 6 - choose_lang_label.Width, choose_lang.Location.Y + 3);
         }
 
         ToolTip get_ToolTip(Control c, string text)
@@ -154,7 +212,7 @@ namespace SI_GUI
             return tt;
         }
 
-        private void loadsettinmgs()
+        private void loadsettings()
         {
             try
             {
@@ -163,15 +221,20 @@ namespace SI_GUI
                 cb_subfolder.Checked = toapply.cb_create_subfolder;
                 path_installdir.Text = toapply.installdir;
                 subfolder.Text = toapply.name_subfolder;
-                m_hp_lang.SelectedIndex = toapply.lang;
+                choose_lang.SelectedIndex = toapply.lang;
                 path_to_exe.Text = toapply.last_path_to_sofficeEXE;
                 dl_versions.Items.AddRange(dl_special);
                 if (toapply.DL_saved_settings.versions != null)
                 {
                     dl_list = toapply.DL_saved_settings.versions;
                     dl_versions.Items.AddRange(dl_list);
+                }
+                try
+                {
                     dl_versions.SelectedIndex = toapply.DL_saved_settings.versions_last_version;
                 }
+                catch (Exception)
+                { }
                 cb_installer.Checked = toapply.DL_saved_settings.cb_installer;
                 cb_help.Checked = toapply.DL_saved_settings.cb_help;
             }
@@ -493,7 +556,7 @@ namespace SI_GUI
             thingstosave.installdir = path_installdir.Text;
             thingstosave.name_subfolder = subfolder.Text;
             thingstosave.cb_create_subfolder = cb_subfolder.Checked;
-            thingstosave.lang = m_hp_lang.SelectedIndex;
+            thingstosave.lang = choose_lang.SelectedIndex;
             thingstosave.last_path_to_sofficeEXE = path_to_exe.Text;
             // Save download settings
             thingstosave.DL_saved_settings.cb_help = cb_help.Checked;
@@ -557,13 +620,6 @@ namespace SI_GUI
         private void m_m_i_Click(object sender, EventArgs e)
         {
             asyncdl_wrapper(enum4DL_Special.M, false);
-        }
-
-        string shplang;
-        private void m_item_hplang_tb_TextChanged(object sender, EventArgs e)
-        {
-            // Text should always stay the same
-            m_item_hplang_tb.Text = shplang;
         }
         private void installerToolStripMenuItem_Click(object sender, EventArgs e)
         {

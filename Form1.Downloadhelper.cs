@@ -115,7 +115,7 @@ namespace SI_GUI
             // Download
             bool cont = true;
             string[] version = new string[2];
-            string lang = Convert.ToString(m_hp_lang.SelectedItem.ToString());
+            string lang = Convert.ToString(choose_lang.SelectedItem.ToString());
             try
             {
                 if (helppack)
@@ -288,17 +288,17 @@ namespace SI_GUI
                     if (httpfile.Contains("install_all"))
                     {
                         // Old format
-                        httpfile = httpfile.Replace("install_all_lang", "helppack_" + m_hp_lang.SelectedItem.ToString());
+                        httpfile = httpfile.Replace("install_all_lang", "helppack_" + choose_lang.SelectedItem.ToString());
                     }
                     else if (httpfile.Contains("install_multi"))
                     {
                         // Newer format
-                        httpfile = httpfile.Replace("install_multi", "helpppack_" + m_hp_lang.SelectedItem.ToString());
+                        httpfile = httpfile.Replace("install_multi", "helpppack_" + choose_lang.SelectedItem.ToString());
                     }
                     else
                     {
                         // New format
-                        httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + m_hp_lang.SelectedItem.ToString());
+                        httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + choose_lang.SelectedItem.ToString());
                     }
 
                 }
