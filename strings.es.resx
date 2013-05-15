@@ -118,10 +118,10 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="dirnotfound" xml:space="preserve">
-		<value>El directorio no existe.</value>
+		<value>La carpeta no existe.</value>
 	</data>
 	<data name="dirnotfoundmessage" xml:space="preserve">
-		<value>Compruebe su directorio elegido.</value>
+		<value>Compruebe la carpeta que ha elegido.</value>
 	</data>
 	<data name="Error" xml:space="preserve">
 		<value>¡Error!</value>
@@ -274,7 +274,7 @@
 		<value>Debe seleccionar un idioma antes de iniciar la descarga.</value>
 	</data>
 	<data name="mai_abort" xml:space="preserve">
-		<value>Cancelar</value>
+		<value>Interrumpir</value>
 	</data>
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Configurar ruta</value>
@@ -323,5 +323,77 @@
 	</data>
 	<data name="nl" xml:space="preserve">
 		<value>Neerlandés:</value>
+	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>Versión:</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>y</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>No hay versión de prueba</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>No hay ninguna versión de pruebas en este momento.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>&amp;Descargar</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>&amp;Paq. de ayuda</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;Instalador</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>Rama más re&amp;ciente</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>Rama a&amp;nterior</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>Versión de &amp;pruebas</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Idioma (ayuda):</value>
+	</data>
+	<data name="abort" xml:space="preserve">
+		<value>Interrumpir</value>
+	</data>
+	<data name="massdl_l10n_title" xml:space="preserve">
+		<value>Descargue cualquier versión de %product</value>
+	</data>
+	<data name="massdl_l10n_which" xml:space="preserve">
+		<value>¿Qué versión quiere descargar?</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>Aceptar</value>
+	</data>
+	<data name="no_valid_filename_error_text" xml:space="preserve">
+		<value>No se admiten los archivos *.EXE para la instalación.</value>
+	</data>
+	<data name="no_valid_filename_error_title" xml:space="preserve">
+		<value>Archivo no compatible</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>Comenzar descarga</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>Ayuda</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>Instalador</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>Actualizar lista de versiones</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>Instalación en paralelo</value>
+	</data>
+	<data name="massdl_error" xml:space="preserve">
+		<value>Se ha cancelado la descarga.</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>Todas las versiones de LibO</value>
 	</data>
 </root>

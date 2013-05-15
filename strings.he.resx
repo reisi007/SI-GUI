@@ -302,7 +302,7 @@
 		<value>קיצור הדרך נוצר בהצלחה!</value>
 	</data>
 	<data name="nl" xml:space="preserve">
-		<value>הולנדית;</value>
+		<value>הולנדית:</value>
 	</data>
 	<data name="s_version" xml:space="preserve">
 		<value>גרסה:</value>
@@ -375,5 +375,8 @@
 	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>כל הגרסאות של LibO</value>
+	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>התחלת ההורדה</value>
 	</data>
 </root>

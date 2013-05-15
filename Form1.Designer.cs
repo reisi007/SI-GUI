@@ -163,12 +163,11 @@
             // start_install
             // 
             this.start_install.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.start_install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_install.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F);
             this.start_install.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.start_install.Location = new System.Drawing.Point(5, 109);
+            this.start_install.Location = new System.Drawing.Point(6, 158);
             this.start_install.Name = "start_install";
-            this.start_install.Size = new System.Drawing.Size(395, 57);
+            this.start_install.Size = new System.Drawing.Size(391, 57);
             this.start_install.TabIndex = 4;
             this.start_install.Text = "Start installation";
             this.start_install.UseVisualStyleBackColor = true;
@@ -333,7 +332,7 @@
             this.cb_subfolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_subfolder.AutoSize = true;
             this.cb_subfolder.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cb_subfolder.Location = new System.Drawing.Point(6, 172);
+            this.cb_subfolder.Location = new System.Drawing.Point(5, 109);
             this.cb_subfolder.Name = "cb_subfolder";
             this.cb_subfolder.Size = new System.Drawing.Size(348, 17);
             this.cb_subfolder.TabIndex = 22;
@@ -345,9 +344,9 @@
             // 
             this.subfolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.subfolder.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.subfolder.Location = new System.Drawing.Point(7, 195);
+            this.subfolder.Location = new System.Drawing.Point(6, 132);
             this.subfolder.Name = "subfolder";
-            this.subfolder.Size = new System.Drawing.Size(394, 20);
+            this.subfolder.Size = new System.Drawing.Size(391, 20);
             this.subfolder.TabIndex = 23;
             this.subfolder.TextChanged += new System.EventHandler(this.savesettings);
             // 
@@ -666,9 +665,9 @@
             // 
             this.start_dl.AutoEllipsis = true;
             this.start_dl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start_dl.Location = new System.Drawing.Point(206, 60);
+            this.start_dl.Location = new System.Drawing.Point(206, 48);
             this.start_dl.Name = "start_dl";
-            this.start_dl.Size = new System.Drawing.Size(195, 23);
+            this.start_dl.Size = new System.Drawing.Size(195, 35);
             this.start_dl.TabIndex = 4;
             this.start_dl.Text = "Begin download";
             this.start_dl.UseVisualStyleBackColor = true;

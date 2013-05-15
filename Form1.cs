@@ -27,6 +27,7 @@ namespace SI_GUI
     public partial class Form1 : Form
     {
         private bool rtl_layout = false;
+        string[] dl_special;
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
         public Form1()
@@ -129,6 +130,7 @@ namespace SI_GUI
             ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
             /* End Setting tooltips
              *  Loading settings*/
+            dl_special = new string[] { getstring("m_l10n_lb").Remove(getstring("m_l10n_lb").IndexOf("&"), 1), getstring("m_l10n_ob").Remove(getstring("m_l10n_ob").IndexOf("&"), 1), getstring("m_l10n_t").Remove(getstring("m_l10n_t").IndexOf("&"), 1), "Master", "---" };
             loadsettinmgs();
             // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
@@ -163,6 +165,7 @@ namespace SI_GUI
                 subfolder.Text = toapply.name_subfolder;
                 m_hp_lang.SelectedIndex = toapply.lang;
                 path_to_exe.Text = toapply.last_path_to_sofficeEXE;
+                dl_versions.Items.AddRange(dl_special);
                 if (toapply.DL_saved_settings.versions != null)
                 {
                     dl_list = toapply.DL_saved_settings.versions;
@@ -523,37 +526,37 @@ namespace SI_GUI
 
         private void m_lb_i_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false);
+            asyncdl_wrapper(enum4DL_Special.LB, false);
         }
 
         private void m_lb_h_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false, true);
+            asyncdl_wrapper(enum4DL_Special.LB, true);
         }
 
         private void m_ob_i_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true);
+            asyncdl_wrapper(enum4DL_Special.OB, false);
         }
 
         private void m_ob_h_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, true);
+            asyncdl_wrapper(enum4DL_Special.OB, true);
         }
 
         private void m_t_i_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false);
+            asyncdl_wrapper(enum4DL_Special.T, false);
         }
 
         private void m_t_h_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false, true);
+            asyncdl_wrapper(enum4DL_Special.T, true);
         }
 
         private void m_m_i_Click(object sender, EventArgs e)
         {
-            startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6/current/", false, true, false, false);
+            asyncdl_wrapper(enum4DL_Special.M, false);
         }
 
         string shplang;
@@ -587,7 +590,7 @@ namespace SI_GUI
                 MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private string[] dl_list { get; set; }
+        private string[] dl_list;
         private int selected_item;
         private void update_versions_Click(object sender, EventArgs e)
         {
@@ -595,6 +598,7 @@ namespace SI_GUI
             selected_item = dl_versions.SelectedIndex;
             dl_versions.BeginUpdate();
             dl_versions.Items.Clear();
+            dl_versions.Items.AddRange(dl_special);
             dl_versions.Items.AddRange(dl_list);
             dl_versions.SelectedIndex = selected_item;
             dl_versions.EndUpdate();
@@ -605,11 +609,51 @@ namespace SI_GUI
         {
             if (dl_versions.SelectedItem != null)
             {
-                string link = get_final_link(true, dl_versions.SelectedItem.ToString());
-                if (cb_installer.Checked)
-                    download_any_version(link, false, true);
-                if (cb_help.Checked)
-                    download_any_version(link, true, true);
+                switch (dl_versions.SelectedIndex)
+                {
+                    case(0):
+                        // Latest branch
+                        if (cb_installer.Checked)
+                            asyncdl_wrapper(enum4DL_Special.LB, false);
+                        if (cb_help.Checked)
+                            asyncdl_wrapper(enum4DL_Special.LB, true);
+                            
+                        break;
+                    case (1):
+                        // Older branch
+                        if (cb_installer.Checked)
+                            asyncdl_wrapper(enum4DL_Special.OB, false);
+                        if (cb_help.Checked)
+                            asyncdl_wrapper(enum4DL_Special.OB, true);
+                        
+                        break;
+                    case (2):
+                        // Testing
+                        if (cb_installer.Checked)
+                            asyncdl_wrapper(enum4DL_Special.T, false);
+                        if (cb_help.Checked)
+                            asyncdl_wrapper(enum4DL_Special.T, true);
+                            
+                       
+                        break;
+                    case (3):
+                        // Master
+                        if (cb_installer.Checked)
+                            asyncdl_wrapper(enum4DL_Special.M, false);
+                        break;
+                    case (4):
+                        //Do nothing
+                        break;
+
+                    default:
+                        string link = get_final_link(true, dl_versions.SelectedItem.ToString());
+                        if (cb_installer.Checked)
+                            download_any_version(link, false, true);
+                        if (cb_help.Checked)
+                            download_any_version(link, true, true);
+                        break;
+                }
+
             }
 
         }

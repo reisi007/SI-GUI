@@ -19,6 +19,26 @@ namespace SI_GUI
 {
     public partial class Form1 : Form
     {
+        enum enum4DL_Special { LB, OB, T, M };
+        void asyncdl_wrapper(enum4DL_Special version,bool helppack)
+        {
+            switch (version)
+            {
+                case(enum4DL_Special.LB):
+                    startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false,helppack);
+                    break;
+                case (enum4DL_Special.OB):
+                    startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, helppack);
+                    break;
+                case (enum4DL_Special.T):
+                    startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false, helppack);
+                    break;
+                case (enum4DL_Special.M):
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6/current/", false, true, false, false);
+                    break;
+            }
+        }
+
         #region Process for DL of main program
         Dictionary<int, long> dl_manager_current = new Dictionary<int, long>();
         Dictionary<int, long> dl_manager_total = new Dictionary<int, long>();

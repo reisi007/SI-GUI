@@ -314,7 +314,7 @@
 		<value>Não existe versão de teste!</value>
 	</data>
 	<data name="notest_txt" xml:space="preserve">
-		<value>Não existe nenhuma versão de teste disponível neste momento!</value>
+		<value>Não existe uma versão de teste disponível neste momento!</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
 		<value>&amp;Transferir</value>
@@ -362,7 +362,7 @@
 		<value>Iniciar transferência</value>
 	</data>
 	<data name="gb_dl_help" xml:space="preserve">
-		<value>Ajuda ???</value>
+		<value>Ajuda local</value>
 	</data>
 	<data name="gb_dl_installer" xml:space="preserve">
 		<value>Instalador</value>
