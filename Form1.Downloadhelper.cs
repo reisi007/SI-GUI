@@ -129,7 +129,7 @@ namespace SI_GUI
             }
             catch (Exception ex)
             {
-                exeptionmessage(ex.Message);
+                exceptionmessage(ex.Message);
             }
             if (cont)
             {
@@ -326,7 +326,7 @@ namespace SI_GUI
             }
             catch (System.Net.WebException ex)
             {
-                exeptionmessage(ex.Message);
+                exceptionmessage(ex.Message);
 
             }
             return httpfile;
@@ -388,7 +388,7 @@ namespace SI_GUI
                 download_any_version(get_final_link(libo, httpfile), hp, libo);
             }
             else
-            { exeptionmessage(getstring("massdl_error")); }
+            { exceptionmessage(getstring("massdl_error")); }
 
         }
 

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using System.IO;
-using IWshRuntimeLibrary;
+
 using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
@@ -43,7 +43,7 @@ namespace SI_GUI
 
         }
         public string program_version()
-        { return "4.0.3.5"; }
+        { return "4.0.3.7"; }
 
         public void save_settings(SETTINGS set)
         {
@@ -97,54 +97,4 @@ public struct DL_UI_settings
     public bool cb_installer;
     public bool cb_help;
     public int versions_last_version;
-}
-public class LINK
-{
-    public LINK()
-    {
-
-    }
-    ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
-    public void exeptionmessage(string ex_message)
-    {
-        MessageBox.Show(getstring("standarderror") + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-    public string getstring(string strMessage)
-    {
-        string rt = "???";
-        try
-        {
-            rt = rm.GetString(strMessage);
-        }
-        catch (Exception)
-        {
-            exeptionmessage("An error in the l10n part occured!");
-        }
-        return rt;
-    }
-    public void create_ink(string link_to_exe, string version)
-    {
-
-        bool ok = true;
-        try
-        {
-            if (version == null || version == "")
-                throw new Exception(getstring("ink_error_1"));
-            WshShell wsh = new WshShell();
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "LibO Parallel " + version + ".lnk");
-            IWshShortcut shortcut = (IWshShortcut)wsh.CreateShortcut(@path);
-            string des = getstring("ink_des");
-            des = des.Replace("%version", version);
-            shortcut.Description = des;
-            shortcut.TargetPath = link_to_exe;
-            shortcut.Save();
-        }
-        catch (Exception ex)
-        {
-            exeptionmessage(ex.Message);
-            ok = false;
-        }
-        if (ok)
-            MessageBox.Show(getstring("msb_lnk_txt"), getstring("msb_lnk_title"), MessageBoxButtons.OK);
-    }
 }

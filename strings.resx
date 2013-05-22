@@ -172,7 +172,7 @@
     <value>French:</value>
   </data>
 	<data name="lang" xml:space="preserve">
-    <value>Language</value>
+    <value>Language:</value>
   </data>
 	<data name="programmer" xml:space="preserve">
     <value>Programmer:</value>
@@ -397,6 +397,9 @@
     <value>All LibO versions</value>
   </data>
 	<data name="tt_tb" xml:space="preserve">
-		<value>Latest testing build.</value>
-	</data>
+    <value>Latest testing build.</value>
+  </data>
+	<data name="ink_error_2" xml:space="preserve">
+    <value>No path to soffice.exe could be detected!</value>
+  </data>
 </root>

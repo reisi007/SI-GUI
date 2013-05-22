@@ -172,7 +172,7 @@
 		<value>Frans:</value>
 	</data>
 	<data name="lang" xml:space="preserve">
-		<value>Taal</value>
+		<value>Taal:</value>
 	</data>
 	<data name="programmer" xml:space="preserve">
 		<value>Programmeur:</value>
@@ -324,5 +324,77 @@
 	<data name="nl" xml:space="preserve">
 		<value>Nederlands
 </value>
+	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>Versie:</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>en</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>Geen testversie!</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>Geen testversie beschikbaar momenteel.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>&amp;Download</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>&amp;Helppack</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>&amp;Installer</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>&amp;Laatste branch</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>&amp;Oudste branch</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>&amp;Testbranch</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Taal (help):</value>
+	</data>
+	<data name="massdl_l10n_title" xml:space="preserve">
+		<value>Download elke versie van %product !</value>
+	</data>
+	<data name="massdl_l10n_which" xml:space="preserve">
+		<value>Welke versie moet worden gedownload?</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="no_valid_filename_error_text" xml:space="preserve">
+		<value>*.EXE bestanden zijn niet ondersteund voor installatie!</value>
+	</data>
+	<data name="no_valid_filename_error_title" xml:space="preserve">
+		<value>Bestand niet ondersteund!</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>Start download</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>Offline help</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>Installer</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>Update versielijst</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>Parallele installatie</value>
+	</data>
+	<data name="massdl_error" xml:space="preserve">
+		<value>Download is afgebroken!</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>Alle LibO versies</value>
+	</data>
+	<data name="abort" xml:space="preserve">
+		<value>Annuleer</value>
 	</data>
 </root>

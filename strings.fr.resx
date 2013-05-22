@@ -172,7 +172,7 @@
     <value>Français :</value>
   </data>
 	<data name="lang" xml:space="preserve">
-    <value>Langue</value>
+    <value>Langue:</value>
   </data>
 	<data name="programmer" xml:space="preserve">
     <value>Programmeur :</value>
@@ -247,7 +247,7 @@
 		<value>Un sous-dossier doit-il automatiquement être créé ? Nom du sous-dossier :</value>
 	</data>
 	<data name="da" xml:space="preserve">
-		<value>Danois :</value>
+		<value>Danois:</value>
 	</data>
 	<data name="help" xml:space="preserve">
 		<value>Aide</value>

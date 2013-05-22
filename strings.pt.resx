@@ -152,7 +152,7 @@
 		<value>Francês:</value>
 	</data>
 	<data name="lang" xml:space="preserve">
-		<value>Idioma</value>
+		<value>Idioma:</value>
 	</data>
 	<data name="programmer" xml:space="preserve">
 		<value>Programador:</value>
@@ -368,7 +368,7 @@
 		<value>Instalador</value>
 	</data>
 	<data name="gb_dl_update" xml:space="preserve">
-		<value>Actualizar lista de versões</value>
+		<value>Atualizar lista de versões</value>
 	</data>
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Instalação em paralelo</value>

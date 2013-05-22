@@ -172,7 +172,7 @@
     <value>Fransk:</value>
   </data>
 	<data name="lang" xml:space="preserve">
-    <value>Sprog</value>
+    <value>Sprog:</value>
   </data>
 	<data name="programmer" xml:space="preserve">
     <value>Programmør:</value>
@@ -375,9 +375,6 @@
 	</data>
 	<data name="no_valid_filename_error_title" xml:space="preserve">
 		<value>Fil ikke understøttet!</value>
-	</data>
-	<data name="start_dl" xml:space="preserve">
-		<value>Start download</value>
 	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Start download</value>

@@ -18,6 +18,8 @@ using System.Resources;
 using System.Reflection;
 using System.Globalization;
 using System.Xml.Serialization;
+// Create lnk
+using IWshRuntimeLibrary;
 
 
 //Used for translating: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor (I will forget it soon)...
@@ -91,7 +93,7 @@ namespace SI_GUI
         private bool rtl_layout = false;
         string[] dl_special;
         access_settings set = new access_settings();
-        ResourceManager rm = new ResourceManager("WindowsFormsApplication1.strings", Assembly.GetExecutingAssembly());
+        ResourceManager rm = new ResourceManager("SI_GUI.strings", Assembly.GetExecutingAssembly());
         public Form1()
         {
 
@@ -134,8 +136,6 @@ namespace SI_GUI
             }
 
             //l10n start
-            string installer = getstring("m_l10n_installer");
-            string helppack = getstring("m_l10n_helppack");
             b_open_libo_installer.Text = getstring("open_installer");
             m_about.Text = getstring("about");
             m_man.Text = getstring("man_title");
@@ -152,29 +152,15 @@ namespace SI_GUI
             create_lnk.Text = getstring("b_create_shortcut");
             label1.Text = getstring("s_version");
             m_help.Text = getstring("help");
-            m_item_lb.Text = getstring("m_l10n_lb");
-            m_item_ob.Text = getstring("m_l10n_ob");
-            m_item_tb.Text = getstring("m_l10n_t");
             choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
-            m_lb_h.Text = helppack;
-            m_ob_h.Text = helppack;
-            m_t_h.Text = helppack;
-            m_liball_h.Text = helppack;
-            m_lb_i.Text = installer;
-            m_ob_i.Text = installer;
-            m_t_i.Text = installer;
-            m_liball_i.Text = installer;
-            m_dl.Text = getstring("m_l10n_dl");
-            gb_download.Text = m_dl.Text.Remove(m_dl.Text.IndexOf("&"), 1);
+            gb_download.Text = getstring("m_l10n_dl").Remove(getstring("m_l10n_dl").IndexOf("&"), 1);
             gb_create_lnk.Text = create_lnk.Text;
             start_dl.Text = getstring("gb_dl_begindl");
             cb_installer.Text = getstring("gb_dl_installer");
             cb_help.Text = getstring("gb_dl_help");
             update_versions.Text = getstring("gb_dl_update");
             gb_installation.Text = getstring("gb_parallel_install");
-            m_item_all_libo.Text = getstring("any_libo_version");
             dl_versions.Text = getstring("s_version").Remove(getstring("s_version").Length - 1);
-
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
@@ -199,8 +185,11 @@ namespace SI_GUI
             progressBar1.Minimum = 0;
             progressBar1.Maximum = 10000;
             percent.Text = "0 %";
-            // Position choose_lang_label
-            choose_lang_label.Location = new Point(choose_lang.Location.X - 6 - choose_lang_label.Width, choose_lang.Location.Y + 3);
+            // Position choose_lang
+            choose_lang.Location = new Point(choose_lang_label.Location.X + choose_lang_label.Width + 6, choose_lang_label.Location.Y - 3);
+            // Position startdl
+            start_dl.Location = new Point(choose_lang.Width + choose_lang.Location.X + 6, choose_lang.Location.Y);
+            start_dl.Width = 397 - start_dl.Location.X;
         }
 
         ToolTip get_ToolTip(Control c, string text)
@@ -297,7 +286,7 @@ namespace SI_GUI
 
             catch (Exception ex)
             {
-                exeptionmessage(ex.Message);
+                exceptionmessage(ex.Message);
                 go_on = false;
 
             }
@@ -372,7 +361,7 @@ namespace SI_GUI
             }
             catch (Exception ex)
             {
-                exeptionmessage(ex.Message);
+                exceptionmessage(ex.Message);
             }
             return filename;
         }
@@ -419,7 +408,7 @@ namespace SI_GUI
             catch (Exception ex)
             {
                 working = false;
-                exeptionmessage(ex.Message);
+                exceptionmessage(ex.Message);
                 return working;
             }
             if (working == true)
@@ -442,7 +431,7 @@ namespace SI_GUI
             catch (Exception ex)
             {
                 working = false;
-                exeptionmessage(ex.Message);
+                exceptionmessage(ex.Message);
 
 
             }
@@ -509,7 +498,7 @@ namespace SI_GUI
                 }
                 else
                 {
-                    exeptionmessage(exeptiontext);
+                    exceptionmessage(exeptiontext);
                 }
             }
         }
@@ -522,9 +511,9 @@ namespace SI_GUI
         {
             openfile.ShowDialog();
         }
-        public void exeptionmessage(string ex_message)
+        public void exceptionmessage(string ex_message)
         {
-            MessageBox.Show(getstring("standarderror") + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(getstring("standarderror") +" " + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public string getstring(string strMessage)
         {
@@ -535,7 +524,7 @@ namespace SI_GUI
             }
             catch (Exception)
             {
-                exeptionmessage("An error in the l10n part occured!");
+                exceptionmessage("An error in the l10n part occured!");
             }
             return rt;
 
@@ -545,6 +534,11 @@ namespace SI_GUI
         private void savesettings(object sender, EventArgs e)
         {
             savesettings();
+            // Enable or disable the DL button
+            if (cb_installer.Checked || cb_help.Checked)
+                start_dl.Enabled = true;
+            else
+                start_dl.Enabled = false;
         }
 
         private void savesettings()
@@ -568,8 +562,34 @@ namespace SI_GUI
 
         private void create_ink_Click(object sender, EventArgs e)
         {
-            LINK lnk = new LINK();
-            lnk.create_ink(path_to_exe.Text, tb_version.Text);
+            bool ok = true;
+
+            try
+            {
+                if (tb_version.Text == "")
+                    throw new Exception(getstring("ink_error_1"));
+                if(path_to_exe.Text == "")
+                    throw new Exception(getstring("ink_error_2"));
+                WshShell wsh = new WshShell();
+                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "LibO Parallel " + tb_version.Text + ".lnk");
+                IWshShortcut shortcut = (IWshShortcut)wsh.CreateShortcut(@path);
+                string des = getstring("ink_des");
+                des = des.Replace("%version", tb_version.Text);
+                shortcut.Description = des;
+                shortcut.TargetPath = path_to_exe.Text;
+                shortcut.Save();
+            }
+            catch (Exception ex)
+            {
+                exceptionmessage(ex.Message);
+                ok = false;
+            }
+            finally
+            {
+                if (ok)
+                    MessageBox.Show(getstring("msb_lnk_txt"), getstring("msb_lnk_title"), MessageBoxButtons.OK);
+            }
+           
         }
 
         private void m_about_Click(object sender, EventArgs e)
@@ -667,13 +687,13 @@ namespace SI_GUI
             {
                 switch (dl_versions.SelectedIndex)
                 {
-                    case(0):
+                    case (0):
                         // Latest branch
                         if (cb_installer.Checked)
                             asyncdl_wrapper(enum4DL_Special.LB, false);
                         if (cb_help.Checked)
                             asyncdl_wrapper(enum4DL_Special.LB, true);
-                            
+
                         break;
                     case (1):
                         // Older branch
@@ -681,7 +701,7 @@ namespace SI_GUI
                             asyncdl_wrapper(enum4DL_Special.OB, false);
                         if (cb_help.Checked)
                             asyncdl_wrapper(enum4DL_Special.OB, true);
-                        
+
                         break;
                     case (2):
                         // Testing
@@ -689,8 +709,8 @@ namespace SI_GUI
                             asyncdl_wrapper(enum4DL_Special.T, false);
                         if (cb_help.Checked)
                             asyncdl_wrapper(enum4DL_Special.T, true);
-                            
-                       
+
+
                         break;
                     case (3):
                         // Master
@@ -713,5 +733,6 @@ namespace SI_GUI
             }
 
         }
+
     }
 }
