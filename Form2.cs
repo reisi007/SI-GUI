@@ -23,12 +23,34 @@ namespace SI_GUI
     public partial class Form2 : Form
     {
         access_settings set = new access_settings();
+        string[] lang = new string[] {
+            "En",
+            "De",
+            "Fr",
+            "Es",
+            "Sl",
+            "Da",
+            "He",
+            "Pt",
+            "Nl"};
+
         public Form2(string[] l10n, bool rtl)
         {
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
+            lang_chooser.Sorted = true;
             this.l10n = l10n;
+            // Load default lang
+            SETTINGS s = set.open_settings();
+            lang_chooser.Items.AddRange(lang);
+            try
+            {
+                lang_chooser.SelectedItem = s.l10n;
+            }
+            catch (Exception e)
+            { MessageBox.Show(e.Message); }
+            lang_chooser.SelectedIndexChanged += new System.EventHandler(this.update_lang);
         }
         private string[] l10n;
         private void Form2_Load(object sender, EventArgs e)
@@ -60,7 +82,7 @@ namespace SI_GUI
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
             about.Text = abouttxt;
             this.Text = l10n[14];
-            lang_chooser.Sorted = true;
+            
         }
 
         public void exeptionmessage(string ex_message)
