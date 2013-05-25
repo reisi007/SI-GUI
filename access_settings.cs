@@ -9,10 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using System.IO;
-
 using System.Windows.Forms;
-using System.Resources;
-using System.Reflection;
 
 namespace SI_GUI
 {
@@ -79,22 +76,34 @@ namespace SI_GUI
             return new_array;
         }
     }
-}
-public class SETTINGS
-{
-    public string installdir;
-    public string name_subfolder;
-    public bool cb_create_subfolder;
-    public int lang;
-    public string l10n;
-    public string[] manager_versions;
-    public string last_path_to_sofficeEXE;
-    public DL_UI_settings DL_saved_settings;
-}
-public struct DL_UI_settings
-{
-    public string[] versions;
-    public bool cb_installer;
-    public bool cb_help;
-    public int versions_last_version;
+
+    public class SETTINGS
+    {
+        public string installdir;
+        public string name_subfolder;
+        public bool cb_create_subfolder;
+        public int lang;
+        public string l10n;
+        public string[] manager_versions;
+        public string last_path_to_sofficeEXE;
+        public DL_UI_settings DL_saved_settings;
+        public GA_Settings GA;
+    }
+    public struct DL_UI_settings
+    {
+        public string[] versions;
+        public bool cb_installer;
+        public bool cb_help;
+        public int versions_last_version;
+    }
+
+    public struct GA_Settings
+    {
+        public string trackingID;
+        public bool tracking_allowed;
+        public bool manually_set;
+    }
+
+    
+
 }

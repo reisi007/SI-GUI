@@ -94,9 +94,10 @@ namespace SI_GUI
         string[] dl_special;
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("SI_GUI.strings", Assembly.GetExecutingAssembly());
+        GAnalytics ga;
         public Form1()
         {
-
+            
             //l10n import
             string[] rtl = new string[] { "He" };
             try
@@ -106,7 +107,8 @@ namespace SI_GUI
                 string lang = temp.l10n;
                 if (lang != null)
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
-
+                ga = new GAnalytics(getstring("ga_allowed_title"), getstring("ga_allowed_text"));
+                ga.sendStartupStats(lang);
                 if (rtl.Contains(lang))
                     rtl_layout = true;
             }
@@ -116,7 +118,7 @@ namespace SI_GUI
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             choose_lang.Items.AddRange(alllang);
-
+            
         }
 
 
@@ -244,6 +246,7 @@ namespace SI_GUI
         private void openLibohelp(object sender, EventArgs e)
         {
             openfile2.ShowDialog();
+            ga.sendFeatreUseageStats(GAnalytics.Features.Open_Help);
         }
 
         private void openfile2_FileOk(object sender, CancelEventArgs e)
@@ -259,12 +262,12 @@ namespace SI_GUI
                 string fileame_installdir = wheretoinstall.SelectedPath;
                 path_installdir.Text = fileame_installdir;
             }
-
+            ga.sendFeatreUseageStats(GAnalytics.Features.Config_Dir);
         }
 
         private void start_install_Click(object sender, EventArgs e)
         {
-
+            ga.sendFeatreUseageStats(GAnalytics.Features.ParallelInstall);
             bool install_main = false;
             bool install_help = false;
             bool install_path = false;
@@ -370,8 +373,7 @@ namespace SI_GUI
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
             openbootstrap_ini();
-
-
+            ga.sendFeatreUseageStats(GAnalytics.Features.OpenBootstrap);
         }
 
         private bool openbootstrap_ini()
@@ -447,6 +449,7 @@ namespace SI_GUI
 
         private void save_bootstrap(object sender, EventArgs e)
         {
+            ga.sendFeatreUseageStats(GAnalytics.Features.SaveBootstrap);
             bool working = true;
             string exeptiontext = "";
             // Save bootstrap.ini
@@ -510,6 +513,7 @@ namespace SI_GUI
         private void open_installer_Click(object sender, EventArgs e)
         {
             openfile.ShowDialog();
+            ga.sendFeatreUseageStats(GAnalytics.Features.Open_Installer);
         }
         public void exceptionmessage(string ex_message)
         {
@@ -563,7 +567,7 @@ namespace SI_GUI
         private void create_ink_Click(object sender, EventArgs e)
         {
             bool ok = true;
-
+            ga.sendFeatreUseageStats(GAnalytics.Features.CreateInk);
             try
             {
                 if (tb_version.Text == "")
@@ -670,6 +674,7 @@ namespace SI_GUI
         private int selected_item;
         private void update_versions_Click(object sender, EventArgs e)
         {
+            ga.sendFeatreUseageStats(GAnalytics.Features.Update_ListOfVersion);
             dl_list = getLibO_List_of_DL();
             selected_item = dl_versions.SelectedIndex;
             dl_versions.BeginUpdate();
@@ -683,6 +688,7 @@ namespace SI_GUI
 
         private void start_dl_Click(object sender, EventArgs e)
         {
+            ga.sendFeatreUseageStats(GAnalytics.Features.StartDL);
             if (dl_versions.SelectedItem != null)
             {
                 switch (dl_versions.SelectedIndex)
@@ -690,32 +696,42 @@ namespace SI_GUI
                     case (0):
                         // Latest branch
                         if (cb_installer.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.LB, false);
+                        }
                         if (cb_help.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.LB, true);
-
+                        }
                         break;
                     case (1):
                         // Older branch
                         if (cb_installer.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.OB, false);
+                        }
                         if (cb_help.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.OB, true);
-
+                        }
                         break;
                     case (2):
                         // Testing
                         if (cb_installer.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.T, false);
+                        }
                         if (cb_help.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.T, true);
-
-
+                        }
                         break;
                     case (3):
                         // Master
                         if (cb_installer.Checked)
+                        {
                             asyncdl_wrapper(enum4DL_Special.M, false);
+                        }
                         break;
                     case (4):
                         //Do nothing
@@ -724,12 +740,15 @@ namespace SI_GUI
                     default:
                         string link = get_final_link(true, dl_versions.SelectedItem.ToString());
                         if (cb_installer.Checked)
+                        {
                             download_any_version(link, false, true);
+                        }
                         if (cb_help.Checked)
+                        {
                             download_any_version(link, true, true);
+                        }
                         break;
                 }
-
             }
 
         }

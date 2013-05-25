@@ -241,6 +241,33 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dear user,:nl:This program uses Google Analytics in order to get statistics about the usage of this program.:nl:We have created a trackingID for this installation. Your tracking key is::nl:%trackingID:nl:As you can see, this does not contain any private information. Press&quot;Yes&quot; in order to allow tracking, &quot;No&quot; to prohabit..
+        /// </summary>
+        internal static string ga_allowed_text {
+            get {
+                return ResourceManager.GetString("ga_allowed_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics powerd by Google Analytics..
+        /// </summary>
+        internal static string ga_allowed_title {
+            get {
+                return ResourceManager.GetString("ga_allowed_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow tracking your useage of the program with help of Google Analytics.
+        /// </summary>
+        internal static string ga_cb_allowed {
+            get {
+                return ResourceManager.GetString("ga_cb_allowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Begin download.
         /// </summary>
         internal static string gb_dl_begindl {

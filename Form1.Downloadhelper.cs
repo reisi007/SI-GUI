@@ -228,6 +228,16 @@ namespace SI_GUI
             {
                 if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
+                    // Send stats
+                    if (!helppack)
+                    {
+                        ga.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), "");
+                    }
+                    if (!master && helppack)
+                    {
+                        ga.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), choose_lang.SelectedItem.ToString());
+                    }
+
                     give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
                     set_progressbar();
                     webc.DownloadFileAsync(uritofile, path);

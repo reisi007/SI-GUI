@@ -37,6 +37,7 @@
             this.lang_chooser = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ga_tracking = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.about.Multiline = true;
             this.about.Name = "about";
             this.about.ReadOnly = true;
-            this.about.Size = new System.Drawing.Size(459, 320);
+            this.about.Size = new System.Drawing.Size(459, 303);
             this.about.TabIndex = 3;
             // 
             // lang_chooser
@@ -78,11 +79,22 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // ga_tracking
+            // 
+            this.ga_tracking.AutoSize = true;
+            this.ga_tracking.Location = new System.Drawing.Point(15, 412);
+            this.ga_tracking.Name = "ga_tracking";
+            this.ga_tracking.Size = new System.Drawing.Size(92, 17);
+            this.ga_tracking.TabIndex = 7;
+            this.ga_tracking.Text = "Allow tracking";
+            this.ga_tracking.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 462);
+            this.Controls.Add(this.ga_tracking);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lang_chooser);
             this.Controls.Add(this.about);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.TextBox about;
         private System.Windows.Forms.ComboBox lang_chooser;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ga_tracking;
 
     }
 }

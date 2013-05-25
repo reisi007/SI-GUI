@@ -47,14 +47,24 @@ namespace SI_GUI
             try
             {
                 lang_chooser.SelectedItem = s.l10n;
+                ga_tracking.Checked = s.GA.tracking_allowed;
+                ga_tracking.CheckedChanged += new EventHandler(ga_tracking_CheckedChanged);
             }
             catch (Exception e)
             { MessageBox.Show(e.Message); }
             lang_chooser.SelectedIndexChanged += new System.EventHandler(this.update_lang);
         }
+
+        void ga_tracking_CheckedChanged(object sender, EventArgs e)
+        {
+            SETTINGS settings = set.open_settings();
+            settings.GA.tracking_allowed = ga_tracking.Checked;
+            set.save_settings(settings);
+        }
         private string[] l10n;
         private void Form2_Load(object sender, EventArgs e)
         {
+            ga_tracking.Text = l10n[19];
             label1.Text = l10n[0];
             string abouttxt = "";
             string translations = l10n[1] + " ";
@@ -82,7 +92,6 @@ namespace SI_GUI
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
             about.Text = abouttxt;
             this.Text = l10n[14];
-            
         }
 
         public void exeptionmessage(string ex_message)

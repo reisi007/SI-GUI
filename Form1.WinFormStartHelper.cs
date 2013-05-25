@@ -17,6 +17,7 @@ namespace SI_GUI
         // Opens the help
         private void openHelp()
         {
+            ga.sendFeatreUseageStats(GAnalytics.Features.OpenDialog_Help);
             string[] l10n = new string[3];
             l10n[0] = getstring("standarderror");
             l10n[1] = getstring("Error");
@@ -27,6 +28,7 @@ namespace SI_GUI
         // Opens manager
         private void openManager()
         {
+            ga.sendFeatreUseageStats(GAnalytics.Features.OpenDialog_Manager);
             string[] l10n_manager = new string[10];
             l10n_manager[0] = getstring("man_title");
             l10n_manager[1] = getstring("man_exit");
@@ -53,7 +55,8 @@ namespace SI_GUI
         // Opens About / change language
         private void openAbout()
         {
-            string[] l10n = new string[19];
+            ga.sendFeatreUseageStats(GAnalytics.Features.OpenDialog_About);
+            string[] l10n = new string[20];
             l10n[0] = getstring("update_lang");
             l10n[1] = getstring("translations");
             l10n[2] = getstring("translator");
@@ -73,6 +76,7 @@ namespace SI_GUI
             l10n[16] = getstring("Error");
             l10n[17] = getstring("language_change_success");
             l10n[18] = getstring("success");
+            l10n[19] = getstring("ga_cb_allowed");
             Form2 fm = new Form2(l10n, rtl_layout);
             fm.ShowDialog();
         }
