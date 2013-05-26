@@ -379,4 +379,10 @@
 	<data name="start_dl" xml:space="preserve">
 		<value>התחלת ההורדה</value>
 	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>הסטטיסטיקה מחושבת באמצעות Google Analytics</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>לאפשר לעקוב אחר השימוש שלך בתכנית בעזרת Google Analytics</value>
+	</data>
 </root>

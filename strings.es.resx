@@ -396,4 +396,19 @@
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Todas las versiones de LibO</value>
 	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>Iniciar la descarga</value>
+	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>No se detectó ninguna ruta a soffice.exe.</value>
+	</data>
+	<data name="ga_allowed_text" xml:space="preserve">
+		<value>Estimado usuario,:nl:Este programa utiliza Google Analytics para obtener estadísticas sobre su uso.:nl:Se ha creado un «trackingID» para esta instalación, que es::nl:%trackingID:nl:Como puede ver, no contiene información personal. Pulse «Sí» para permitir el seguimiento, o «No» para prohibirlo.</value>
+	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>Estadísticas por Google Analytics</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>Permitir seguimiento del uso de este programa con Google Analytics</value>
+	</data>
 </root>

@@ -397,4 +397,16 @@
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Alle LibreOffice versioner</value>
 	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>Sti til soffice.exe kunne ikke findes!</value>
+	</data>
+	<data name="ga_allowed_text" xml:space="preserve">
+		<value>Kære bruger,:nl:Dette program bruger Google Analytics for at få statistik om brugen af programmet.:nl:Vi har oprettet et trackingID for denne installation. Din trackingID er::nl:%trackingID:nl:Som du kan se indeholder den ignen personlige oplysninger. Klik på "Ja" for at tillade statistik, eller "Nej" for at nægte statistik.</value>
+	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>Statistik fra Google Analytics.</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>Tillader at følge din brug af programmet med Google Analytics</value>
+	</data>
 </root>

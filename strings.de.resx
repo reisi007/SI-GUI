@@ -121,19 +121,19 @@
     <value>Verzeichis ist nicht vorhanden!</value>
   </data>
 	<data name="dirnotfoundmessage" xml:space="preserve">
-    <value>Bitte überprüfen Sie Ihr gewähltes Verzeichnis</value>
+    <value>Bitte überprüfen Sie Ihr gewähltes Verzeichnis!</value>
   </data>
 	<data name="Error" xml:space="preserve">
     <value>Fehler!</value>
   </data>
 	<data name="filesave" xml:space="preserve">
-    <value>Das Speichern der Datei war erfolgreich</value>
+    <value>Das Speichern der Datei war erfolgreich.</value>
   </data>
 	<data name="go_back" xml:space="preserve">
     <value>Zurück?</value>
   </data>
 	<data name="help_runasadmin" xml:space="preserve">
-    <value>Es könnte helfen das programm als Administrator auszuführen.</value>
+    <value>Es könnte helfen das Programm als Administrator auszuführen.</value>
   </data>
 	<data name="installerror" xml:space="preserve">
     <value>Die Installation konnte wegen folgendem Fehler nicht gestartet werden:</value>
@@ -301,7 +301,7 @@
     <value>Verknüpfung zur parallel installierten LibreOffice %version.</value>
   </data>
 	<data name="ink_error_1" xml:space="preserve">
-    <value>Es wurde keine Version angegeben.</value>
+    <value>Es wurde keine Version angegeben!</value>
   </data>
 	<data name="tt_ink" xml:space="preserve">
     <value>Eine Verknüfung für diese parallel installierte Version erstellen</value>
@@ -398,5 +398,17 @@
   </data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Herunterladen der aktuellen Testversion.</value>
+	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>Der Pfad zur soffice.exe konnte nicht gefunden werden!</value>
+	</data>
+	<data name="ga_allowed_text" xml:space="preserve">
+		<value>An den Benutzer,:n:Dieses Programm verwendet Google Analytics um Statistiken über die Benutzung dieses Programms zu bekommen.:n:Die TrackingID für diese Installation wurde bereits erstellt und lautet::n: %trackingID:n:Wie Sie sehen können enthält diese keine privaten Informationen. Um die Verwendung von Google Analytics zu erlauben, drücken Sie bitte „Ja“, sonst „Nein“.</value>
+	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>Statistikerhebung mit Hilfe von Google Analytics.</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>Das Erheben von Statistiken mit Hilfe von Google Analytics erlauben</value>
 	</data>
 </root>
