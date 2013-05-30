@@ -192,6 +192,9 @@ namespace SI_GUI
             // Position startdl
             start_dl.Location = new Point(choose_lang.Width + choose_lang.Location.X + 6, choose_lang.Location.Y);
             start_dl.Width = 397 - start_dl.Location.X;
+            // Specify the starting folder for FileOpen dialogs
+            openfile.InitialDirectory = Path.GetTempPath();
+            openfile2.InitialDirectory = openfile.InitialDirectory;
         }
 
         ToolTip get_ToolTip(Control c, string text)
