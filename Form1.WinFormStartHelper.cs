@@ -52,11 +52,11 @@ namespace SI_GUI
             window.ShowDialog();
         }
 
-        // Opens About / change language
+        // Opens About / change language / settings
         private void openAbout()
         {
             ga.sendFeatreUseageStats(GAnalytics.Features.OpenDialog_About);
-            string[] l10n = new string[20];
+            string[] l10n = new string[21];
             l10n[0] = getstring("update_lang");
             l10n[1] = getstring("translations");
             l10n[2] = getstring("translator");
@@ -77,8 +77,10 @@ namespace SI_GUI
             l10n[17] = getstring("language_change_success");
             l10n[18] = getstring("success");
             l10n[19] = getstring("ga_cb_allowed");
+            l10n[20] = getstring("settings_select_dl_folder");
             Form2 fm = new Form2(l10n, rtl_layout);
             fm.ShowDialog();
+            path_4_download = fm.get_download_location;
         }
 
         // Opens Mass DL. If true LibO LibreOffice archives will be opened, otherwise OpenOffice

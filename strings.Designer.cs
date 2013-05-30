@@ -241,7 +241,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dear user,:nl:This program uses Google Analytics in order to get statistics about the usage of this program.:nl:We have created a trackingID for this installation. Your tracking key is::nl:%trackingID:nl:As you can see, this does not contain any private information. Press&quot;Yes&quot; in order to allow tracking, &quot;No&quot; to prohabit..
+        ///   Looks up a localized string similar to Dear user,:nl:This program uses Google Analytics in order to get statistics about the usage of this program.:nl:We have created a trackingID for this installation. Your trackingID is::nl:%trackingID:nl:As you can see, this does not contain any private information. Press&quot;Yes&quot; in order to allow tracking, &quot;No&quot; in order to prohibit..
         /// </summary>
         internal static string ga_allowed_text {
             get {
@@ -250,7 +250,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Statistics powerd by Google Analytics..
+        ///   Looks up a localized string similar to Statistics powered by Google Analytics..
         /// </summary>
         internal static string ga_allowed_title {
             get {
@@ -259,7 +259,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow tracking your useage of the program with help of Google Analytics.
+        ///   Looks up a localized string similar to Allow tracking your usage of the program with help of Google Analytics.
         /// </summary>
         internal static string ga_cb_allowed {
             get {
@@ -759,6 +759,15 @@ namespace SI_GUI {
         internal static string save_bootstrap_ini {
             get {
                 return ResourceManager.GetString("save_bootstrap_ini", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select download folder.
+        /// </summary>
+        internal static string settings_select_dl_folder {
+            get {
+                return ResourceManager.GetString("settings_select_dl_folder", resourceCulture);
             }
         }
         

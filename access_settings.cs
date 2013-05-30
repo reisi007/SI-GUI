@@ -110,6 +110,7 @@ namespace SI_GUI
         public bool cb_installer;
         public bool cb_help;
         public int versions_last_version;
+        public string download_path;
     }
 
     public struct GA_Settings

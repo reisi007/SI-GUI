@@ -43,6 +43,11 @@ namespace SI_GUI
             this.l10n = l10n;
             // Load default lang
             SETTINGS s = set.open_settings();
+            if (s.DL_saved_settings.download_path == "")
+                folder_save.Text = Path.GetTempPath();
+            else
+                folder_save.Text = s.DL_saved_settings.download_path;
+            folder.RootFolder = Environment.SpecialFolder.MyComputer;
             lang_chooser.Items.AddRange(lang);
             try
             {
@@ -92,6 +97,7 @@ namespace SI_GUI
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
             about.Text = abouttxt;
             this.Text = l10n[14];
+            B_open_folder.Text = l10n[20];
         }
 
         public void exeptionmessage(string ex_message)
@@ -105,6 +111,26 @@ namespace SI_GUI
             temp.l10n = Convert.ToString(lang_chooser.SelectedItem);
             set.save_settings(temp);
             MessageBox.Show(l10n[17], l10n[18], MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void B_open_folder_Click(object sender, EventArgs e)
+        {
+            if (folder.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                folder_save.Text = folder.SelectedPath;
+        }
+
+        private void folder_save_TextChanged(object sender, EventArgs e)
+        {
+            SETTINGS s = set.open_settings();
+            s.DL_saved_settings.download_path = folder_save.Text;
+            set.save_settings(s);
+        }
+        public string get_download_location
+        {
+            get
+            {
+                return folder_save.Text;
+            }
         }
 
     }

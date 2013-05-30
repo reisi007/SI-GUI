@@ -95,6 +95,7 @@ namespace SI_GUI
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("SI_GUI.strings", Assembly.GetExecutingAssembly());
         GAnalytics ga;
+        string path_4_download = Path.GetTempPath();
         public Form1()
         {
             
@@ -104,6 +105,8 @@ namespace SI_GUI
             {
 
                 SETTINGS temp = set.open_settings();
+                if (temp.DL_saved_settings.download_path != null)
+                    path_4_download = temp.DL_saved_settings.download_path;
                 string lang = temp.l10n;
                 if (lang != null)
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
@@ -118,6 +121,14 @@ namespace SI_GUI
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             choose_lang.Items.AddRange(alllang);
+            try
+            {
+                Directory.CreateDirectory(path_4_download );
+            }
+            catch (Exception e)
+            {
+                exceptionmessage(e.Message);
+            }
             
         }
 

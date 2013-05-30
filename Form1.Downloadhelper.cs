@@ -213,9 +213,9 @@ namespace SI_GUI
         private void startDL(string program_filename, string finallink, bool master, bool helppack)
         {
             WebClient webc = getPreparedWebClient();
-            string path = Path.GetTempPath();
+            string path = path_4_download;
             Uri uritofile = new Uri(finallink + program_filename);
-            path += program_filename;
+            path += @"\" + program_filename;
             if (helppack)
                 path_to_file_on_disk_2.Text = path;
             else
