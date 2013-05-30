@@ -409,4 +409,7 @@ je::nl:%trackingID:nl:Kot lahko vidite, slednji ne vsebuje nobenih osebnih podat
 	<data name="ga_cb_allowed" xml:space="preserve">
 		<value>Dovolite sledenje svoji rabi programa s pomočjo Google Analytics.</value>
 	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>Poti do soffice.exe ni mogoče zaznati!</value>
+	</data>
 </root>

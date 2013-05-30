@@ -409,4 +409,7 @@
 	<data name="ga_cb_allowed" xml:space="preserve">
 		<value>Tillader at følge din brug af programmet med Google Analytics</value>
 	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>Start download</value>
+	</data>
 </root>

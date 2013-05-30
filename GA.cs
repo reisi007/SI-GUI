@@ -33,7 +33,8 @@ namespace SI_GUI
             }
             // Check whether GAnalytic tracking is allowed
             sallowed_title = allowed_title;
-            sallowed_txt = allowed_txt.Replace("%trackingID", trackingID).Replace(":nl:", Environment.NewLine);
+            allowed_txt = allowed_txt.Replace(":n:", Environment.NewLine);
+            sallowed_txt = allowed_txt.Replace("%trackingID", trackingID);
             if (!Set.GA.manually_set)
             {
                 Set.GA.tracking_allowed = Tracking_allowed();

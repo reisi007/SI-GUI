@@ -406,9 +406,9 @@
     <value>Dear user,:nl:This program uses Google Analytics in order to get statistics about the usage of this program.:nl:We have created a trackingID for this installation. Your trackingID is::nl:%trackingID:nl:As you can see, this does not contain any private information. Press"Yes" in order to allow tracking, "No" in order to prohibit.</value>
   </data>
 	<data name="ga_allowed_title" xml:space="preserve">
-    <value>Statistics powerd by Google Analytics.</value>
+    <value>Statistics powered by Google Analytics.</value>
   </data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-    <value>Allow tracking your useage of the program with help of Google Analytics</value>
+    <value>Allow tracking your usage of the program with help of Google Analytics</value>
   </data>
 </root>

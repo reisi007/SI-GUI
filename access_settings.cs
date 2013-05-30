@@ -21,23 +21,38 @@ namespace SI_GUI
             try
             {
                 XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
-                StreamReader sr = new StreamReader(@getpath());
+                StreamReader sr = new StreamReader(getfilename());
                 value = (SETTINGS)ser.Deserialize(sr);
                 sr.Close();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                try
+                {
+                    Directory.CreateDirectory(getpath());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    save_settings(new SETTINGS());
+                }
             }
             catch (Exception ex)
             {
 #if DEBUG
                 MessageBox.Show(ex.Message);
 #endif
-                save_settings(new SETTINGS());
             }
             return value;
         }
         private string getpath()
         {
-            return Path.GetTempPath() + "libosigui.configuration";
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Reisisoft/Server Installation GUI");
 
+        }
+        private string getfilename()
+        {
+            return Path.Combine(getpath(), "sigui.config");
         }
         public string program_version()
         { return "4.0.3.7"; }
@@ -47,7 +62,7 @@ namespace SI_GUI
             try
             {
                 XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
-                FileStream str = new FileStream(@getpath(), FileMode.Create);
+                FileStream str = new FileStream(getfilename(), FileMode.Create);
                 ser.Serialize(str, set);
                 str.Close();
             }
