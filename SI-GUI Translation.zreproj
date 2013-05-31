@@ -16,7 +16,7 @@
     <globalSetting name="CreateNewFileForm.newLanguageComboBox.SelectedIndex">166</globalSetting>
     <globalSetting name="CreateNewFileForm.copyTextsCheckBox.Checked">False</globalSetting>
     <globalSetting name="CreateNewFileForm.automaticallyTranslateCheckBox.Checked">False</globalSetting>
-    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\import.xls</globalSetting>
+    <globalSetting name="receiveFileFromTranslator.sourceFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\LibreOffice Server Installation GUI (10).xls</globalSetting>
     <globalSetting name="receiveFileFromTranslator.fileGroupsListBox">
     </globalSetting>
     <globalSetting name="receiveFileFromTranslator.languagesToImportCheckListBox">0;1;2;3;4;5;6;7;8</globalSetting>

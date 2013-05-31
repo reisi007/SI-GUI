@@ -400,14 +400,14 @@
 		<value>Začni prenos</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>Dragi uporanbik/uporabnica,:nl:ta program uporablja Google Analytics za pridobivanje statistike o rabi tega programa.:nl:Ustvarili smo sledilniD za to namestitev. Vaš sledilniID 
+		<value>Dragi uporanbik/uporabnica,:nl:ta program uporablja "TDF Piwik"  za pridobivanje statistike o rabi tega programa.:nl:Ustvarili smo sledilniD za to namestitev. Vaš sledilniID 
 je::nl:%trackingID:nl:Kot lahko vidite, slednji ne vsebuje nobenih osebnih podatkov. Pritisnite "Da", da dovolite sledenje, ali "Ne", da ga preprečite.</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
-		<value>Statistiko poganja Google Analytics.</value>
+		<value>Statistiko poganja "TDF Piwik" .</value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>Dovolite sledenje svoji rabi programa s pomočjo Google Analytics.</value>
+		<value>Dovolite sledenje svoji rabi programa s pomočjo "TDF Piwik" .</value>
 	</data>
 	<data name="ink_error_2" xml:space="preserve">
 		<value>Poti do soffice.exe ni mogoče zaznati!</value>

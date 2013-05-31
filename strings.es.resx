@@ -403,12 +403,12 @@
 		<value>No se detectó ninguna ruta a soffice.exe.</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>Estimado usuario,:nl:Este programa utiliza Google Analytics para obtener estadísticas sobre su uso.:nl:Se ha creado un «trackingID» para esta instalación, que es::nl:%trackingID:nl:Como puede ver, no contiene información personal. Pulse «Sí» para permitir el seguimiento, o «No» para prohibirlo.</value>
+		<value>Estimado usuario,:nl:Este programa utiliza "TDF Piwik"  para obtener estadísticas sobre su uso.:nl:Se ha creado un «trackingID» para esta instalación, que es::nl:%trackingID:nl:Como puede ver, no contiene información personal. Pulse «Sí» para permitir el seguimiento, o «No» para prohibirlo.</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
-		<value>Estadísticas por Google Analytics</value>
+		<value>Estadísticas por "TDF Piwik" </value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>Permitir seguimiento del uso de este programa con Google Analytics</value>
+		<value>Permitir seguimiento del uso de este programa con "TDF Piwik" </value>
 	</data>
 </root>

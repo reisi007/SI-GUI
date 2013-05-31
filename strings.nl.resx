@@ -404,12 +404,12 @@
 		<value>Er kon geen pad naar soffice.exe gedetecteerd worden!</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>Geachte gebruiker;:nl: Dit programma gebruikt Google Analytics om statistieken over het gebruik te verzamelen.:nl:We hebben een trackingID gecreëerd voor deze installatie. Uw trackingID is::nl:%trackingID:nl: Zoals u kan zien bevat dit geen persoonlijke informatie. Kies "Ja" om deze registratie toe te laten, "Nee" om te weigeren.</value>
+		<value>Geachte gebruiker;:nl: Dit programma gebruikt "TDF Piwik"  om statistieken over het gebruik te verzamelen.:nl:We hebben een trackingID gecreëerd voor deze installatie. Uw trackingID is::nl:%trackingID:nl: Zoals u kan zien bevat dit geen persoonlijke informatie. Kies "Ja" om deze registratie toe te laten, "Nee" om te weigeren.</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
-		<value>Statistieken door Google Analytics.</value>
+		<value>Statistieken door "TDF Piwik" .</value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>Laat toe om uw gebruik van het programma te registreren met Google Analytics</value>
+		<value>Laat toe om uw gebruik van het programma te registreren met "TDF Piwik" </value>
 	</data>
 </root>

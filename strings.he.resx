@@ -380,12 +380,12 @@
 		<value>התחלת ההורדה</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
-		<value>הסטטיסטיקה מחושבת באמצעות Google Analytics</value>
+		<value>הסטטיסטיקה מחושבת באמצעות "TDF Piwik" </value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>לאפשר לעקוב אחר השימוש שלך בתכנית בעזרת Google Analytics</value>
+		<value>לאפשר לעקוב אחר השימוש שלך בתכנית בעזרת "TDF Piwik" </value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>משתמש יקר,:nl:תכנית זו משתמש ב־Google Analytics כדי לקבל סטטיסטיקה באשר לשימוש בתכנית זו.:nl:יצרנו מס׳ מעקב עבור התקנה זו. מס׳ המעקב (trackingID) הוא::nl:%trackingID:nl:כפי שניתן לראות, מספר זה אינו מכיל פרטים אישיים. ניתן ללחוץ על „כן“ כדי לאפשר את המעקב או „לא“ כדי למנוע אותו.</value>
+		<value>משתמש יקר,:nl:תכנית זו משתמש ב־"TDF Piwik"  כדי לקבל סטטיסטיקה באשר לשימוש בתכנית זו.:nl:יצרנו מס׳ מעקב עבור התקנה זו. מס׳ המעקב (trackingID) הוא::nl:%trackingID:nl:כפי שניתן לראות, מספר זה אינו מכיל פרטים אישיים. ניתן ללחוץ על „כן“ כדי לאפשר את המעקב או „לא“ כדי למנוע אותו.</value>
 	</data>
 </root>

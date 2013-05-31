@@ -6,17 +6,20 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Net;
 using System.IO;
+using System.ComponentModel;
 
 namespace SI_GUI
 {
     public class GAnalytics
     {
-        const string propertyID = "UA-41166413-4";
+        const string propertyID = "58";
         string trackingID;
         private access_settings aSet;
         private SETTINGS Set;
         string sallowed_txt;
         string sallowed_title;
+        BackgroundWorker bw;
+        List<string> pending_requests = new List<string>();
         public GAnalytics(string allowed_title, string allowed_txt)
         {
             aSet = new access_settings();
@@ -41,7 +44,25 @@ namespace SI_GUI
                 Set.GA.manually_set = true;
             }
             aSet.save_settings(Set);
+            bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler(submit_piwik);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(todo);
+        }
 
+        void todo(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                bw.RunWorkerAsync(pending_requests[0]);
+                pending_requests.RemoveAt(0);
+            }
+            catch (Exception) { }
+
+        }
+
+        void submit_piwik(object sender, DoWorkEventArgs e)
+        {
+            request(e.Argument.ToString());
         }
         private bool Tracking_allowed()
         {
@@ -106,17 +127,25 @@ namespace SI_GUI
         {
             if (Set.GA.tracking_allowed)
             {
-                string POST_Data = "v=1&tid=" + propertyID + "&cid=" + trackingID; // standard
-                POST_Data += "&t=event&ec=" + ec + " + &ea=" + ea;
+                string POST_Data = "apiv=1&idsite=" + propertyID + "&rec=1&url=http://si-gui.libreoffice.org"; // standard
+                POST_Data += "&action_name=" + ec + "/" + ea;
+                if (el != null)
+                    POST_Data += "/" + el;
+                POST_Data += "&_id=" + Set.GA.trackingID.Remove(16);
+                POST_Data += "_cvar={" + getJSON("1", ec, ea);
                 if (el != "")
-                    POST_Data += "&el=" + el;
-                request(POST_Data);
+                    POST_Data += "," + getJSON("2", ec, el);
+                POST_Data += "}";
+                if (bw.IsBusy)
+                    pending_requests.Add(POST_Data);
+                else
+                    bw.RunWorkerAsync(POST_Data);
             }
         }
         private void request(string POST)
         {
             byte[] data = ASCIIEncoding.UTF8.GetBytes(POST);
-            WebRequest request = WebRequest.Create("http://www.google-analytics.com/collect");
+            WebRequest request = WebRequest.Create("http://piwik.documentfoundation.org/piwik.php");
             request.Credentials = CredentialCache.DefaultCredentials;
             ((HttpWebRequest)request).UserAgent = "LibreOffice Server Install GUI Tracking";
             request.Method = "POST";
@@ -127,6 +156,10 @@ namespace SI_GUI
             datastream.Close();
             WebResponse response = request.GetResponse();
             response.Close();
+        }
+        private string getJSON(string number, string key, string value)
+        {
+                return "\""+ number + "\":[\"" + key + "\",\"" + value + "\"]";
         }
     }
 }
