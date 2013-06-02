@@ -94,11 +94,11 @@ namespace SI_GUI
         string[] dl_special;
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("SI_GUI.strings", Assembly.GetExecutingAssembly());
-        GAnalytics ga;
+        TDFPiwik piwik;
         string path_4_download = Path.GetTempPath();
         public Form1()
         {
-            
+
             //l10n import
             string[] rtl = new string[] { "He" };
             try
@@ -110,8 +110,8 @@ namespace SI_GUI
                 string lang = temp.l10n;
                 if (lang != null)
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
-                ga = new GAnalytics(getstring("ga_allowed_title"), getstring("ga_allowed_text"));
-                ga.sendStartupStats(lang);
+                piwik = new TDFPiwik(getstring("ga_allowed_title"), getstring("ga_allowed_text"));
+                piwik.sendStartupStats(lang);
                 if (rtl.Contains(lang))
                     rtl_layout = true;
             }
@@ -123,13 +123,13 @@ namespace SI_GUI
             choose_lang.Items.AddRange(alllang);
             try
             {
-                Directory.CreateDirectory(path_4_download );
+                Directory.CreateDirectory(path_4_download);
             }
             catch (Exception e)
             {
                 exceptionmessage(e.Message);
             }
-            
+
         }
 
 
@@ -224,10 +224,12 @@ namespace SI_GUI
                 SETTINGS toapply = set.open_settings();
                 //Apply settings
                 cb_subfolder.Checked = toapply.cb_create_subfolder;
-                path_installdir.Text = toapply.installdir;
-                subfolder.Text = toapply.name_subfolder;
+                path_installdir.Text = toapply.FilesFolders.InstallFolder;
+                subfolder.Text = toapply.FilesFolders.nameSubfolder;
                 choose_lang.SelectedIndex = toapply.lang;
-                path_to_exe.Text = toapply.last_path_to_sofficeEXE;
+                path_to_exe.Text = toapply.FilesFolders.lastSofficeEXE;
+                path_main.Text = toapply.FilesFolders.MainInstalldir;
+                path_help.Text = toapply.FilesFolders.HelpInstalldir;
                 dl_versions.Items.AddRange(dl_special);
                 if (toapply.DL_saved_settings.versions != null)
                 {
@@ -260,7 +262,7 @@ namespace SI_GUI
         private void openLibohelp(object sender, EventArgs e)
         {
             openfile2.ShowDialog();
-            ga.sendFeatreUseageStats(GAnalytics.Features.Open_Help);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_Help);
         }
 
         private void openfile2_FileOk(object sender, CancelEventArgs e)
@@ -276,12 +278,12 @@ namespace SI_GUI
                 string fileame_installdir = wheretoinstall.SelectedPath;
                 path_installdir.Text = fileame_installdir;
             }
-            ga.sendFeatreUseageStats(GAnalytics.Features.Config_Dir);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.Config_Dir);
         }
 
         private void start_install_Click(object sender, EventArgs e)
         {
-            ga.sendFeatreUseageStats(GAnalytics.Features.ParallelInstall);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_Start);
             bool install_main = false;
             bool install_help = false;
             bool install_path = false;
@@ -305,7 +307,6 @@ namespace SI_GUI
             {
                 exceptionmessage(ex.Message);
                 go_on = false;
-
             }
             finally
             {
@@ -313,29 +314,48 @@ namespace SI_GUI
                 {
                     if (!install_main)
                     {
-                        MessageBox.Show(getstring("no_installfile"), getstring("warning"), MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        MessageBox.Show(getstring("no_installfile"), getstring("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         throw new Exception(getstring("go_back"));
                     }
                 }
 
                 catch (Exception) { go_on = false; }
-
             }
-            if (go_on == true)
+            if (go_on)
             {
-                // Install
-                string cmd_filename = create_cmd(install_main, install_help);
+                // Test, if there is a existing ServerInastallation
+                bool okay = true;
                 try
                 {
-                    Process.Start(cmd_filename);
-
-
+                    string path_to_soffice = path_installdir.Text;
+                    if (cb_subfolder.Checked)
+                        path_to_soffice = Path.Combine(path_to_soffice, subfolder.Text);
+                    System.IO.File.OpenRead(Path.Combine(path_to_soffice, @"program\soffice.exe"));
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(getstring("installerror") + ex.Message, getstring("installnostart"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    okay = false;
                 }
-                string bootini = path_installdir + "\\program\\bootstrap.ini";
+                if (!okay)
+                {
+                    if (MessageBox.Show(getstring("install_err1_txt"), getstring("install_err1_tit"), MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                        go_on = false;
+                }
+                if (go_on)
+                {
+                    // Install
+                    string cmd_filename = create_cmd(install_main, install_help);
+                    try
+                    {
+                        Process.Start(cmd_filename);
+                        piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(getstring("installerror") + ex.Message, getstring("installnostart"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    string bootini = path_installdir + "\\program\\bootstrap.ini";
+                }
             }
         }
         private string final_installpath { get; set; }
@@ -387,7 +407,7 @@ namespace SI_GUI
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
             openbootstrap_ini();
-            ga.sendFeatreUseageStats(GAnalytics.Features.OpenBootstrap);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
         }
 
         private bool openbootstrap_ini()
@@ -463,7 +483,7 @@ namespace SI_GUI
 
         private void save_bootstrap(object sender, EventArgs e)
         {
-            ga.sendFeatreUseageStats(GAnalytics.Features.SaveBootstrap);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.SaveBootstrap);
             bool working = true;
             string exeptiontext = "";
             // Save bootstrap.ini
@@ -527,11 +547,11 @@ namespace SI_GUI
         private void open_installer_Click(object sender, EventArgs e)
         {
             openfile.ShowDialog();
-            ga.sendFeatreUseageStats(GAnalytics.Features.Open_Installer);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_Installer);
         }
         public void exceptionmessage(string ex_message)
         {
-            MessageBox.Show(getstring("standarderror") +" " + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(getstring("standarderror") + " " + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public string getstring(string strMessage)
         {
@@ -565,28 +585,32 @@ namespace SI_GUI
             tb_version.Text = subfolder.Text;
             // Really save settings
             SETTINGS thingstosave = set.open_settings();
-            thingstosave.installdir = path_installdir.Text;
-            thingstosave.name_subfolder = subfolder.Text;
             thingstosave.cb_create_subfolder = cb_subfolder.Checked;
             thingstosave.lang = choose_lang.SelectedIndex;
-            thingstosave.last_path_to_sofficeEXE = path_to_exe.Text;
             // Save download settings
             thingstosave.DL_saved_settings.cb_help = cb_help.Checked;
             thingstosave.DL_saved_settings.cb_installer = cb_installer.Checked;
             thingstosave.DL_saved_settings.versions = dl_list;
             thingstosave.DL_saved_settings.versions_last_version = dl_versions.SelectedIndex;
+            // Save paths and filenames
+            thingstosave.FilesFolders.InstallFolder = path_installdir.Text;
+            thingstosave.FilesFolders.nameSubfolder = subfolder.Text;
+            thingstosave.FilesFolders.lastSofficeEXE = path_to_exe.Text;
+            thingstosave.FilesFolders.HelpInstalldir = path_help.Text;
+            thingstosave.FilesFolders.MainInstalldir = path_main.Text;
+            // Finally save to file
             set.save_settings(thingstosave);
         }
 
         private void create_ink_Click(object sender, EventArgs e)
         {
             bool ok = true;
-            ga.sendFeatreUseageStats(GAnalytics.Features.CreateInk);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.CreateInk);
             try
             {
                 if (tb_version.Text == "")
                     throw new Exception(getstring("ink_error_1"));
-                if(path_to_exe.Text == "")
+                if (path_to_exe.Text == "")
                     throw new Exception(getstring("ink_error_2"));
                 WshShell wsh = new WshShell();
                 string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "LibO Parallel " + tb_version.Text + ".lnk");
@@ -607,7 +631,7 @@ namespace SI_GUI
                 if (ok)
                     MessageBox.Show(getstring("msb_lnk_txt"), getstring("msb_lnk_title"), MessageBoxButtons.OK);
             }
-           
+
         }
 
         private void m_about_Click(object sender, EventArgs e)
@@ -683,12 +707,13 @@ namespace SI_GUI
                 path_help.Text = "";
                 MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            savesettings();
         }
         private string[] dl_list;
         private int selected_item;
         private void update_versions_Click(object sender, EventArgs e)
         {
-            ga.sendFeatreUseageStats(GAnalytics.Features.Update_ListOfVersion);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.Update_ListOfVersion);
             dl_list = getLibO_List_of_DL();
             selected_item = dl_versions.SelectedIndex;
             dl_versions.BeginUpdate();
@@ -702,7 +727,7 @@ namespace SI_GUI
 
         private void start_dl_Click(object sender, EventArgs e)
         {
-            ga.sendFeatreUseageStats(GAnalytics.Features.StartDL);
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.StartDL);
             if (dl_versions.SelectedItem != null)
             {
                 switch (dl_versions.SelectedIndex)

@@ -379,4 +379,19 @@
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Todas as versões do LibreOffice</value>
 	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>Não foi encontrado o caminho para soffice.exe!</value>
+	</data>
+	<data name="ga_allowed_text" xml:space="preserve">
+		<value>Caro(a) utilizador(a),:nl:Este programa utiliza o "TDF Piwik" para rastrear a sua utilização deste programa.:nl:Foi criada uma identificação única para esta instalação. A identificação da sua instação é::nl:%trackingID:nl: Conforme pode verificar, isto não inclui nenhuma informação pessoal.  Seleccione "Sim" para permitir o rastreio, "Não" para o proibir.</value>
+	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>Estatisticas fornecidas pelo "TDF Piwik"</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>Permitir que a sua utilização do programa seja rastreada através do "TDF Piwik" </value>
+	</data>
+	<data name="settings_select_dl_folder" xml:space="preserve">
+		<value>Seleccionar pasta para ficheiros transferidos</value>
+	</data>
 </root>

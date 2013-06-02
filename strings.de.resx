@@ -184,7 +184,7 @@
     <value>Übersetzer:</value>
   </data>
 	<data name="about" xml:space="preserve">
-    <value>Über / Sprache ändern</value>
+    <value>Über / Einstellungen</value>
   </data>
 	<data name="language_change_success" xml:space="preserve">
     <value>Die Spracheinstellungen werden beim nächsten Start des Programmes übernommen!</value>

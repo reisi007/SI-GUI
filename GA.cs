@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace SI_GUI
 {
-    public class GAnalytics
+    public class TDFPiwik
     {
         const string propertyID = "58";
         string trackingID;
@@ -20,28 +20,32 @@ namespace SI_GUI
         string sallowed_title;
         BackgroundWorker bw;
         List<string> pending_requests = new List<string>();
-        public GAnalytics(string allowed_title, string allowed_txt)
+        ~TDFPiwik()
+        {
+            bw.Dispose();
+        }
+        public TDFPiwik(string allowed_title, string allowed_txt)
         {
             aSet = new access_settings();
             Set = aSet.open_settings();
-            if (Set.GA.trackingID != null)
-                trackingID = Set.GA.trackingID;
+            if (Set.Piwik.trackingID != null)
+                trackingID = Set.Piwik.trackingID;
             else
             {
                 // Create new user ID
                 string stemp = Environment.UserName + DateTime.Now.ToString();
                 MD5 algo = MD5.Create();
                 trackingID = BitConverter.ToString(algo.ComputeHash(Encoding.ASCII.GetBytes(stemp))).Replace("-", "").ToLower();
-                Set.GA.trackingID = trackingID;
+                Set.Piwik.trackingID = trackingID.Remove(16);
             }
             // Check whether GAnalytic tracking is allowed
             sallowed_title = allowed_title;
             allowed_txt = allowed_txt.Replace(":n:", Environment.NewLine);
-            sallowed_txt = allowed_txt.Replace("%trackingID", trackingID);
-            if (!Set.GA.manually_set)
+            sallowed_txt = allowed_txt.Replace("%trackingID", Set.Piwik.trackingID);
+            if (!Set.Piwik.manually_set)
             {
-                Set.GA.tracking_allowed = Tracking_allowed();
-                Set.GA.manually_set = true;
+                Set.Piwik.tracking_allowed = Tracking_allowed();
+                Set.Piwik.manually_set = true;
             }
             aSet.save_settings(Set);
             bw = new BackgroundWorker();
@@ -71,13 +75,15 @@ namespace SI_GUI
             else
                 return false;
         }
-        public enum Features { ParallelInstall, Manager, CreateInk, StartDL, OpenBootstrap, SaveBootstrap, Open_Installer, Open_Help, Config_Dir, OpenDialog_Help, OpenDialog_Manager, OpenDialog_About, OpenDialogManuallyAddInstallation, Update_ListOfVersion };
+        public enum Features { ParallelInstall_Start, ParallelInstall_OK, Manager, CreateInk, StartDL, OpenBootstrap, SaveBootstrap, Open_Installer, Open_Help, Config_Dir, OpenDialog_Help, OpenDialog_Manager, OpenDialog_About, OpenDialogManuallyAddInstallation, Update_ListOfVersion };
         public void sendFeatreUseageStats(Features feature)
         {
             submitGA("feature_useage", feature.ToString());
         }
         public void sendStartupStats(string l10n)
         {
+            if (l10n == null)
+                l10n = "en";
             submitGA("startup", l10n);
         }
 
@@ -116,32 +122,37 @@ namespace SI_GUI
                 submitGA("download", sversion);
             }
         }
+
+        public void sendDLfilename(string filename)
+        {
+            submitRequest2Queue(defaultPOST + "&url=" + filename + "&download=" + filename);
+        }
         #endregion
         // Background functiond for sending data to GAnalytics
-        private void submitGA(string ec, string ea)
+        uint i = 0;
+        private string defaultPOST { get { return "apiv=1&idsite=" + propertyID + "&rec=1&_id = " + Set.Piwik.trackingID; } }
+        private void submitGA(string ec, string ea, string el = "", string manualPOST = "")
         {
-            submitGA(ec, ea, "");
-        }
-        
-        private void submitGA(string ec, string ea, string el)
-        {
-            if (Set.GA.tracking_allowed)
+            if (Set.Piwik.tracking_allowed)
             {
-                string POST_Data = "apiv=1&idsite=" + propertyID + "&rec=1&url=http://si-gui.libreoffice.org"; // standard
-                POST_Data += "&action_name=" + ec + "/" + ea;
+                string POST_Data = defaultPOST + "&url=http://si-gui.libreoffice.org&action_name=" + ec + "/" + ea;
                 if (el != null)
                     POST_Data += "/" + el;
-                POST_Data += "&_id=" + Set.GA.trackingID.Remove(16);
-                POST_Data += "_cvar={" + getJSON("1", ec, ea);
+                POST_Data += "&_cvar={" + getJSON(ec, ea);
                 if (el != "")
-                    POST_Data += "," + getJSON("2", ec, el);
+                    POST_Data += "," + getJSON("hp-download-lang", el);
                 POST_Data += "}";
-                if (bw.IsBusy)
-                    pending_requests.Add(POST_Data);
-                else
-                    bw.RunWorkerAsync(POST_Data);
+                submitRequest2Queue(POST_Data);
             }
         }
+        private void submitRequest2Queue(string POST)
+        {
+            if (bw.IsBusy)
+                pending_requests.Add(POST);
+            else
+                bw.RunWorkerAsync(POST);
+        }
+
         private void request(string POST)
         {
             byte[] data = ASCIIEncoding.UTF8.GetBytes(POST);
@@ -157,9 +168,11 @@ namespace SI_GUI
             WebResponse response = request.GetResponse();
             response.Close();
         }
-        private string getJSON(string number, string key, string value)
+        private string getJSON(string key, string value)
         {
-                return "\""+ number + "\":[\"" + key + "\",\"" + value + "\"]";
+            i++;
+            i = (i % 5) + 1;
+            return "\"" + 10 + "\":[\"" + key + "\",\"" + value + "\"]";
         }
     }
 }

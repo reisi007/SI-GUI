@@ -20,12 +20,12 @@ namespace SI_GUI
     public partial class Form1 : Form
     {
         enum enum4DL_Special { LB, OB, T, M };
-        void asyncdl_wrapper(enum4DL_Special version,bool helppack)
+        void asyncdl_wrapper(enum4DL_Special version, bool helppack)
         {
             switch (version)
             {
-                case(enum4DL_Special.LB):
-                    startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false,helppack);
+                case (enum4DL_Special.LB):
+                    startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false, helppack);
                     break;
                 case (enum4DL_Special.OB):
                     startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, helppack);
@@ -231,13 +231,14 @@ namespace SI_GUI
                     // Send stats
                     if (!helppack)
                     {
-                        ga.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), "");
+                        piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), "");
                     }
                     if (!master && helppack)
                     {
-                        ga.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), choose_lang.SelectedItem.ToString());
+                        piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), choose_lang.SelectedItem.ToString());
                     }
-
+                    piwik.sendDLfilename(uritofile.ToString());
+                    // End send stats
                     give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
                     set_progressbar();
                     webc.DownloadFileAsync(uritofile, path);

@@ -52,7 +52,7 @@ namespace SI_GUI
             try
             {
                 lang_chooser.SelectedItem = s.l10n;
-                ga_tracking.Checked = s.GA.tracking_allowed;
+                ga_tracking.Checked = s.Piwik.tracking_allowed;
                 ga_tracking.CheckedChanged += new EventHandler(ga_tracking_CheckedChanged);
             }
             catch (Exception e)
@@ -63,7 +63,7 @@ namespace SI_GUI
         void ga_tracking_CheckedChanged(object sender, EventArgs e)
         {
             SETTINGS settings = set.open_settings();
-            settings.GA.tracking_allowed = ga_tracking.Checked;
+            settings.Piwik.tracking_allowed = ga_tracking.Checked;
             set.save_settings(settings);
         }
         private string[] l10n;

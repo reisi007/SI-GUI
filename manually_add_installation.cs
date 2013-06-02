@@ -24,8 +24,8 @@ namespace SI_GUI
         public string[,] manually_added { get; private set; }
         public manually_add_installation(string[] l10n, bool rtl)
         {
-            GAnalytics ga = new GAnalytics("", "");
-            ga.sendFeatreUseageStats(GAnalytics.Features.OpenDialogManuallyAddInstallation);
+            TDFPiwik ga = new TDFPiwik("", "");
+            ga.sendFeatreUseageStats(TDFPiwik.Features.OpenDialogManuallyAddInstallation);
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();

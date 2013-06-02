@@ -184,7 +184,7 @@
     <value>Translator:</value>
   </data>
 	<data name="about" xml:space="preserve">
-    <value>About / Change language</value>
+    <value>About / Settings</value>
   </data>
 	<data name="language_change_success" xml:space="preserve">
     <value>The language setting will apply at the next startup!</value>
@@ -413,5 +413,11 @@
   </data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
     <value>Select download folder</value>
+  </data>
+	<data name="install_err1_tit" xml:space="preserve">
+    <value>Overwriting existing Server Installation</value>
+  </data>
+	<data name="install_err1_txt" xml:space="preserve">
+    <value>You are about to overwrite an existing Server Installation. Continue?</value>
   </data>
 </root>

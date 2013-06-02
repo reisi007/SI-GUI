@@ -78,6 +78,9 @@ namespace SI_GUI
             int arrylength = 1;
             if (old_array != null)
                 arrylength = old_array.Length + 1;
+            // Test, if the current directory is on the list
+            if(old_array != null && !old_array.Contains(toadd))
+            {
             string[] new_array = new string[arrylength];
             if (old_array != null)
             {
@@ -89,20 +92,31 @@ namespace SI_GUI
             }
             new_array[arrylength - 1] = toadd;
             return new_array;
+            }
+            else
+                return old_array;
         }
     }
-
+    # region SETTINGS (File-format)
+    // Setting file format definition
     public class SETTINGS
     {
-        public string installdir;
-        public string name_subfolder;
+        public SETTINGS()
+        {
+            // Default settings
+            cb_create_subfolder = true;
+            DL_saved_settings.cb_help = false;
+            DL_saved_settings.cb_installer = true;
+            Piwik.manually_set = false;
+            Piwik.tracking_allowed = false;
+        }
         public bool cb_create_subfolder;
         public int lang;
         public string l10n;
         public string[] manager_versions;
-        public string last_path_to_sofficeEXE;
         public DL_UI_settings DL_saved_settings;
-        public GA_Settings GA;
+        public TDFPiwik_Settings Piwik;
+        public FFNames FilesFolders;
     }
     public struct DL_UI_settings
     {
@@ -113,13 +127,19 @@ namespace SI_GUI
         public string download_path;
     }
 
-    public struct GA_Settings
+    public struct TDFPiwik_Settings
     {
         public string trackingID;
         public bool tracking_allowed;
         public bool manually_set;
     }
-
-    
-
+    public struct FFNames
+    {
+        public string InstallFolder;
+        public string nameSubfolder;
+        public string lastSofficeEXE;
+        public string MainInstalldir;
+        public string HelpInstalldir;
+    }
+    #endregion
 }
