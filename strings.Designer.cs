@@ -70,7 +70,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die About / Change language ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die About / Settings ähnelt.
         /// </summary>
         internal static string about {
             get {
@@ -93,6 +93,15 @@ namespace SI_GUI {
         internal static string b_create_shortcut {
             get {
                 return ResourceManager.GetString("b_create_shortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Advanced file renaming ähnelt.
+        /// </summary>
+        internal static string cb_advanced_file {
+            get {
+                return ResourceManager.GetString("cb_advanced_file", resourceCulture);
             }
         }
         

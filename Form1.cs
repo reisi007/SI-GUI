@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 using IWshRuntimeLibrary;
 
 
-//Used for translating: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor (I will forget it soon)...
+//Used for translation: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor 
 
 namespace SI_GUI
 {
@@ -96,6 +96,7 @@ namespace SI_GUI
         ResourceManager rm = new ResourceManager("SI_GUI.strings", Assembly.GetExecutingAssembly());
         TDFPiwik piwik;
         string path_4_download = Path.GetTempPath();
+        bool AdvancedFilenames;
         public Form1()
         {
 
@@ -103,7 +104,6 @@ namespace SI_GUI
             string[] rtl = new string[] { "He" };
             try
             {
-
                 SETTINGS temp = set.open_settings();
                 if (temp.DL_saved_settings.download_path != null)
                     path_4_download = temp.DL_saved_settings.download_path;
@@ -131,8 +131,6 @@ namespace SI_GUI
             }
 
         }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             if (rtl_layout)
@@ -177,26 +175,9 @@ namespace SI_GUI
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
-
-            // Start Setting tooltips
-
-            ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
-            ToolTip bootstrapini = get_ToolTip(bootstrap_text, getstring("tt_bootstrap"));
-            ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
-            /* End Setting tooltips
-             *  Loading settings*/
+            // Load settings
             dl_special = new string[] { getstring("m_l10n_lb").Remove(getstring("m_l10n_lb").IndexOf("&"), 1), getstring("m_l10n_ob").Remove(getstring("m_l10n_ob").IndexOf("&"), 1), getstring("m_l10n_t").Remove(getstring("m_l10n_t").IndexOf("&"), 1), "Master", "---" };
             loadsettings();
-            // Setup message baloon
-            give_message.BalloonTipClicked += new EventHandler(gm_do);
-            give_message.BalloonTipClosed += new EventHandler(gm_do);
-            give_message.Click += new EventHandler(gm_do);
-            give_message.DoubleClick += new EventHandler(gm_do);
-            // Bring the window in the foreground
-            this.BringToFront();
-            // Set up the progress bars 1 -> Installer 2 -> Helppack
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = 10000;
             percent.Text = "0 %";
             // Position choose_lang
             choose_lang.Location = new Point(choose_lang_label.Location.X + choose_lang_label.Width + 6, choose_lang_label.Location.Y - 3);
@@ -206,9 +187,20 @@ namespace SI_GUI
             // Specify the starting folder for FileOpen dialogs
             openfile.InitialDirectory = Path.GetTempPath();
             openfile2.InitialDirectory = openfile.InitialDirectory;
+            // Start Setting tooltips
+            ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
+            ToolTip bootstrapini = get_ToolTip(bootstrap_text, getstring("tt_bootstrap"));
+            ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
+            // End Setting tooltips
+
+            // Setup message baloon
+            give_message.BalloonTipClicked += new EventHandler(gm_do);
+            give_message.BalloonTipClosed += new EventHandler(gm_do);
+            give_message.Click += new EventHandler(gm_do);
+            give_message.DoubleClick += new EventHandler(gm_do);
         }
 
-        ToolTip get_ToolTip(Control c, string text)
+        public static ToolTip get_ToolTip(Control c, string text)
         {
             ToolTip tt = new ToolTip();
             tt.SetToolTip(c, text);
@@ -224,6 +216,7 @@ namespace SI_GUI
                 SETTINGS toapply = set.open_settings();
                 //Apply settings
                 cb_subfolder.Checked = toapply.cb_create_subfolder;
+                AdvancedFilenames = toapply.cb_advanced_filenames;
                 path_installdir.Text = toapply.FilesFolders.InstallFolder;
                 subfolder.Text = toapply.FilesFolders.nameSubfolder;
                 choose_lang.SelectedIndex = toapply.lang;
@@ -578,7 +571,7 @@ namespace SI_GUI
             else
                 start_dl.Enabled = false;
         }
-
+       
         private void savesettings()
         {
             // Changing text of version
@@ -636,7 +629,7 @@ namespace SI_GUI
 
         private void m_about_Click(object sender, EventArgs e)
         {
-            openAbout();
+            openSettings();
         }
 
         private void m_man_Click(object sender, EventArgs e)

@@ -41,6 +41,7 @@
             this.folder = new System.Windows.Forms.FolderBrowserDialog();
             this.B_open_folder = new System.Windows.Forms.Button();
             this.folder_save = new System.Windows.Forms.TextBox();
+            this.cb_advancedFilenames = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +53,14 @@
             this.about.Multiline = true;
             this.about.Name = "about";
             this.about.ReadOnly = true;
-            this.about.Size = new System.Drawing.Size(459, 334);
+            this.about.Size = new System.Drawing.Size(459, 310);
             this.about.TabIndex = 20;
             // 
             // lang_chooser
             // 
             this.lang_chooser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lang_chooser.FormattingEnabled = true;
-            this.lang_chooser.Location = new System.Drawing.Point(401, 489);
+            this.lang_chooser.Location = new System.Drawing.Point(401, 488);
             this.lang_chooser.Name = "lang_chooser";
             this.lang_chooser.Size = new System.Drawing.Size(71, 21);
             this.lang_chooser.TabIndex = 0;
@@ -68,7 +69,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 492);
+            this.label1.Location = new System.Drawing.Point(12, 491);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 6;
@@ -88,7 +89,7 @@
             // 
             this.ga_tracking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ga_tracking.AutoSize = true;
-            this.ga_tracking.Location = new System.Drawing.Point(15, 472);
+            this.ga_tracking.Location = new System.Drawing.Point(15, 471);
             this.ga_tracking.Name = "ga_tracking";
             this.ga_tracking.Size = new System.Drawing.Size(92, 17);
             this.ga_tracking.TabIndex = 2;
@@ -102,7 +103,7 @@
             // B_open_folder
             // 
             this.B_open_folder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_open_folder.Location = new System.Drawing.Point(12, 443);
+            this.B_open_folder.Location = new System.Drawing.Point(12, 419);
             this.B_open_folder.Name = "B_open_folder";
             this.B_open_folder.Size = new System.Drawing.Size(190, 23);
             this.B_open_folder.TabIndex = 1;
@@ -113,18 +114,30 @@
             // folder_save
             // 
             this.folder_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.folder_save.Location = new System.Drawing.Point(208, 445);
+            this.folder_save.Location = new System.Drawing.Point(208, 421);
             this.folder_save.Name = "folder_save";
             this.folder_save.ReadOnly = true;
             this.folder_save.Size = new System.Drawing.Size(264, 20);
             this.folder_save.TabIndex = 9;
             this.folder_save.TextChanged += new System.EventHandler(this.folder_save_TextChanged);
             // 
+            // cb_advancedFilenames
+            // 
+            this.cb_advancedFilenames.AutoSize = true;
+            this.cb_advancedFilenames.Location = new System.Drawing.Point(15, 448);
+            this.cb_advancedFilenames.Name = "cb_advancedFilenames";
+            this.cb_advancedFilenames.Size = new System.Drawing.Size(137, 17);
+            this.cb_advancedFilenames.TabIndex = 21;
+            this.cb_advancedFilenames.Text = "Advanced file renaming";
+            this.cb_advancedFilenames.UseVisualStyleBackColor = true;
+            this.cb_advancedFilenames.CheckedChanged += new System.EventHandler(this.cb_advancedFilenames_CheckedChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 522);
+            this.ClientSize = new System.Drawing.Size(484, 521);
+            this.Controls.Add(this.cb_advancedFilenames);
             this.Controls.Add(this.folder_save);
             this.Controls.Add(this.B_open_folder);
             this.Controls.Add(this.ga_tracking);
@@ -157,6 +170,7 @@
         private System.Windows.Forms.FolderBrowserDialog folder;
         private System.Windows.Forms.Button B_open_folder;
         private System.Windows.Forms.TextBox folder_save;
+        private System.Windows.Forms.CheckBox cb_advancedFilenames;
 
     }
 }

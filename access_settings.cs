@@ -105,12 +105,14 @@ namespace SI_GUI
         {
             // Default settings
             cb_create_subfolder = true;
+            cb_advanced_filenames = false;
             DL_saved_settings.cb_help = false;
             DL_saved_settings.cb_installer = true;
             Piwik.manually_set = false;
             Piwik.tracking_allowed = false;
         }
         public bool cb_create_subfolder;
+        public bool cb_advanced_filenames;
         public int lang;
         public string l10n;
         public string[] manager_versions;

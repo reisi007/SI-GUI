@@ -83,7 +83,7 @@ namespace SI_GUI
         public void sendStartupStats(string l10n)
         {
             if (l10n == null)
-                l10n = "en";
+                l10n = "Default";
             submitGA("startup", l10n);
         }
 
@@ -162,11 +162,17 @@ namespace SI_GUI
             request.Method = "POST";
             request.ContentLength = data.Length;
             request.ContentType = "application/x-www-form-urlencoded";
-            Stream datastream = request.GetRequestStream();
-            datastream.Write(data, 0, data.Length);
-            datastream.Close();
-            WebResponse response = request.GetResponse();
-            response.Close();
+            try
+            {
+                Stream datastream = request.GetRequestStream();
+                datastream.Write(data, 0, data.Length);
+                datastream.Close();
+                WebResponse response = request.GetResponse();
+                response.Close();
+            }
+            catch (Exception)
+            {
+            }
         }
         private string getJSON(string key, string value)
         {

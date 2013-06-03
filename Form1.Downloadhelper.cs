@@ -210,21 +210,38 @@ namespace SI_GUI
             return webc;
         }
 
-        private void startDL(string program_filename, string finallink, bool master, bool helppack)
+        private void startDL(string programFilename, string finallink, bool master, bool helppack)
         {
             WebClient webc = getPreparedWebClient();
             string path = path_4_download;
-            Uri uritofile = new Uri(finallink + program_filename);
-            path += @"\" + program_filename;
+            Uri uritofile = new Uri(finallink + programFilename);
+            string originalFilename = programFilename;
+             if (!AdvancedFilenames)
+            {
+                 if(programFilename.Contains("msi"))
+                 {
+                if (helppack)
+                    programFilename = "libo_hp.msi";
+                else
+                    programFilename = "libo_installer.msi";
+                 } else
+                 {
+                     if (helppack)
+                    programFilename = "libo_hp.exe";
+                else
+                    programFilename = "libo_installer.exe";
+                 }
+            }
+            path += @"\" + programFilename;
             if (helppack)
                 path_to_file_on_disk_2.Text = path;
             else
                 path_to_file_on_disk.Text = path;
             string mb_question = getstring("versiondl");
-            mb_question = mb_question.Replace("%version", program_filename);
+            mb_question = mb_question.Replace("%version", originalFilename);
 
             // If filename is TY, then no testing build is available
-            if (program_filename != "TY")
+            if (programFilename != "TY")
             {
                 if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -245,18 +262,18 @@ namespace SI_GUI
                     int k = 0;
                     if (!master)
                     {
-                        k = program_filename.IndexOf("_") + 1;
-                        program_filename = program_filename.Remove(0, k);
-                        k = program_filename.IndexOf("_");
-                        program_filename = program_filename.Remove(k);
+                        k = originalFilename.IndexOf("_") + 1;
+                        originalFilename = originalFilename.Remove(0, k);
+                        k = originalFilename.IndexOf("_");
+                        originalFilename = originalFilename.Remove(k);
                     }
                     else
                     {
-                        k = program_filename.IndexOf("_");
-                        program_filename = program_filename.Remove(k);
+                        k = originalFilename.IndexOf("_");
+                        originalFilename = originalFilename.Remove(k);
                     }
                     if (!helppack)
-                        subfolder.Text = program_filename;
+                        subfolder.Text = originalFilename;
                 }
             }
             else

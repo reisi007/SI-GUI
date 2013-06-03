@@ -58,6 +58,11 @@ namespace SI_GUI
             catch (Exception e)
             { MessageBox.Show(e.Message); }
             lang_chooser.SelectedIndexChanged += new System.EventHandler(this.update_lang);
+            cb_advancedFilenames.Checked = s.cb_advanced_filenames;
+            if (s.DL_saved_settings.download_path != null)
+                folder_save.Text = s.DL_saved_settings.download_path;
+            else
+                folder_save.Text = Path.GetTempPath();
         }
 
         void ga_tracking_CheckedChanged(object sender, EventArgs e)
@@ -98,8 +103,15 @@ namespace SI_GUI
             about.Text = abouttxt;
             this.Text = l10n[14];
             B_open_folder.Text = l10n[20];
+            cb_advancedFilenames.Text = l10n[21];
         }
-
+        public bool getAdvancedRenamingChecked
+        {
+            get
+            {
+                return cb_advancedFilenames.Checked;
+            }
+        }
         public void exeptionmessage(string ex_message)
         {
             MessageBox.Show(l10n[15] + ex_message, l10n[16], MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -131,6 +143,13 @@ namespace SI_GUI
             {
                 return folder_save.Text;
             }
+        }
+
+        private void cb_advancedFilenames_CheckedChanged(object sender, EventArgs e)
+        {
+            SETTINGS s = set.open_settings();
+            s.cb_advanced_filenames = cb_advancedFilenames.Checked;
+            set.save_settings(s);
         }
 
     }
