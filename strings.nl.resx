@@ -367,12 +367,6 @@
 	<data name="okay" xml:space="preserve">
 		<value>OK</value>
 	</data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>*.EXE bestanden zijn niet ondersteund voor installatie!</value>
-	</data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-		<value>Bestand niet ondersteund!</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Start download</value>
 	</data>
@@ -411,5 +405,8 @@
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
 		<value>Laat toe om uw gebruik van het programma te registreren met "TDF Piwik" </value>
+	</data>
+	<data name="settings_select_dl_folder" xml:space="preserve">
+		<value>Selecteer downloadmap</value>
 	</data>
 </root>

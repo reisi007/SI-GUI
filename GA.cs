@@ -75,7 +75,7 @@ namespace SI_GUI
             else
                 return false;
         }
-        public enum Features { ParallelInstall_Start, ParallelInstall_OK, Manager, CreateInk, StartDL, OpenBootstrap, SaveBootstrap, Open_Installer, Open_Help, Config_Dir, OpenDialog_Help, OpenDialog_Manager, OpenDialog_About, OpenDialogManuallyAddInstallation, Update_ListOfVersion };
+        public enum Features { ParallelInstall_Start, ParallelInstall_OK, Manager, CreateInk, StartDL, OpenBootstrap, SaveBootstrap, Open_Installer, Open_Help, Config_Dir, OpenDialog_Help, OpenDialog_Manager, OpenDialog_About, OpenDialogManuallyAddInstallation, Update_ListOfVersion, RunInstaller, FreeInstallerField };
         public void sendFeatreUseageStats(Features feature)
         {
             submitGA("feature_useage", feature.ToString());

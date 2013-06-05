@@ -369,12 +369,6 @@
 	<data name="okay" xml:space="preserve">
     <value>Okay</value>
   </data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-    <value>*.EXE Dateien können nicht parallel installiert werden!</value>
-  </data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-    <value>Datei wird nicht unterstützt!</value>
-  </data>
 	<data name="start_dl" xml:space="preserve">
     <value>Herunterladen beginnen</value>
   </data>
@@ -413,5 +407,17 @@
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>Download-Ordner auswählen</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Erweiterte Dateibenennung aktivieren</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Wenn aktiviert, werden die Dateien mit dem Originalnamen gespeichert.:n:Wenn deaktiviert, werden nur eine Hauptinstallationsdatei und eine Hilfeinstallationsdatei gleichzeitig auf der Festplatte gespeichert.</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>Überschreiben einer exestierenden Parallelinstallation</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>Sind Sie sicher, dass Sie eine existierende Parallelinstallation überschreiben wollen?</value>
 	</data>
 </root>

@@ -55,7 +55,7 @@ namespace SI_GUI
             return Path.Combine(getpath(), "sigui.config");
         }
         public string program_version()
-        { return "4.0.3.7"; }
+        { return "4.0.4.0"; }
 
         public void save_settings(SETTINGS set)
         {
@@ -73,6 +73,7 @@ namespace SI_GUI
 #endif
             }
         }
+
         public string[] update_manager_array(string[] old_array, string toadd)
         {
             int arrylength = 1;

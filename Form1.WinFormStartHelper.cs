@@ -14,7 +14,7 @@ namespace SI_GUI
     // This file helps to start all the subwindows with the right l10n strings
     partial class Form1 : Form
     {
-        // Opens the help
+        // Opens Help
         private void openHelp()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_Help);
@@ -25,7 +25,7 @@ namespace SI_GUI
             Form3 fm = new Form3(l10n, rtl_layout);
             fm.ShowDialog();
         }
-        // Opens manager
+        // Opens Manager
         private void openManager()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_Manager);
@@ -52,11 +52,11 @@ namespace SI_GUI
             window.ShowDialog();
         }
 
-        // Opens About / change language / settings
+        // Opens About / Settings
         private void openSettings()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_About);
-            string[] l10n = new string[22];
+            string[] l10n = new string[23];
             l10n[0] = getstring("update_lang");
             l10n[1] = getstring("translations");
             l10n[2] = getstring("translator");
@@ -79,6 +79,7 @@ namespace SI_GUI
             l10n[19] = getstring("ga_cb_allowed");
             l10n[20] = getstring("settings_select_dl_folder");
             l10n[21] = getstring("cb_advanced_file");
+            l10n[22] = getstring("tt_advanced_file").Replace(":n:", Environment.NewLine);
             Form2 fm = new Form2(l10n, rtl_layout);
             fm.ShowDialog();
             path_4_download = fm.get_download_location;

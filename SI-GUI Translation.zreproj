@@ -44,7 +44,7 @@
     <globalSetting name="sendFileToTranslator.openAfterGeneratingCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.eliminateDuplicateRowsCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.exportWithoutDestinationTranslationOnlyCheckEdit.Checked">False</globalSetting>
-    <globalSetting name="sendFileToTranslator.exportCompletelyEmptyRowsCheckEdit.Checked">True</globalSetting>
+    <globalSetting name="sendFileToTranslator.exportCompletelyEmptyRowsCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.exportGroupsAsOneWorkSheetCheckEdit.Checked">True</globalSetting>
     <globalSetting name="sendFileToTranslator.exportNameColumnCheckEdit.Checked">True</globalSetting>
     <globalSetting name="sendFileToTranslator.exportCommentColumnCheckEdit.Checked">False</globalSetting>

@@ -337,12 +337,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Idioma (ajuda):</value>
 	</data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>Não é suportada instalação a partir de ficheiros *.EXE!</value>
-	</data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-		<value>Não suportado!</value>
-	</data>
 	<data name="abort" xml:space="preserve">
 		<value>Cancelar</value>
 	</data>

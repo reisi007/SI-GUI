@@ -349,12 +349,6 @@
 	<data name="okay" xml:space="preserve">
 		<value>בסדר</value>
 	</data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>אין תמיכה בהתקנת קובצי ‎*.EXE!</value>
-	</data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-		<value>הקובץ אינו נתמך!</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>להתחיל בהורדה</value>
 	</data>

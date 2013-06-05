@@ -571,7 +571,7 @@ namespace SI_GUI
             else
                 start_dl.Enabled = false;
         }
-       
+
         private void savesettings()
         {
             // Changing text of version
@@ -690,16 +690,22 @@ namespace SI_GUI
 
         private void validate_filename(object sender, EventArgs e)
         {
-            if (path_main.Text.Contains("exe"))
+            if (path_main.Text.Contains("exe") || path_help.Text.Contains("exe"))
             {
-                path_main.Text = "";
-                MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                start_install.Enabled = false;
+                if (path_main.Text.Contains("exe"))
+                    path_main.ForeColor = Color.Red;
+                else
+                    path_help.ForeColor = Color.Red;
             }
-            if (path_help.Text.Contains("exe"))
+            else
             {
-                path_help.Text = "";
-                MessageBox.Show(getstring("no_valid_filename_error_text"), getstring("no_valid_filename_error_title"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                start_install.Enabled = true;
+                path_main.ForeColor = Color.Black;
+                path_help.ForeColor = Color.Black;
             }
+            path_main.Update();
+            path_help.Update();
             savesettings();
         }
         private string[] dl_list;
@@ -783,6 +789,44 @@ namespace SI_GUI
                 }
             }
 
+        }
+
+        private void reset_pathMain_Click(object sender, EventArgs e)
+        {
+            path_main.Text = "";
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.FreeInstallerField);
+        }
+
+        private void delete_pathHelp_Click(object sender, EventArgs e)
+        {
+            path_help.Text = "";
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.FreeInstallerField);
+        }
+
+        private void go_pathMain_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(path_main.Text);
+                piwik.sendFeatreUseageStats(TDFPiwik.Features.RunInstaller);
+            }
+            catch (Exception ex)
+            {
+                exceptionmessage(ex.Message);
+            }
+        }
+
+        private void go_pathhelp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(path_help.Text);
+                piwik.sendFeatreUseageStats(TDFPiwik.Features.RunInstaller);
+            }
+            catch (Exception ex)
+            {
+                exceptionmessage(ex.Message);
+            }
         }
 
     }

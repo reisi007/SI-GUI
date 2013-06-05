@@ -369,12 +369,6 @@
 	<data name="okay" xml:space="preserve">
 		<value>V redu</value>
 	</data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>Datoteke *.EXE niso podprte za nameščanje!</value>
-	</data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-		<value>Datoteka ni podprta!</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Začni s prenosom</value>
 	</data>

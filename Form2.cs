@@ -33,7 +33,7 @@ namespace SI_GUI
             "He",
             "Pt",
             "Nl"};
-
+        ToolTip TTadvanced_file_renaming;
         public Form2(string[] l10n, bool rtl)
         {
             if (rtl)
@@ -63,6 +63,7 @@ namespace SI_GUI
                 folder_save.Text = s.DL_saved_settings.download_path;
             else
                 folder_save.Text = Path.GetTempPath();
+            TTadvanced_file_renaming = Form1.get_ToolTip(cb_advancedFilenames, l10n[22]);
         }
 
         void ga_tracking_CheckedChanged(object sender, EventArgs e)

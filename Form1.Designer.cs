@@ -66,9 +66,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.create_lnk = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.m_about = new System.Windows.Forms.ToolStripMenuItem();
             this.m_man = new System.Windows.Forms.ToolStripMenuItem();
             this.m_help = new System.Windows.Forms.ToolStripMenuItem();
-            this.m_about = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_download = new System.Windows.Forms.GroupBox();
             this.choose_lang = new System.Windows.Forms.ComboBox();
             this.choose_lang_label = new System.Windows.Forms.Label();
@@ -79,6 +79,10 @@
             this.dl_versions = new System.Windows.Forms.ComboBox();
             this.gb_create_lnk = new System.Windows.Forms.GroupBox();
             this.gb_installation = new System.Windows.Forms.GroupBox();
+            this.go_patHhelp = new System.Windows.Forms.Button();
+            this.go_pathMain = new System.Windows.Forms.Button();
+            this.delete_pathHelp = new System.Windows.Forms.Button();
+            this.reset_pathMain = new System.Windows.Forms.Button();
             this.gb_bootstrap.SuspendLayout();
             this.menu.SuspendLayout();
             this.gb_download.SuspendLayout();
@@ -108,22 +112,24 @@
             // path_main
             // 
             this.path_main.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.path_main.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_main.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_main.Location = new System.Drawing.Point(209, 16);
             this.path_main.Name = "path_main";
             this.path_main.ReadOnly = true;
-            this.path_main.Size = new System.Drawing.Size(192, 20);
+            this.path_main.Size = new System.Drawing.Size(111, 20);
             this.path_main.TabIndex = 8;
             this.path_main.TextChanged += new System.EventHandler(this.validate_filename);
             // 
             // path_help
             // 
             this.path_help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.path_help.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_help.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_help.Location = new System.Drawing.Point(209, 50);
             this.path_help.Name = "path_help";
             this.path_help.ReadOnly = true;
-            this.path_help.Size = new System.Drawing.Size(191, 20);
+            this.path_help.Size = new System.Drawing.Size(111, 20);
             this.path_help.TabIndex = 10;
             this.path_help.TextChanged += new System.EventHandler(this.validate_filename);
             // 
@@ -178,6 +184,7 @@
             // path_installdir
             // 
             this.path_installdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.path_installdir.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_installdir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_installdir.Location = new System.Drawing.Point(209, 80);
             this.path_installdir.Name = "path_installdir";
@@ -230,6 +237,7 @@
             // 
             this.bootinipath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.bootinipath.BackColor = System.Drawing.Color.WhiteSmoke;
             this.bootinipath.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bootinipath.Location = new System.Drawing.Point(6, 48);
             this.bootinipath.Name = "bootinipath";
@@ -241,6 +249,7 @@
             // 
             this.userinstallation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.userinstallation.BackColor = System.Drawing.Color.WhiteSmoke;
             this.userinstallation.ForeColor = System.Drawing.SystemColors.ControlText;
             this.userinstallation.Location = new System.Drawing.Point(5, 222);
             this.userinstallation.Name = "userinstallation";
@@ -291,6 +300,7 @@
             // path_to_file_on_disk
             // 
             this.path_to_file_on_disk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.path_to_file_on_disk.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_to_file_on_disk.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_to_file_on_disk.Location = new System.Drawing.Point(22, 349);
             this.path_to_file_on_disk.Name = "path_to_file_on_disk";
@@ -328,6 +338,7 @@
             // subfolder
             // 
             this.subfolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.subfolder.BackColor = System.Drawing.Color.White;
             this.subfolder.ForeColor = System.Drawing.SystemColors.ControlText;
             this.subfolder.Location = new System.Drawing.Point(6, 129);
             this.subfolder.Name = "subfolder";
@@ -345,6 +356,7 @@
             // path_to_file_on_disk_2
             // 
             this.path_to_file_on_disk_2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.path_to_file_on_disk_2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_to_file_on_disk_2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_to_file_on_disk_2.Location = new System.Drawing.Point(226, 349);
             this.path_to_file_on_disk_2.Name = "path_to_file_on_disk_2";
@@ -366,6 +378,7 @@
             // 
             this.path_to_exe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.path_to_exe.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_to_exe.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_to_exe.Location = new System.Drawing.Point(5, 23);
             this.path_to_exe.Name = "path_to_exe";
@@ -417,6 +430,13 @@
             this.menu.TabIndex = 37;
             this.menu.Text = "menuStrip1";
             // 
+            // m_about
+            // 
+            this.m_about.Name = "m_about";
+            this.m_about.Size = new System.Drawing.Size(105, 20);
+            this.m_about.Text = "About / &Settings";
+            this.m_about.Click += new System.EventHandler(this.m_about_Click);
+            // 
             // m_man
             // 
             this.m_man.Name = "m_man";
@@ -430,13 +450,6 @@
             this.m_help.Size = new System.Drawing.Size(44, 20);
             this.m_help.Text = "&Help";
             this.m_help.Click += new System.EventHandler(this.m_help_Click);
-            // 
-            // m_about
-            // 
-            this.m_about.Name = "m_about";
-            this.m_about.Size = new System.Drawing.Size(156, 20);
-            this.m_about.Text = "&About / Change language";
-            this.m_about.Click += new System.EventHandler(this.m_about_Click);
             // 
             // gb_download
             // 
@@ -551,6 +564,10 @@
             // 
             this.gb_installation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gb_installation.Controls.Add(this.go_patHhelp);
+            this.gb_installation.Controls.Add(this.go_pathMain);
+            this.gb_installation.Controls.Add(this.delete_pathHelp);
+            this.gb_installation.Controls.Add(this.reset_pathMain);
             this.gb_installation.Controls.Add(this.start_install);
             this.gb_installation.Controls.Add(this.b_open_libo_installer);
             this.gb_installation.Controls.Add(this.path_main);
@@ -566,6 +583,54 @@
             this.gb_installation.TabIndex = 0;
             this.gb_installation.TabStop = false;
             this.gb_installation.Text = "Parallel installation";
+            // 
+            // go_patHhelp
+            // 
+            this.go_patHhelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.go_patHhelp.ForeColor = System.Drawing.Color.Green;
+            this.go_patHhelp.Location = new System.Drawing.Point(326, 48);
+            this.go_patHhelp.Name = "go_patHhelp";
+            this.go_patHhelp.Size = new System.Drawing.Size(39, 23);
+            this.go_patHhelp.TabIndex = 19;
+            this.go_patHhelp.Text = "GO!";
+            this.go_patHhelp.UseVisualStyleBackColor = true;
+            this.go_patHhelp.Click += new System.EventHandler(this.go_pathhelp_Click);
+            // 
+            // go_pathMain
+            // 
+            this.go_pathMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.go_pathMain.ForeColor = System.Drawing.Color.Green;
+            this.go_pathMain.Location = new System.Drawing.Point(326, 16);
+            this.go_pathMain.Name = "go_pathMain";
+            this.go_pathMain.Size = new System.Drawing.Size(38, 23);
+            this.go_pathMain.TabIndex = 18;
+            this.go_pathMain.Text = "GO!";
+            this.go_pathMain.UseVisualStyleBackColor = true;
+            this.go_pathMain.Click += new System.EventHandler(this.go_pathMain_Click);
+            // 
+            // delete_pathHelp
+            // 
+            this.delete_pathHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_pathHelp.ForeColor = System.Drawing.Color.Red;
+            this.delete_pathHelp.Location = new System.Drawing.Point(371, 48);
+            this.delete_pathHelp.Name = "delete_pathHelp";
+            this.delete_pathHelp.Size = new System.Drawing.Size(26, 23);
+            this.delete_pathHelp.TabIndex = 17;
+            this.delete_pathHelp.Text = "X";
+            this.delete_pathHelp.UseVisualStyleBackColor = true;
+            this.delete_pathHelp.Click += new System.EventHandler(this.delete_pathHelp_Click);
+            // 
+            // reset_pathMain
+            // 
+            this.reset_pathMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset_pathMain.ForeColor = System.Drawing.Color.Red;
+            this.reset_pathMain.Location = new System.Drawing.Point(370, 16);
+            this.reset_pathMain.Name = "reset_pathMain";
+            this.reset_pathMain.Size = new System.Drawing.Size(26, 23);
+            this.reset_pathMain.TabIndex = 16;
+            this.reset_pathMain.Text = "X";
+            this.reset_pathMain.UseVisualStyleBackColor = true;
+            this.reset_pathMain.Click += new System.EventHandler(this.reset_pathMain_Click);
             // 
             // Form1
             // 
@@ -653,6 +718,10 @@
         private System.Windows.Forms.GroupBox gb_installation;
         private System.Windows.Forms.Label choose_lang_label;
         private System.Windows.Forms.ComboBox choose_lang;
+        private System.Windows.Forms.Button delete_pathHelp;
+        private System.Windows.Forms.Button reset_pathMain;
+        private System.Windows.Forms.Button go_patHhelp;
+        private System.Windows.Forms.Button go_pathMain;
     }
 }
 

@@ -369,12 +369,6 @@
 	<data name="okay" xml:space="preserve">
 		<value>Aceptar</value>
 	</data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>No se admiten los archivos *.EXE para la instalación.</value>
-	</data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-		<value>Archivo no compatible</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Comenzar descarga</value>
 	</data>

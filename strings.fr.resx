@@ -369,12 +369,6 @@
 	<data name="okay" xml:space="preserve">
 		<value>Okay</value>
 	</data>
-	<data name="no_valid_filename_error_text" xml:space="preserve">
-		<value>Les fichiers *.EXE ne sont pas pris en charge par l'installation !</value>
-	</data>
-	<data name="no_valid_filename_error_title" xml:space="preserve">
-		<value>Fichier non pris en charge !</value>
-	</data>
 	<data name="start_dl" xml:space="preserve">
 		<value>Démarrer le téléchargement</value>
 	</data>
