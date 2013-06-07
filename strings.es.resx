@@ -160,7 +160,7 @@
 		<value>Archivo guardado</value>
 	</data>
 	<data name="warning" xml:space="preserve">
-		<value>¡Advertencia!</value>
+		<value>Aviso</value>
 	</data>
 	<data name="de" xml:space="preserve">
 		<value>Alemán:</value>
@@ -193,7 +193,7 @@
 		<value>La configuración de idioma se aplicará en el siguiente inicio.</value>
 	</data>
 	<data name="success" xml:space="preserve">
-		<value>¡Éxito!</value>
+		<value>Éxito</value>
 	</data>
 	<data name="tt_bootstrap" xml:space="preserve">
 		<value>Puede usar lo siguiente en lugar de la línea que inicia con «UserInstallation=» del campo de texto anterior, para no sobreescribir su perfil de usuario existente.</value>
@@ -202,7 +202,7 @@
 		<value>Cambiar el idioma:</value>
 	</data>
 	<data name="versiondl" xml:space="preserve">
-		<value>¿Realmente descargar %version?</value>
+		<value>¿Realmente quiere descargar %version?</value>
 	</data>
 	<data name="open_help" xml:space="preserve">
 		<value>Abrir instalador de ayuda de LibreOffice</value>
@@ -279,7 +279,7 @@
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Configurar ruta</value>
 	</data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
 		<value>Aceptar</value>
 	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -357,18 +357,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Idioma (ayuda):</value>
 	</data>
-	<data name="abort" xml:space="preserve">
-		<value>Interrumpir</value>
-	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>Descargue cualquier versión de %product</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>¿Qué versión quiere descargar?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>Aceptar</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Comenzar descarga</value>
 	</data>
@@ -383,9 +371,6 @@
 	</data>
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Instalación en paralelo</value>
-	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>Se ha cancelado la descarga.</value>
 	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Todas las versiones de LibO</value>
@@ -404,5 +389,20 @@
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
 		<value>Permitir seguimiento del uso de este programa con "TDF Piwik" </value>
+	</data>
+	<data name="settings_select_dl_folder" xml:space="preserve">
+		<value>Seleccione la carpeta de descarga</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>Se está sobreescribiendo una instalación de servidor existente.</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>Está a punto de sobreescribir una instalación de servidor existente. ¿Quiere continuar?</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Renombrado avanzado de archivos</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Si se activa, los archivos se guardarán con su nombre de archivo original.:n:Si se desactiva, solo se conservará un instalador y un paquete de ayuda en el disco.</value>
 	</data>
 </root>

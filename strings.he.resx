@@ -259,7 +259,7 @@
 	<data name="mai_config_path" xml:space="preserve">
 		<value>הגדרת נתיב</value>
 	</data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
 		<value>אישור</value>
 	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -337,18 +337,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>שפה (עזרה):</value>
 	</data>
-	<data name="abort" xml:space="preserve">
-		<value>ביטול</value>
-	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>להוריד כל גרסה שהיא של %product !</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>איזו גרסה יש להוריד?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>בסדר</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>להתחיל בהורדה</value>
 	</data>
@@ -364,9 +352,6 @@
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>התקנה במקביל</value>
 	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>ההורדה בוטלה!</value>
-	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>כל הגרסאות של LibO</value>
 	</data>
@@ -374,12 +359,27 @@
 		<value>התחלת ההורדה</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
-		<value>הסטטיסטיקה מחושבת באמצעות "TDF Piwik" </value>
+		<value>הסטטיסטיקה מחושבת באמצעות „TDF Piwik“</value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>לאפשר לעקוב אחר השימוש שלך בתכנית בעזרת "TDF Piwik" </value>
+		<value>לאפשר לעקוב אחר השימוש שלך בתכנית בעזרת „TDF Piwik“</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>משתמש יקר,:nl:תכנית זו משתמש ב־"TDF Piwik"  כדי לקבל סטטיסטיקה באשר לשימוש בתכנית זו.:nl:יצרנו מס׳ מעקב עבור התקנה זו. מס׳ המעקב (trackingID) הוא::nl:%trackingID:nl:כפי שניתן לראות, מספר זה אינו מכיל פרטים אישיים. ניתן ללחוץ על „כן“ כדי לאפשר את המעקב או „לא“ כדי למנוע אותו.</value>
+		<value>משתמש יקר,:nl:תכנית זו משתמש ב־„TDF Piwik“  כדי לקבל סטטיסטיקה באשר לשימוש בתכנית זו.:nl:יצרנו מס׳ מעקב עבור התקנה זו. מס׳ המעקב (trackingID) הוא::nl:%trackingID:nl:כפי שניתן לראות, מספר זה אינו מכיל פרטים אישיים. ניתן ללחוץ על „כן“ כדי לאפשר את המעקב או „לא“ כדי למנוע אותו.</value>
+	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>לא זוהה הנתיב אל soffice.exe!</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>דריסת ההתקנה הנוכחית שבשרת!</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>פעולה זו תדרוס את ההתקנה הנוכחית שבשרת, האם להמשיך?</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>שינוי שמות קבצים מתקדם</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>אם אפשרות זו פעילה הקבצים יאוחסנו עם שמם המקורי.:n:אם תנוטרל, ישמרו רק תכנית התקנה אחת וחבילת עזרה אחת בכונן.</value>
 	</data>
 </root>

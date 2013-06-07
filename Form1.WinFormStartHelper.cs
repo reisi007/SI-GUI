@@ -46,7 +46,7 @@ namespace SI_GUI
             l10n_mai[2] = getstring("mai_path_soffice");
             l10n_mai[3] = getstring("mai_config_path");
             l10n_mai[4] = getstring("mai_text");
-            l10n_mai[5] = getstring("mai_ok");
+            l10n_mai[5] = getstring("okay");
             l10n_mai[6] = getstring("mai_abort");
             Manager window = new Manager(l10n_manager, l10n_mai, rtl_layout);
             window.ShowDialog();
@@ -56,7 +56,7 @@ namespace SI_GUI
         private void openSettings()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_About);
-            string[] l10n = new string[23];
+            string[] l10n = new string[24];
             l10n[0] = getstring("update_lang");
             l10n[1] = getstring("translations");
             l10n[2] = getstring("translator");
@@ -79,34 +79,13 @@ namespace SI_GUI
             l10n[19] = getstring("ga_cb_allowed");
             l10n[20] = getstring("settings_select_dl_folder");
             l10n[21] = getstring("cb_advanced_file");
-            l10n[22] = getstring("tt_advanced_file").Replace(":n:", Environment.NewLine);
+            l10n[22] = getstring("tt_advanced_file");
+            l10n[23] = getstring("okay");
             Form2 fm = new Form2(l10n, rtl_layout);
             fm.ShowDialog();
             path_4_download = fm.get_download_location;
             AdvancedFilenames = fm.getAdvancedRenamingChecked;
         }
 
-        // Opens Mass DL. If true LibO LibreOffice archives will be opened, otherwise OpenOffice
-        private string openMassDL(bool Libo, string[] versions, out bool goon)
-        {
-            string product;
-            if (Libo)
-                product = "LibreOffice";
-            else
-                product = "OpenOffice";
-            string[] l10n = new string[4];
-            l10n[0] = getstring("massdl_l10n_title").Replace("%product", product);
-            l10n[3] = getstring("massdl_l10n_which");
-            l10n[1] = getstring("okay");
-            l10n[2] = getstring("abort");
-            DialogResult dl;
-            goon = true;
-            MassDL mb = new MassDL(l10n, versions, rtl_layout);
-            dl = mb.ShowDialog();
-            if (dl != System.Windows.Forms.DialogResult.OK)
-                goon = false;
-            return mb.getSelectedVersion;
-
-        }
     }
 }

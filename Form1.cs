@@ -317,7 +317,7 @@ namespace SI_GUI
             if (go_on)
             {
                 // Test, if there is a existing ServerInastallation
-                bool okay = true;
+                bool okay = false;
                 try
                 {
                     string path_to_soffice = path_installdir.Text;
@@ -327,7 +327,7 @@ namespace SI_GUI
                 }
                 catch (Exception)
                 {
-                    okay = false;
+                    okay = true;
                 }
                 if (!okay)
                 {
@@ -551,7 +551,7 @@ namespace SI_GUI
             string rt = "???";
             try
             {
-                rt = rm.GetString(strMessage);
+                rt = rm.GetString(strMessage).Replace(":n:", Environment.NewLine).Replace(":nl:",Environment.NewLine);
             }
             catch (Exception)
             {
@@ -641,53 +641,6 @@ namespace SI_GUI
         {
             openHelp();
         }
-
-        private void m_lb_i_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.LB, false);
-        }
-
-        private void m_lb_h_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.LB, true);
-        }
-
-        private void m_ob_i_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.OB, false);
-        }
-
-        private void m_ob_h_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.OB, true);
-        }
-
-        private void m_t_i_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.T, false);
-        }
-
-        private void m_t_h_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.T, true);
-        }
-
-        private void m_m_i_Click(object sender, EventArgs e)
-        {
-            asyncdl_wrapper(enum4DL_Special.M, false);
-        }
-        private void installerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Download any LibO installer
-            ManageMassDL(false, true);
-        }
-
-        private void helppackToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Download any LibO help
-            ManageMassDL(true, true);
-        }
-
         private void validate_filename(object sender, EventArgs e)
         {
             if (path_main.Text.Contains("exe") || path_help.Text.Contains("exe"))
@@ -779,11 +732,11 @@ namespace SI_GUI
                         string link = get_final_link(true, dl_versions.SelectedItem.ToString());
                         if (cb_installer.Checked)
                         {
-                            download_any_version(link, false, true);
+                            download_any_version(link, false);
                         }
                         if (cb_help.Checked)
                         {
-                            download_any_version(link, true, true);
+                            download_any_version(link, true);
                         }
                         break;
                 }

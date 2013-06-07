@@ -280,7 +280,7 @@
 	<data name="mai_config_path" xml:space="preserve">
     <value>Konfigurer sti</value>
   </data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
     <value>OK</value>
   </data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -358,18 +358,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Sprog (hjælp)</value>
 	</data>
-	<data name="abort" xml:space="preserve">
-		<value>Afbryd</value>
-	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>Download version af %product !</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>Hvilken version skal downloades?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>Ok</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Start download</value>
 	</data>
@@ -384,9 +372,6 @@
 	</data>
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Parallel installation</value>
-	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>Download blev afbrudt</value>
 	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Alle LibreOffice versioner</value>

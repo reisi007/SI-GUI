@@ -184,7 +184,7 @@
     <value>Traducteur :</value>
   </data>
 	<data name="about" xml:space="preserve">
-    <value>À propos / Changer de langue</value>
+    <value>À propos / Paramétrages</value>
   </data>
 	<data name="tt_tb" xml:space="preserve">
     <value>Dernière version de test.</value>
@@ -279,7 +279,7 @@
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Configurer le chemin</value>
 	</data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
 		<value>Okay</value>
 	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -357,18 +357,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Langue (Aide)</value>
 	</data>
-	<data name="abort" xml:space="preserve">
-		<value>Abandonner</value>
-	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>Télécharger toute version de %product !</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>Quelle version doit être téléchargée ?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>Okay</value>
-	</data>
 	<data name="start_dl" xml:space="preserve">
 		<value>Démarrer le téléchargement</value>
 	</data>
@@ -387,10 +375,34 @@
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Installation parallèle</value>
 	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>Le téléchargement a été abandonné !</value>
-	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Toutes versions LibO</value>
+	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>Aucun chemin vers soffice.exe n'a pu être détecté !</value>
+	</data>
+	<data name="ga_allowed_text" xml:space="preserve">
+		<value>Cher Utilisateur,:nl:Ce programme utilise "TDF-Piwik" afin d'obtenir des statistiques sur l'utilisation de ce programme.:nl:Nous avons créé un trackingID pour cette installation. Votre trackingID est::nl:%trackingID:nl:Comme vous pouvez le voir, il ne contient aucune donnée personnelle. Appuyez sur "Oui" afin d'activer "tracking", sur "Non" pour le désactiver.</value>
+	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>Statistics générées par "TDF Piwik".</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>Autoriser le suivi de votre utilisation du programme à l'aide de "TDF Piwik"</value>
+	</data>
+	<data name="settings_select_dl_folder" xml:space="preserve">
+		<value>Sélectionner un dossier de téléchargement</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>Écraser l'installation serveur existante !</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>Vous êtes sur le point d'écraser une installation serveur existante. Continuer ?</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Si activé, les fichiers seront stockés sous leur nom d'origine.:n:Si désactivé, un seul installeur et un seul fichier d'aide seront conservés sur le disque.</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Renommage de fichier avancé</value>
 	</data>
 </root>

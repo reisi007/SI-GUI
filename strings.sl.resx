@@ -279,7 +279,7 @@
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Prilagodi pot</value>
 	</data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
 		<value>V redu</value>
 	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -357,18 +357,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Jezik (pomoč):</value>
 	</data>
-	<data name="abort" xml:space="preserve">
-		<value>Prekini</value>
-	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>Prenesite poljubno različico %product !</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>Katero različico želite prenesti?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>V redu</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Začni s prenosom</value>
 	</data>
@@ -383,9 +371,6 @@
 	</data>
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Vzporedna namestitev</value>
-	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>Prenos je bil prekinjen.</value>
 	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Vse različice LibreOffice</value>
@@ -405,5 +390,20 @@ je::nl:%trackingID:nl:Kot lahko vidite, slednji ne vsebuje nobenih osebnih podat
 	</data>
 	<data name="ink_error_2" xml:space="preserve">
 		<value>Poti do soffice.exe ni mogoče zaznati!</value>
+	</data>
+	<data name="settings_select_dl_folder" xml:space="preserve">
+		<value>Izberite mapo za prenos</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>Prepisovanje obstoječe strežniške namestitve!</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>Prepisali boste obstoječo strežniško namestitev. Želite nadaljevati?</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Napredno preimenovanje datotek</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Če je polje potrjeno, bodo datoteke shranjene pod svojim izvirnim imenom.:n:Če polje ni potrjeno, bo na disku ohranjen le en namestitveni paket in en paket pomoči.</value>
 	</data>
 </root>

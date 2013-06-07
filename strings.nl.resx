@@ -279,7 +279,7 @@
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Configuratiepad</value>
 	</data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
 		<value>OK</value>
 	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -358,15 +358,6 @@
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Taal (help):</value>
 	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>Download elke versie van %product !</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>Welke versie moet worden gedownload?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>OK</value>
-	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>Start download</value>
 	</data>
@@ -382,14 +373,8 @@
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Parallele installatie</value>
 	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>Download is afgebroken!</value>
-	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Alle LibO versies</value>
-	</data>
-	<data name="abort" xml:space="preserve">
-		<value>Annuleer</value>
 	</data>
 	<data name="start_dl" xml:space="preserve">
 		<value>Start download</value>
@@ -408,5 +393,17 @@
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>Selecteer downloadmap</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>Bestaande Server Installatie zal wordt overschreven!</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>U staat op het punt om een bestaande Server Installatie te overschrijven. Wilt u verder gaan?</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Geavanceerd bestand hernoemen</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Als u dit toestaat, worden de bestanden opgeslagen met hun originele bestandsnaam.:n:Als u dit niet toestaat, wordt er enkel één installer en één helppack op uw hardeschijf bewaard.</value>
 	</data>
 </root>

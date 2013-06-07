@@ -259,7 +259,7 @@
 	<data name="mai_config_path" xml:space="preserve">
 		<value>Configurar caminho</value>
 	</data>
-	<data name="mai_ok" xml:space="preserve">
+	<data name="okay" xml:space="preserve">
 		<value>Aceitar</value>
 	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
@@ -272,7 +272,7 @@
 		<value>Adicionar instalação manualmente</value>
 	</data>
 	<data name="man_del" xml:space="preserve">
-		<value>Eliminar escolha(s)</value>
+		<value>Eliminar escolha</value>
 	</data>
 	<data name="man_exit" xml:space="preserve">
 		<value>Sair</value>
@@ -284,7 +284,7 @@
 		<value>Atalho para um LibreOffice %version paralelo instalado.</value>
 	</data>
 	<data name="ink_error_1" xml:space="preserve">
-		<value>Nenhuma versão especificada!</value>
+		<value>Nenhuma versão indicada!</value>
 	</data>
 	<data name="tt_ink" xml:space="preserve">
 		<value>Criar um atalho desta instalação paralela no ambiente de trabalho</value>
@@ -326,7 +326,7 @@
 		<value>&amp;Instalador</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>&amp;Ramificação actual</value>
+		<value>&amp;Ramificação atual</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
 		<value>&amp;Ramificação anterior</value>
@@ -336,18 +336,6 @@
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Idioma (ajuda):</value>
-	</data>
-	<data name="abort" xml:space="preserve">
-		<value>Cancelar</value>
-	</data>
-	<data name="massdl_l10n_title" xml:space="preserve">
-		<value>Transferir qualquer versão de %product !</value>
-	</data>
-	<data name="massdl_l10n_which" xml:space="preserve">
-		<value>Que versão deve ser transferida?</value>
-	</data>
-	<data name="okay" xml:space="preserve">
-		<value>Ok</value>
 	</data>
 	<data name="start_dl" xml:space="preserve">
 		<value>Iniciar transferência</value>
@@ -367,9 +355,6 @@
 	<data name="gb_parallel_install" xml:space="preserve">
 		<value>Instalação em paralelo</value>
 	</data>
-	<data name="massdl_error" xml:space="preserve">
-		<value>A transferência foi cancelada!</value>
-	</data>
 	<data name="any_libo_version" xml:space="preserve">
 		<value>Todas as versões do LibreOffice</value>
 	</data>
@@ -387,5 +372,17 @@
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>Seleccionar pasta para ficheiros transferidos</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>Instalação de Servidor vai ser sobre-escrita!</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>Vai sobre-escrever uma Instalação de Servidor. Continuar?</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Alteração de nomes de ficheiros avançada</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Se esta opção for activada os ficheiros serão guardados com o nome original.:n:Se for desactivada, apenas um ficheiro de instalação e um ficheiro de ajuda serão guardados em disco.</value>
 	</data>
 </root>

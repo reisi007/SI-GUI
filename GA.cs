@@ -12,8 +12,7 @@ namespace SI_GUI
 {
     public class TDFPiwik
     {
-        const string propertyID = "58";
-        string trackingID;
+        const string websiteID = "58";
         private access_settings aSet;
         private SETTINGS Set;
         string sallowed_txt;
@@ -29,18 +28,14 @@ namespace SI_GUI
             aSet = new access_settings();
             Set = aSet.open_settings();
             if (Set.Piwik.trackingID != null)
-                trackingID = Set.Piwik.trackingID;
-            else
             {
                 // Create new user ID
                 string stemp = Environment.UserName + DateTime.Now.ToString();
                 MD5 algo = MD5.Create();
-                trackingID = BitConverter.ToString(algo.ComputeHash(Encoding.ASCII.GetBytes(stemp))).Replace("-", "").ToLower();
-                Set.Piwik.trackingID = trackingID.Remove(16);
+                Set.Piwik.trackingID = BitConverter.ToString(algo.ComputeHash(Encoding.ASCII.GetBytes(stemp))).Replace("-", "").ToLower().Remove(16);
             }
             // Check whether GAnalytic tracking is allowed
             sallowed_title = allowed_title;
-            allowed_txt = allowed_txt.Replace(":n:", Environment.NewLine);
             sallowed_txt = allowed_txt.Replace("%trackingID", Set.Piwik.trackingID);
             if (!Set.Piwik.manually_set)
             {
@@ -52,7 +47,7 @@ namespace SI_GUI
             bw.DoWork += new DoWorkEventHandler(submit_piwik);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(todo);
         }
-
+        // After doing work, check if work is pending
         void todo(object sender, RunWorkerCompletedEventArgs e)
         {
             try
@@ -63,7 +58,7 @@ namespace SI_GUI
             catch (Exception) { }
 
         }
-
+        // Submit data to Piwik
         void submit_piwik(object sender, DoWorkEventArgs e)
         {
             request(e.Argument.ToString());
@@ -130,7 +125,7 @@ namespace SI_GUI
         #endregion
         // Background functiond for sending data to GAnalytics
         uint i = 0;
-        private string defaultPOST { get { return "apiv=1&idsite=" + propertyID + "&rec=1&_id = " + Set.Piwik.trackingID; } }
+        private string defaultPOST { get { return "apiv=1&idsite=" + websiteID + "&rec=1&_id = " + Set.Piwik.trackingID; } }
         private void submitGA(string ec, string ea, string el = "", string manualPOST = "")
         {
             if (Set.Piwik.tracking_allowed)

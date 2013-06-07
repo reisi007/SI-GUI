@@ -39,6 +39,7 @@ namespace SI_GUI
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
+            bOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             lang_chooser.Sorted = true;
             this.l10n = l10n;
             // Load default lang
@@ -105,6 +106,7 @@ namespace SI_GUI
             this.Text = l10n[14];
             B_open_folder.Text = l10n[20];
             cb_advancedFilenames.Text = l10n[21];
+            bOk.Text = l10n[23];
         }
         public bool getAdvancedRenamingChecked
         {

@@ -282,36 +282,21 @@ namespace SI_GUI
             }
         }
 
-        private void download_any_version(string LinktoFile, bool helppack, bool libo)
+        private void download_any_version(string LinktoFile, bool helppack)
         {
             // Get the final download links and initialize the download
             WebClient webc = getPreparedWebClient();
-            string httpfile;
-            if (libo)
-                httpfile = downloadfile(LinktoFile + "?C=S;O=D");
-            else
-                httpfile = downloadfile(LinktoFile);
-            int tmp;
-            if (libo)
-            {
-                tmp = httpfile.IndexOf("Parent");
+            string httpfile = downloadfile(LinktoFile + "?C=S;O=D");
+            int tmp= httpfile.IndexOf("Parent");
                 httpfile = httpfile.Remove(0, tmp);
                 tmp = httpfile.IndexOf("href") + 6;
                 httpfile = httpfile.Remove(0, tmp);
                 tmp = httpfile.IndexOf("\"");
                 httpfile = httpfile.Remove(tmp);
-
-            }
-            else
-            {
-
-            }
-
             if (helppack)
             {
                 // Helppack only
-                if (libo)
-                {
+                
                     //LibreOffice helppack
                     if (httpfile.Contains("install_all"))
                     {
@@ -329,11 +314,6 @@ namespace SI_GUI
                         httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + choose_lang.SelectedItem.ToString());
                     }
 
-                }
-                else
-                {
-                    //OpenOffice helppack
-                }
                 // Start download
             }
             startDL(httpfile, LinktoFile, false, helppack);
@@ -387,37 +367,6 @@ namespace SI_GUI
                 { goon = false; }
             }
             return versions.ToArray();
-        }
-
-
-        // Manages the download of all versions
-        private void ManageMassDL(bool hp, bool libo)
-        {
-            // Goon specifies, if program should go on from time to time
-            bool goon = true;
-            // Where to find the old versions of the program?
-            string httpfile;
-            string[] versions = new string[1];
-            if (libo)
-            {
-                versions = getLibO_List_of_DL();
-            }
-            else
-            {
-                // Get the versions of OpenOffice
-            }
-            //httpfile from now on contains the selected version
-            httpfile = openMassDL(libo, versions, out goon);
-            if (goon)
-            {
-                // Specify the link to the folder, where the release is
-
-
-                download_any_version(get_final_link(libo, httpfile), hp, libo);
-            }
-            else
-            { exceptionmessage(getstring("massdl_error")); }
-
         }
 
         private string get_final_link(bool libo, string version)
