@@ -164,7 +164,7 @@
 		<value>Tradutor:</value>
 	</data>
 	<data name="about" xml:space="preserve">
-		<value>Sobre / Alterar o idioma</value>
+		<value>Sobre / Definições</value>
 	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Última compilação de testes</value>

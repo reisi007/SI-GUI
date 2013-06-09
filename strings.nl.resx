@@ -184,7 +184,7 @@
 		<value>Vertaler:</value>
 	</data>
 	<data name="about" xml:space="preserve">
-		<value>Over / Wijzig taal</value>
+		<value>Over / Instellingen</value>
 	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Laatste testbuild.</value>

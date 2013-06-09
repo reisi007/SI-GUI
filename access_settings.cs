@@ -55,7 +55,7 @@ namespace SI_GUI
             return Path.Combine(getpath(), "sigui.config");
         }
         public string program_version()
-        { return "4.1.0.0"; }
+        { return "4.1.0.1"; }
 
         public void save_settings(SETTINGS set)
         {
