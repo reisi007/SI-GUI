@@ -338,10 +338,11 @@ namespace SI_GUI
                 {
                     // Install
                     string cmd_filename = create_cmd(install_main, install_help);
+                    piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
                     try
                     {
                         Process.Start(cmd_filename);
-                        piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
+                        piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
                     }
                     catch (Exception ex)
                     {
