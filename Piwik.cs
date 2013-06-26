@@ -128,8 +128,6 @@ namespace SI_GUI
         private string defaultPOST { get { return "apiv=1&idsite=" + websiteID + "&rec=1&_id = " + Set.Piwik.trackingID; } }
         private void submitGA(string ec, string ea, string el = "", string manualPOST = "")
         {
-            if (Set.Piwik.tracking_allowed)
-            {
                 string POST_Data = defaultPOST + "&url=http://si-gui.libreoffice.org&action_name=" + ec + "/" + ea;
                 if (el != null)
                     POST_Data += "/" + el;
@@ -138,7 +136,6 @@ namespace SI_GUI
                     POST_Data += "," + getJSON("hp-download-lang", el);
                 POST_Data += "}";
                 submitRequest2Queue(POST_Data);
-            }
         }
         private void submitRequest2Queue(string POST)
         {
@@ -150,23 +147,26 @@ namespace SI_GUI
 
         private void request(string POST)
         {
-            byte[] data = ASCIIEncoding.UTF8.GetBytes(POST);
-            WebRequest request = WebRequest.Create("http://piwik.documentfoundation.org/piwik.php");
-            request.Credentials = CredentialCache.DefaultCredentials;
-            ((HttpWebRequest)request).UserAgent = "LibreOffice Server Install GUI Tracking";
-            request.Method = "POST";
-            request.ContentLength = data.Length;
-            request.ContentType = "application/x-www-form-urlencoded";
-            try
+            if (Set.Piwik.tracking_allowed)
             {
-                Stream datastream = request.GetRequestStream();
-                datastream.Write(data, 0, data.Length);
-                datastream.Close();
-                WebResponse response = request.GetResponse();
-                response.Close();
-            }
-            catch (Exception)
-            {
+                byte[] data = ASCIIEncoding.UTF8.GetBytes(POST);
+                WebRequest request = WebRequest.Create("http://piwik.documentfoundation.org/piwik.php");
+                request.Credentials = CredentialCache.DefaultCredentials;
+                ((HttpWebRequest)request).UserAgent = "LibreOffice Server Install GUI Tracking";
+                request.Method = "POST";
+                request.ContentLength = data.Length;
+                request.ContentType = "application/x-www-form-urlencoded";
+                try
+                {
+                    Stream datastream = request.GetRequestStream();
+                    datastream.Write(data, 0, data.Length);
+                    datastream.Close();
+                    WebResponse response = request.GetResponse();
+                    response.Close();
+                }
+                catch (Exception)
+                {
+                }
             }
         }
         private string getJSON(string key, string value)

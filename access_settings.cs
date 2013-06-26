@@ -55,7 +55,7 @@ namespace SI_GUI
             return Path.Combine(getpath(), "sigui.config");
         }
         public string program_version()
-        { return "4.1.0.1"; }
+        { return "4.1.0.3"; }
 
         public void save_settings(SETTINGS set)
         {
@@ -74,28 +74,22 @@ namespace SI_GUI
             }
         }
 
-        public string[] update_manager_array(string[] old_array, string toadd)
+        public string[] update_manager_array(string[] oldarray, string toadd)
         {
-            int arrylength = 1;
-            if (old_array != null)
-                arrylength = old_array.Length + 1;
-            // Test, if the current directory is on the list
-            if(old_array != null && !old_array.Contains(toadd))
+            if (!oldarray.Contains(toadd))
             {
-            string[] new_array = new string[arrylength];
-            if (old_array != null)
-            {
-                for (int i = 0; i <= (arrylength - 2); i++)
+                string[] newarray;
+                if (oldarray == null)
+                    newarray = new string[1];
+                else
                 {
-                    new_array[i] = old_array[i];
-
+                    newarray = new string[oldarray.Length + 1];
+                    oldarray.CopyTo(newarray, 0);
                 }
+                newarray[newarray.Length - 1] = toadd;
+                return newarray;
             }
-            new_array[arrylength - 1] = toadd;
-            return new_array;
-            }
-            else
-                return old_array;
+            return oldarray;
         }
     }
     # region SETTINGS (File-format)
