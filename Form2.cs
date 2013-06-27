@@ -65,6 +65,7 @@ namespace SI_GUI
             else
                 folder_save.Text = Path.GetTempPath();
             TTadvanced_file_renaming = Form1.get_ToolTip(cb_advancedFilenames, l10n[22]);
+            cb_bs_autoedit.Checked = s.cb_autoedit_bs;
         }
 
         void ga_tracking_CheckedChanged(object sender, EventArgs e)
@@ -107,6 +108,7 @@ namespace SI_GUI
             B_open_folder.Text = l10n[20];
             cb_advancedFilenames.Text = l10n[21];
             bOk.Text = l10n[23];
+            cb_bs_autoedit.Text = l10n[24];
         }
         public bool getAdvancedRenamingChecked
         {
@@ -122,9 +124,6 @@ namespace SI_GUI
 
         private void update_lang(object sender, EventArgs e)
         {
-            SETTINGS temp = set.open_settings();
-            temp.l10n = Convert.ToString(lang_chooser.SelectedItem);
-            set.save_settings(temp);
             MessageBox.Show(l10n[17], l10n[18], MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
@@ -134,12 +133,6 @@ namespace SI_GUI
                 folder_save.Text = folder.SelectedPath;
         }
 
-        private void folder_save_TextChanged(object sender, EventArgs e)
-        {
-            SETTINGS s = set.open_settings();
-            s.DL_saved_settings.download_path = folder_save.Text;
-            set.save_settings(s);
-        }
         public string get_download_location
         {
             get
@@ -148,12 +141,17 @@ namespace SI_GUI
             }
         }
 
-        private void cb_advancedFilenames_CheckedChanged(object sender, EventArgs e)
+        private void bOk_Click(object sender, EventArgs e)
         {
             SETTINGS s = set.open_settings();
+            s.DL_saved_settings.download_path = folder_save.Text;
             s.cb_advanced_filenames = cb_advancedFilenames.Checked;
+            s.l10n = Convert.ToString(lang_chooser.SelectedItem);
+            s.cb_autoedit_bs = cb_bs_autoedit.Checked;
             set.save_settings(s);
         }
+
+       
 
     }
 }

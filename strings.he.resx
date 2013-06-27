@@ -317,13 +317,13 @@
 		<value>אף גרסת ניסוי אינה זמינה כרגע.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>הו&amp;רדה</value>
+		<value>הורדה</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>&amp;חבילת עזרה</value>
+		<value>חבילת עזרה</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;תכנית התקנה</value>
+		<value>תכנית התקנה</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
 		<value>הענף ה&amp;עדכני ביותר</value>
@@ -332,7 +332,7 @@
 		<value>הענק הע&amp;תיק ביותר</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-		<value>בנייה &amp;ניסיונית</value>
+		<value>בנייה ניסיונית</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>שפה (עזרה):</value>

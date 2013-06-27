@@ -337,19 +337,19 @@
 		<value>Trenutno poskusna različica ni na voljo.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>&amp;Prenesi</value>
+		<value>Prenesi</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>Paket po&amp;moči</value>
+		<value>Paket pomoči</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;Namestitveni paket</value>
+		<value>Namestitveni paket</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>&amp;Zadnja veja</value>
+		<value>Zadnja veja</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>&amp;Starejša veja</value>
+		<value>Starejša veja</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
 		<value>Pos&amp;kusna gradnja</value>

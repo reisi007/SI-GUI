@@ -337,22 +337,22 @@
 		<value>No hay ninguna versión de pruebas en este momento.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>&amp;Descargar</value>
+		<value>Descargar</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>&amp;Paq. de ayuda</value>
+		<value>Paq. de ayuda</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;Instalador</value>
+		<value>Instalador</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>Rama más re&amp;ciente</value>
+		<value>Rama más reciente</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>Rama a&amp;nterior</value>
+		<value>Rama anterior</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-		<value>Versión de &amp;pruebas</value>
+		<value>Versión de pruebas</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Idioma (ayuda):</value>

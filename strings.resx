@@ -334,22 +334,22 @@
     <value>No testversion available at the moment.</value>
   </data>
 	<data name="m_l10n_dl" xml:space="preserve">
-    <value>&amp;Download</value>
+    <value>Download</value>
   </data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-    <value>&amp;Helppack</value>
+    <value>Helppack</value>
   </data>
 	<data name="m_l10n_installer" xml:space="preserve">
-    <value>&amp;Installer</value>
+    <value>Installer</value>
   </data>
 	<data name="m_l10n_lb" xml:space="preserve">
-    <value>&amp;Latest branch</value>
+    <value>Latest branch</value>
   </data>
 	<data name="m_l10n_ob" xml:space="preserve">
-    <value>&amp;Older branch</value>
+    <value>Older branch</value>
   </data>
 	<data name="m_l10n_t" xml:space="preserve">
-    <value>&amp;Testing build</value>
+    <value>Testing build</value>
   </data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
     <value>Language (help):</value>
@@ -403,6 +403,15 @@
     <value>Advanced file renaming</value>
   </data>
 	<data name="tt_advanced_file" xml:space="preserve">
-		<value>If enabled the files will be stored with their original filename.:n:If disabled, only one installer and one helppack will be kept on the disk.</value>
-	</data>
+    <value>If enabled the files will be stored with their original filename.:n:If disabled, only one installer and one helppack will be kept on the disk.</value>
+  </data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+    <value>SI GUI - Bootstrap.ini auto edited</value>
+  </data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+    <value>The bootstrap.ini file has been edited automatically. You can turn this off in the settings.</value>
+  </data>
+	<data name="cb_autoedit" xml:space="preserve">
+    <value>Auto-edit bootstrap.ini</value>
+  </data>
 </root>

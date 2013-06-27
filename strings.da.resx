@@ -338,22 +338,22 @@
 		<value>Der er ingen testversion lige nu.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>&amp;Download</value>
+		<value>Download</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>&amp;Hjælpepakke</value>
+		<value>Hjælpepakke</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;Insallation</value>
+		<value>Insallation</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>&amp;Seneste test</value>
+		<value>Seneste test</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>&amp;ældre tests</value>
+		<value>ældre tests</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-		<value>&amp;Test</value>
+		<value>Test</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Sprog (hjælp)</value>

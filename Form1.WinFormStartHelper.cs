@@ -56,7 +56,7 @@ namespace SI_GUI
         private void openSettings()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_About);
-            string[] l10n = new string[24];
+            string[] l10n = new string[25];
             l10n[0] = getstring("update_lang");
             l10n[1] = getstring("translations");
             l10n[2] = getstring("translator");
@@ -81,6 +81,7 @@ namespace SI_GUI
             l10n[21] = getstring("cb_advanced_file");
             l10n[22] = getstring("tt_advanced_file");
             l10n[23] = getstring("okay");
+            l10n[24] = getstring("cb_autoedit");
             Form2 fm = new Form2(l10n, rtl_layout);
             fm.ShowDialog();
             path_4_download = fm.get_download_location;

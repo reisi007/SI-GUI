@@ -338,22 +338,22 @@
 		<value>Geen testversie beschikbaar momenteel.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>&amp;Download</value>
+		<value>Download</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>&amp;Helppack</value>
+		<value>Helppack</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;Installer</value>
+		<value>Installer</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>&amp;Laatste branch</value>
+		<value>Laatste branch</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>&amp;Oudste branch</value>
+		<value>Oudste branch</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-		<value>&amp;Testbranch</value>
+		<value>Testbranch</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Taal (help):</value>

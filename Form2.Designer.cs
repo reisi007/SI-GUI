@@ -43,6 +43,7 @@
             this.folder_save = new System.Windows.Forms.TextBox();
             this.cb_advancedFilenames = new System.Windows.Forms.CheckBox();
             this.bOk = new System.Windows.Forms.Button();
+            this.cb_bs_autoedit = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.about.Multiline = true;
             this.about.Name = "about";
             this.about.ReadOnly = true;
-            this.about.Size = new System.Drawing.Size(459, 312);
+            this.about.Size = new System.Drawing.Size(459, 292);
             this.about.TabIndex = 20;
             // 
             // lang_chooser
@@ -105,7 +106,7 @@
             // B_open_folder
             // 
             this.B_open_folder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_open_folder.Location = new System.Drawing.Point(12, 421);
+            this.B_open_folder.Location = new System.Drawing.Point(12, 401);
             this.B_open_folder.Name = "B_open_folder";
             this.B_open_folder.Size = new System.Drawing.Size(190, 23);
             this.B_open_folder.TabIndex = 1;
@@ -116,12 +117,11 @@
             // folder_save
             // 
             this.folder_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.folder_save.Location = new System.Drawing.Point(208, 423);
+            this.folder_save.Location = new System.Drawing.Point(208, 404);
             this.folder_save.Name = "folder_save";
             this.folder_save.ReadOnly = true;
             this.folder_save.Size = new System.Drawing.Size(264, 20);
             this.folder_save.TabIndex = 9;
-            this.folder_save.TextChanged += new System.EventHandler(this.folder_save_TextChanged);
             // 
             // cb_advancedFilenames
             // 
@@ -133,22 +133,36 @@
             this.cb_advancedFilenames.TabIndex = 21;
             this.cb_advancedFilenames.Text = "Advanced file renaming";
             this.cb_advancedFilenames.UseVisualStyleBackColor = true;
-            this.cb_advancedFilenames.CheckedChanged += new System.EventHandler(this.cb_advancedFilenames_CheckedChanged);
             // 
             // bOk
             // 
+            this.bOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bOk.Location = new System.Drawing.Point(13, 516);
             this.bOk.Name = "bOk";
             this.bOk.Size = new System.Drawing.Size(460, 23);
             this.bOk.TabIndex = 22;
             this.bOk.Text = "Okay";
             this.bOk.UseVisualStyleBackColor = true;
+            this.bOk.Click += new System.EventHandler(this.bOk_Click);
+            // 
+            // cb_bs_autoedit
+            // 
+            this.cb_bs_autoedit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_bs_autoedit.AutoSize = true;
+            this.cb_bs_autoedit.Location = new System.Drawing.Point(15, 427);
+            this.cb_bs_autoedit.Name = "cb_bs_autoedit";
+            this.cb_bs_autoedit.Size = new System.Drawing.Size(128, 17);
+            this.cb_bs_autoedit.TabIndex = 23;
+            this.cb_bs_autoedit.Text = "Auto-edit bootstrap.ini";
+            this.cb_bs_autoedit.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 551);
+            this.ControlBox = false;
+            this.Controls.Add(this.cb_bs_autoedit);
             this.Controls.Add(this.bOk);
             this.Controls.Add(this.cb_advancedFilenames);
             this.Controls.Add(this.folder_save);
@@ -185,6 +199,7 @@
         private System.Windows.Forms.TextBox folder_save;
         private System.Windows.Forms.CheckBox cb_advancedFilenames;
         private System.Windows.Forms.Button bOk;
+        private System.Windows.Forms.CheckBox cb_bs_autoedit;
 
     }
 }

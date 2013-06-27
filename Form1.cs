@@ -164,19 +164,19 @@ namespace SI_GUI
             label1.Text = getstring("s_version");
             m_help.Text = getstring("help");
             choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
-            gb_download.Text = getstring("m_l10n_dl").Remove(getstring("m_l10n_dl").IndexOf("&"), 1);
+            gb_download.Text = getstring("m_l10n_dl");
             gb_create_lnk.Text = create_lnk.Text;
             start_dl.Text = getstring("gb_dl_begindl");
             cb_installer.Text = getstring("gb_dl_installer");
             cb_help.Text = getstring("gb_dl_help");
             update_versions.Text = getstring("gb_dl_update");
             gb_installation.Text = getstring("gb_parallel_install");
-            dl_versions.Text = getstring("s_version").Remove(getstring("s_version").Length - 1);
+            dl_versions.Text = getstring("s_version");
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI v." + set.program_version();
             // Load settings
-            dl_special = new string[] { getstring("m_l10n_lb").Remove(getstring("m_l10n_lb").IndexOf("&"), 1), getstring("m_l10n_ob").Remove(getstring("m_l10n_ob").IndexOf("&"), 1), getstring("m_l10n_t").Remove(getstring("m_l10n_t").IndexOf("&"), 1), "Master", "---" };
+            dl_special = new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master", "---" };
             loadsettings();
             percent.Text = "0 %";
             // Position choose_lang
@@ -288,7 +288,7 @@ namespace SI_GUI
                 install_help = true;
             if (path_installdir.TextLength > 0)
                 install_path = true;
-
+            Process p = new Process();
             // Throw an exeption, when no installdir choosen and a warning if no LibreOffice was choosen.
             try
             {
@@ -341,14 +341,25 @@ namespace SI_GUI
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
                     try
                     {
-                        Process.Start(cmd_filename);
+                        p.StartInfo = new ProcessStartInfo(cmd_filename);
+                        p.Start();
                         piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
+                        string bootini = path_installdir + "\\program\\bootstrap.ini";
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(getstring("installerror") + ex.Message, getstring("installnostart"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    string bootini = path_installdir + "\\program\\bootstrap.ini";
+                    finally
+                    {
+                        try
+                        {
+                            p.WaitForExit();
+                            openbootstrap_ini();
+                        }
+                        catch (Exception) { }
+
+                    }
                 }
             }
         }
@@ -401,16 +412,15 @@ namespace SI_GUI
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
             openbootstrap_ini();
-            piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
         }
 
         private bool openbootstrap_ini()
         {
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
             bool working = true;
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "abc.txt";
             if (final_installpath != null)
-                path = final_installpath + "\\" + "program" + "\\" + "bootstrap.ini";
-
+                path = final_installpath + "\\program\\bootstrap.ini";
             try
             {
                 bootstrap_text.Text = System.IO.File.ReadAllText(path);
@@ -439,12 +449,14 @@ namespace SI_GUI
             {
                 working = false;
                 exceptionmessage(ex.Message);
+
                 return working;
             }
-            if (working == true)
+            if (working)
             {
                 save_file.Enabled = true;
                 bootinipath.Text = path;
+                editbs();
             }
             return working;
         }
@@ -452,30 +464,38 @@ namespace SI_GUI
         private bool secondtry(string path)
         {
             bool working = true;
-
             try
             {
                 bootstrap_text.Text = System.IO.File.ReadAllText(path);
-
             }
             catch (Exception ex)
             {
                 working = false;
                 exceptionmessage(ex.Message);
-
-
             }
-            if (working == true)
+            if (working)
             {
                 save_file.Enabled = true;
                 bootinipath.Text = path;
+                editbs();
             }
-
             return working;
 
         }
-
+        private void editbs()
+        {
+            give_message.ShowBalloonTip(2000, getstring("tt_editbs_tit"), getstring("tt_editbs_txt"), ToolTipIcon.Info);
+            int start = bootstrap_text.Text.IndexOf("UserInstallation");
+            int end = bootstrap_text.Text.IndexOf(Environment.NewLine, start);
+            string substring = bootstrap_text.Text.Substring(start, end - start);
+            bootstrap_text.Text = bootstrap_text.Text.Replace(substring, "UserInstallation=$ORIGIN/..");
+            save_bootstrap(true);
+        }
         private void save_bootstrap(object sender, EventArgs e)
+        {
+            save_bootstrap(false);
+        }
+        private void save_bootstrap(bool quiet)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.SaveBootstrap);
             bool working = true;
@@ -525,7 +545,8 @@ namespace SI_GUI
 
                 if (working)
                 {
-                    MessageBox.Show(getstring("filesave"), getstring("title_filesave"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    if (!quiet)
+                        MessageBox.Show(getstring("filesave"), getstring("title_filesave"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
@@ -533,7 +554,6 @@ namespace SI_GUI
                 }
             }
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             userinstallation.Text = "UserInstallation=$ORIGIN/..";
@@ -552,7 +572,7 @@ namespace SI_GUI
             string rt = "???";
             try
             {
-                rt = rm.GetString(strMessage).Replace(":n:", Environment.NewLine).Replace(":nl:",Environment.NewLine);
+                rt = rm.GetString(strMessage).Replace(":n:", Environment.NewLine).Replace(":nl:", Environment.NewLine);
             }
             catch (Exception)
             {

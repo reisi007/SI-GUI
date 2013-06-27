@@ -334,22 +334,22 @@
     <value>Momentan kann keine Testversion heruntergeladen werden.</value>
   </data>
 	<data name="m_l10n_dl" xml:space="preserve">
-    <value>&amp;Herunterladen</value>
+    <value>Herunterladen</value>
   </data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-    <value>Offline &amp;Hilfe</value>
+    <value>Offline Hilfe</value>
   </data>
 	<data name="m_l10n_installer" xml:space="preserve">
-    <value>&amp;Installationsdatei</value>
+    <value>Installationsdatei</value>
   </data>
 	<data name="m_l10n_lb" xml:space="preserve">
-    <value>&amp;Neueste Version</value>
+    <value>Neueste Version</value>
   </data>
 	<data name="m_l10n_ob" xml:space="preserve">
-    <value>&amp;Ältere Version</value>
+    <value>Ältere Version</value>
   </data>
 	<data name="m_l10n_t" xml:space="preserve">
-    <value>&amp;Testversion</value>
+    <value>Testversion</value>
   </data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
     <value>Sprache (für Hilfe)</value>
@@ -404,5 +404,14 @@
 	</data>
 	<data name="install_err1_txt" xml:space="preserve">
 		<value>Sind Sie sicher, dass Sie eine existierende Parallelinstallation überschreiben wollen?</value>
+	</data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+		<value>SI GUI - Bootstrap.ini wurde automatisch bearbeitet</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>Die bootstrap.ini - Datei wurde automatisch bearbeitet. Sie können dieses Verhalten in den Einstellungen abschalten.</value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>Automatisch bootstrap.ini bearbeiten</value>
 	</data>
 </root>

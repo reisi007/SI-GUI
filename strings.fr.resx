@@ -337,22 +337,22 @@
 		<value>Aucune version de test actuellement disponible.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>&amp;Télécharger</value>
+		<value>Télécharger</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>&amp;Aide</value>
+		<value>Aide</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;Installeur</value>
+		<value>Installeur</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>&amp;Dernière branche</value>
+		<value>Dernière branche</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>&amp;Ancienne branch</value>
+		<value>Ancienne branch</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-		<value>&amp;Version de test</value>
+		<value>Version de test</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Langue (Aide)</value>

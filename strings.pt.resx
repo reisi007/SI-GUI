@@ -317,22 +317,22 @@
 		<value>Não existe uma versão de teste disponível neste momento!</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-		<value>&amp;Transferir</value>
+		<value>Transferir</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>&amp;Pacote de Ajuda</value>
+		<value>Pacote de Ajuda</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-		<value>&amp;Instalador</value>
+		<value>Instalador</value>
 	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-		<value>&amp;Ramificação atual</value>
+		<value>Ramificação atual</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>&amp;Ramificação anterior</value>
+		<value>Ramificação anterior</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-		<value>&amp;Versão de testes</value>
+		<value>Versão de testes</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
 		<value>Idioma (ajuda):</value>

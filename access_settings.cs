@@ -101,6 +101,7 @@ namespace SI_GUI
             // Default settings
             cb_create_subfolder = true;
             cb_advanced_filenames = false;
+            cb_autoedit_bs = true;
             DL_saved_settings.cb_help = false;
             DL_saved_settings.cb_installer = true;
             Piwik.manually_set = false;
@@ -108,6 +109,7 @@ namespace SI_GUI
         }
         public bool cb_create_subfolder;
         public bool cb_advanced_filenames;
+        public bool cb_autoedit_bs;
         public int lang;
         public string l10n;
         public string[] manager_versions;
