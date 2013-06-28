@@ -95,7 +95,7 @@ namespace SI_GUI
 
             string[] array = list.ToArray();
 
-            string output = "";
+            string output = "echo DELETING FILES" + Environment.NewLine + "@echo off" + Environment.NewLine;
 
             foreach (string s in array)
             {
@@ -108,8 +108,10 @@ namespace SI_GUI
             try
             {
                 System.IO.File.WriteAllText(filename, output);
-                Process.Start(filename);
-
+                Process p = new Process();
+                p.StartInfo = new ProcessStartInfo(filename);
+                p.Start();
+                p.WaitForExit();
             }
             catch (System.IO.DirectoryNotFoundException)
             {

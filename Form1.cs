@@ -342,8 +342,9 @@ namespace SI_GUI
                     try
                     {
                         p.StartInfo = new ProcessStartInfo(cmd_filename);
+                        p.StartInfo.CreateNoWindow = true;
+                        p.StartInfo.UseShellExecute = false;
                         p.Start();
-                        piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
                         string bootini = path_installdir + "\\program\\bootstrap.ini";
                     }
                     catch (Exception ex)
@@ -355,9 +356,10 @@ namespace SI_GUI
                         try
                         {
                             p.WaitForExit();
-                            openbootstrap_ini();
+                            openbootstrap_ini(true);
                         }
                         catch (Exception) { }
+                        finally { piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End); }
 
                     }
                 }
@@ -411,10 +413,10 @@ namespace SI_GUI
 
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
-            openbootstrap_ini();
+            openbootstrap_ini(false);
         }
 
-        private bool openbootstrap_ini()
+        private bool openbootstrap_ini(bool autoEditenabled)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
             bool working = true;
@@ -456,7 +458,8 @@ namespace SI_GUI
             {
                 save_file.Enabled = true;
                 bootinipath.Text = path;
-                editbs();
+                if (autoEditenabled)
+                    editbs();
             }
             return working;
         }
@@ -477,7 +480,6 @@ namespace SI_GUI
             {
                 save_file.Enabled = true;
                 bootinipath.Text = path;
-                editbs();
             }
             return working;
 
@@ -490,6 +492,8 @@ namespace SI_GUI
             string substring = bootstrap_text.Text.Substring(start, end - start);
             bootstrap_text.Text = bootstrap_text.Text.Replace(substring, "UserInstallation=$ORIGIN/..");
             save_bootstrap(true);
+            bootinipath.Text = "";
+            bootstrap_text.Text = "";
         }
         private void save_bootstrap(object sender, EventArgs e)
         {
