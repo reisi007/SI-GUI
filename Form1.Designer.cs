@@ -477,6 +477,7 @@
             this.choose_lang.Name = "choose_lang";
             this.choose_lang.Size = new System.Drawing.Size(66, 21);
             this.choose_lang.TabIndex = 5;
+            this.choose_lang.SelectionChangeCommitted += new System.EventHandler(this.savesettings);
             // 
             // choose_lang_label
             // 

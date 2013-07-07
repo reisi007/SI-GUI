@@ -20,29 +20,32 @@ namespace SI_GUI
             SETTINGS value = new SETTINGS();
             try
             {
-                XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
-                StreamReader sr = new StreamReader(getfilename());
-                value = (SETTINGS)ser.Deserialize(sr);
-                sr.Close();
-            }
-            catch (DirectoryNotFoundException)
-            {
+                StreamReader sr = new StreamReader(getfilename(), Encoding.UTF32, false);
                 try
                 {
-                    Directory.CreateDirectory(getpath());
+                    XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
+                    value = (SETTINGS)ser.Deserialize(sr);
                 }
-                catch (Exception ex)
+                catch (DirectoryNotFoundException)
                 {
-                    MessageBox.Show(ex.Message);
-                    save_settings(new SETTINGS());
+                    try
+                    {
+                        Directory.CreateDirectory(getpath());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        save_settings(new SETTINGS());
+                    }
+                }
+                catch (Exception) { }
+                finally
+                {
+                    sr.Close();
                 }
             }
-            catch (Exception ex)
-            {
-#if DEBUG
-                MessageBox.Show(ex.Message);
-#endif
-            }
+            catch { }
+
             return value;
         }
         private string getpath()
@@ -52,28 +55,36 @@ namespace SI_GUI
         }
         private string getfilename()
         {
-            return Path.Combine(getpath(), "sigui.config");
+            return Path.Combine(getpath(), "sigui.settings");
         }
         public string program_version()
-        { return "4.1.0.3"; }
+        { return "4.1.0.4"; }
 
         public void save_settings(SETTINGS set)
         {
             try
             {
-                XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
-                FileStream str = new FileStream(getfilename(), FileMode.Create);
-                ser.Serialize(str, set);
-                str.Close();
-            }
-            catch (Exception ex)
-            {
+                StreamWriter str = new StreamWriter(getfilename(), false, Encoding.UTF32);
+                try
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
+                    ser.Serialize(str, set);
+                }
+                catch (Exception ex)
+                {
 #if DEBUG
-                MessageBox.Show(ex.Message);
-#endif
-            }
-        }
+                    MessageBox.Show(ex.Message);
 
+#endif
+                }
+                finally
+                {
+                    str.Close();
+                }
+            }
+
+            catch { }
+        }
         public string[] update_manager_array(string[] oldarray, string toadd)
         {
             if (!oldarray.Contains(toadd))
