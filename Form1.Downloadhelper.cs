@@ -216,21 +216,22 @@ namespace SI_GUI
             string path = path_4_download;
             Uri uritofile = new Uri(finallink + programFilename);
             string originalFilename = programFilename;
-             if (!AdvancedFilenames)
+            if (!AdvancedFilenames)
             {
-                 if(programFilename.Contains("msi"))
-                 {
-                if (helppack)
-                    programFilename = "libo_hp.msi";
+                if (programFilename.Contains("msi"))
+                {
+                    if (helppack)
+                        programFilename = "libo_hp.msi";
+                    else
+                        programFilename = "libo_installer.msi";
+                }
                 else
-                    programFilename = "libo_installer.msi";
-                 } else
-                 {
-                     if (helppack)
-                    programFilename = "libo_hp.exe";
-                else
-                    programFilename = "libo_installer.exe";
-                 }
+                {
+                    if (helppack)
+                        programFilename = "libo_hp.exe";
+                    else
+                        programFilename = "libo_installer.exe";
+                }
             }
             path += @"\" + programFilename;
             if (helppack)
@@ -241,7 +242,7 @@ namespace SI_GUI
             mb_question = mb_question.Replace("%version", originalFilename);
 
             // If filename is TY, then no testing build is available
-            if (programFilename != "TY")
+            if (programFilename.Contains("exe") || programFilename.Contains("msi"))
             {
                 if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -287,32 +288,32 @@ namespace SI_GUI
             // Get the final download links and initialize the download
             WebClient webc = getPreparedWebClient();
             string httpfile = downloadfile(LinktoFile + "?C=S;O=D");
-            int tmp= httpfile.IndexOf("Parent");
-                httpfile = httpfile.Remove(0, tmp);
-                tmp = httpfile.IndexOf("href") + 6;
-                httpfile = httpfile.Remove(0, tmp);
-                tmp = httpfile.IndexOf("\"");
-                httpfile = httpfile.Remove(tmp);
+            int tmp = httpfile.IndexOf("Parent");
+            httpfile = httpfile.Remove(0, tmp);
+            tmp = httpfile.IndexOf("href") + 6;
+            httpfile = httpfile.Remove(0, tmp);
+            tmp = httpfile.IndexOf("\"");
+            httpfile = httpfile.Remove(tmp);
             if (helppack)
             {
                 // Helppack only
-                
-                    //LibreOffice helppack
-                    if (httpfile.Contains("install_all"))
-                    {
-                        // Old format
-                        httpfile = httpfile.Replace("install_all_lang", "helppack_" + choose_lang.SelectedItem.ToString());
-                    }
-                    else if (httpfile.Contains("install_multi"))
-                    {
-                        // Newer format
-                        httpfile = httpfile.Replace("install_multi", "helpppack_" + choose_lang.SelectedItem.ToString());
-                    }
-                    else
-                    {
-                        // New format
-                        httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + choose_lang.SelectedItem.ToString());
-                    }
+
+                //LibreOffice helppack
+                if (httpfile.Contains("install_all"))
+                {
+                    // Old format
+                    httpfile = httpfile.Replace("install_all_lang", "helppack_" + choose_lang.SelectedItem.ToString());
+                }
+                else if (httpfile.Contains("install_multi"))
+                {
+                    // Newer format
+                    httpfile = httpfile.Replace("install_multi", "helpppack_" + choose_lang.SelectedItem.ToString());
+                }
+                else
+                {
+                    // New format
+                    httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + choose_lang.SelectedItem.ToString());
+                }
 
                 // Start download
             }
