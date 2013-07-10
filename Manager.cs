@@ -94,37 +94,15 @@ namespace SI_GUI
             }
 
             string[] array = list.ToArray();
-
-            string output = "echo DELETING FILES" + Environment.NewLine + "@echo off" + Environment.NewLine;
-
-            foreach (string s in array)
+            deleteFileProgress.Visible = true;
+            deleteFileProgress.Minimum = 0;
+            deleteFileProgress.Maximum = array.Length - 1;
+            for (int i = 0; i < array.Length; i++)
             {
-                string m = s.Replace("//", "/");
-                output += "del " + m + " /s /f /q" + Environment.NewLine;
-                output += "rd " + m + " /s /q" + Environment.NewLine;
+                deleteFileProgress.Value = i;
+                System.IO.Directory.Delete(array[i], true);
             }
-            output += "exit";
-            string filename = System.IO.Path.GetTempPath() + "del_manager.cmd";
-            try
-            {
-                System.IO.File.WriteAllText(filename, output);
-                Process p = new Process();
-                p.StartInfo = new ProcessStartInfo(filename);
-                p.Start();
-                p.WaitForExit();
-            }
-            catch (System.IO.DirectoryNotFoundException)
-            {
-                MessageBox.Show(l10n[6], l10n[7], MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (System.Security.SecurityException)
-            {
-                MessageBox.Show(l10n[8], l10n[9], MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                exeptionmessage(ex.Message);
-            }
+            deleteFileProgress.Visible = false;
             object[] o_array = list_o.ToArray();
             foreach (object o in o_array)
             {

@@ -60,7 +60,6 @@
             this.subfolder = new System.Windows.Forms.TextBox();
             this.give_message = new System.Windows.Forms.NotifyIcon(this.components);
             this.path_to_file_on_disk_2 = new System.Windows.Forms.TextBox();
-            this.version = new System.Windows.Forms.Label();
             this.path_to_exe = new System.Windows.Forms.TextBox();
             this.tb_version = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@
             this.go_pathMain = new System.Windows.Forms.Button();
             this.delete_pathHelp = new System.Windows.Forms.Button();
             this.reset_pathMain = new System.Windows.Forms.Button();
+            this.version = new System.Windows.Forms.LinkLabel();
             this.gb_bootstrap.SuspendLayout();
             this.menu.SuspendLayout();
             this.gb_download.SuspendLayout();
@@ -364,16 +364,6 @@
             this.path_to_file_on_disk_2.Size = new System.Drawing.Size(192, 20);
             this.path_to_file_on_disk_2.TabIndex = 0;
             // 
-            // version
-            // 
-            this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.version.AutoSize = true;
-            this.version.Location = new System.Drawing.Point(8, 386);
-            this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(188, 13);
-            this.version.TabIndex = 0;
-            this.version.Text = "LibreOffice Server Install GUI v x.y.z.w";
-            // 
             // path_to_exe
             // 
             this.path_to_exe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -633,16 +623,27 @@
             this.reset_pathMain.UseVisualStyleBackColor = true;
             this.reset_pathMain.Click += new System.EventHandler(this.reset_pathMain_Click);
             // 
+            // version
+            // 
+            this.version.AutoSize = true;
+            this.version.Location = new System.Drawing.Point(13, 386);
+            this.version.Name = "version";
+            this.version.Size = new System.Drawing.Size(188, 13);
+            this.version.TabIndex = 38;
+            this.version.TabStop = true;
+            this.version.Text = "LibreOffice Server Install GUI v x.y.z.w";
+            this.version.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.checkUpdate);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 408);
+            this.Controls.Add(this.version);
             this.Controls.Add(this.gb_installation);
             this.Controls.Add(this.gb_create_lnk);
             this.Controls.Add(this.gb_download);
             this.Controls.Add(this.path_to_file_on_disk_2);
-            this.Controls.Add(this.version);
             this.Controls.Add(this.percent);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.progressBar1);
@@ -700,7 +701,6 @@
         private System.Windows.Forms.TextBox subfolder;
         private System.Windows.Forms.NotifyIcon give_message;
         private System.Windows.Forms.TextBox path_to_file_on_disk_2;
-        private System.Windows.Forms.Label version;
         private System.Windows.Forms.TextBox path_to_exe;
         private System.Windows.Forms.TextBox tb_version;
         private System.Windows.Forms.Label label1;
@@ -723,6 +723,7 @@
         private System.Windows.Forms.Button reset_pathMain;
         private System.Windows.Forms.Button go_patHhelp;
         private System.Windows.Forms.Button go_pathMain;
+        private System.Windows.Forms.LinkLabel version;
     }
 }
 

@@ -20,7 +20,7 @@ namespace SI_GUI
             SETTINGS value = new SETTINGS();
             try
             {
-                StreamReader sr = new StreamReader(getfilename(), Encoding.UTF32, false);
+                StreamReader sr = new StreamReader(getfilename(), Encoding.Default, false);
                 try
                 {
                     XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
@@ -58,13 +58,13 @@ namespace SI_GUI
             return Path.Combine(getpath(), "sigui.settings");
         }
         public string program_version()
-        { return "4.1.0.4"; }
+        { return "4.1.0.6"; }
 
         public void save_settings(SETTINGS set)
         {
             try
             {
-                StreamWriter str = new StreamWriter(getfilename(), false, Encoding.UTF32);
+                StreamWriter str = new StreamWriter(getfilename(), false, Encoding.Default);
                 try
                 {
                     XmlSerializer ser = new XmlSerializer(typeof(SETTINGS));
@@ -87,7 +87,7 @@ namespace SI_GUI
         }
         public string[] update_manager_array(string[] oldarray, string toadd)
         {
-            if (!oldarray.Contains(toadd))
+            if (oldarray == null || !oldarray.Contains(toadd))
             {
                 string[] newarray;
                 if (oldarray == null)
@@ -101,6 +101,7 @@ namespace SI_GUI
                 return newarray;
             }
             return oldarray;
+
         }
     }
     # region SETTINGS (File-format)

@@ -36,10 +36,10 @@ namespace SI_GUI
             l10n_manager[3] = getstring("man_del");
             l10n_manager[4] = getstring("standarderror");
             l10n_manager[5] = getstring("Error");
-            l10n_manager[6] = getstring("dirnotfound") + getstring("dirnotfoundmessage");
-            l10n_manager[7] = getstring("dirnotfound");
-            l10n_manager[8] = getstring("si_message");
-            l10n_manager[9] = getstring("si");
+            //l10n_manager[6] = 
+            //l10n_manager[7] = 
+            //l10n_manager[8] = 
+            //l10n_manager[9] = 
             string[] l10n_mai = new string[7];
             l10n_mai[0] = getstring("standarderror");
             l10n_mai[1] = getstring("Error");

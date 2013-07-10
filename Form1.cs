@@ -276,6 +276,7 @@ namespace SI_GUI
 
         private void start_install_Click(object sender, EventArgs e)
         {
+
             piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_Start);
             bool install_main = false;
             bool install_help = false;
@@ -337,37 +338,17 @@ namespace SI_GUI
                 if (go_on)
                 {
                     // Install
-                    string cmd_filename = create_cmd(install_main, install_help);
+                    executeInstallation(install_main, install_help);
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
-                    try
-                    {
-                        p.StartInfo = new ProcessStartInfo(cmd_filename);
-                        p.StartInfo.CreateNoWindow = true;
-                        p.StartInfo.UseShellExecute = false;
-                        p.Start();
-                        string bootini = path_installdir + "\\program\\bootstrap.ini";
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(getstring("installerror") + ex.Message, getstring("installnostart"), MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        try
-                        {
-                            p.WaitForExit();
-                            openbootstrap_ini(true);
-                        }
-                        catch (Exception) { }
-                        finally { piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End); }
-
-                    }
+                    openbootstrap_ini(true);
+                    piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
                 }
+
             }
         }
         private string final_installpath { get; set; }
 
-        private string create_cmd(bool install_libo, bool install_help)
+        private void executeInstallation(bool install_libo, bool install_help)
         {
             string path = path_installdir.Text;
             if (cb_subfolder.Checked && (subfolder.Text != ""))
@@ -377,17 +358,22 @@ namespace SI_GUI
             }
             path = path.Replace("\\\\", "\\");
             final_installpath = path;
-            string cmd_file = "@ECHO off" + Environment.NewLine;
+            Process p = new Process();
             if (install_libo)
-                cmd_file += "start /wait msiexec /qr /norestart /a \"" + path_main.Text + "\" TARGETDIR=\"" + path + "\"" + Environment.NewLine;
+            {
+                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /norestart /a \"" + path_main.Text + "\" TARGETDIR=\"" + path + "\"");
+                p.Start();
+                p.WaitForExit();
+            }
             if (install_help)
-                cmd_file += "start /wait msiexec /qr /a \"" + path_help.Text + "\" TARGETDIR=\"" + path + "\"" + Environment.NewLine;
-            cmd_file += "exit";
-            string filename = System.IO.Path.GetTempPath() + "install.cmd";
+            {
+                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /a \"" + path_help.Text + "\" TARGETDIR=\"" + path + "\"");
+                p.Start();
+                p.WaitForExit();
+            }
             try
             {
-                System.IO.File.WriteAllText(filename, cmd_file);
-                // If CMD file created --> Add to manager...
+                // If installation finished --> Add to manager...
                 SETTINGS temp = set.open_settings();
                 temp.manager_versions = set.update_manager_array(temp.manager_versions, path);
                 set.save_settings(temp);
@@ -407,10 +393,7 @@ namespace SI_GUI
             {
                 exceptionmessage(ex.Message);
             }
-            return filename;
         }
-
-
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
             openbootstrap_ini(false);
@@ -501,7 +484,6 @@ namespace SI_GUI
         }
         private void save_bootstrap(bool quiet)
         {
-            piwik.sendFeatreUseageStats(TDFPiwik.Features.SaveBootstrap);
             bool working = true;
             string exeptiontext = "";
             // Save bootstrap.ini
@@ -549,6 +531,7 @@ namespace SI_GUI
 
                 if (working)
                 {
+                    piwik.sendFeatreUseageStats(TDFPiwik.Features.SaveBootstrap);
                     if (!quiet)
                         MessageBox.Show(getstring("filesave"), getstring("title_filesave"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -805,6 +788,19 @@ namespace SI_GUI
             {
                 exceptionmessage(ex.Message);
             }
+        }
+
+        private void checkUpdate(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                System.Net.WebClient wc = new System.Net.WebClient();
+                string file = Path.Combine(Path.GetTempPath(), "si-gui.application");
+                wc.DownloadFile("http://dev-builds.libreoffice.org/si-gui/LibreOffice%20Server%20Install%20GUI.application", file);
+                Process.Start(file);
+                Environment.Exit(0);
+            }
+            catch (Exception) { }
         }
 
     }
