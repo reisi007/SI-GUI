@@ -125,7 +125,7 @@
 		<value>לא נבחרה תיקייה להתקנה!</value>
 	</data>
 	<data name="no_installfile" xml:space="preserve">
-		<value>בדרך כלל עדיף לך לבחור בקובץ התקנה של LibreOffice! </value>
+		<value>בדרך כלל עדיף לך לבחור בקובץ התקנה של LibreOffice!</value>
 	</data>
 	<data name="si" xml:space="preserve">
 		<value>בעיית אבטחה</value>
@@ -384,5 +384,14 @@
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>נא לבחור בתיקיית הורדה</value>
+	</data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+		<value>מנשק SI - ‏Bootstrap.ini שנערך אוטומטית</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>קובץ ה‏־bootstrap.ini נערך אוטומטית. ניתן לכבות מצב זה באפשרויות.</value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>עריכה אוטומטית של bootstrap.ini</value>
 	</data>
 </root>

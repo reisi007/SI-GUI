@@ -191,6 +191,7 @@ namespace SI_GUI
             ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
             ToolTip bootstrapini = get_ToolTip(bootstrap_text, getstring("tt_bootstrap"));
             ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
+            ToolTip manuallyUpdate = get_ToolTip(version, getstring("tt_autoupdate"));
             // End Setting tooltips
 
             // Setup message baloon

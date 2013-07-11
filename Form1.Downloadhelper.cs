@@ -31,7 +31,7 @@ namespace SI_GUI
                     startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, helppack);
                     break;
                 case (enum4DL_Special.T):
-                    startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/", true, false, false, false, helppack);
+                    startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/?C=S;O=D", true, false, false, false, helppack);
                     break;
                 case (enum4DL_Special.M):
                     startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6/current/", false, true, false, false);
@@ -145,7 +145,7 @@ namespace SI_GUI
                     }
                     else if (testing)
                     {
-                        int starting_position = httpfile.IndexOf("href=\"LibreOffice") + 6;
+                        int starting_position = httpfile.IndexOf("Lib");
                         url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
                         httpfile = httpfile.Remove(0, starting_position);
                         starting_position = httpfile.IndexOf("msi") + 3;

@@ -124,7 +124,7 @@
 		<value>Compruebe la carpeta que ha elegido.</value>
 	</data>
 	<data name="Error" xml:space="preserve">
-		<value>¡Error!</value>
+		<value>Error</value>
 	</data>
 	<data name="filesave" xml:space="preserve">
 		<value>El archivo se ha guardado correctamente.</value>
@@ -226,7 +226,7 @@
 		<value>Abrir instalador de LibreOffice</value>
 	</data>
 	<data name="startdl" xml:space="preserve">
-		<value>¿Descargar el archivo?</value>
+		<value>¿Quiere descargar el archivo?</value>
 	</data>
 	<data name="start_install" xml:space="preserve">
 		<value>Iniciar la instalación</value>
@@ -382,7 +382,7 @@
 		<value>No se detectó ninguna ruta a soffice.exe.</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>Estimado usuario,:nl:Este programa utiliza "TDF Piwik"  para obtener estadísticas sobre su uso.:nl:Se ha creado un «trackingID» para esta instalación, que es::nl:%trackingID:nl:Como puede ver, no contiene información personal. Pulse «Sí» para permitir el seguimiento, o «No» para prohibirlo.</value>
+		<value>Estimado usuario,:nl:Este programa utiliza «TDF Piwik» para obtener estadísticas sobre su uso.:nl:Se ha creado un «trackingID» para esta instalación, que es::nl:%trackingID:nl:Como puede ver, no contiene información personal. Pulse «Sí» para permitir el seguimiento, o «No» para inhabilitarlo.</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
 		<value>Estadísticas por «TDF Piwik»</value>
@@ -404,5 +404,14 @@
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
 		<value>Si se activa, los archivos se guardarán con su nombre de archivo original.:n:Si se desactiva, solo se conservará un instalador y un paquete de ayuda en el disco.</value>
+	</data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+		<value>SI GUI - Se editó automáticamente bootstrap.ini</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>Se ha editado automáticamente el archivo bootstrap.ini. Puede desactivar esto en la configuración.</value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>Editar bootstrap.ini automáticamente</value>
 	</data>
 </root>

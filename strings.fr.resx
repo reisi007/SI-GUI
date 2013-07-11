@@ -301,7 +301,7 @@
 		<value>Gérer</value>
 	</data>
 	<data name="ink_des" xml:space="preserve">
-		<value>Raccourci vers LibreOffice %version installée </value>
+		<value>Raccourci vers LibreOffice %version installée</value>
 	</data>
 	<data name="ink_error_1" xml:space="preserve">
 		<value>Pas de version indiquée !</value>

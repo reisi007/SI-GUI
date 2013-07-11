@@ -178,7 +178,7 @@
     <value>Programmør:</value>
   </data>
 	<data name="translations" xml:space="preserve">
-    <value> --- Oversættelser ---</value>
+    <value>--- Oversættelser ---</value>
   </data>
 	<data name="translator" xml:space="preserve">
     <value>Oversætter:</value>
@@ -386,7 +386,7 @@
 		<value>Statistik fra "TDF Piwik" .</value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>Tillader at følge din brug af programmet med "TDF Piwik" </value>
+		<value>Tillader at følge din brug af programmet med "TDF Piwik"</value>
 	</data>
 	<data name="start_dl" xml:space="preserve">
 		<value>Start download</value>
@@ -405,5 +405,14 @@
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
 		<value>Hvis aktiveret vil filer blive gemt med deres originale filnavne.:n If deaktiveret vil kun en enkelt installation og en hjælpepakke blive gemt på disken.</value>
+	</data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+		<value>SI GUI - Bootstrap.ini blev automastisk ændret</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>Instillingerne i Bootstrap.ini blev automatisk ændret. Du kan slå det fra i indstillingerne.</value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>Auto-rediger bootstrap.ini</value>
 	</data>
 </root>

@@ -190,7 +190,7 @@
 		<value>Laatste testbuild.</value>
 	</data>
 	<data name="language_change_success" xml:space="preserve">
-		<value>De taalwijziging zal bij een heropstart toegepast worden. </value>
+		<value>De taalwijziging zal bij een heropstart toegepast worden.</value>
 	</data>
 	<data name="success" xml:space="preserve">
 		<value>Geslaagd!</value>
@@ -307,7 +307,7 @@
 		<value>Geen versie gespecifieerd!</value>
 	</data>
 	<data name="tt_ink" xml:space="preserve">
-		<value>Creëer een snelkoppeling op het bureaublad voor deze parallele installatie </value>
+		<value>Creëer een snelkoppeling op het bureaublad voor deze parallele installatie</value>
 	</data>
 	<data name="tt_path_to_exe" xml:space="preserve">
 		<value>Pad naar soffice.exe van de parallele installatie (automatisch toegevoegd)</value>
@@ -322,8 +322,7 @@
 		<value>Snelkoppeling met succesvol aangemaakt!</value>
 	</data>
 	<data name="nl" xml:space="preserve">
-		<value>Nederlands
-</value>
+		<value>Nederlands</value>
 	</data>
 	<data name="s_version" xml:space="preserve">
 		<value>Versie:</value>
@@ -389,7 +388,7 @@
 		<value>Statistieken door "TDF Piwik" .</value>
 	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-		<value>Laat toe om uw gebruik van het programma te registreren met "TDF Piwik" </value>
+		<value>Laat toe om uw gebruik van het programma te registreren met "TDF Piwik"</value>
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>Selecteer downloadmap</value>

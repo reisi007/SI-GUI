@@ -388,7 +388,7 @@
     <value>Statistics powered by "TDF Piwik" .</value>
   </data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-    <value>Allow tracking your usage of the program with help of "TDF Piwik" </value>
+    <value>Allow tracking your usage of the program with help of "TDF Piwik"</value>
   </data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
     <value>Select download folder</value>
@@ -413,5 +413,8 @@
   </data>
 	<data name="cb_autoedit" xml:space="preserve">
     <value>Auto-edit bootstrap.ini</value>
+  </data>
+	<data name="tt_autoupdate" xml:space="preserve">
+    <value>Do you want to manually check for updates? This will close the program!</value>
   </data>
 </root>
