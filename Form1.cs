@@ -102,9 +102,10 @@ namespace SI_GUI
 
             //l10n import
             string[] rtl = new string[] { "He" };
+            SETTINGS temp = new SETTINGS();
             try
             {
-                SETTINGS temp = set.open_settings();
+                 temp = set.open_settings();
                 if (temp.DL_saved_settings.download_path != null)
                     path_4_download = temp.DL_saved_settings.download_path;
                 string lang = temp.l10n;
@@ -119,7 +120,11 @@ namespace SI_GUI
             { MessageBox.Show(ex.Message); }
             if (rtl_layout)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            
             InitializeComponent();
+
+            openfile.InitialDirectory = temp.DL_saved_settings.download_path;
+            openfile2.InitialDirectory = openfile.InitialDirectory;
             choose_lang.Items.AddRange(alllang);
             try
             {
