@@ -27,7 +27,7 @@ namespace SI_GUI
         {
             aSet = new access_settings();
             Set = aSet.open_settings();
-            if (Set.Piwik.trackingID != null)
+            if (Set.Piwik.trackingID == null)
             {
                 // Create new user ID
                 string stemp = Environment.UserName + DateTime.Now.ToString();
