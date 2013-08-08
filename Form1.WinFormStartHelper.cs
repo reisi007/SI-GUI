@@ -14,6 +14,16 @@ namespace SI_GUI
     // This file helps to start all the subwindows with the right l10n strings
     partial class Form1 : Form
     {
+        string[] langAvailable = new string[] {
+            "En",
+            "De",
+            "Fr",
+            "Es",
+            "Sl",
+            "Da",
+            "He",
+            "Pt",
+            "Nl"};
         // Opens Help
         private void openHelp()
         {
@@ -29,17 +39,13 @@ namespace SI_GUI
         private void openManager()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_Manager);
-            string[] l10n_manager = new string[10];
+            string[] l10n_manager = new string[6];
             l10n_manager[0] = getstring("man_title");
             l10n_manager[1] = getstring("man_exit");
             l10n_manager[2] = getstring("man_addinstall");
             l10n_manager[3] = getstring("man_del");
             l10n_manager[4] = getstring("standarderror");
             l10n_manager[5] = getstring("Error");
-            //l10n_manager[6] = 
-            //l10n_manager[7] = 
-            //l10n_manager[8] = 
-            //l10n_manager[9] = 
             string[] l10n_mai = new string[7];
             l10n_mai[0] = getstring("standarderror");
             l10n_mai[1] = getstring("Error");
@@ -82,7 +88,7 @@ namespace SI_GUI
             l10n[22] = getstring("tt_advanced_file");
             l10n[23] = getstring("okay");
             l10n[24] = getstring("cb_autoedit");
-            Form2 fm = new Form2(l10n, rtl_layout);
+            Form2 fm = new Form2(l10n, rtl_layout, langAvailable);
             fm.ShowDialog();
             path_4_download = fm.get_download_location;
             AdvancedFilenames = fm.getAdvancedRenamingChecked;

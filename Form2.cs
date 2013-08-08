@@ -23,18 +23,9 @@ namespace SI_GUI
     public partial class Form2 : Form
     {
         access_settings set = new access_settings();
-        string[] lang = new string[] {
-            "En",
-            "De",
-            "Fr",
-            "Es",
-            "Sl",
-            "Da",
-            "He",
-            "Pt",
-            "Nl"};
+       
         ToolTip TTadvanced_file_renaming;
-        public Form2(string[] l10n, bool rtl)
+        public Form2(string[] l10n, bool rtl, string[] lang)
         {
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;

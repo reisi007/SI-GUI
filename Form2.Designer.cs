@@ -110,7 +110,7 @@
             this.B_open_folder.Name = "B_open_folder";
             this.B_open_folder.Size = new System.Drawing.Size(190, 23);
             this.B_open_folder.TabIndex = 1;
-            this.B_open_folder.Text = "button1";
+            this.B_open_folder.Text = "Select download folder";
             this.B_open_folder.UseVisualStyleBackColor = true;
             this.B_open_folder.Click += new System.EventHandler(this.B_open_folder_Click);
             // 

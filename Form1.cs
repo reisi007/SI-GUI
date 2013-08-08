@@ -105,12 +105,29 @@ namespace SI_GUI
             SETTINGS temp = new SETTINGS();
             try
             {
-                 temp = set.open_settings();
+                temp = set.open_settings();
                 if (temp.DL_saved_settings.download_path != null)
                     path_4_download = temp.DL_saved_settings.download_path;
                 string lang = temp.l10n;
                 if (lang != null)
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
+                else
+                {
+                    int i = 0;
+                    try
+                    {
+                        while (true)
+                        {
+                            if (Thread.CurrentThread.CurrentUICulture.DisplayName.Contains(langAvailable[i]))
+                                break;
+                            i++;
+                        }
+                    }
+                    catch (Exception) { i = 0; }
+                    lang = langAvailable[i];
+                    temp.l10n = lang;
+                    set.save_settings(temp);
+                }
                 piwik = new TDFPiwik(getstring("ga_allowed_title"), getstring("ga_allowed_text"));
                 piwik.sendStartupStats(lang);
                 if (rtl.Contains(lang))
@@ -120,7 +137,7 @@ namespace SI_GUI
             { MessageBox.Show(ex.Message); }
             if (rtl_layout)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            
+
             InitializeComponent();
 
             openfile.InitialDirectory = temp.DL_saved_settings.download_path;
