@@ -22,9 +22,11 @@ namespace SI_GUI
 {
     public partial class Form3 : Form
     {
+        string lang = "";
         access_settings set = new access_settings();
-        public Form3(string[] l10n, bool rtl)
+        public Form3(string[] l10n, bool rtl, string clang)
         {
+            lang = clang;
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
@@ -38,8 +40,18 @@ namespace SI_GUI
 
         private void form3load(object sender, EventArgs e)
         {
+            string code = "";
+            switch (lang)
+            {
+                case ("fr"):
+                    code = "fr";
+                    break;
+                default:
+                    code = "en";
+                    break;
+            }
             this.Text = l10n[2];
-            string url = "http://dev-builds.libreoffice.org/si-gui/doc.html";
+            string url = "http://dev-builds.libreoffice.org/si-gui/doc." + code + ".html";
             Uri uriurl = new Uri(url);
             help_browser.Url = uriurl;
         }

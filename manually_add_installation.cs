@@ -65,11 +65,11 @@ namespace SI_GUI
                 {
                     System.IO.File.ReadAllBytes(path_text);
                     path_text = path_text.Remove(i);
+                    path.Text = path_text;
                     shared_string = path_text;
                 }
                 catch (Exception ex) { exeptionmessage(ex.Message); }
             }
         }
-
     }
 }

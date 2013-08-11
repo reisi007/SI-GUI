@@ -91,7 +91,9 @@
             // 
             // openFileDialog1
             // 
+            this.openFileDialog1.DefaultExt = "exe";
             this.openFileDialog1.FileName = "soffice.exe";
+            this.openFileDialog1.Filter = "soffice.exe | *soffice.exe";
             // 
             // manually_add_installation
             // 

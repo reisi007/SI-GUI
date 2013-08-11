@@ -76,7 +76,7 @@ namespace SI_GUI
             try
             {
                 percentage = 100f * sum_current / sum_total;
-                progressBar1.Value = (int)(percentage * 100);
+                progressBar.Value = (int)(percentage * 100);
                 percent.Text = Math.Round(percentage, 2).ToString() + " %";
             }
             catch (Exception) { }
@@ -91,9 +91,9 @@ namespace SI_GUI
                     path_main.Text = path_to_file_on_disk.Text;
                 else
                     path_help.Text = path_to_file_on_disk_2.Text;
-                if (progressBar1.Value == progressBar1.Maximum)
+                if (progressBar.Value == progressBar.Maximum)
                 {
-                    progressBar1.Value = 0;
+                    progressBar.Value = 0;
                     percent.Text = "0 %";
                     dl_manager_current.Clear();
                     dl_manager_total.Clear();
@@ -233,7 +233,7 @@ namespace SI_GUI
                         programFilename = "libo_installer.exe";
                 }
             }
-            path += @"\" + programFilename;
+            path = Path.Combine(path, programFilename);
             if (helppack)
                 path_to_file_on_disk_2.Text = path;
             else
@@ -380,10 +380,10 @@ namespace SI_GUI
 
         private void set_progressbar()
         {
-            if (progressBar1.Value == progressBar1.Maximum || progressBar1.Value == 0)
+            if (progressBar.Value == progressBar.Maximum || progressBar.Value == 0)
             {
-                progressBar1.Maximum = 10000;
-                progressBar1.Value = 0;
+                progressBar.Maximum = 10000;
+                progressBar.Value = 0;
             }
         }
     }

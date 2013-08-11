@@ -268,7 +268,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow tracking your usage of the program with help of &quot;TDF Piwik&quot; .
+        ///   Looks up a localized string similar to Allow tracking your usage of the program with help of &quot;TDF Piwik&quot;.
         /// </summary>
         internal static string ga_cb_allowed {
             get {
@@ -894,6 +894,15 @@ namespace SI_GUI {
         internal static string tt_editbs_txt {
             get {
                 return ResourceManager.GetString("tt_editbs_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start the file as through a double-click.
+        /// </summary>
+        internal static string tt_go {
+            get {
+                return ResourceManager.GetString("tt_go", resourceCulture);
             }
         }
         

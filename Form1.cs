@@ -176,7 +176,7 @@ namespace SI_GUI
             button3.Text = getstring("config_installdir");
             button4.Text = getstring("open_bootstrap_ini");
             gb_bootstrap.Text = getstring("edit_bs_ini");
-            label2.Text = getstring("progress");
+            labelProgress.Text = getstring("progress");
             open_bootstrap.Title = getstring("open_bootstrap_title");
             save_file.Text = getstring("save_bootstrap_ini");
             start_install.Text = getstring("start_install");
@@ -209,13 +209,17 @@ namespace SI_GUI
             // Specify the starting folder for FileOpen dialogs
             openfile.InitialDirectory = Path.GetTempPath();
             openfile2.InitialDirectory = openfile.InitialDirectory;
+            // Position progressbar 1
             // Start Setting tooltips
             ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
             ToolTip bootstrapini = get_ToolTip(bootstrap_text, getstring("tt_bootstrap"));
             ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
             ToolTip manuallyUpdate = get_ToolTip(version, getstring("tt_autoupdate"));
+            ToolTip go1 = get_ToolTip(go_patHhelp, getstring("tt_go"));
+            ToolTip go2 = get_ToolTip(go_pathMain, getstring("tt_go"));
             // End Setting tooltips
-
+            progressBar.Location = new Point(labelProgress.Location.X + 6 + labelProgress.Size.Width, progressBar.Location.Y);
+            progressBar.Size = new System.Drawing.Size(percent.Location.X - progressBar.Location.X - 6, progressBar.Size.Height);
             // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
             give_message.BalloonTipClosed += new EventHandler(gm_do);
@@ -229,6 +233,7 @@ namespace SI_GUI
             tt.SetToolTip(c, text);
             tt.ShowAlways = true;
             tt.IsBalloon = true;
+            tt.AutoPopDelay = 60000;
             return tt;
         }
 

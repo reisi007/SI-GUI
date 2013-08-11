@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace SI_GUI
 {
@@ -32,7 +33,7 @@ namespace SI_GUI
             l10n[0] = getstring("standarderror");
             l10n[1] = getstring("Error");
             l10n[2] = getstring("help");
-            Form3 fm = new Form3(l10n, rtl_layout);
+            Form3 fm = new Form3(l10n, rtl_layout,Thread.CurrentThread.CurrentUICulture.Name.ToLower());
             fm.ShowDialog();
         }
         // Opens Manager

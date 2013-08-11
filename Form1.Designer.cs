@@ -51,8 +51,8 @@
             this.save_file = new System.Windows.Forms.Button();
             this.bootinipath = new System.Windows.Forms.TextBox();
             this.userinstallation = new System.Windows.Forms.TextBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label2 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.labelProgress = new System.Windows.Forms.Label();
             this.gb_bootstrap = new System.Windows.Forms.GroupBox();
             this.path_to_file_on_disk = new System.Windows.Forms.TextBox();
             this.percent = new System.Windows.Forms.Label();
@@ -259,26 +259,26 @@
             this.userinstallation.Text = "UserInstallation=$ORIGIN/..";
             this.userinstallation.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // progressBar1
+            // progressBar
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(277, 378);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(467, 23);
-            this.progressBar1.TabIndex = 0;
+            this.progressBar.Location = new System.Drawing.Point(277, 378);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(467, 23);
+            this.progressBar.TabIndex = 0;
             // 
-            // label2
+            // labelProgress
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(220, 386);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Progress:";
+            this.labelProgress.AutoSize = true;
+            this.labelProgress.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelProgress.Location = new System.Drawing.Point(220, 386);
+            this.labelProgress.Name = "labelProgress";
+            this.labelProgress.Size = new System.Drawing.Size(51, 13);
+            this.labelProgress.TabIndex = 0;
+            this.labelProgress.Text = "Progress:";
             // 
             // gb_bootstrap
             // 
@@ -581,7 +581,7 @@
             this.go_patHhelp.ForeColor = System.Drawing.Color.Green;
             this.go_patHhelp.Location = new System.Drawing.Point(326, 48);
             this.go_patHhelp.Name = "go_patHhelp";
-            this.go_patHhelp.Size = new System.Drawing.Size(39, 23);
+            this.go_patHhelp.Size = new System.Drawing.Size(38, 23);
             this.go_patHhelp.TabIndex = 19;
             this.go_patHhelp.Text = "GO!";
             this.go_patHhelp.UseVisualStyleBackColor = true;
@@ -603,7 +603,7 @@
             // 
             this.delete_pathHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_pathHelp.ForeColor = System.Drawing.Color.Red;
-            this.delete_pathHelp.Location = new System.Drawing.Point(371, 48);
+            this.delete_pathHelp.Location = new System.Drawing.Point(370, 48);
             this.delete_pathHelp.Name = "delete_pathHelp";
             this.delete_pathHelp.Size = new System.Drawing.Size(26, 23);
             this.delete_pathHelp.TabIndex = 17;
@@ -645,8 +645,8 @@
             this.Controls.Add(this.gb_download);
             this.Controls.Add(this.path_to_file_on_disk_2);
             this.Controls.Add(this.percent);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.labelProgress);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.gb_bootstrap);
             this.Controls.Add(this.path_to_file_on_disk);
             this.Controls.Add(this.menu);
@@ -657,7 +657,7 @@
             this.MinimumSize = new System.Drawing.Size(829, 446);
             this.Name = "Form1";
             this.RightToLeftLayout = true;
-            this.Text = "LibreOffice Server Installation GUI";
+            this.Text = "LibreOffice Server Install GUI";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gb_bootstrap.ResumeLayout(false);
             this.gb_bootstrap.PerformLayout();
@@ -692,8 +692,8 @@
         private System.Windows.Forms.Button save_file;
         private System.Windows.Forms.TextBox bootinipath;
         private System.Windows.Forms.TextBox userinstallation;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label labelProgress;
         private System.Windows.Forms.GroupBox gb_bootstrap;
         private System.Windows.Forms.TextBox path_to_file_on_disk;
         private System.Windows.Forms.Label percent;
