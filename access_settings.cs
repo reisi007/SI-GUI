@@ -58,7 +58,15 @@ namespace SI_GUI
             return Path.Combine(getpath(), "sigui.settings");
         }
         public string program_version()
-        { return "4.1.0.10"; }
+        {
+            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            {
+                System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
+                return ad.CurrentVersion.ToString();
+            }
+            else
+                return "Testing";
+        }
 
         public void save_settings(SETTINGS set)
         {

@@ -36,12 +36,12 @@ namespace SI_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Exit
             this.Close();
         }
 
         private void Manager_Load(object sender, EventArgs e)
         {
-
             this.Text = l10n[0];
             button1.Text = l10n[1];
             button3.Text = l10n[2];
@@ -70,6 +70,7 @@ namespace SI_GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //Manually add installation
             manually_add_installation fm = new manually_add_installation(l10n_mai, RTL);
             fm.ShowDialog();
             if (fm.shared_string != null)
@@ -84,7 +85,7 @@ namespace SI_GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Create CMD file, which deletes the selected folders ...
+            // Delete selected installations ...
             List<string> list = new List<string>();
             List<object> list_o = new List<object>();
             foreach (object itemChecked in manager_list.CheckedItems)
@@ -102,7 +103,6 @@ namespace SI_GUI
                 deleteFileProgress.Value = i;
                 System.IO.Directory.Delete(array[i], true);
             }
-            deleteFileProgress.Visible = false;
             object[] o_array = list_o.ToArray();
             foreach (object o in o_array)
             {
@@ -113,6 +113,7 @@ namespace SI_GUI
             {
                 new_manager.Add(o);
             }
+            deleteFileProgress.Visible = false;
             SETTINGS sett = set.open_settings();
             sett.manager_versions = new_manager.ToArray();
             set.save_settings(sett);
