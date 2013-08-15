@@ -34,7 +34,7 @@ namespace SI_GUI
                     startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/?C=S;O=D", true, false, false, false, helppack);
                     break;
                 case (enum4DL_Special.M):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false);
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/", false, true, false, false);
                     break;
             }
         }
