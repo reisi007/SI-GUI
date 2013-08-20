@@ -101,7 +101,11 @@ namespace SI_GUI
             for (int i = 0; i < array.Length; i++)
             {
                 deleteFileProgress.Value = i;
-                System.IO.Directory.Delete(array[i], true);
+                try
+                {
+                    System.IO.Directory.Delete(array[i], true);
+                }
+                catch (Exception) { }
             }
             object[] o_array = list_o.ToArray();
             foreach (object o in o_array)
