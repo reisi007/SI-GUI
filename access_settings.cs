@@ -62,7 +62,7 @@ namespace SI_GUI
             if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
             {
                 System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
-                return ad.CurrentVersion.ToString();
+                return "v. " + ad.CurrentVersion.ToString();
             }
             else
                 return "Testing";
@@ -72,6 +72,7 @@ namespace SI_GUI
         {
             try
             {
+                Directory.CreateDirectory(getpath());
                 StreamWriter str = new StreamWriter(getfilename(), false, Encoding.Default);
                 try
                 {

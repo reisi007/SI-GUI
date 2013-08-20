@@ -196,7 +196,7 @@ namespace SI_GUI
             dl_versions.Text = getstring("s_version");
             /* l10n end
              Update version information */
-            version.Text = "LibreOffice Server Install GUI v." + set.program_version();
+            version.Text = "LibreOffice Server Install GUI " + set.program_version();
             // Load settings
             dl_special = new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master", "---" };
             loadsettings();
@@ -233,7 +233,8 @@ namespace SI_GUI
             tt.SetToolTip(c, text);
             tt.ShowAlways = true;
             tt.IsBalloon = true;
-            tt.AutoPopDelay = 60000;
+            tt.UseAnimation = true;
+
             return tt;
         }
 
@@ -336,8 +337,8 @@ namespace SI_GUI
                 {
                     if (!install_main)
                     {
-                        MessageBox.Show(getstring("no_installfile"), getstring("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        throw new Exception(getstring("go_back"));
+                        if (MessageBox.Show(getstring("no_installfile"), getstring("warning"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
+                            throw new Exception(getstring("go_back"));
                     }
                 }
 
@@ -441,29 +442,36 @@ namespace SI_GUI
             catch (System.IO.DirectoryNotFoundException)
             {
                 working = false;
-                if (open_bootstrap.ShowDialog() == DialogResult.OK)
+                if (autoEditenabled)
                 {
-                    working = secondtry(open_bootstrap.FileName);
+                    if (open_bootstrap.ShowDialog() == DialogResult.OK)
+                    {
+                        working = secondtry(open_bootstrap.FileName);
+                    }
+                    return working;
                 }
-                return working;
             }
             catch (System.IO.FileNotFoundException)
             {
                 working = false;
-
-                if (open_bootstrap.ShowDialog() == DialogResult.OK)
+                if (autoEditenabled)
                 {
-                    working = secondtry(open_bootstrap.FileName);
+                    if (open_bootstrap.ShowDialog() == DialogResult.OK)
+                    {
+                        working = secondtry(open_bootstrap.FileName);
+                    }
+                    return working;
                 }
-                return working;
             }
 
             catch (Exception ex)
             {
                 working = false;
-                exceptionmessage(ex.Message);
-
-                return working;
+                if (autoEditenabled)
+                {
+                    exceptionmessage(ex.Message);
+                    return working;
+                }
             }
             if (working)
             {

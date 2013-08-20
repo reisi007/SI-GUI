@@ -350,7 +350,7 @@
             // 
             this.give_message.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.give_message.Icon = ((System.Drawing.Icon)(resources.GetObject("give_message.Icon")));
-            this.give_message.Text = "Libreoffice Server Installation GUI";
+            this.give_message.Text = "Libreoffice Server Install GUI";
             this.give_message.Visible = true;
             // 
             // path_to_file_on_disk_2

@@ -41,10 +41,14 @@ namespace SI_GUI
         private void form3load(object sender, EventArgs e)
         {
             string code = "";
+            // get language specific help page
             switch (lang)
             {
                 case ("fr"):
                     code = "fr";
+                    break;
+                case("de"):
+                    code = "de";
                     break;
                 default:
                     code = "en";

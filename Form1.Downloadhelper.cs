@@ -307,7 +307,7 @@ namespace SI_GUI
                 else if (httpfile.Contains("install_multi"))
                 {
                     // Newer format
-                    httpfile = httpfile.Replace("install_multi", "helpppack_" + choose_lang.SelectedItem.ToString());
+                    httpfile = httpfile.Replace("install_multi", "helppack_" + choose_lang.SelectedItem.ToString());
                 }
                 else
                 {
