@@ -88,6 +88,15 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go back.
+        /// </summary>
+        internal static string back {
+            get {
+                return ResourceManager.GetString("back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Advanced file renaming.
         /// </summary>
         internal static string cb_advanced_file {

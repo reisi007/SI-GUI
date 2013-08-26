@@ -160,7 +160,6 @@ namespace SI_GUI
                 // Which texts should stay LTR, when using a RTL language
                 bootinipath.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 bootstrap_text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                path_to_file_on_disk.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 subfolder.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -176,6 +175,7 @@ namespace SI_GUI
             button3.Text = getstring("config_installdir");
             button4.Text = getstring("open_bootstrap_ini");
             gb_bootstrap.Text = getstring("edit_bs_ini");
+            show_gb_bs.Text = gb_bootstrap.Text;
             labelProgress.Text = getstring("progress");
             open_bootstrap.Title = getstring("open_bootstrap_title");
             save_file.Text = getstring("save_bootstrap_ini");
@@ -217,9 +217,10 @@ namespace SI_GUI
             ToolTip manuallyUpdate = get_ToolTip(version, getstring("tt_autoupdate"));
             ToolTip go1 = get_ToolTip(go_patHhelp, getstring("tt_go"));
             ToolTip go2 = get_ToolTip(go_pathMain, getstring("tt_go"));
-            // End Setting tooltips
+            /* End Setting tooltips
+             * Change progressbar location */
             progressBar.Location = new Point(labelProgress.Location.X + 6 + labelProgress.Size.Width, progressBar.Location.Y);
-            progressBar.Size = new System.Drawing.Size(percent.Location.X - progressBar.Location.X - 6, progressBar.Size.Height);
+            progressBar.Size = new System.Drawing.Size(cancel_dl.Location.X - progressBar.Location.X - 6, progressBar.Size.Height);
             // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
             give_message.BalloonTipClosed += new EventHandler(gm_do);
@@ -442,7 +443,7 @@ namespace SI_GUI
             catch (System.IO.DirectoryNotFoundException)
             {
                 working = false;
-                if (autoEditenabled)
+                if (!autoEditenabled)
                 {
                     if (open_bootstrap.ShowDialog() == DialogResult.OK)
                     {
@@ -454,7 +455,7 @@ namespace SI_GUI
             catch (System.IO.FileNotFoundException)
             {
                 working = false;
-                if (autoEditenabled)
+                if (!autoEditenabled)
                 {
                     if (open_bootstrap.ShowDialog() == DialogResult.OK)
                     {
@@ -467,7 +468,7 @@ namespace SI_GUI
             catch (Exception ex)
             {
                 working = false;
-                if (autoEditenabled)
+                if (!autoEditenabled)
                 {
                     exceptionmessage(ex.Message);
                     return working;
@@ -839,5 +840,21 @@ namespace SI_GUI
             catch (Exception) { }
         }
 
+        private void cancel_dl_Click(object sender, EventArgs e)
+        {
+            resetDL();
+        }
+
+        private void show_gb_bs_Click(object sender, EventArgs e)
+        {
+            gb_bootstrap.Visible = !gb_bootstrap.Visible;
+            gb_create_lnk.Visible = !gb_create_lnk.Visible;
+            gb_download.Visible = !gb_download.Visible;
+            gb_installation.Visible = !gb_installation.Visible;
+            if (gb_bootstrap.Visible)
+                show_gb_bs.Text = getstring("back");
+            else
+                show_gb_bs.Text = gb_bootstrap.Text;
+        }
     }
 }

@@ -420,4 +420,7 @@
   <data name="tt_go" xml:space="preserve">
     <value>Start the file as through a double-click</value>
   </data>
+  <data name="back" xml:space="preserve">
+    <value>Go back</value>
+  </data>
 </root>

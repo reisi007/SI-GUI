@@ -39,12 +39,15 @@ namespace SI_GUI
             }
         }
 
+        // List of all web clients
+        List<WebClient> list_wc = new List<WebClient>();
         #region Process for DL of main program
         Dictionary<int, long> dl_manager_current = new Dictionary<int, long>();
         Dictionary<int, long> dl_manager_total = new Dictionary<int, long>();
         Dictionary<int, bool> dl_is_hp = new Dictionary<int, bool>();
         float sum_current, sum_total;
         float percentage;
+
         void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             sum_current = 0;
@@ -81,27 +84,50 @@ namespace SI_GUI
             }
             catch (Exception) { }
         }
-        bool hp_or_installer;
+        bool hp_or_installer; // hp if true
+        Dictionary<int, string> dllocation = new Dictionary<int, string>();
         void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-            if (dl_is_hp.TryGetValue(sender.GetHashCode(), out hp_or_installer))
+            if (!AdvancedFilenames)
+                start_dl.Enabled = true;
+            string filename;
+            if (!e.Cancelled && dllocation.TryGetValue(sender.GetHashCode(), out filename))
             {
-                if (!hp_or_installer)
-                    path_main.Text = path_to_file_on_disk.Text;
-                else
-                    path_help.Text = path_to_file_on_disk_2.Text;
-                if (progressBar.Value == progressBar.Maximum)
+                give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
+                if (dl_is_hp.TryGetValue(sender.GetHashCode(), out hp_or_installer))
                 {
-                    progressBar.Value = 0;
-                    percent.Text = "0 %";
-                    dl_manager_current.Clear();
-                    dl_manager_total.Clear();
+                    if (!hp_or_installer) // Main installer
+                        path_main.Text = filename;
+                    else
+                        path_help.Text = filename;
+
+                    if (progressBar.Value == progressBar.Maximum)
+                        resetDL();
+
+                    give_message.Text = "LibreOffice Server Install GUI";
+                }
+                else
+                {
+                    resetDL();
                 }
             }
-            give_message.Text = "LibreOffice Server Installation GUI";
-        #endregion
+            else
+                resetDL();
         }
+        private void resetDL()
+        {
+            foreach (WebClient wc in list_wc)
+                if (wc.IsBusy)
+                    wc.CancelAsync();
+            dl_manager_current.Clear();
+            dl_manager_total.Clear();
+            dl_is_hp.Clear();
+            dllocation.Clear();
+            list_wc.Clear();
+            progressBar.Value = 0;
+            percent.Text = "0 %";
+        }
+        #endregion
 
 
         #region Download of Master, Testing, Latest as well as Older branch
@@ -196,7 +222,7 @@ namespace SI_GUI
                     }
 
                     startDL(httpfile, url, master, helppack);
-                    set_progressbar();
+
                 }
             }
         }
@@ -212,7 +238,8 @@ namespace SI_GUI
 
         private void startDL(string programFilename, string finallink, bool master, bool helppack)
         {
-            WebClient webc = getPreparedWebClient();
+            list_wc.Add(getPreparedWebClient());
+            int wc = list_wc.Count - 1;
             string path = path_4_download;
             Uri uritofile = new Uri(finallink + programFilename);
             string originalFilename = programFilename;
@@ -232,12 +259,9 @@ namespace SI_GUI
                     else
                         programFilename = "libo_installer.exe";
                 }
+                start_dl.Enabled = false;
             }
             path = Path.Combine(path, programFilename);
-            if (helppack)
-                path_to_file_on_disk_2.Text = path;
-            else
-                path_to_file_on_disk.Text = path;
             string mb_question = getstring("versiondl");
             mb_question = mb_question.Replace("%version", originalFilename);
 
@@ -259,7 +283,8 @@ namespace SI_GUI
                     // End send stats
                     give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
                     set_progressbar();
-                    webc.DownloadFileAsync(uritofile, path);
+                    list_wc[wc].DownloadFileAsync(uritofile, path);
+                    dllocation.Add(list_wc[wc].GetHashCode(), path);
                     int k = 0;
                     if (!master)
                     {
@@ -286,7 +311,6 @@ namespace SI_GUI
         private void download_any_version(string LinktoFile, bool helppack)
         {
             // Get the final download links and initialize the download
-            WebClient webc = getPreparedWebClient();
             string httpfile = downloadfile(LinktoFile + "?C=S;O=D");
             int tmp = httpfile.IndexOf("Parent");
             httpfile = httpfile.Remove(0, tmp);
@@ -369,7 +393,6 @@ namespace SI_GUI
             }
             return versions.ToArray();
         }
-
         private string get_final_link(bool libo, string version)
         {
             if (libo)
@@ -377,7 +400,6 @@ namespace SI_GUI
             else
                 return "???";
         }
-
         private void set_progressbar()
         {
             if (progressBar.Value == progressBar.Maximum || progressBar.Value == 0)

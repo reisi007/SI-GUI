@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace SI_GUI
 {
-    public class TDFPiwik
+    public class TDFPiwik : IDisposable
     {
         const string websiteID = "58";
         private access_settings aSet;
@@ -20,6 +20,11 @@ namespace SI_GUI
         BackgroundWorker bw;
         List<string> pending_requests = new List<string>();
         ~TDFPiwik()
+        {
+            Dispose();
+        }
+       
+       public void Dispose()
         {
             bw.Dispose();
         }
