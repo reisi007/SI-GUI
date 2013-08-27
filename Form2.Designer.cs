@@ -49,30 +49,32 @@
             // 
             // about
             // 
-            this.about.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.about.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.about.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.about.Font = new System.Drawing.Font("Liberation Sans", 11.25F);
             this.about.Location = new System.Drawing.Point(13, 103);
             this.about.Multiline = true;
             this.about.Name = "about";
             this.about.ReadOnly = true;
-            this.about.Size = new System.Drawing.Size(459, 292);
+            this.about.Size = new System.Drawing.Size(342, 297);
             this.about.TabIndex = 20;
             // 
             // lang_chooser
             // 
-            this.lang_chooser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lang_chooser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lang_chooser.FormattingEnabled = true;
-            this.lang_chooser.Location = new System.Drawing.Point(401, 490);
+            this.lang_chooser.Location = new System.Drawing.Point(284, 495);
             this.lang_chooser.Name = "lang_chooser";
             this.lang_chooser.Size = new System.Drawing.Size(71, 21);
             this.lang_chooser.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 493);
+            this.label1.Location = new System.Drawing.Point(12, 498);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 6;
@@ -80,19 +82,22 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(459, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(342, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // ga_tracking
             // 
-            this.ga_tracking.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ga_tracking.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ga_tracking.AutoSize = true;
-            this.ga_tracking.Location = new System.Drawing.Point(15, 473);
+            this.ga_tracking.Location = new System.Drawing.Point(15, 478);
             this.ga_tracking.Name = "ga_tracking";
             this.ga_tracking.Size = new System.Drawing.Size(92, 17);
             this.ga_tracking.TabIndex = 2;
@@ -105,8 +110,7 @@
             // 
             // B_open_folder
             // 
-            this.B_open_folder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.B_open_folder.Location = new System.Drawing.Point(12, 401);
+            this.B_open_folder.Location = new System.Drawing.Point(12, 406);
             this.B_open_folder.Name = "B_open_folder";
             this.B_open_folder.Size = new System.Drawing.Size(190, 23);
             this.B_open_folder.TabIndex = 1;
@@ -116,18 +120,20 @@
             // 
             // folder_save
             // 
-            this.folder_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.folder_save.Location = new System.Drawing.Point(208, 404);
+            this.folder_save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.folder_save.Location = new System.Drawing.Point(208, 409);
             this.folder_save.Name = "folder_save";
             this.folder_save.ReadOnly = true;
-            this.folder_save.Size = new System.Drawing.Size(264, 20);
+            this.folder_save.Size = new System.Drawing.Size(147, 20);
             this.folder_save.TabIndex = 9;
             // 
             // cb_advancedFilenames
             // 
-            this.cb_advancedFilenames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_advancedFilenames.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_advancedFilenames.AutoSize = true;
-            this.cb_advancedFilenames.Location = new System.Drawing.Point(15, 450);
+            this.cb_advancedFilenames.Location = new System.Drawing.Point(15, 455);
             this.cb_advancedFilenames.Name = "cb_advancedFilenames";
             this.cb_advancedFilenames.Size = new System.Drawing.Size(137, 17);
             this.cb_advancedFilenames.TabIndex = 21;
@@ -136,10 +142,11 @@
             // 
             // bOk
             // 
-            this.bOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bOk.Location = new System.Drawing.Point(13, 516);
+            this.bOk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bOk.Location = new System.Drawing.Point(13, 521);
             this.bOk.Name = "bOk";
-            this.bOk.Size = new System.Drawing.Size(460, 23);
+            this.bOk.Size = new System.Drawing.Size(343, 23);
             this.bOk.TabIndex = 22;
             this.bOk.Text = "Okay";
             this.bOk.UseVisualStyleBackColor = true;
@@ -147,9 +154,10 @@
             // 
             // cb_bs_autoedit
             // 
-            this.cb_bs_autoedit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_bs_autoedit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_bs_autoedit.AutoSize = true;
-            this.cb_bs_autoedit.Location = new System.Drawing.Point(15, 427);
+            this.cb_bs_autoedit.Location = new System.Drawing.Point(15, 432);
             this.cb_bs_autoedit.Name = "cb_bs_autoedit";
             this.cb_bs_autoedit.Size = new System.Drawing.Size(128, 17);
             this.cb_bs_autoedit.TabIndex = 23;
@@ -160,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 551);
+            this.ClientSize = new System.Drawing.Size(367, 551);
             this.ControlBox = false;
             this.Controls.Add(this.cb_bs_autoedit);
             this.Controls.Add(this.bOk);
@@ -173,9 +181,9 @@
             this.Controls.Add(this.about);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(500, 700);
+            this.MaximumSize = new System.Drawing.Size(383, 589);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(383, 589);
             this.Name = "Form2";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

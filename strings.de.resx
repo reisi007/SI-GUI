@@ -417,4 +417,10 @@
 	<data name="tt_autoupdate" xml:space="preserve">
 		<value>Wollen Sie manuell nach Updates suchen? Dies wird das Programm schließen!</value>
 	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>LibreOffice normal installieren</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Zurück</value>
+	</data>
 </root>

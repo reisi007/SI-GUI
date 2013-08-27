@@ -23,7 +23,7 @@ namespace SI_GUI
     public partial class Form2 : Form
     {
         access_settings set = new access_settings();
-       
+
         ToolTip TTadvanced_file_renaming;
         public Form2(string[] l10n, bool rtl, string[] lang)
         {
@@ -73,6 +73,7 @@ namespace SI_GUI
             string abouttxt = "";
             string translations = l10n[1] + " ";
             string translator = l10n[2] + " ";
+            // Language names
             string de = l10n[3] + " ";
             string en = l10n[4] + " ";
             string fr = l10n[5] + " ";
@@ -80,20 +81,27 @@ namespace SI_GUI
             string he = l10n[7] + " ";
             string pt = l10n[8] + " ";
             string nl = l10n[9] + " ";
-            string programmer = l10n[10] + " ";
-            string florei = "Florian Reisinger";
             string sl = l10n[11] + " ";
             string da = l10n[12] + " ";
-            abouttxt = programmer + florei + Environment.NewLine + translations + Environment.NewLine;
+            string programmer = l10n[10] + " ";
+            // Person names
+            string florei = "Florian Reisinger";
+            string sopgau = "Sophie Gautier";
+            // Get the final string
+            abouttxt = programmer + Environment.NewLine;
+            abouttxt += "- " + florei + Environment.NewLine;
+            abouttxt += translations + Environment.NewLine;
             abouttxt += en + florei + Environment.NewLine;
             abouttxt += de + florei + Environment.NewLine;
-            abouttxt += fr + "Sophie Gautier" + Environment.NewLine;
+            abouttxt += fr + sopgau + Environment.NewLine;
             abouttxt += es + "Adolfo Jayme Barrientos" + Environment.NewLine;
             abouttxt += sl + "Martin Srebotnjak" + Environment.NewLine;
             abouttxt += da + "Leif Lodahl" + Environment.NewLine;
             abouttxt += pt + "Carlos Moreira " + l10n[13] + " Pedro Lino" + Environment.NewLine;
             abouttxt += he + "Yaron Shahrabani" + Environment.NewLine;
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
+            abouttxt += "--- " + l10n[25] + " ---" + Environment.NewLine;
+            abouttxt += en + "Ken Biondi" + Environment.NewLine;
             about.Text = abouttxt;
             this.Text = l10n[14];
             B_open_folder.Text = l10n[20];
@@ -142,7 +150,7 @@ namespace SI_GUI
             set.save_settings(s);
         }
 
-       
+
 
     }
 }

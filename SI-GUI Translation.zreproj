@@ -36,7 +36,7 @@
     <globalSetting name="EnableExcelExportSnapshots">True</globalSetting>
     <globalSetting name="advancedOptionsPanel.Visible">True</globalSetting>
     <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory">C:\Users\Florian Reisinger\Desktop</globalSetting>
-    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\LibreOffice Server Installation GUI.xls</globalSetting>
+    <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\SI-GUI-L10N.xls</globalSetting>
     <globalSetting name="sendFileToTranslator.fileGroupsListBox">strings</globalSetting>
     <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Dänisch (da)###{{{}}}###Deutsch (de)###{{{}}}###Spanisch (es)###{{{}}}###Französisch (fr)###{{{}}}###Hebräisch (he)###{{{}}}###Niederländisch (nl)###{{{}}}###Portugiesisch (pt)###{{{}}}###Slowenisch (sl)</globalSetting>
     <globalSetting name="sendFileToTranslator.referenceLanguageComboBoxEdit.SelectedIndex">2</globalSetting>
@@ -53,7 +53,7 @@
     <globalSetting name="sendFileToTranslator.exportGroupsAsWorkSheetsCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.exportGroupsAsExcelFilesCheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.exportEachLanguageIntoSeparateExcelFileCheckEdit.Checked">False</globalSetting>
-    <globalSetting name="sendFileToTranslator.useCrypticExcelExportSheetNamesCheckEdit.Checked">False</globalSetting>
+    <globalSetting name="sendFileToTranslator.useCrypticExcelExportSheetNamesCheckEdit.Checked">True</globalSetting>
     <globalSetting name="sendFileToTranslator.sendFilesToEMailReceivers2CheckEdit.Checked">False</globalSetting>
     <globalSetting name="sendFileToTranslator.zulReceiversTextEdit.Text">someone@example.org, someone-other@example.org</globalSetting>
     <globalSetting name="sendFileToTranslator.zulSubjectTextEdit.Text">[ZRE] Excel-Dateien zum Übersetzen des Projekts "{ProjectName}"</globalSetting>

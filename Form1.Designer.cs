@@ -70,6 +70,7 @@
             this.m_help = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_download = new System.Windows.Forms.GroupBox();
             this.choose_lang = new System.Windows.Forms.ComboBox();
+            this.cancel_dl = new System.Windows.Forms.Button();
             this.choose_lang_label = new System.Windows.Forms.Label();
             this.start_dl = new System.Windows.Forms.Button();
             this.update_versions = new System.Windows.Forms.Button();
@@ -83,7 +84,6 @@
             this.delete_pathHelp = new System.Windows.Forms.Button();
             this.reset_pathMain = new System.Windows.Forms.Button();
             this.version = new System.Windows.Forms.LinkLabel();
-            this.cancel_dl = new System.Windows.Forms.Button();
             this.show_gb_bs = new System.Windows.Forms.Button();
             this.gb_bootstrap.SuspendLayout();
             this.menu.SuspendLayout();
@@ -448,6 +448,19 @@
             this.choose_lang.TabIndex = 5;
             this.choose_lang.SelectionChangeCommitted += new System.EventHandler(this.savesettings);
             // 
+            // cancel_dl
+            // 
+            this.cancel_dl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancel_dl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_dl.ForeColor = System.Drawing.Color.Red;
+            this.cancel_dl.Location = new System.Drawing.Point(321, 85);
+            this.cancel_dl.Name = "cancel_dl";
+            this.cancel_dl.Size = new System.Drawing.Size(26, 23);
+            this.cancel_dl.TabIndex = 20;
+            this.cancel_dl.Text = "X";
+            this.cancel_dl.UseVisualStyleBackColor = true;
+            this.cancel_dl.Click += new System.EventHandler(this.cancel_dl_Click);
+            // 
             // choose_lang_label
             // 
             this.choose_lang_label.AutoSize = true;
@@ -609,19 +622,6 @@
             this.version.Text = "LibreOffice Server Install GUI v x.y.z.w";
             this.version.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.checkUpdate);
             // 
-            // cancel_dl
-            // 
-            this.cancel_dl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancel_dl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_dl.ForeColor = System.Drawing.Color.Red;
-            this.cancel_dl.Location = new System.Drawing.Point(321, 85);
-            this.cancel_dl.Name = "cancel_dl";
-            this.cancel_dl.Size = new System.Drawing.Size(26, 23);
-            this.cancel_dl.TabIndex = 20;
-            this.cancel_dl.Text = "X";
-            this.cancel_dl.UseVisualStyleBackColor = true;
-            this.cancel_dl.Click += new System.EventHandler(this.cancel_dl_Click);
-            // 
             // show_gb_bs
             // 
             this.show_gb_bs.Location = new System.Drawing.Point(16, 474);
@@ -647,6 +647,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(447, 547);
+            this.MinimumSize = new System.Drawing.Size(447, 547);
             this.Name = "Form1";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Install GUI";
