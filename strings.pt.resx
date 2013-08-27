@@ -394,4 +394,13 @@
 	<data name="cb_autoedit" xml:space="preserve">
 		<value>Auto-editar bootstrap.ini</value>
 	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>Quer procurar manualmente por atualizações? Isto fechará o programa!</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Instalar LibreOffice (não paralelo)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Regressar</value>
+	</data>
 </root>

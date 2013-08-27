@@ -400,7 +400,7 @@
 		<value>Está a punto de sobreescribir una instalación de servidor existente. ¿Quiere continuar?</value>
 	</data>
 	<data name="cb_advanced_file" xml:space="preserve">
-		<value>Renombrado avanzado de archivos</value>
+		<value>Renombramiento avanzado de archivos</value>
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
 		<value>Si se activa, los archivos se guardarán con su nombre de archivo original.:n:Si se desactiva, solo se conservará un instalador y un paquete de ayuda en el disco.</value>
@@ -413,5 +413,14 @@
 	</data>
 	<data name="cb_autoedit" xml:space="preserve">
 		<value>Editar bootstrap.ini automáticamente</value>
+	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>¿Quiere comprobar actualizaciones manualmente? Esto cerrará el programa.</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Instalar LibreOffice (no en paralelo)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Regresar</value>
 	</data>
 </root>

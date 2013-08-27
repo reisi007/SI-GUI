@@ -415,4 +415,13 @@ je::nl:%trackingID:nl:Kot lahko vidite, slednji ne vsebuje nobenih osebnih podat
 	<data name="cb_autoedit" xml:space="preserve">
 		<value>Samodejno uredi bootstrap.ini</value>
 	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>Želite ročno preveriti obstoj posodobitev? S tem boste zaprli program.</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Namesti LibreOffice (nevzporedno)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Nazaj</value>
+	</data>
 </root>

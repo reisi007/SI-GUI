@@ -415,4 +415,13 @@
 	<data name="cb_autoedit" xml:space="preserve">
 		<value>Auto-rediger bootstrap.ini</value>
 	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>Ønsker du at kontrollere for opdateringer manuelt? Dette vil lukke programmet!</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Installer LibreOffice (ikke parallelt)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Gå tilbage</value>
+	</data>
 </root>

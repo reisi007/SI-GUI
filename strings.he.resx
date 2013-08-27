@@ -176,13 +176,13 @@
 		<value>התהליך הצליח!</value>
 	</data>
 	<data name="tt_bootstrap" xml:space="preserve">
-		<value>ניתן להשתמש בהגדרה הבאה במקום השורה שמתחילה ב־“UserInstallation=‎” משדה הטקסט שלהלן כדי לא לדרוס את פרופיל המשתמש הקיים שלך.</value>
+		<value>ניתן להשתמש בהגדרה הבאה במקום השורה שמתחילה ב־„UserInstallation=‎“ משדה הטקסט שלהלן כדי לא לדרוס את פרופיל המשתמש הקיים שלך.</value>
 	</data>
 	<data name="update_lang" xml:space="preserve">
 		<value>החלפת השפה:</value>
 	</data>
 	<data name="versiondl" xml:space="preserve">
-		<value>האם באמת להוריד את הגרסה %version?</value>
+		<value>האם אכן להוריד את הגרסה %version?</value>
 	</data>
 	<data name="open_help" xml:space="preserve">
 		<value>פתיחת מתקין העזרה של LibreOffice</value>
@@ -218,7 +218,7 @@
 		<value>שמירת bootstrap.ini</value>
 	</data>
 	<data name="subfolder_do" xml:space="preserve">
-		<value>האם יש ליצור תת־תיקייה אוטומטית? שם תת־התיקייה:</value>
+		<value>האם ליצור תת־תיקייה אוטומטית? שם תת־התיקייה:</value>
 	</data>
 	<data name="es" xml:space="preserve">
 		<value>ספרדית:</value>
@@ -393,5 +393,14 @@
 	</data>
 	<data name="cb_autoedit" xml:space="preserve">
 		<value>עריכה אוטומטית של bootstrap.ini</value>
+	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>האם לבדוק ידנית אם ישנם עדכונים? פעולה זו תסגור את התכנית!</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>התקנת LibreOffice (לא במקביל)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>חזרה</value>
 	</data>
 </root>
