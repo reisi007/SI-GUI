@@ -44,18 +44,12 @@ namespace SI_GUI
             // get language specific help page
             switch (lang)
             {
-                case ("fr"):
-                    code = "fr";
-                    break;
-                case("de"):
-                    code = "de";
-                    break;
                 default:
                     code = "en";
                     break;
             }
             this.Text = l10n[2];
-            string url = "http://dev-builds.libreoffice.org/si-gui/doc." + code + ".html";
+            string url = "http://dev-builds.libreoffice.org/si-gui/help/" + code + ".html";
             Uri uriurl = new Uri(url);
             help_browser.Url = uriurl;
         }
