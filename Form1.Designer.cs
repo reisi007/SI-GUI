@@ -212,7 +212,7 @@
             this.bootstrap_text.Location = new System.Drawing.Point(6, 74);
             this.bootstrap_text.Multiline = true;
             this.bootstrap_text.Name = "bootstrap_text";
-            this.bootstrap_text.Size = new System.Drawing.Size(386, 304);
+            this.bootstrap_text.Size = new System.Drawing.Size(386, 331);
             this.bootstrap_text.TabIndex = 18;
             // 
             // open_bootstrap
@@ -264,7 +264,7 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(63, 87);
+            this.progressBar.Location = new System.Drawing.Point(63, 99);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(252, 20);
             this.progressBar.TabIndex = 0;
@@ -275,7 +275,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelProgress.AutoSize = true;
             this.labelProgress.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelProgress.Location = new System.Drawing.Point(6, 90);
+            this.labelProgress.Location = new System.Drawing.Point(6, 102);
             this.labelProgress.Name = "labelProgress";
             this.labelProgress.Size = new System.Drawing.Size(51, 13);
             this.labelProgress.TabIndex = 0;
@@ -303,7 +303,7 @@
             this.percent.AutoSize = true;
             this.percent.BackColor = System.Drawing.Color.Transparent;
             this.percent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.percent.Location = new System.Drawing.Point(353, 90);
+            this.percent.Location = new System.Drawing.Point(353, 102);
             this.percent.Name = "percent";
             this.percent.Size = new System.Drawing.Size(45, 13);
             this.percent.TabIndex = 0;
@@ -347,7 +347,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.path_to_exe.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_to_exe.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_to_exe.Location = new System.Drawing.Point(5, 28);
+            this.path_to_exe.Location = new System.Drawing.Point(5, 16);
             this.path_to_exe.Name = "path_to_exe";
             this.path_to_exe.ReadOnly = true;
             this.path_to_exe.Size = new System.Drawing.Size(181, 20);
@@ -358,7 +358,7 @@
             // 
             this.tb_version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_version.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tb_version.Location = new System.Drawing.Point(243, 28);
+            this.tb_version.Location = new System.Drawing.Point(243, 16);
             this.tb_version.Name = "tb_version";
             this.tb_version.Size = new System.Drawing.Size(154, 20);
             this.tb_version.TabIndex = 19;
@@ -367,7 +367,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 31);
+            this.label1.Location = new System.Drawing.Point(192, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
@@ -377,7 +377,8 @@
             // 
             this.create_lnk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.create_lnk.Location = new System.Drawing.Point(6, 63);
+            this.create_lnk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.create_lnk.Location = new System.Drawing.Point(6, 51);
             this.create_lnk.Name = "create_lnk";
             this.create_lnk.Size = new System.Drawing.Size(392, 24);
             this.create_lnk.TabIndex = 20;
@@ -433,7 +434,7 @@
             this.gb_download.Controls.Add(this.progressBar);
             this.gb_download.Location = new System.Drawing.Point(16, 27);
             this.gb_download.Name = "gb_download";
-            this.gb_download.Size = new System.Drawing.Size(404, 116);
+            this.gb_download.Size = new System.Drawing.Size(404, 128);
             this.gb_download.TabIndex = 0;
             this.gb_download.TabStop = false;
             this.gb_download.Text = "Download";
@@ -453,7 +454,7 @@
             this.cancel_dl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancel_dl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel_dl.ForeColor = System.Drawing.Color.Red;
-            this.cancel_dl.Location = new System.Drawing.Point(321, 85);
+            this.cancel_dl.Location = new System.Drawing.Point(321, 97);
             this.cancel_dl.Name = "cancel_dl";
             this.cancel_dl.Size = new System.Drawing.Size(26, 23);
             this.cancel_dl.TabIndex = 20;
@@ -534,9 +535,9 @@
             this.gb_create_lnk.Controls.Add(this.create_lnk);
             this.gb_create_lnk.Controls.Add(this.tb_version);
             this.gb_create_lnk.Controls.Add(this.label1);
-            this.gb_create_lnk.Location = new System.Drawing.Point(16, 375);
+            this.gb_create_lnk.Location = new System.Drawing.Point(16, 387);
             this.gb_create_lnk.Name = "gb_create_lnk";
-            this.gb_create_lnk.Size = new System.Drawing.Size(404, 93);
+            this.gb_create_lnk.Size = new System.Drawing.Size(404, 81);
             this.gb_create_lnk.TabIndex = 0;
             this.gb_create_lnk.TabStop = false;
             this.gb_create_lnk.Text = "Create shortcut";
@@ -556,7 +557,7 @@
             this.gb_installation.Controls.Add(this.cb_subfolder);
             this.gb_installation.Controls.Add(this.button3);
             this.gb_installation.Controls.Add(this.path_installdir);
-            this.gb_installation.Location = new System.Drawing.Point(17, 149);
+            this.gb_installation.Location = new System.Drawing.Point(16, 161);
             this.gb_installation.Name = "gb_installation";
             this.gb_installation.Size = new System.Drawing.Size(403, 220);
             this.gb_installation.TabIndex = 0;

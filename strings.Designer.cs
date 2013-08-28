@@ -331,6 +331,15 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Galician.
+        /// </summary>
+        internal static string gl {
+            get {
+                return ResourceManager.GetString("gl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Go back?.
         /// </summary>
         internal static string go_back {
@@ -430,6 +439,15 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IT.
+        /// </summary>
+        internal static string it {
+            get {
+                return ResourceManager.GetString("it", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language:.
         /// </summary>
         internal static string lang {
@@ -444,6 +462,15 @@ namespace SI_GUI {
         internal static string language_change_success {
             get {
                 return ResourceManager.GetString("language_change_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LO.
+        /// </summary>
+        internal static string lo {
+            get {
+                return ResourceManager.GetString("lo", resourceCulture);
             }
         }
         
@@ -597,6 +624,15 @@ namespace SI_GUI {
         internal static string msb_lnk_txt {
             get {
                 return ResourceManager.GetString("msb_lnk_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MT.
+        /// </summary>
+        internal static string mt {
+            get {
+                return ResourceManager.GetString("mt", resourceCulture);
             }
         }
         
@@ -844,6 +880,15 @@ namespace SI_GUI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TR.
+        /// </summary>
+        internal static string tr {
+            get {
+                return ResourceManager.GetString("tr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to --- Translations ---.
         /// </summary>
         internal static string translations {
@@ -907,7 +952,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start the file as through a double-click.
+        ///   Looks up a localized string similar to Install LibreOffice (not parallel).
         /// </summary>
         internal static string tt_go {
             get {

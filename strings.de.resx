@@ -423,4 +423,19 @@
 	<data name="back" xml:space="preserve">
 		<value>Zurück</value>
 	</data>
+	<data name="gl" xml:space="preserve">
+		<value>Galizisch</value>
+	</data>
+	<data name="it" xml:space="preserve">
+		<value>Italienisch</value>
+	</data>
+	<data name="lo" xml:space="preserve">
+		<value>Laotisch</value>
+	</data>
+	<data name="mt" xml:space="preserve">
+		<value>Maltesisch</value>
+	</data>
+	<data name="tr" xml:space="preserve">
+		<value>Türkisch</value>
+	</data>
 </root>

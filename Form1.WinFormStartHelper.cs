@@ -24,7 +24,13 @@ namespace SI_GUI
             "Da",
             "He",
             "Pt",
-            "Nl"};
+            "Nl",
+            "Gl",
+            "It",
+            "Lo-LA",
+            "Mt-MT",
+            "Tr"
+          };
         // Opens Help
         private void openHelp()
         {
@@ -33,7 +39,7 @@ namespace SI_GUI
             l10n[0] = getstring("standarderror");
             l10n[1] = getstring("Error");
             l10n[2] = getstring("help");
-            Form3 fm = new Form3(l10n, rtl_layout,Thread.CurrentThread.CurrentUICulture.Name.ToLower());
+            Form3 fm = new Form3(l10n, rtl_layout, Thread.CurrentThread.CurrentUICulture.Name.ToLower());
             fm.ShowDialog();
         }
         // Opens Manager

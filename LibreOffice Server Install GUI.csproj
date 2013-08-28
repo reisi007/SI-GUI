@@ -222,7 +222,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.gl.resx" />
     <EmbeddedResource Include="strings.he.resx" />
+    <EmbeddedResource Include="strings.lo-LA.resx" />
+    <EmbeddedResource Include="strings.mt-MT.resx" />
     <EmbeddedResource Include="strings.nl.resx" />
     <EmbeddedResource Include="strings.pt.resx" />
     <EmbeddedResource Include="strings.resx">
@@ -233,6 +236,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.sl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="strings.tr.resx" />
     <None Include="app.config" />
     <None Include="LibreOffice Server Install GUI_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />

@@ -9,7 +9,7 @@
   &lt;property name="#LayoutVersion" /&gt;
   &lt;property name="SortInfo"&gt;~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuOC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAAAAAAJAwAAAAAAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAQAAAAYJAAAAB2NvbE5hbWUL&lt;/property&gt;
 &lt;/XtraSerializer&gt;</globalSetting>
-    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="9119380544" /&gt;&lt;/items&gt;</globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="9665155356" /&gt;&lt;/items&gt;</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixTextBox.Text">####</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixCheckBox.Checked">False</globalSetting>
     <globalSetting name="CreateNewFileForm.referenceLanguageComboBox.SelectedIndex">0</globalSetting>
@@ -68,7 +68,7 @@ Viele Grüße</globalSetting>
     <userSetting name="Florian@Home-PC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
     <userSetting name="Florian Reisinger@PowerPC.FindText">
     </userSetting>
-    <userSetting name="Florian Reisinger@PowerPC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.gl.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.it.resx;D:\SI-GUI\strings.lo-LA.resx;D:\SI-GUI\strings.mt-MT.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
+    <userSetting name="Florian Reisinger@PowerPC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.gl.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.it.resx;D:\SI-GUI\strings.lo-LA.resx;D:\SI-GUI\strings.mt-MT.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx;D:\SI-GUI\strings.tr.resx</userSetting>
     <description>
     </description>
   </configuration>
@@ -87,7 +87,7 @@ Viele Grüße</globalSetting>
       <file filePath="strings.nl.resx" absoluteFilePath="D:\SI-GUI\strings.nl.resx" uniqueID="ee0066df-017d-448f-bdad-93d6fc957017" />
       <file filePath="strings.pt.resx" absoluteFilePath="D:\SI-GUI\strings.pt.resx" uniqueID="71d5ec69-e1cf-4cf5-aef0-fb8ac577a868" />
       <file filePath="strings.sl.resx" absoluteFilePath="D:\SI-GUI\strings.sl.resx" uniqueID="b72197df-5f92-46ea-8a95-52a366315613" />
-      <file filePath="strings.tr.resx" absoluteFilePath="D:\SI-GUI\strings.tr.resx" uniqueID="00000000-0000-0000-0000-000000000000" />
+      <file filePath="strings.tr.resx" absoluteFilePath="D:\SI-GUI\strings.tr.resx" uniqueID="0c7f8a47-0903-4bcc-bd0c-a86ed3e80efd" />
       <remarks>
       </remarks>
     </fileGroup>
