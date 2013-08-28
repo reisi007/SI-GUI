@@ -38,14 +38,13 @@
             // 
             // help_browser
             // 
-            this.help_browser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.help_browser.IsWebBrowserContextMenuEnabled = false;
+            this.help_browser.AllowWebBrowserDrop = false;
+            this.help_browser.CausesValidation = false;
+            this.help_browser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.help_browser.Location = new System.Drawing.Point(0, 0);
             this.help_browser.MinimumSize = new System.Drawing.Size(20, 20);
             this.help_browser.Name = "help_browser";
-            this.help_browser.Size = new System.Drawing.Size(584, 362);
+            this.help_browser.Size = new System.Drawing.Size(637, 362);
             this.help_browser.TabIndex = 0;
             this.help_browser.Url = new System.Uri("", System.UriKind.Relative);
             // 
@@ -53,13 +52,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 362);
+            this.ClientSize = new System.Drawing.Size(637, 362);
             this.Controls.Add(this.help_browser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(653, 400);
             this.Name = "Form3";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Help";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.form3load);
             this.ResumeLayout(false);
 

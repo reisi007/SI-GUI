@@ -57,14 +57,14 @@
             this.about.Multiline = true;
             this.about.Name = "about";
             this.about.ReadOnly = true;
-            this.about.Size = new System.Drawing.Size(342, 297);
+            this.about.Size = new System.Drawing.Size(413, 297);
             this.about.TabIndex = 20;
             // 
             // lang_chooser
             // 
             this.lang_chooser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lang_chooser.FormattingEnabled = true;
-            this.lang_chooser.Location = new System.Drawing.Point(284, 495);
+            this.lang_chooser.Location = new System.Drawing.Point(355, 495);
             this.lang_chooser.Name = "lang_chooser";
             this.lang_chooser.Size = new System.Drawing.Size(71, 21);
             this.lang_chooser.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(342, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(413, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -125,7 +125,7 @@
             this.folder_save.Location = new System.Drawing.Point(208, 409);
             this.folder_save.Name = "folder_save";
             this.folder_save.ReadOnly = true;
-            this.folder_save.Size = new System.Drawing.Size(147, 20);
+            this.folder_save.Size = new System.Drawing.Size(218, 20);
             this.folder_save.TabIndex = 9;
             // 
             // cb_advancedFilenames
@@ -146,7 +146,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bOk.Location = new System.Drawing.Point(13, 521);
             this.bOk.Name = "bOk";
-            this.bOk.Size = new System.Drawing.Size(343, 23);
+            this.bOk.Size = new System.Drawing.Size(414, 23);
             this.bOk.TabIndex = 22;
             this.bOk.Text = "Okay";
             this.bOk.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 551);
+            this.ClientSize = new System.Drawing.Size(438, 551);
             this.ControlBox = false;
             this.Controls.Add(this.cb_bs_autoedit);
             this.Controls.Add(this.bOk);
@@ -181,9 +181,9 @@
             this.Controls.Add(this.about);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(383, 589);
+            this.MaximumSize = new System.Drawing.Size(454, 589);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(383, 589);
+            this.MinimumSize = new System.Drawing.Size(454, 589);
             this.Name = "Form2";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

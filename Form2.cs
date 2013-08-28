@@ -86,22 +86,31 @@ namespace SI_GUI
             string programmer = l10n[10] + " ";
             // Person names
             string florei = "Florian Reisinger";
+            string carmor = "Carlos Moreira";
             string sopgau = "Sophie Gautier";
             // Get the final string
+            // Begin programmers
             abouttxt = programmer + Environment.NewLine;
             abouttxt += "- " + florei + Environment.NewLine;
+            //End programmers
             abouttxt += translations + Environment.NewLine;
+            // Begin translators of the UI
             abouttxt += en + florei + Environment.NewLine;
             abouttxt += de + florei + Environment.NewLine;
             abouttxt += fr + sopgau + Environment.NewLine;
             abouttxt += es + "Adolfo Jayme Barrientos" + Environment.NewLine;
             abouttxt += sl + "Martin Srebotnjak" + Environment.NewLine;
             abouttxt += da + "Leif Lodahl" + Environment.NewLine;
-            abouttxt += pt + "Carlos Moreira " + l10n[13] + " Pedro Lino" + Environment.NewLine;
+            abouttxt += pt + carmor + " " + l10n[13] + " Pedro Lino" + Environment.NewLine;
             abouttxt += he + "Yaron Shahrabani" + Environment.NewLine;
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
+            //End translators of the UI
             abouttxt += "--- " + l10n[25] + " ---" + Environment.NewLine;
+            //Begin translators of the help
             abouttxt += en + "Ken Biondi" + Environment.NewLine;
+            abouttxt += pt + carmor + Environment.NewLine;
+            /*End translators of the help
+             * End file*/
             about.Text = abouttxt;
             this.Text = l10n[14];
             B_open_folder.Text = l10n[20];

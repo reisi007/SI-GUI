@@ -42,8 +42,11 @@ namespace SI_GUI
         {
             string code = "";
             // get language specific help page
-            switch (lang)
+            switch (lang.ToLower())
             {
+                case ("pt"):
+                    code = "pt";
+                    break;
                 default:
                     code = "en";
                     break;
