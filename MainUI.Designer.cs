@@ -1,6 +1,6 @@
 ﻿namespace SI_GUI
 {
-    partial class Form1
+    partial class MainUI
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -36,7 +36,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainUI));
             this.openfile = new System.Windows.Forms.OpenFileDialog();
             this.b_open_libo_installer = new System.Windows.Forms.Button();
             this.path_main = new System.Windows.Forms.TextBox();

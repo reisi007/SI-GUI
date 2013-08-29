@@ -26,7 +26,7 @@ using IWshRuntimeLibrary;
 
 namespace SI_GUI
 {
-    public partial class Form1 : Form
+    public partial class MainUI : Form
     {
         #region String[] alllnag
         string[] alllang = new string[]
@@ -93,11 +93,11 @@ namespace SI_GUI
         private bool rtl_layout = false;
         string[] dl_special;
         access_settings set = new access_settings();
-        ResourceManager rm = new ResourceManager("SI_GUI.strings", Assembly.GetExecutingAssembly());
+        ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
         TDFPiwik piwik;
         string path_4_download = Path.GetTempPath();
         bool AdvancedFilenames;
-        public Form1()
+        public MainUI()
         {
 
             //l10n import

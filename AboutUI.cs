@@ -20,12 +20,12 @@ using System.Globalization;
 
 namespace SI_GUI
 {
-    public partial class Form2 : Form
+    public partial class AboutUI : Form
     {
         access_settings set = new access_settings();
 
         ToolTip TTadvanced_file_renaming;
-        public Form2(string[] l10n, bool rtl, string[] lang)
+        public AboutUI(string[] l10n, bool rtl, string[] lang)
         {
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -55,7 +55,7 @@ namespace SI_GUI
                 folder_save.Text = s.DL_saved_settings.download_path;
             else
                 folder_save.Text = Path.GetTempPath();
-            TTadvanced_file_renaming = Form1.get_ToolTip(cb_advancedFilenames, l10n[22]);
+            TTadvanced_file_renaming = MainUI.get_ToolTip(cb_advancedFilenames, l10n[22]);
             cb_bs_autoedit.Checked = s.cb_autoedit_bs;
         }
 
@@ -74,20 +74,22 @@ namespace SI_GUI
             string translations = l10n[1] + " ";
             string translator = l10n[2] + " ";
             // Language names
-            string de = l10n[3] + " ";
-            string en = l10n[4] + " ";
-            string fr = l10n[5] + " ";
-            string es = l10n[6] + " ";
-            string he = l10n[7] + " ";
-            string pt = l10n[8] + " ";
-            string nl = l10n[9] + " ";
-            string sl = l10n[11] + " ";
-            string da = l10n[12] + " ";
+            string de = l10n[3] + ": ";
+            string en = l10n[4] + ": ";
+            string fr = l10n[5] + ": ";
+            string es = l10n[6] + ": ";
+            string he = l10n[7] + ": ";
+            string pt = l10n[8] + ": ";
+            string nl = l10n[9] + ": ";
+            string sl = l10n[11] + ": ";
+            string da = l10n[12] + ": ";
+            string gl = l10n[26] + ": ";
             string programmer = l10n[10] + " ";
             // Person names
             string florei = "Florian Reisinger";
             string carmor = "Carlos Moreira";
             string sopgau = "Sophie Gautier";
+            string kenbio = "Ken Biondi";
             // Get the final string
             // Begin programmers
             abouttxt = programmer + Environment.NewLine;
@@ -95,19 +97,20 @@ namespace SI_GUI
             //End programmers
             abouttxt += translations + Environment.NewLine;
             // Begin translators of the UI
-            abouttxt += en + florei + Environment.NewLine;
+            abouttxt += en + florei + " " + l10n[13] + " " + kenbio + Environment.NewLine;
             abouttxt += de + florei + Environment.NewLine;
             abouttxt += fr + sopgau + Environment.NewLine;
             abouttxt += es + "Adolfo Jayme Barrientos" + Environment.NewLine;
             abouttxt += sl + "Martin Srebotnjak" + Environment.NewLine;
             abouttxt += da + "Leif Lodahl" + Environment.NewLine;
-            abouttxt += pt + carmor + " " + l10n[13] + " Pedro Lino" + Environment.NewLine;
+            abouttxt += pt + carmor + " " + l10n[13] + " Pedro Lino " +l10n[13] + " Sérgio Marques"+ Environment.NewLine;
             abouttxt += he + "Yaron Shahrabani" + Environment.NewLine;
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
+            abouttxt += gl + "Anton Meixome";
             //End translators of the UI
             abouttxt += "--- " + l10n[25] + " ---" + Environment.NewLine;
             //Begin translators of the help
-            abouttxt += en + "Ken Biondi" + Environment.NewLine;
+            abouttxt += en + kenbio + " " + Environment.NewLine;
             abouttxt += pt + carmor + Environment.NewLine;
             /*End translators of the help
              * End file*/

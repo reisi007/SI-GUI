@@ -9,7 +9,7 @@
   &lt;property name="#LayoutVersion" /&gt;
   &lt;property name="SortInfo"&gt;~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xLCBWZXJzaW9uPTExLjEuOC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAAAAAAJAwAAAAAAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjExLjEsIFZlcnNpb249MTEuMS44LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAAAAAAAAAAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAABAAAABAAAAAcFAAAAAAEAAAAAAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAABAGAAAABAAAAAkHAAAADQMMCAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMS4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgIAAAAAQAAAAYJAAAAB2NvbE5hbWUL&lt;/property&gt;
 &lt;/XtraSerializer&gt;</globalSetting>
-    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items&gt;&lt;item type="2" checksum="9665155356" /&gt;&lt;/items&gt;</globalSetting>
+    <globalSetting name="projectMruItems">&lt;?xml version='1.0' encoding='utf-8'?&gt;&lt;items /&gt;</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixTextBox.Text">####</globalSetting>
     <globalSetting name="CreateNewFileForm.prefixCheckBox.Checked">False</globalSetting>
     <globalSetting name="CreateNewFileForm.referenceLanguageComboBox.SelectedIndex">0</globalSetting>
@@ -26,7 +26,7 @@
     <globalSetting name="IgnoreWindowsFormsResourcesWithDesignerFiles">True</globalSetting>
     <globalSetting name="HideInternalDesignerRows">True</globalSetting>
     <globalSetting name="UseShallowGridDataCumulation">True</globalSetting>
-    <globalSetting name="HideFileGroupFilesInTree">True</globalSetting>
+    <globalSetting name="HideFileGroupFilesInTree">False</globalSetting>
     <globalSetting name="NeutralLanguageFileNamePattern">[basename][optionaldefaulttypes].[extension]</globalSetting>
     <globalSetting name="NonNeutralLanguageFileNamePattern">[basename][optionaldefaulttypes].[languagecode].[extension]</globalSetting>
     <globalSetting name="BaseNameDotCount">0</globalSetting>
@@ -37,7 +37,7 @@
     <globalSetting name="advancedOptionsPanel.Visible">True</globalSetting>
     <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.InitialDirectory">C:\Users\Florian Reisinger\Desktop</globalSetting>
     <globalSetting name="sendFileToTranslator.destinationFilePathTextEdit.Text">C:\Users\Florian Reisinger\Desktop\SI-GUI-L10N.xls</globalSetting>
-    <globalSetting name="sendFileToTranslator.fileGroupsListBox">strings</globalSetting>
+    <globalSetting name="sendFileToTranslator.fileGroupsListBox">l10n\strings</globalSetting>
     <globalSetting name="sendFileToTranslator.languagesToExportCheckListBox">Dänisch (da)###{{{}}}###Deutsch (de)###{{{}}}###Spanisch (es)###{{{}}}###Französisch (fr)###{{{}}}###Galizisch (gl)###{{{}}}###Hebräisch (he)###{{{}}}###Italienisch (it)###{{{}}}###Laotisch (Demokratische Volksrepublik Laos) (lo-la)###{{{}}}###Maltesisch (Malta) (mt-mt)###{{{}}}###Niederländisch (nl)###{{{}}}###Portugiesisch (pt)###{{{}}}###Slowenisch (sl)###{{{}}}###Türkisch (tr)</globalSetting>
     <globalSetting name="sendFileToTranslator.referenceLanguageComboBoxEdit.SelectedIndex">2</globalSetting>
     <globalSetting name="sendFileToTranslator.openFileAfterGeneratingCheckEdit.Checked">True</globalSetting>
@@ -68,26 +68,28 @@ Viele Grüße</globalSetting>
     <userSetting name="Florian@Home-PC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx</userSetting>
     <userSetting name="Florian Reisinger@PowerPC.FindText">
     </userSetting>
-    <userSetting name="Florian Reisinger@PowerPC.RecentFiles">D:\SI-GUI\strings.resx;D:\SI-GUI\strings.da.resx;D:\SI-GUI\strings.de.resx;D:\SI-GUI\strings.es.resx;D:\SI-GUI\strings.fr.resx;D:\SI-GUI\strings.gl.resx;D:\SI-GUI\strings.he.resx;D:\SI-GUI\strings.it.resx;D:\SI-GUI\strings.lo-LA.resx;D:\SI-GUI\strings.mt-MT.resx;D:\SI-GUI\strings.nl.resx;D:\SI-GUI\strings.pt.resx;D:\SI-GUI\strings.sl.resx;D:\SI-GUI\strings.tr.resx</userSetting>
+    <userSetting name="Florian Reisinger@PowerPC.RecentFiles">
+    </userSetting>
+    <userSetting name="Florian Reisinger@PowerPC.filesInitialDir">D:\SI-GUI\l10n</userSetting>
     <description>
     </description>
   </configuration>
   <fileGroups>
-    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="fa93bca7-c732-47fa-979e-a3bcd41a6e7b">
-      <file filePath="strings.resx" absoluteFilePath="D:\SI-GUI\strings.resx" uniqueID="be20a222-829b-4ba1-81e4-4b0c1409de35" />
-      <file filePath="strings.da.resx" absoluteFilePath="D:\SI-GUI\strings.da.resx" uniqueID="6bd9bbba-beea-4757-bfe0-8a91d08fcefa" />
-      <file filePath="strings.de.resx" absoluteFilePath="D:\SI-GUI\strings.de.resx" uniqueID="d27b7ae7-55bd-48bc-ad26-091157d40881" />
-      <file filePath="strings.es.resx" absoluteFilePath="D:\SI-GUI\strings.es.resx" uniqueID="cb92c445-63cb-4bad-aa5e-c3ce9205d3d1" />
-      <file filePath="strings.fr.resx" absoluteFilePath="D:\SI-GUI\strings.fr.resx" uniqueID="5b2d6512-2d28-4da7-96b6-a9b69e6db0fe" />
-      <file filePath="strings.gl.resx" absoluteFilePath="D:\SI-GUI\strings.gl.resx" uniqueID="88ecd1bb-a1fd-4c2c-8525-dbb73fc16475" />
-      <file filePath="strings.he.resx" absoluteFilePath="D:\SI-GUI\strings.he.resx" uniqueID="acef10c1-b1c5-4b82-87d0-16199cb21b88" />
-      <file filePath="strings.it.resx" absoluteFilePath="D:\SI-GUI\strings.it.resx" uniqueID="78c79d20-72cd-4f83-955e-8039999f0af3" />
-      <file filePath="strings.lo-LA.resx" absoluteFilePath="D:\SI-GUI\strings.lo-LA.resx" uniqueID="792f1202-7b97-46a6-b8a3-3c4995a6c4c9" />
-      <file filePath="strings.mt-MT.resx" absoluteFilePath="D:\SI-GUI\strings.mt-MT.resx" uniqueID="298c3ac7-8d44-4986-b9f5-ada27108068d" />
-      <file filePath="strings.nl.resx" absoluteFilePath="D:\SI-GUI\strings.nl.resx" uniqueID="ee0066df-017d-448f-bdad-93d6fc957017" />
-      <file filePath="strings.pt.resx" absoluteFilePath="D:\SI-GUI\strings.pt.resx" uniqueID="71d5ec69-e1cf-4cf5-aef0-fb8ac577a868" />
-      <file filePath="strings.sl.resx" absoluteFilePath="D:\SI-GUI\strings.sl.resx" uniqueID="b72197df-5f92-46ea-8a95-52a366315613" />
-      <file filePath="strings.tr.resx" absoluteFilePath="D:\SI-GUI\strings.tr.resx" uniqueID="0c7f8a47-0903-4bcc-bd0c-a86ed3e80efd" />
+    <fileGroup name="" projectFolderUniqueID="00000000-0000-0000-0000-000000000000" orderPosition="0" ignoreDuringExportAndImport="False" uniqueID="ee776a25-913b-45c9-8120-68b67f78c5d4">
+      <file filePath="l10n\strings.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.resx" uniqueID="0831458d-2e0a-483f-aec6-a1a8850d7b07" />
+      <file filePath="l10n\strings.da.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.da.resx" uniqueID="50a821bd-507a-47ea-910e-788a0718631b" />
+      <file filePath="l10n\strings.de.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.de.resx" uniqueID="f7c64afb-4c58-43d7-9469-ced8772fc0e1" />
+      <file filePath="l10n\strings.es.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.es.resx" uniqueID="254783b4-b58a-4550-bf41-67b1956664ca" />
+      <file filePath="l10n\strings.fr.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.fr.resx" uniqueID="4739987e-a7f5-426e-958e-51901d28293f" />
+      <file filePath="l10n\strings.gl.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.gl.resx" uniqueID="f3f63ca6-5333-4d3a-997d-8fbff0e90fb1" />
+      <file filePath="l10n\strings.he.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.he.resx" uniqueID="a95a34ce-caac-4eb8-ae9f-6a74108254c4" />
+      <file filePath="l10n\strings.it.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.it.resx" uniqueID="32e2451c-3c78-47f3-a7b3-f50c2514d4ef" />
+      <file filePath="l10n\strings.lo-LA.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.lo-LA.resx" uniqueID="b4c3a87c-12e8-42d7-85f7-0b5494942e20" />
+      <file filePath="l10n\strings.mt-MT.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.mt-MT.resx" uniqueID="bd37eccc-f8ff-4700-b7cf-579ea2dc09af" />
+      <file filePath="l10n\strings.nl.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.nl.resx" uniqueID="444808bf-35d2-4663-8d35-fd226ecc6e31" />
+      <file filePath="l10n\strings.pt.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.pt.resx" uniqueID="3e5179dd-cb6a-4a9c-be43-b61f2691593d" />
+      <file filePath="l10n\strings.sl.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.sl.resx" uniqueID="66cee7dd-1eba-45ff-9344-60c240237e5a" />
+      <file filePath="l10n\strings.tr.resx" absoluteFilePath="D:\SI-GUI\l10n\strings.tr.resx" uniqueID="4dd23883-d2c7-461d-bb97-0573f552cfb5" />
       <remarks>
       </remarks>
     </fileGroup>

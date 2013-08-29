@@ -1,6 +1,6 @@
 ﻿namespace SI_GUI
 {
-    partial class Form2
+    partial class AboutUI
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -32,7 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutUI));
             this.about = new System.Windows.Forms.TextBox();
             this.lang_chooser = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();

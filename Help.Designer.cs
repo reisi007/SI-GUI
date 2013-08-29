@@ -1,6 +1,6 @@
 ﻿namespace SI_GUI
 {
-    partial class Form3
+    partial class HelpUI
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -32,7 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpUI));
             this.help_browser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
@@ -46,9 +46,9 @@
             this.help_browser.Name = "help_browser";
             this.help_browser.Size = new System.Drawing.Size(637, 362);
             this.help_browser.TabIndex = 0;
-            this.help_browser.Url = new System.Uri("", System.UriKind.Relative);
+            this.help_browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.loadComplete);
             // 
-            // Form3
+            // HelpUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -57,12 +57,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(653, 400);
-            this.Name = "Form3";
+            this.Name = "HelpUI";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Help";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.form3load);
             this.ResumeLayout(false);
 
         }

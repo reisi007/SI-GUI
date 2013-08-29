@@ -116,7 +116,7 @@
 		<value>יתכן שעדיף להפעיל את התכנית הזאת כמנהל המערכת.</value>
 	</data>
 	<data name="installerror" xml:space="preserve">
-		<value>לא ניתן להתחיל בהתקנה עקב השגיאה הבאה:</value>
+		<value>לא ניתן להתחיל בהתקנה עקב השגיאה הבאה</value>
 	</data>
 	<data name="installnostart" xml:space="preserve">
 		<value>לא ניתן להתחיל בהתקנה!</value>
@@ -134,7 +134,7 @@
 		<value>אין לך הרשאות לכתוב לתיקייה זו.</value>
 	</data>
 	<data name="standarderror" xml:space="preserve">
-		<value>התרחשה תקלה! הודעה:</value>
+		<value>התרחשה תקלה! הודעה</value>
 	</data>
 	<data name="title_filesave" xml:space="preserve">
 		<value>הקובץ נשמר</value>
@@ -143,25 +143,25 @@
 		<value>אזהרה!</value>
 	</data>
 	<data name="de" xml:space="preserve">
-		<value>גרמנית:</value>
+		<value>גרמנית</value>
 	</data>
 	<data name="en" xml:space="preserve">
-		<value>אנגלית:</value>
+		<value>אנגלית</value>
 	</data>
 	<data name="fr" xml:space="preserve">
-		<value>צרפתית:</value>
+		<value>צרפתית</value>
 	</data>
 	<data name="lang" xml:space="preserve">
 		<value>שפה</value>
 	</data>
 	<data name="programmer" xml:space="preserve">
-		<value>מתכנת:</value>
+		<value>מתכנת</value>
 	</data>
 	<data name="translations" xml:space="preserve">
 		<value>--- תרגומים ---</value>
 	</data>
 	<data name="translator" xml:space="preserve">
-		<value>תרגום:</value>
+		<value>תרגום</value>
 	</data>
 	<data name="about" xml:space="preserve">
 		<value>על אודות / החלפת שפה</value>
@@ -179,7 +179,7 @@
 		<value>ניתן להשתמש בהגדרה הבאה במקום השורה שמתחילה ב־„UserInstallation=‎“ משדה הטקסט שלהלן כדי לא לדרוס את פרופיל המשתמש הקיים שלך.</value>
 	</data>
 	<data name="update_lang" xml:space="preserve">
-		<value>החלפת השפה:</value>
+		<value>החלפת השפה</value>
 	</data>
 	<data name="versiondl" xml:space="preserve">
 		<value>האם אכן להוריד את הגרסה %version?</value>
@@ -197,7 +197,7 @@
 		<value>עריכת bootstrap.ini</value>
 	</data>
 	<data name="progress" xml:space="preserve">
-		<value>התקדמות:</value>
+		<value>התקדמות</value>
 	</data>
 	<data name="open_bootstrap_title" xml:space="preserve">
 		<value>פתיחת bootstrap.ini</value>
@@ -218,16 +218,16 @@
 		<value>שמירת bootstrap.ini</value>
 	</data>
 	<data name="subfolder_do" xml:space="preserve">
-		<value>האם ליצור תת־תיקייה אוטומטית? שם תת־התיקייה:</value>
+		<value>האם ליצור תת־תיקייה אוטומטית? שם תת־התיקייה</value>
 	</data>
 	<data name="es" xml:space="preserve">
-		<value>ספרדית:</value>
+		<value>ספרדית</value>
 	</data>
 	<data name="sl" xml:space="preserve">
-		<value>סלובנית:</value>
+		<value>סלובנית</value>
 	</data>
 	<data name="da" xml:space="preserve">
-		<value>דנית:</value>
+		<value>דנית</value>
 	</data>
 	<data name="help" xml:space="preserve">
 		<value>עזרה</value>
@@ -245,10 +245,10 @@
 		<value>הורדה החלה!</value>
 	</data>
 	<data name="he" xml:space="preserve">
-		<value>עברית:</value>
+		<value>עברית</value>
 	</data>
 	<data name="pt" xml:space="preserve">
-		<value>פורטוגלית:</value>
+		<value>פורטוגלית</value>
 	</data>
 	<data name="error_langpack_nolang" xml:space="preserve">
 		<value>עליך לבחור שפה בטרם התחלת ההורדה!</value>
@@ -302,10 +302,10 @@
 		<value>קיצור הדרך נוצר בהצלחה!</value>
 	</data>
 	<data name="nl" xml:space="preserve">
-		<value>הולנדית:</value>
+		<value>הולנדית</value>
 	</data>
 	<data name="s_version" xml:space="preserve">
-		<value>גרסה:</value>
+		<value>גרסה</value>
 	</data>
 	<data name="s_and" xml:space="preserve">
 		<value>וגם</value>
@@ -335,7 +335,7 @@
 		<value>בנייה ניסיונית</value>
 	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
-		<value>שפה (עזרה):</value>
+		<value>שפה (עזרה)</value>
 	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
 		<value>להתחיל בהורדה</value>
@@ -365,7 +365,7 @@
 		<value>לאפשר לעקוב אחר השימוש שלך בתכנית בעזרת „TDF Piwik“</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>משתמש יקר,:nl:תכנית זו משתמש ב־„TDF Piwik“  כדי לקבל סטטיסטיקה באשר לשימוש בתכנית זו.:nl:יצרנו מס׳ מעקב עבור התקנה זו. מס׳ המעקב (trackingID) הוא::nl:%trackingID:nl:כפי שניתן לראות, מספר זה אינו מכיל פרטים אישיים. ניתן ללחוץ על „כן“ כדי לאפשר את המעקב או „לא“ כדי למנוע אותו.</value>
+		<value>משתמש יקר,nlתכנית זו משתמש ב־„TDF Piwik“  כדי לקבל סטטיסטיקה באשר לשימוש בתכנית זו.nlיצרנו מס׳ מעקב עבור התקנה זו. מס׳ המעקב (trackingID) הואnl%trackingIDnlכפי שניתן לראות, מספר זה אינו מכיל פרטים אישיים. ניתן ללחוץ על „כן“ כדי לאפשר את המעקב או „לא“ כדי למנוע אותו.</value>
 	</data>
 	<data name="ink_error_2" xml:space="preserve">
 		<value>לא זוהה הנתיב אל soffice.exe!</value>
@@ -380,7 +380,7 @@
 		<value>שינוי שמות קבצים מתקדם</value>
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
-		<value>אם אפשרות זו פעילה הקבצים יאוחסנו עם שמם המקורי.:n:אם תנוטרל, ישמרו רק תכנית התקנה אחת וחבילת עזרה אחת בכונן.</value>
+		<value>אם אפשרות זו פעילה הקבצים יאוחסנו עם שמם המקורי.nאם תנוטרל, ישמרו רק תכנית התקנה אחת וחבילת עזרה אחת בכונן.</value>
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>נא לבחור בתיקיית הורדה</value>

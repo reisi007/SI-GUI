@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SI_GUI {
+namespace SI_GUI.l10n {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SI_GUI {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SI_GUI.strings", typeof(strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SI_GUI.l10n.strings", typeof(strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -439,7 +439,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IT.
+        ///   Looks up a localized string similar to Italian.
         /// </summary>
         internal static string it {
             get {
@@ -466,7 +466,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LO.
+        ///   Looks up a localized string similar to Lao.
         /// </summary>
         internal static string lo {
             get {
@@ -628,7 +628,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MT.
+        ///   Looks up a localized string similar to Maltese.
         /// </summary>
         internal static string mt {
             get {
@@ -880,7 +880,7 @@ namespace SI_GUI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TR.
+        ///   Looks up a localized string similar to TUrkish.
         /// </summary>
         internal static string tr {
             get {

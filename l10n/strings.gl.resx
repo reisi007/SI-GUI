@@ -118,324 +118,324 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="dirnotfound" xml:space="preserve">
-    <value>Directory does not exist!</value>
-  </data>
+		<value>O cartafol non existe!</value>
+	</data>
 	<data name="dirnotfoundmessage" xml:space="preserve">
-    <value>Please check your choosen directory!</value>
-  </data>
+		<value>Comprobe o cartafol escollido!</value>
+	</data>
 	<data name="Error" xml:space="preserve">
-    <value>Error!</value>
-  </data>
+		<value>Erro!</value>
+	</data>
 	<data name="filesave" xml:space="preserve">
-    <value>The file has successfully been saved!</value>
-  </data>
+		<value>O ficheiro gardouse correctamente!</value>
+	</data>
 	<data name="go_back" xml:space="preserve">
-    <value>Go back?</value>
-  </data>
+		<value>Volver?</value>
+	</data>
 	<data name="help_runasadmin" xml:space="preserve">
-    <value>It might help to run this program as administrator.</value>
-  </data>
+		<value>Podería ser conveniente executar este programa como administrador.</value>
+	</data>
 	<data name="installerror" xml:space="preserve">
-    <value>Installation could not be startet due to the following error:</value>
-  </data>
+		<value>A instalación non puido comezar debido ao seguinte erro</value>
+	</data>
 	<data name="installnostart" xml:space="preserve">
-    <value>Installation could not be started!</value>
-  </data>
+		<value>A instalación non puido comezar!</value>
+	</data>
 	<data name="no_installdir" xml:space="preserve">
-    <value>No install directory choosen!</value>
-  </data>
+		<value>Non se escolleu ningún cartafol!</value>
+	</data>
 	<data name="no_installfile" xml:space="preserve">
-    <value>You did not choose a LibreOffice Installation file!</value>
-  </data>
+		<value>Non escolleu un ficheiro de instalación da LibreOffice!</value>
+	</data>
 	<data name="si" xml:space="preserve">
-    <value>Security Issue</value>
-  </data>
+		<value>Problema de seguranza</value>
+	</data>
 	<data name="si_message" xml:space="preserve">
-    <value>You do not have the right to write into this folder.</value>
-  </data>
+		<value>Non ten permiso de escritura neste cartafol.</value>
+	</data>
 	<data name="standarderror" xml:space="preserve">
-    <value>An error occoured! Message:</value>
-  </data>
+		<value>Produciuse un erro! Mensaxe</value>
+	</data>
 	<data name="title_filesave" xml:space="preserve">
-    <value>File saved</value>
-  </data>
+		<value>Ficheiro gardado</value>
+	</data>
 	<data name="warning" xml:space="preserve">
-    <value>Warning!</value>
-  </data>
+		<value>Coidado</value>
+	</data>
 	<data name="de" xml:space="preserve">
-    <value>German:</value>
-  </data>
+		<value>Alemán</value>
+	</data>
 	<data name="en" xml:space="preserve">
-    <value>English:</value>
-  </data>
+		<value>Inglés</value>
+	</data>
 	<data name="fr" xml:space="preserve">
-    <value>French:</value>
-  </data>
+		<value>Francés</value>
+	</data>
 	<data name="lang" xml:space="preserve">
-    <value>Language:</value>
-  </data>
+		<value>Idioma</value>
+	</data>
 	<data name="programmer" xml:space="preserve">
-    <value>Programmer:</value>
-  </data>
+		<value>Programador</value>
+	</data>
 	<data name="translations" xml:space="preserve">
-    <value>--- Translations ---</value>
-  </data>
+		<value>--- Traducións ---</value>
+	</data>
 	<data name="translator" xml:space="preserve">
-    <value>Translator:</value>
-  </data>
+		<value>Tradutor</value>
+	</data>
 	<data name="about" xml:space="preserve">
-    <value>About / Settings</value>
-  </data>
+		<value>Verbo de / Configuración</value>
+	</data>
 	<data name="language_change_success" xml:space="preserve">
-    <value>The language setting will apply at the next startup!</value>
-  </data>
+		<value>A opción de idioma aplicarase no próximo inicio!</value>
+	</data>
 	<data name="success" xml:space="preserve">
-    <value>Success!</value>
-  </data>
+		<value>Correcto!</value>
+	</data>
 	<data name="tt_bootstrap" xml:space="preserve">
-    <value>You may use the following instead of the line starting with “UserInstallation=” from the text field above in order to not override your existing user profile.</value>
-  </data>
+		<value>Pode utilizar o seguinte no canto da liña que comeza con «Userinstallation=» no campo de texto anterior para non sobrescribir o seu perfil de usuario existente.</value>
+	</data>
 	<data name="update_lang" xml:space="preserve">
-    <value>Change language:</value>
-  </data>
+		<value>Mudar o idioma</value>
+	</data>
 	<data name="versiondl" xml:space="preserve">
-    <value>Should %version really be downloaded?</value>
-  </data>
+		<value>Confirma que se debería descargar % versión?</value>
+	</data>
 	<data name="open_help" xml:space="preserve">
-    <value>Open LibreOffice help installer</value>
-  </data>
+		<value>Abrir o instalador de axuda de LibreOffice</value>
+	</data>
 	<data name="config_installdir" xml:space="preserve">
-    <value>Configure installation directory</value>
-  </data>
+		<value>Configurar o cartafol de instalación</value>
+	</data>
 	<data name="open_bootstrap_ini" xml:space="preserve">
-    <value>Open bootstrap.ini</value>
-  </data>
+		<value>Abrir bootstrap.ini</value>
+	</data>
 	<data name="edit_bs_ini" xml:space="preserve">
-    <value>Edit bootstrap.ini</value>
-  </data>
+		<value>Editar bootstrap.ini</value>
+	</data>
 	<data name="progress" xml:space="preserve">
-    <value>Progress:</value>
-  </data>
+		<value>Avance</value>
+	</data>
 	<data name="open_bootstrap_title" xml:space="preserve">
-    <value>Open bootstrap.ini</value>
-  </data>
+		<value>Abrir bootstrap.ini</value>
+	</data>
 	<data name="open_installer" xml:space="preserve">
-    <value>Open LibreOffice installer</value>
-  </data>
+		<value>Abrir o instalador de LibreOffice</value>
+	</data>
 	<data name="startdl" xml:space="preserve">
-    <value>Should the file be downloaded?</value>
-  </data>
+		<value>Deberíase descargar o ficheiro?</value>
+	</data>
 	<data name="start_install" xml:space="preserve">
-    <value>Start installation</value>
-  </data>
+		<value>Iniciar a instalación</value>
+	</data>
 	<data name="where_to_install" xml:space="preserve">
-    <value>Choose installation directory</value>
-  </data>
+		<value>Escoller o cartafil de instalación</value>
+	</data>
 	<data name="save_bootstrap_ini" xml:space="preserve">
-    <value>Save bootstrap.ini</value>
-  </data>
+		<value>Gardar bootstrap.ini</value>
+	</data>
 	<data name="subfolder_do" xml:space="preserve">
-    <value>Should a subfolder be created automatically? Name of the subfolder:</value>
-  </data>
+		<value>Deberíase crear automaticamente un subcartafol? Nome do subcartafol</value>
+	</data>
 	<data name="es" xml:space="preserve">
-    <value>Spanish:</value>
-  </data>
+		<value>Español</value>
+	</data>
 	<data name="sl" xml:space="preserve">
-    <value>Slovenian:</value>
-  </data>
+		<value>Esloveno</value>
+	</data>
 	<data name="da" xml:space="preserve">
-    <value>Danish:</value>
-  </data>
+		<value>Danés</value>
+	</data>
 	<data name="help" xml:space="preserve">
-    <value>Help</value>
-  </data>
+		<value>Axuda</value>
+	</data>
 	<data name="dl_finished" xml:space="preserve">
-    <value>The download has been finished and is ready for installation.</value>
-  </data>
+		<value>A descarga xa rematou e está pronta para a instalación.</value>
+	</data>
 	<data name="dl_finished_title" xml:space="preserve">
-    <value>Download finished!</value>
-  </data>
+		<value>Descarga rematada!</value>
+	</data>
 	<data name="dl_started" xml:space="preserve">
-    <value>A download has been started!</value>
-  </data>
+		<value>Acaba de comezar unha descarga!</value>
+	</data>
 	<data name="dl_started_title" xml:space="preserve">
-    <value>Download started!</value>
-  </data>
+		<value>Descarga comezada!</value>
+	</data>
 	<data name="he" xml:space="preserve">
-    <value>Hebrew:</value>
-  </data>
+		<value>Hebreo</value>
+	</data>
 	<data name="pt" xml:space="preserve">
-    <value>Portuguese:</value>
-  </data>
+		<value>Portugués</value>
+	</data>
 	<data name="error_langpack_nolang" xml:space="preserve">
-    <value>You have to choose a language before starting the download!</value>
-  </data>
+		<value>Debe escoller un idioma antes de comezar a descarga!</value>
+	</data>
 	<data name="mai_abort" xml:space="preserve">
-    <value>Abort</value>
-  </data>
+		<value>Abortar</value>
+	</data>
 	<data name="mai_config_path" xml:space="preserve">
-    <value>Configure path</value>
-  </data>
+		<value>Configurar a ruta</value>
+	</data>
 	<data name="okay" xml:space="preserve">
-    <value>Okay</value>
-  </data>
+		<value>Aceptar</value>
+	</data>
 	<data name="mai_path_soffice" xml:space="preserve">
-    <value>Path to the soffice.exe of the parallel installation</value>
-  </data>
+		<value>Ruta ao soffice.exe da instalación en paralelo</value>
+	</data>
 	<data name="mai_text" xml:space="preserve">
-    <value>Manually add parallel installation</value>
-  </data>
+		<value>Engadir manualmente a instalación en paralelo</value>
+	</data>
 	<data name="man_addinstall" xml:space="preserve">
-    <value>Manually add installation</value>
-  </data>
+		<value>Engadir manualmente a instalación</value>
+	</data>
 	<data name="man_del" xml:space="preserve">
-    <value>Delete selected</value>
-  </data>
+		<value>Eliminar o seleccionado</value>
+	</data>
 	<data name="man_exit" xml:space="preserve">
-    <value>Exit</value>
-  </data>
+		<value>Saír</value>
+	</data>
 	<data name="man_title" xml:space="preserve">
-    <value>Manager</value>
-  </data>
+		<value>Xestor</value>
+	</data>
 	<data name="ink_des" xml:space="preserve">
-    <value>Shortcut to a parallel installed LibreOffice %version.</value>
-  </data>
+		<value>Atallo á %version de LibreOffice instalada en paralelo.</value>
+	</data>
 	<data name="ink_error_1" xml:space="preserve">
-    <value>No version specified!</value>
-  </data>
+		<value>Non hai ningunha versión especificada!</value>
+	</data>
 	<data name="tt_ink" xml:space="preserve">
-    <value>Create a desktop shortcut for this parallel installation</value>
-  </data>
+		<value>Crear un atallo de escritorio a esta instalación paralela!</value>
+	</data>
 	<data name="tt_path_to_exe" xml:space="preserve">
-    <value>Path to the soffice.exe of the parallel installation (Automatically added)</value>
-  </data>
+		<value>Ruta ao soffice.exe da instalación en paralelo (engadida automaticamente)</value>
+	</data>
 	<data name="b_create_shortcut" xml:space="preserve">
-    <value>Create Shortcut</value>
-  </data>
+		<value>Crear un atallo</value>
+	</data>
 	<data name="msb_lnk_title" xml:space="preserve">
-    <value>Shortcut created!</value>
-  </data>
+		<value>Atallo creado!</value>
+	</data>
 	<data name="msb_lnk_txt" xml:space="preserve">
-    <value>Shortcut has sucessfully been created!</value>
-  </data>
+		<value>O atallo creouse autoaticamente</value>
+	</data>
 	<data name="nl" xml:space="preserve">
-    <value>Dutch:</value>
-  </data>
+		<value>Holandés</value>
+	</data>
 	<data name="s_version" xml:space="preserve">
-    <value>Version:</value>
-  </data>
+		<value>Versión</value>
+	</data>
 	<data name="s_and" xml:space="preserve">
-    <value>and</value>
-  </data>
+		<value>e</value>
+	</data>
 	<data name="notest_ti" xml:space="preserve">
-    <value>No test version!</value>
-  </data>
+		<value>Non hai ningunha de proba!</value>
+	</data>
 	<data name="notest_txt" xml:space="preserve">
-    <value>No testversion available at the moment.</value>
-  </data>
+		<value>Non hai ningunha versión de proba dispoñíbel neste momento.</value>
+	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
-    <value>Download</value>
-  </data>
+		<value>Descargar</value>
+	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-    <value>Helppack</value>
-  </data>
+		<value>Paquete da Axuda</value>
+	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
-    <value>Installer</value>
-  </data>
+		<value>Instalación</value>
+	</data>
 	<data name="m_l10n_lb" xml:space="preserve">
-    <value>Latest branch</value>
-  </data>
+		<value>Nova ramificación</value>
+	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-    <value>Older branch</value>
-  </data>
+		<value>Antiga ramificación</value>
+	</data>
 	<data name="m_l10n_t" xml:space="preserve">
-    <value>Testing build</value>
-  </data>
+		<value>Versión de proba</value>
+	</data>
 	<data name="m_l10n_langhelptxt" xml:space="preserve">
-    <value>Language (help):</value>
-  </data>
+		<value>Idioma (axuda)</value>
+	</data>
 	<data name="start_dl" xml:space="preserve">
-    <value>Start download</value>
-  </data>
+		<value>Comezar a descarga</value>
+	</data>
 	<data name="gb_dl_begindl" xml:space="preserve">
-    <value>Begin download</value>
-  </data>
+		<value>Comezo da descarga</value>
+	</data>
 	<data name="gb_dl_help" xml:space="preserve">
-    <value>Offline help</value>
-  </data>
+		<value>Axuda en local</value>
+	</data>
 	<data name="gb_dl_installer" xml:space="preserve">
-    <value>Installer</value>
-  </data>
+		<value>Instalador</value>
+	</data>
 	<data name="gb_dl_update" xml:space="preserve">
-    <value>Update list of versions</value>
-  </data>
+		<value>Actualizar a lista de versións</value>
+	</data>
 	<data name="gb_parallel_install" xml:space="preserve">
-    <value>Parallel installation</value>
-  </data>
+		<value>Instalación en paralelo</value>
+	</data>
 	<data name="any_libo_version" xml:space="preserve">
-    <value>All LibO versions</value>
-  </data>
+		<value>Todas as versións de LibreOffice</value>
+	</data>
 	<data name="tt_tb" xml:space="preserve">
-    <value>Latest testing build.</value>
-  </data>
+		<value>Última compilación de proba.</value>
+	</data>
 	<data name="ink_error_2" xml:space="preserve">
-    <value>No path to soffice.exe could be detected!</value>
-  </data>
+		<value>Non se atopou ningunha ruta a soffice.exe!</value>
+	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-    <value>Dear user,:nl:This program uses "TDF Piwik"  in order to get statistics about the usage of this program.:nl:We have created a trackingID for this installation. Your trackingID is::nl:%trackingID:nl:As you can see, this does not contain any private information. Press"Yes" in order to allow tracking, "No" in order to prohibit.</value>
-  </data>
+		<value>Prezado/a usuario/a Este programa utiliza o «TDF Piwik» co fin de obter estatísticas sobre a utilización deste programa.nlNós creamos un identificador de seguimento (trackingID) para esta instalación. O seu identificador énl%trackingIDnl Como pode ver este identificador non contén ningunha información privada. Prema «Si» para permitir o seguimento, «Non» para vetalo.</value>
+	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
-    <value>Statistics powered by "TDF Piwik" .</value>
-  </data>
+		<value>Estatísticas feitas con «TDF Piwik»</value>
+	</data>
 	<data name="ga_cb_allowed" xml:space="preserve">
-    <value>Allow tracking your usage of the program with help of "TDF Piwik"</value>
-  </data>
+		<value>Permitir o seguimento do uso do programa coa axuda do «TDF Piwik»</value>
+	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
-    <value>Select download folder</value>
-  </data>
+		<value>Seleccionar o cartafol de descarga</value>
+	</data>
 	<data name="install_err1_tit" xml:space="preserve">
-    <value>Overwriting existing Server Installation!</value>
-  </data>
+		<value>Sobrescribir a instalación actual do servidor!</value>
+	</data>
 	<data name="install_err1_txt" xml:space="preserve">
-    <value>You are about to overwrite an existing Server Installation. Continue?</value>
-  </data>
+		<value>Está a piques de sobrescribir unha instalación existente no servidor. Continuar?</value>
+	</data>
 	<data name="cb_advanced_file" xml:space="preserve">
-    <value>Advanced file renaming</value>
-  </data>
+		<value>Renomeo avanzado de ficheiro</value>
+	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
-    <value>If enabled the files will be stored with their original filename.:n:If disabled, only one installer and one helppack will be kept on the disk.</value>
-  </data>
+		<value>De estar activado, os ficheiros gardaranse cos seus nomes orixinais.nDe estar desactivado, soamente se gardará un instalador e un paquete de axuda no disco.</value>
+	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
-    <value>SI GUI - Bootstrap.ini auto edited</value>
-  </data>
+		<value>SI IGU - Bootstrap.ini autoeditado</value>
+	</data>
 	<data name="tt_editbs_txt" xml:space="preserve">
-    <value>The bootstrap.ini file has been edited automatically. You can turn this off in the settings.</value>
-  </data>
+		<value>O ficheiro bootstrap.ini editouse automaticamente. Pode quitar esta opción na configuración.</value>
+	</data>
 	<data name="cb_autoedit" xml:space="preserve">
-    <value>Auto-edit bootstrap.ini</value>
-  </data>
+		<value>Autoeditar bootstrap.ini</value>
+	</data>
 	<data name="tt_autoupdate" xml:space="preserve">
-    <value>Do you want to manually check for updates? This will close the program!</value>
-  </data>
+		<value>Quere comprobar manualmente a existencia de actualizacións? Isto pechará o programa!</value>
+	</data>
 	<data name="tt_go" xml:space="preserve">
-    <value>Install LibreOffice (not parallel)</value>
-  </data>
+		<value>Instalar LibreOffice (non paralela)</value>
+	</data>
 	<data name="back" xml:space="preserve">
-    <value>Go back</value>
-  </data>
+		<value>Volver</value>
+	</data>
 	<data name="gl" xml:space="preserve">
-    <value>Galician</value>
-  </data>
+		<value>Galego</value>
+	</data>
 	<data name="it" xml:space="preserve">
-    <value>Italian</value>
-  </data>
+		<value>Italiano</value>
+	</data>
 	<data name="lo" xml:space="preserve">
-    <value>Lao</value>
-  </data>
+		<value>Laosiano</value>
+	</data>
 	<data name="mt" xml:space="preserve">
-    <value>Maltese</value>
-  </data>
+		<value>Maltés</value>
+	</data>
 	<data name="tr" xml:space="preserve">
-    <value>TUrkish</value>
-  </data>
+		<value>Turco</value>
+	</data>
 </root>

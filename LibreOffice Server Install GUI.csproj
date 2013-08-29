@@ -34,7 +34,7 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>4.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -110,30 +110,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="access_settings.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="settings.cs" />
+    <Compile Include="MainUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainUI.Designer.cs">
+      <DependentUpon>MainUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.Downloadhelper.cs">
+    <Compile Include="Downloadhelper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.WinFormStartHelper.cs">
+    <Compile Include="WinFormStartHelper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="AboutUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="AboutUI.Designer.cs">
+      <DependentUpon>AboutUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Help.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
     </Compile>
     <Compile Include="Piwik.cs" />
     <Compile Include="Manager.cs">
@@ -155,39 +155,39 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="strings.de.Designer.cs">
+    <Compile Include="l10n\strings.de.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.de.resx</DependentUpon>
     </Compile>
-    <Compile Include="strings.Designer.cs">
+    <Compile Include="l10n\strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="strings.es.Designer.cs">
+    <Compile Include="l10n\strings.es.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.es.resx</DependentUpon>
     </Compile>
-    <Compile Include="strings.fr.Designer.cs">
+    <Compile Include="l10n\strings.fr.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.fr.resx</DependentUpon>
     </Compile>
-    <Compile Include="strings.sl.Designer.cs">
+    <Compile Include="l10n\strings.sl.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.sl.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainUI.resx">
+      <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="AboutUI.resx">
+      <DependentUpon>AboutUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
@@ -209,34 +209,34 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="strings.da.resx" />
-    <EmbeddedResource Include="strings.de.resx">
+    <EmbeddedResource Include="l10n\strings.da.resx" />
+    <EmbeddedResource Include="l10n\strings.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.es.resx">
+    <EmbeddedResource Include="l10n\strings.es.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.fr.resx">
+    <EmbeddedResource Include="l10n\strings.fr.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.gl.resx" />
-    <EmbeddedResource Include="strings.he.resx" />
-    <EmbeddedResource Include="strings.lo-LA.resx" />
-    <EmbeddedResource Include="strings.mt-MT.resx" />
-    <EmbeddedResource Include="strings.nl.resx" />
-    <EmbeddedResource Include="strings.pt.resx" />
-    <EmbeddedResource Include="strings.resx">
+    <EmbeddedResource Include="l10n\strings.gl.resx" />
+    <EmbeddedResource Include="l10n\strings.he.resx" />
+    <EmbeddedResource Include="l10n\strings.lo-LA.resx" />
+    <EmbeddedResource Include="l10n\strings.mt-MT.resx" />
+    <EmbeddedResource Include="l10n\strings.nl.resx" />
+    <EmbeddedResource Include="l10n\strings.pt.resx" />
+    <EmbeddedResource Include="l10n\strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.sl.resx">
+    <EmbeddedResource Include="l10n\strings.sl.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.sl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.tr.resx" />
+    <EmbeddedResource Include="l10n\strings.tr.resx" />
     <None Include="app.config" />
     <None Include="LibreOffice Server Install GUI_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />

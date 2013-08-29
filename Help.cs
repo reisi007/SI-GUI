@@ -20,26 +20,16 @@ using System.Globalization;
 
 namespace SI_GUI
 {
-    public partial class Form3 : Form
+    public partial class HelpUI : Form
     {
-        string lang = "";
+        bool onlyOnce = true;
         access_settings set = new access_settings();
-        public Form3(string[] l10n, bool rtl, string clang)
+        public HelpUI(string[] l10n, bool rtl, string lang)
         {
-            lang = clang;
             if (rtl)
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             InitializeComponent();
             this.l10n = l10n;
-        }
-        private string[] l10n;
-        public void exeptionmessage(string ex_message)
-        {
-            MessageBox.Show(l10n[0] + ex_message, l10n[1], MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void form3load(object sender, EventArgs e)
-        {
             string code = "";
             // get language specific help page
             switch (lang.ToLower())
@@ -53,9 +43,26 @@ namespace SI_GUI
             }
             this.Text = l10n[2];
             string url = "http://dev-builds.libreoffice.org/si-gui/help/" + code + ".html";
-            Uri uriurl = new Uri(url);
-            help_browser.Url = uriurl;
+            help_browser.Navigate(url, false);
+
+
         }
+        private string[] l10n;
+        public void exeptionmessage(string ex_message)
+        {
+            MessageBox.Show(l10n[0] + ex_message, l10n[1], MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void loadComplete(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            if (onlyOnce)
+            {
+                help_browser.Refresh(WebBrowserRefreshOption.Completely);
+                onlyOnce = false;
+                this.Text += "-" + e.Url.ToString().Substring(e.Url.ToString().LastIndexOf("/") + 1)[0].ToString().ToUpper() + e.Url.ToString().Substring(e.Url.ToString().LastIndexOf("/") + 2, e.Url.ToString().LastIndexOf(".") - e.Url.ToString().LastIndexOf("/")-2);
+            }
+        }
+
     }
 
 }
