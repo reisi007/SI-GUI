@@ -124,7 +124,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Danish:.
+        ///   Looks up a localized string similar to Danish.
         /// </summary>
         internal static string da {
             get {
@@ -133,7 +133,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to German:.
+        ///   Looks up a localized string similar to German.
         /// </summary>
         internal static string de {
             get {
@@ -151,7 +151,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please check your choosen directory!.
+        ///   Looks up a localized string similar to Please check your chosen directory!.
         /// </summary>
         internal static string dirnotfoundmessage {
             get {
@@ -205,7 +205,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English:.
+        ///   Looks up a localized string similar to English.
         /// </summary>
         internal static string en {
             get {
@@ -232,7 +232,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spanish:.
+        ///   Looks up a localized string similar to Spanish.
         /// </summary>
         internal static string es {
             get {
@@ -250,7 +250,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to French:.
+        ///   Looks up a localized string similar to French.
         /// </summary>
         internal static string fr {
             get {
@@ -259,7 +259,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dear user,:nl:This program uses &quot;TDF Piwik&quot;  in order to get statistics about the usage of this program.:nl:We have created a trackingID for this installation. Your trackingID is::nl:%trackingID:nl:As you can see, this does not contain any private information. Press&quot;Yes&quot; in order to allow tracking, &quot;No&quot; in order to prohibit..
+        ///   Looks up a localized string similar to Dear user,nlThis program uses &quot;TDF Piwik&quot;  in order to get statistics about the usage of this program.nlWe have created a trackingID for this installation. Your trackingID isnl%trackingIDnlAs you can see, this does not contain any private information. Press&quot;Yes&quot; in order to allow tracking, &quot;No&quot; in order to prohibit..
         /// </summary>
         internal static string ga_allowed_text {
             get {
@@ -349,7 +349,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hebrew:.
+        ///   Looks up a localized string similar to Hebrew.
         /// </summary>
         internal static string he {
             get {
@@ -421,7 +421,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Installation could not be startet due to the following error:.
+        ///   Looks up a localized string similar to Installation could not be started due to the following error.
         /// </summary>
         internal static string installerror {
             get {
@@ -448,7 +448,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language:.
+        ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string lang {
             get {
@@ -484,7 +484,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Helppack.
+        ///   Looks up a localized string similar to Help pack.
         /// </summary>
         internal static string m_l10n_helppack {
             get {
@@ -502,7 +502,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language (help):.
+        ///   Looks up a localized string similar to Language (help).
         /// </summary>
         internal static string m_l10n_langhelptxt {
             get {
@@ -619,7 +619,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shortcut has sucessfully been created!.
+        ///   Looks up a localized string similar to Shortcut has successfully been created!.
         /// </summary>
         internal static string msb_lnk_txt {
             get {
@@ -637,7 +637,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dutch:.
+        ///   Looks up a localized string similar to Dutch.
         /// </summary>
         internal static string nl {
             get {
@@ -646,7 +646,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No install directory choosen!.
+        ///   Looks up a localized string similar to No install directory chosen!.
         /// </summary>
         internal static string no_installdir {
             get {
@@ -673,7 +673,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No testversion available at the moment..
+        ///   Looks up a localized string similar to No test version available at the moment..
         /// </summary>
         internal static string notest_txt {
             get {
@@ -727,7 +727,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Programmer:.
+        ///   Looks up a localized string similar to Programmer.
         /// </summary>
         internal static string programmer {
             get {
@@ -736,7 +736,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Progress:.
+        ///   Looks up a localized string similar to Progress.
         /// </summary>
         internal static string progress {
             get {
@@ -745,7 +745,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Portuguese:.
+        ///   Looks up a localized string similar to Portuguese.
         /// </summary>
         internal static string pt {
             get {
@@ -763,7 +763,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version:.
+        ///   Looks up a localized string similar to Version.
         /// </summary>
         internal static string s_version {
             get {
@@ -808,7 +808,16 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slovenian:.
+        ///   Looks up a localized string similar to Parallel installation with ease.
+        /// </summary>
+        internal static string siguislogan {
+            get {
+                return ResourceManager.GetString("siguislogan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slovenian.
         /// </summary>
         internal static string sl {
             get {
@@ -817,7 +826,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occoured! Message:.
+        ///   Looks up a localized string similar to An error occurred! Message.
         /// </summary>
         internal static string standarderror {
             get {
@@ -853,7 +862,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Should a subfolder be created automatically? Name of the subfolder:.
+        ///   Looks up a localized string similar to Should a sub folder be created automatically? Name of the sub folder.
         /// </summary>
         internal static string subfolder_do {
             get {
@@ -880,7 +889,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TUrkish.
+        ///   Looks up a localized string similar to Turkish.
         /// </summary>
         internal static string tr {
             get {
@@ -898,7 +907,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translator:.
+        ///   Looks up a localized string similar to Translator.
         /// </summary>
         internal static string translator {
             get {
@@ -907,7 +916,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If enabled the files will be stored with their original filename.:n:If disabled, only one installer and one helppack will be kept on the disk..
+        ///   Looks up a localized string similar to If enabled the files will be stored with their original filename.nIf disabled, only one installer and one helppack will be kept on the disk..
         /// </summary>
         internal static string tt_advanced_file {
             get {
@@ -988,7 +997,7 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change language:.
+        ///   Looks up a localized string similar to Change language.
         /// </summary>
         internal static string update_lang {
             get {

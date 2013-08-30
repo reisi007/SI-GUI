@@ -23,8 +23,8 @@ namespace SI_GUI
         {
             Dispose();
         }
-       
-       public void Dispose()
+
+        public void Dispose()
         {
             bw.Dispose();
         }
@@ -41,7 +41,7 @@ namespace SI_GUI
             }
             // Check whether GAnalytic tracking is allowed
             sallowed_title = allowed_title;
-            sallowed_txt = allowed_txt.Replace("%trackingID", Set.Piwik.trackingID);
+            sallowed_txt = allowed_txt.Replace("%trackingID", Set.Piwik.trackingID).Replace("nl", Environment.NewLine);
             if (!Set.Piwik.manually_set)
             {
                 Set.Piwik.tracking_allowed = Tracking_allowed();
@@ -133,14 +133,14 @@ namespace SI_GUI
         private string defaultPOST { get { return "apiv=1&idsite=" + websiteID + "&rec=1&_id = " + Set.Piwik.trackingID; } }
         private void submitGA(string ec, string ea, string el = "", string manualPOST = "")
         {
-                string POST_Data = defaultPOST + "&url=http://si-gui.libreoffice.org&action_name=" + ec + "/" + ea;
-                if (el != null)
-                    POST_Data += "/" + el;
-                POST_Data += "&_cvar={" + getJSON(ec, ea);
-                if (el != "")
-                    POST_Data += "," + getJSON("hp-download-lang", el);
-                POST_Data += "}";
-                submitRequest2Queue(POST_Data);
+            string POST_Data = defaultPOST + "&url=http://si-gui.libreoffice.org&action_name=" + ec + "/" + ea;
+            if (el != null)
+                POST_Data += "/" + el;
+            POST_Data += "&_cvar={" + getJSON(ec, ea);
+            if (el != "")
+                POST_Data += "," + getJSON("hp-download-lang", el);
+            POST_Data += "}";
+            submitRequest2Queue(POST_Data);
         }
         private void submitRequest2Queue(string POST)
         {

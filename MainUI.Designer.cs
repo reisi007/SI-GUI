@@ -653,7 +653,7 @@
             this.Name = "Form1";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Install GUI";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainUI_Load);
             this.gb_bootstrap.ResumeLayout(false);
             this.gb_bootstrap.PerformLayout();
             this.menu.ResumeLayout(false);

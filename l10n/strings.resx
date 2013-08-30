@@ -382,7 +382,7 @@
     <value>No path to soffice.exe could be detected!</value>
   </data>
 	<data name="ga_allowed_text" xml:space="preserve">
-    <value>Dear user,nlThis program uses "TDF Piwik"  in order to get statistics about the usage of this program.nlWe have created a trackingID for this installation. Your trackingID isnl%trackingIDnlAs you can see, this does not contain any private information. Press"Yes" in order to allow tracking, "No" in order to prohibit.</value>
+    <value>Dear user,nlThis program uses "TDF Piwik"  in order to get statistics about the usage of this program.nlWe have created a tracking ID for this installation. Your tracking ID isnl%trackingIDnlAs you can see, this does not contain any private information. Press"Yes" in order to allow tracking, "No" in order to prohibit.</value>
   </data>
 	<data name="ga_allowed_title" xml:space="preserve">
     <value>Statistics powered by "TDF Piwik" .</value>
@@ -403,7 +403,7 @@
     <value>Advanced file renaming</value>
   </data>
 	<data name="tt_advanced_file" xml:space="preserve">
-    <value>If enabled the files will be stored with their original filename.nIf disabled, only one installer and one helppack will be kept on the disk.</value>
+    <value>If enabled the files will be stored with their original filename.nIf disabled, only one installer and one help pack will be kept on the disk.</value>
   </data>
 	<data name="tt_editbs_tit" xml:space="preserve">
     <value>SI GUI - Bootstrap.ini auto edited</value>
@@ -437,5 +437,8 @@
   </data>
 	<data name="tr" xml:space="preserve">
     <value>Turkish</value>
+  </data>
+	<data name="siguislogan" xml:space="preserve">
+    <value>Parallel installation with ease</value>
   </data>
 </root>

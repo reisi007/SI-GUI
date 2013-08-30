@@ -136,7 +136,7 @@
     <value>Il serait préférable d'exécuter ce programme en tant qu'administrateur.</value>
   </data>
 	<data name="installerror" xml:space="preserve">
-    <value>L'installation n'a pas pu être démarrée en raison de l'erreur suivante </value>
+    <value>L'installation n'a pas pu être démarrée en raison de l'erreur suivante</value>
   </data>
 	<data name="installnostart" xml:space="preserve">
     <value>L'installation n'a pas pu être démarrée !</value>
@@ -154,7 +154,7 @@
     <value>Vous n'avez pas le droit d'écrire dans ce dossier.</value>
   </data>
 	<data name="standarderror" xml:space="preserve">
-    <value>Une erreur est survenue ! Message </value>
+    <value>Une erreur est survenue ! Message</value>
   </data>
 	<data name="title_filesave" xml:space="preserve">
     <value>Fichier enregistré</value>
@@ -163,25 +163,25 @@
     <value>Avertissement !</value>
   </data>
 	<data name="de" xml:space="preserve">
-    <value>Allemand </value>
+    <value>Allemand</value>
   </data>
 	<data name="en" xml:space="preserve">
-    <value>Anglais </value>
+    <value>Anglais</value>
   </data>
 	<data name="fr" xml:space="preserve">
-    <value>Français </value>
+    <value>Français</value>
   </data>
 	<data name="lang" xml:space="preserve">
     <value>Langue</value>
   </data>
 	<data name="programmer" xml:space="preserve">
-    <value>Programmeur </value>
+    <value>Programmeur</value>
   </data>
 	<data name="translations" xml:space="preserve">
     <value>--- Traductions ---</value>
   </data>
 	<data name="translator" xml:space="preserve">
-    <value>Traducteur </value>
+    <value>Traducteur</value>
   </data>
 	<data name="about" xml:space="preserve">
     <value>À propos / Paramétrages</value>
@@ -199,7 +199,7 @@
     <value>Vous devriez utiliser la ligne suivante au lieu de celle commençant par “UserInstallation=” dans le champ texte ci-dessous afin de ne pas écraser le profil utilisateur existant.</value>
   </data>
 	<data name="update_lang" xml:space="preserve">
-    <value>Changer de langue </value>
+    <value>Changer de langue</value>
   </data>
 	<data name="versiondl" xml:space="preserve">
     <value>Est-ce que la %version doit vraiment être téléchargée?</value>
@@ -217,7 +217,7 @@
     <value>Éditer bootdtrap.ini</value>
   </data>
 	<data name="progress" xml:space="preserve">
-    <value>Progression </value>
+    <value>Progression</value>
   </data>
 	<data name="open_bootstrap_title" xml:space="preserve">
     <value>Ouvrir bootstrap.ini</value>
@@ -238,13 +238,13 @@
     <value>Enregistrer bootstrap.ini</value>
   </data>
 	<data name="es" xml:space="preserve">
-		<value>Espagnol </value>
+		<value>Espagnol</value>
 	</data>
 	<data name="sl" xml:space="preserve">
-		<value>Slovène </value>
+		<value>Slovène</value>
 	</data>
 	<data name="subfolder_do" xml:space="preserve">
-		<value>Un sous-dossier doit-il automatiquement être créé ? Nom du sous-dossier </value>
+		<value>Un sous-dossier doit-il automatiquement être créé ? Nom du sous-dossier</value>
 	</data>
 	<data name="da" xml:space="preserve">
 		<value>Danois</value>
@@ -259,16 +259,16 @@
 		<value>Téléchargement terminé</value>
 	</data>
 	<data name="dl_started" xml:space="preserve">
-		<value>Un téléchargement a été démarré </value>
+		<value>Un téléchargement a été démarré</value>
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
-		<value>Téléchargement démarré </value>
+		<value>Téléchargement démarré</value>
 	</data>
 	<data name="he" xml:space="preserve">
 		<value>Hébreu</value>
 	</data>
 	<data name="pt" xml:space="preserve">
-		<value>Portugais </value>
+		<value>Portugais</value>
 	</data>
 	<data name="error_langpack_nolang" xml:space="preserve">
 		<value>Vous devez choisir une langue avant de démarrer le téléchargement !</value>
@@ -322,10 +322,10 @@
 		<value>Le raccourci a été créé avec succès !</value>
 	</data>
 	<data name="nl" xml:space="preserve">
-		<value>Hollandais </value>
+		<value>Hollandais</value>
 	</data>
 	<data name="s_version" xml:space="preserve">
-		<value>Version </value>
+		<value>Version</value>
 	</data>
 	<data name="s_and" xml:space="preserve">
 		<value>et</value>

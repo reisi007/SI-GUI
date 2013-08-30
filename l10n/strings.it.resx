@@ -117,4 +117,307 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="dirnotfound" xml:space="preserve">
+		<value>La cartella non esiste!</value>
+	</data>
+	<data name="dirnotfoundmessage" xml:space="preserve">
+		<value>Per favore controlla la cartella selezionata!</value>
+	</data>
+	<data name="Error" xml:space="preserve">
+		<value>Errore!</value>
+	</data>
+	<data name="filesave" xml:space="preserve">
+		<value>Il file è stato salvato correttamente!</value>
+	</data>
+	<data name="go_back" xml:space="preserve">
+		<value>Torna indietro?</value>
+	</data>
+	<data name="help_runasadmin" xml:space="preserve">
+		<value>Può essere utile caricare questo programma come amministratore.</value>
+	</data>
+	<data name="installerror" xml:space="preserve">
+		<value>L'installazione non può essere iniziata a causa del seguente errore:</value>
+	</data>
+	<data name="installnostart" xml:space="preserve">
+		<value>L'installazione non può essere iniziata!</value>
+	</data>
+	<data name="no_installdir" xml:space="preserve">
+		<value>Non è stata scelta nessuna cartella per l'installazione!</value>
+	</data>
+	<data name="no_installfile" xml:space="preserve">
+		<value>Non è stato selezionato un file di installazione di LibreOffice!</value>
+	</data>
+	<data name="si" xml:space="preserve">
+		<value>Problema di sicurezza</value>
+	</data>
+	<data name="si_message" xml:space="preserve">
+		<value>Non hai i diritti per scrivere in questa cartella.</value>
+	</data>
+	<data name="standarderror" xml:space="preserve">
+		<value>È avvenuto un errore! Messaggio:</value>
+	</data>
+	<data name="title_filesave" xml:space="preserve">
+		<value>File salvato</value>
+	</data>
+	<data name="warning" xml:space="preserve">
+		<value>Attenzione! </value>
+	</data>
+	<data name="de" xml:space="preserve">
+		<value>Tedesco:</value>
+	</data>
+	<data name="en" xml:space="preserve">
+		<value>Inglese</value>
+	</data>
+	<data name="fr" xml:space="preserve">
+		<value>Francese:</value>
+	</data>
+	<data name="lang" xml:space="preserve">
+		<value>Linguaggio:</value>
+	</data>
+	<data name="programmer" xml:space="preserve">
+		<value>Programmatore</value>
+	</data>
+	<data name="translations" xml:space="preserve">
+		<value>--- Traduzioni ---</value>
+	</data>
+	<data name="translator" xml:space="preserve">
+		<value>Traduttore:</value>
+	</data>
+	<data name="about" xml:space="preserve">
+		<value>Informazioni / Parametri</value>
+	</data>
+	<data name="language_change_success" xml:space="preserve">
+		<value>I parametri della lingua saranno applicati al prossimo avvio!</value>
+	</data>
+	<data name="success" xml:space="preserve">
+		<value>Installazione riuscita!</value>
+	</data>
+	<data name="tt_bootstrap" xml:space="preserve">
+		<value>Per non sovrascrivere il tuo profilo utente esistente puoi usare la seguente al posto della linea che comincia con “UserInstallation=”</value>
+	</data>
+	<data name="update_lang" xml:space="preserve">
+		<value>Cambiare lingua:</value>
+	</data>
+	<data name="versiondl" xml:space="preserve">
+		<value>Vuoi davvero scaricare la %version?</value>
+	</data>
+	<data name="open_help" xml:space="preserve">
+		<value>Apri la guida di installazione di LibreOffice</value>
+	</data>
+	<data name="config_installdir" xml:space="preserve">
+		<value>Configura la cartella di installazione</value>
+	</data>
+	<data name="open_bootstrap_ini" xml:space="preserve">
+		<value>Apri bootstrap.ini</value>
+	</data>
+	<data name="edit_bs_ini" xml:space="preserve">
+		<value>Modifica bootstrap.ini</value>
+	</data>
+	<data name="progress" xml:space="preserve">
+		<value>Progressione:</value>
+	</data>
+	<data name="open_bootstrap_title" xml:space="preserve">
+		<value>Apri bootstrap.ini</value>
+	</data>
+	<data name="open_installer" xml:space="preserve">
+		<value>Apri il programma di installazione di LibreOffice</value>
+	</data>
+	<data name="startdl" xml:space="preserve">
+		<value>Vuoi davvero scaricare il file?</value>
+	</data>
+	<data name="start_install" xml:space="preserve">
+		<value>Avvia installazione</value>
+	</data>
+	<data name="where_to_install" xml:space="preserve">
+		<value>Sceglia la cartella di installazione</value>
+	</data>
+	<data name="save_bootstrap_ini" xml:space="preserve">
+		<value>Salva bootstrap.ini</value>
+	</data>
+	<data name="subfolder_do" xml:space="preserve">
+		<value>Vuoi che la sottocartella sia creata automaticamente? Dai un norme alla sottocartella:</value>
+	</data>
+	<data name="es" xml:space="preserve">
+		<value>Spagnolo:</value>
+	</data>
+	<data name="sl" xml:space="preserve">
+		<value>Sloveno:</value>
+	</data>
+	<data name="da" xml:space="preserve">
+		<value>Danese:</value>
+	</data>
+	<data name="help" xml:space="preserve">
+		<value>Guida</value>
+	</data>
+	<data name="dl_finished" xml:space="preserve">
+		<value>Il download è terminato ed è pronto per l'installazione.</value>
+	</data>
+	<data name="dl_finished_title" xml:space="preserve">
+		<value>Download terminato!</value>
+	</data>
+	<data name="dl_started" xml:space="preserve">
+		<value>Un download è stato avviato!</value>
+	</data>
+	<data name="dl_started_title" xml:space="preserve">
+		<value>Download iniziato!</value>
+	</data>
+	<data name="he" xml:space="preserve">
+		<value>Ebreo:</value>
+	</data>
+	<data name="pt" xml:space="preserve">
+		<value>Portoghese:</value>
+	</data>
+	<data name="error_langpack_nolang" xml:space="preserve">
+		<value>Hai selezionato una lingua prima di iniziare il download!</value>
+	</data>
+	<data name="mai_abort" xml:space="preserve">
+		<value>Interrompere</value>
+	</data>
+	<data name="mai_config_path" xml:space="preserve">
+		<value>Configura il percorso</value>
+	</data>
+	<data name="okay" xml:space="preserve">
+		<value>OK</value>
+	</data>
+	<data name="mai_path_soffice" xml:space="preserve">
+		<value>Percorso del file soffice.exe dell'installazione parallela</value>
+	</data>
+	<data name="mai_text" xml:space="preserve">
+		<value>Aggiungi manualmente un'installazione parallela</value>
+	</data>
+	<data name="man_addinstall" xml:space="preserve">
+		<value>Aggiungi manualmente un'installazione</value>
+	</data>
+	<data name="man_del" xml:space="preserve">
+		<value>Cancella selezionati</value>
+	</data>
+	<data name="man_exit" xml:space="preserve">
+		<value>Esci</value>
+	</data>
+	<data name="man_title" xml:space="preserve">
+		<value>Gestione</value>
+	</data>
+	<data name="ink_des" xml:space="preserve">
+		<value>Collegamento all'installazione parallela di LibreOffice </value>
+	</data>
+	<data name="ink_error_1" xml:space="preserve">
+		<value>Nessuna versione specificata!</value>
+	</data>
+	<data name="tt_ink" xml:space="preserve">
+		<value>Crea un collegamento per questa installazione parallela</value>
+	</data>
+	<data name="tt_path_to_exe" xml:space="preserve">
+		<value>Percorso del file soffice.exe dell'installazione parallela (aggiunto automaticamente)</value>
+	</data>
+	<data name="b_create_shortcut" xml:space="preserve">
+		<value>Crea collegamento</value>
+	</data>
+	<data name="msb_lnk_title" xml:space="preserve">
+		<value>Collegamento creato!</value>
+	</data>
+	<data name="msb_lnk_txt" xml:space="preserve">
+		<value>Il collegamento è stato correttamente creato!</value>
+	</data>
+	<data name="nl" xml:space="preserve">
+		<value>Olandese:</value>
+	</data>
+	<data name="s_version" xml:space="preserve">
+		<value>Versione:</value>
+	</data>
+	<data name="s_and" xml:space="preserve">
+		<value>e</value>
+	</data>
+	<data name="notest_ti" xml:space="preserve">
+		<value>Nessuna versione di prova!</value>
+	</data>
+	<data name="notest_txt" xml:space="preserve">
+		<value>Nessuna versione di prova attualmente disponibile.</value>
+	</data>
+	<data name="m_l10n_dl" xml:space="preserve">
+		<value>Download</value>
+	</data>
+	<data name="m_l10n_helppack" xml:space="preserve">
+		<value>Pacchetto guida</value>
+	</data>
+	<data name="m_l10n_installer" xml:space="preserve">
+		<value>Programma di installazione</value>
+	</data>
+	<data name="m_l10n_lb" xml:space="preserve">
+		<value>Ramo più recente</value>
+	</data>
+	<data name="m_l10n_ob" xml:space="preserve">
+		<value>Ramo più vecchio</value>
+	</data>
+	<data name="m_l10n_t" xml:space="preserve">
+		<value>Versione di prova</value>
+	</data>
+	<data name="m_l10n_langhelptxt" xml:space="preserve">
+		<value>Lingua (guida):</value>
+	</data>
+	<data name="start_dl" xml:space="preserve">
+		<value>Inizia download</value>
+	</data>
+	<data name="gb_dl_begindl" xml:space="preserve">
+		<value>Inizia download</value>
+	</data>
+	<data name="gb_dl_help" xml:space="preserve">
+		<value>Guida non in linea</value>
+	</data>
+	<data name="gb_dl_installer" xml:space="preserve">
+		<value>Programma di installazione</value>
+	</data>
+	<data name="gb_dl_update" xml:space="preserve">
+		<value>Aggiorna la lista delle versioni</value>
+	</data>
+	<data name="gb_parallel_install" xml:space="preserve">
+		<value>Installazione parallela</value>
+	</data>
+	<data name="any_libo_version" xml:space="preserve">
+		<value>Tutte le versioni di LibO</value>
+	</data>
+	<data name="tt_tb" xml:space="preserve">
+		<value>Ultima versione di prova.</value>
+	</data>
+	<data name="ink_error_2" xml:space="preserve">
+		<value>Non è stato trovato il percorso del file soffice.exe</value>
+	</data>
+	<data name="ga_allowed_text" xml:space="preserve">
+		<value>Caro utente,:nl:Questo programma utilizza “TDF Piwik” per ottenere statistiche sull'uso del programma.:nl:Abbiamo creato un trackingID per questa installazione. Il tuo trackingID è::nl:%trackingID:nl:Come puoi vedere, non contiene alcuna informazione privata. Premi “Sì” per consentire il monitoraggio, “No” per impedirlo.</value>
+	</data>
+	<data name="ga_allowed_title" xml:space="preserve">
+		<value>Statistiche generate da “TDF Piwik”.</value>
+	</data>
+	<data name="ga_cb_allowed" xml:space="preserve">
+		<value>Permetti il monitoraggio del programma mediante “TDF Piwik”</value>
+	</data>
+	<data name="settings_select_dl_folder" xml:space="preserve">
+		<value>Selezione la cartella per il download</value>
+	</data>
+	<data name="install_err1_tit" xml:space="preserve">
+		<value>L'installazione Server esistente sta venendo sovrascritta!</value>
+	</data>
+	<data name="install_err1_txt" xml:space="preserve">
+		<value>Stai per sovrascrivere un'installazione Server esistente. Vuoi continuare?</value>
+	</data>
+	<data name="cb_advanced_file" xml:space="preserve">
+		<value>Rinominazione avanzata dei file</value>
+	</data>
+	<data name="tt_advanced_file" xml:space="preserve">
+		<value>Se attivato i files saranno archiviati con i loro nomi originali.:n:Se disattivato, solamente un programma di installazione ed una sola guida saranno conservate sul disco,</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>Il file bootstrap.ini è stato modificato automaticamente. Puoi disabilitare questa impostazione nelle opzioni. </value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>Modifica automatica del file bootstrap.ini</value>
+	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>Vuoi controllare manualmente la presenza di aggiornamenti? Ciò causerà la chiusura del programma!</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Installare LibreOffice (non parallela)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Torna indietro</value>
+	</data>
 </root>

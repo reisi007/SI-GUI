@@ -84,6 +84,7 @@ namespace SI_GUI
             string sl = l10n[11] + ": ";
             string da = l10n[12] + ": ";
             string gl = l10n[26] + ": ";
+            string it = l10n[27] + ": ";
             string programmer = l10n[10] + " ";
             // Person names
             string florei = "Florian Reisinger";
@@ -103,10 +104,11 @@ namespace SI_GUI
             abouttxt += es + "Adolfo Jayme Barrientos" + Environment.NewLine;
             abouttxt += sl + "Martin Srebotnjak" + Environment.NewLine;
             abouttxt += da + "Leif Lodahl" + Environment.NewLine;
-            abouttxt += pt + carmor + " " + l10n[13] + " Pedro Lino " +l10n[13] + " Sérgio Marques"+ Environment.NewLine;
+            abouttxt += pt + carmor + " " + l10n[13] + " Pedro Lino " + l10n[13] + " Sérgio Marques" + Environment.NewLine;
             abouttxt += he + "Yaron Shahrabani" + Environment.NewLine;
             abouttxt += nl + "Joren De Cuyper" + Environment.NewLine;
-            abouttxt += gl + "Anton Meixome";
+            abouttxt += gl + "Anton Meixome" + Environment.NewLine;
+            abouttxt += it + "Tommaso Bartalena" + Environment.NewLine;
             //End translators of the UI
             abouttxt += "--- " + l10n[25] + " ---" + Environment.NewLine;
             //Begin translators of the help

@@ -57,6 +57,7 @@
             this.about.Multiline = true;
             this.about.Name = "about";
             this.about.ReadOnly = true;
+            this.about.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.about.Size = new System.Drawing.Size(413, 297);
             this.about.TabIndex = 20;
             // 
@@ -164,7 +165,7 @@
             this.cb_bs_autoedit.Text = "Auto-edit bootstrap.ini";
             this.cb_bs_autoedit.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // AboutUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -184,7 +185,7 @@
             this.MaximumSize = new System.Drawing.Size(454, 589);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(454, 589);
-            this.Name = "Form2";
+            this.Name = "AboutUI";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About";

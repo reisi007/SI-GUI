@@ -97,6 +97,13 @@ namespace SI_GUI
         TDFPiwik piwik;
         string path_4_download = Path.GetTempPath();
         bool AdvancedFilenames;
+        string siguiTitle
+        {
+            get
+            {
+                return "Server Install GUI - " + getstring("siguislogan");
+            }
+        }
         public MainUI()
         {
 
@@ -153,7 +160,7 @@ namespace SI_GUI
             }
 
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainUI_Load(object sender, EventArgs e)
         {
             if (rtl_layout)
             {
@@ -169,36 +176,43 @@ namespace SI_GUI
 
             //l10n start
             b_open_libo_installer.Text = getstring("open_installer");
-            m_about.Text = getstring("about");
-            m_man.Text = getstring("man_title");
             button2.Text = getstring("open_help");
             button3.Text = getstring("config_installdir");
             button4.Text = getstring("open_bootstrap_ini");
+            cb_help.Text = getstring("gb_dl_help");
+            cb_installer.Text = getstring("gb_dl_installer");
+            cb_subfolder.Text = getstring("subfolder_do");
+            choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
+            create_lnk.Text = getstring("b_create_shortcut");
+            dl_versions.Text = getstring("s_version");
             gb_bootstrap.Text = getstring("edit_bs_ini");
-            show_gb_bs.Text = gb_bootstrap.Text;
+            gb_create_lnk.Text = create_lnk.Text;
+            gb_download.Text = getstring("m_l10n_dl");
+            gb_installation.Text = getstring("gb_parallel_install");
+            // give_message.Text = siguiTitle;
+            label1.Text = getstring("s_version");
             labelProgress.Text = getstring("progress");
+            m_about.Text = getstring("about");
+            m_help.Text = getstring("help");
+            m_man.Text = getstring("man_title");
             open_bootstrap.Title = getstring("open_bootstrap_title");
             save_file.Text = getstring("save_bootstrap_ini");
-            start_install.Text = getstring("start_install");
-            wheretoinstall.Description = getstring("where_to_install");
-            cb_subfolder.Text = getstring("subfolder_do");
-            create_lnk.Text = getstring("b_create_shortcut");
-            label1.Text = getstring("s_version");
-            m_help.Text = getstring("help");
-            choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
-            gb_download.Text = getstring("m_l10n_dl");
-            gb_create_lnk.Text = create_lnk.Text;
+            show_gb_bs.Text = gb_bootstrap.Text;
             start_dl.Text = getstring("gb_dl_begindl");
-            cb_installer.Text = getstring("gb_dl_installer");
-            cb_help.Text = getstring("gb_dl_help");
+            start_install.Text = getstring("start_install");
+            this.Text = siguiTitle;
             update_versions.Text = getstring("gb_dl_update");
-            gb_installation.Text = getstring("gb_parallel_install");
-            dl_versions.Text = getstring("s_version");
+            wheretoinstall.Description = getstring("where_to_install");
             /* l10n end
              Update version information */
             version.Text = "LibreOffice Server Install GUI " + set.program_version();
             // Load settings
-            dl_special = new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master", "---" };
+            List<string> prepareDLSpecial = new List<string>();
+            prepareDLSpecial.AddRange(new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master" });
+            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB39Master, enum4DL_MoreDaily.TB6MasterDBG })
+                prepareDLSpecial.Add(tb.ToString());
+            prepareDLSpecial.Add("---");
+            dl_special = prepareDLSpecial.ToArray();
             loadsettings();
             percent.Text = "0 %";
             // Position choose_lang
@@ -769,7 +783,14 @@ namespace SI_GUI
                             asyncdl_wrapper(enum4DL_Special.M, false);
                         }
                         break;
+                    // Selected Thinderboxes
                     case (4):
+                        asyncdl_wrapper(enum4DL_MoreDaily.TB39Master);
+                        break;
+                    case (5):
+                        asyncdl_wrapper(enum4DL_MoreDaily.TB6MasterDBG);
+                        break;
+                    case (6):
                         //Do nothing
                         break;
 

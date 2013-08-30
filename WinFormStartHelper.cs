@@ -26,10 +26,10 @@ namespace SI_GUI
             "Pt",
             "Nl",
             "Gl",
-          /*  "It", // Not translated ATM
-            "Lo-LA",
+            "It", 
+            /*"Lo-LA",
             "Mt-MT",
-            "Tr"*/
+            "Tr" Not translated ATM*/
           };
         // Opens Help
         private void openHelp()
@@ -69,7 +69,7 @@ namespace SI_GUI
         private void openSettings()
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenDialog_About);
-            string[] l10n = new string[27];
+            string[] l10n = new string[28];
             l10n[0] = getstring("update_lang");
             l10n[1] = getstring("translations");
             l10n[2] = getstring("translator");
@@ -97,6 +97,7 @@ namespace SI_GUI
             l10n[24] = getstring("cb_autoedit");
             l10n[25] = getstring("help");
             l10n[26] = getstring("gl");
+            l10n[27] = getstring("it");
             AboutUI fm = new AboutUI(l10n, rtl_layout, langAvailable);
             fm.ShowDialog();
             path_4_download = fm.get_download_location;
