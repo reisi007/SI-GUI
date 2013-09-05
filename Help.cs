@@ -37,6 +37,9 @@ namespace SI_GUI
                 case ("pt"):
                     code = "pt";
                     break;
+                case("it"):
+                    code = "it";
+                    break;
                 default:
                     code = "en";
                     break;

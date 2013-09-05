@@ -114,6 +114,7 @@ namespace SI_GUI
             //Begin translators of the help
             abouttxt += en + kenbio + " " + Environment.NewLine;
             abouttxt += pt + carmor + Environment.NewLine;
+            abouttxt += it + "Valter Mura" + Environment.NewLine;
             /*End translators of the help
              * End file*/
             about.Text = abouttxt;

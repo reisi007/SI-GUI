@@ -362,7 +362,7 @@
 		<value>Não foi encontrado o caminho para soffice.exe!</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>Caro(a) utilizador(a),:nl:Este programa utiliza o "TDF Piwik" para rastrear a sua utilização deste programa.:nl:Foi criada uma identificação única para esta instalação. A identificação da sua instalação é::nl:%trackingID:nl: Conforme pode verificar, isto não inclui nenhuma informação pessoal.  Seleccione "Sim" para permitir o rastreio, "Não" para o proibir.</value>
+		<value>Caro(a) utilizador(a),:nl:Este programa utiliza o "TDF Piwik" para rastrear a sua utilização deste programa.:nl:Foi criada uma identificação única para esta instalação. A identificação da sua instalação é::nl:%trackingID:nl: Conforme pode verificar, isto não inclui nenhuma informação pessoal.  Selecione "Sim" para permitir o rastreio, "Não" para o proibir.</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
 		<value>Estatisticas fornecidas pelo "TDF Piwik"</value>
@@ -371,7 +371,7 @@
 		<value>Permitir que a sua utilização do programa seja rastreada através do "TDF Piwik"</value>
 	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
-		<value>Seleccionar pasta para ficheiros transferidos</value>
+		<value>Selecionar pasta de transferências</value>
 	</data>
 	<data name="install_err1_tit" xml:space="preserve">
 		<value>Instalação de Servidor vai ser sobre-escrita!</value>
@@ -383,16 +383,16 @@
 		<value>Alteração de nomes de ficheiros avançada</value>
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Se esta opção for activada os ficheiros serão guardados com o nome original.:n:Se for desactivada, apenas um ficheiro de instalação e um ficheiro de ajuda serão guardados em disco.</value>
+		<value>Se esta opção for ativada, os ficheiros serão guardados com o nome original. Se estiver desativada, apenas um ficheiro de instalação e um pacote de ajuda serão mantidos no disco.</value>
 	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
-		<value>SI GUI - Bootstrap.ini auto-editado</value>
+		<value>SI GUI - Bootstrap.ini autoeditado</value>
 	</data>
 	<data name="tt_editbs_txt" xml:space="preserve">
 		<value>O ficheiro bootstrap.ini foi editado automaticamente. Pode desligar isto nas definições.</value>
 	</data>
 	<data name="cb_autoedit" xml:space="preserve">
-		<value>Auto-editar bootstrap.ini</value>
+		<value>Autoeditar bootstrap.ini</value>
 	</data>
 	<data name="tt_autoupdate" xml:space="preserve">
 		<value>Quer procurar manualmente por atualizações? Isto fechará o programa!</value>
@@ -402,5 +402,23 @@
 	</data>
 	<data name="back" xml:space="preserve">
 		<value>Regressar</value>
+	</data>
+	<data name="gl" xml:space="preserve">
+		<value>Galego</value>
+	</data>
+	<data name="it" xml:space="preserve">
+		<value>Italiano</value>
+	</data>
+	<data name="lo" xml:space="preserve">
+		<value>Laosiano</value>
+	</data>
+	<data name="mt" xml:space="preserve">
+		<value>Maltês</value>
+	</data>
+	<data name="tr" xml:space="preserve">
+		<value>Turco</value>
+	</data>
+	<data name="siguislogan" xml:space="preserve">
+		<value>Instalação paralela fácil</value>
 	</data>
 </root>
