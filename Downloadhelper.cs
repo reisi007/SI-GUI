@@ -34,14 +34,14 @@ namespace SI_GUI
                     startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/?C=S;O=D", true, false, false, false, helppack);
                     break;
                 case (enum4DL_Special.M):
-                    if (Environment.OSVersion.Version.Major > 5)
+                    if (Environment.OSVersion.Version.Major > 5) // Vista and newer
                         startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/", false, true, false, false);
                     else
-                        startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false);
+                        startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false); // XP and older
                     break;
             }
         }
-        enum enum4DL_MoreDaily { TB6MasterDBG, TB39Master }
+        enum enum4DL_MoreDaily { TB6MasterDBG, TB39Master, TB09_41 }
         void asyncdl_wrapper(enum4DL_MoreDaily version)
         {
             switch (version)
@@ -51,6 +51,9 @@ namespace SI_GUI
                     break;
                 case (enum4DL_MoreDaily.TB39Master):
                     startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/", false, true, false, false);
+                    break;
+                case (enum4DL_MoreDaily.TB09_41):
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-1/Win-x86_9-Voreppe/current/", false, true, false, false);
                     break;
             }
         }
@@ -179,8 +182,12 @@ namespace SI_GUI
                 {
                     if (master)
                     {
-                        int starting_position = httpfile.IndexOf("<a href=\"master~");
-                        httpfile = httpfile.Remove(0, 9 + starting_position);
+                        int starting_position;
+                        for (int i = 0; i < 6; i++)
+                        {
+                            starting_position = httpfile.IndexOf("<a href=");
+                            httpfile = httpfile.Remove(0, 9 + starting_position);
+                        }
                         starting_position = httpfile.IndexOf(".msi");
                         httpfile = httpfile.Remove(starting_position + 4);
                     }

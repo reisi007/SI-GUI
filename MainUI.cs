@@ -208,11 +208,21 @@ namespace SI_GUI
             version.Text = "LibreOffice Server Install GUI " + set.program_version();
             // Load settings
             List<string> prepareDLSpecial = new List<string>();
+            /*
+             * 
+             *    Set special download
+             * 
+             * */
             prepareDLSpecial.AddRange(new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master" });
-            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB39Master, enum4DL_MoreDaily.TB6MasterDBG })
+            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB39Master, enum4DL_MoreDaily.TB6MasterDBG, enum4DL_MoreDaily.TB09_41 })
                 prepareDLSpecial.Add(tb.ToString());
             prepareDLSpecial.Add("---");
             dl_special = prepareDLSpecial.ToArray();
+            /*
+            * 
+            *    Set special download end
+            * 
+            * */
             loadsettings();
             percent.Text = "0 %";
             // Position choose_lang
@@ -791,6 +801,9 @@ namespace SI_GUI
                         asyncdl_wrapper(enum4DL_MoreDaily.TB6MasterDBG);
                         break;
                     case (6):
+                        asyncdl_wrapper(enum4DL_MoreDaily.TB09_41);
+                        break;
+                    case (7):
                         //Do nothing
                         break;
 
