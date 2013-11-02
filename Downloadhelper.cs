@@ -34,26 +34,23 @@ namespace SI_GUI
                     startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/?C=S;O=D", true, false, false, false, helppack);
                     break;
                 case (enum4DL_Special.M):
-                    if (Environment.OSVersion.Version.Major > 5) // Vista and newer
-                        startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/", false, true, false, false);
-                    else
-                        startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false); // XP and older
+                    //if (Environment.OSVersion.Version.Major > 5) // Vista and newer
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@47-TDF/current/", false, true, false, false);
+                    /*else
+                        startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false); // XP and older*/
                     break;
             }
         }
-        enum enum4DL_MoreDaily { TB6MasterDBG, TB39Master, TB09_41 }
+        enum enum4DL_MoreDaily { TB9_41, TB47TDF_Master }
         void asyncdl_wrapper(enum4DL_MoreDaily version)
         {
             switch (version)
             {
-                case (enum4DL_MoreDaily.TB6MasterDBG):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false);
-                    break;
-                case (enum4DL_MoreDaily.TB39Master):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/", false, true, false, false);
-                    break;
-                case (enum4DL_MoreDaily.TB09_41):
+                case (enum4DL_MoreDaily.TB9_41):
                     startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-1/Win-x86_9-Voreppe/current/", false, true, false, false);
+                    break;
+                case (enum4DL_MoreDaily.TB47TDF_Master):
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@47-TDF/current/", false, true, false, false);
                     break;
             }
         }
@@ -210,7 +207,7 @@ namespace SI_GUI
                         }
 
                     }
-                    else if (latest_branch)
+                    else if (latest_branch || older_branch)
                     {
                         int i = httpfile.IndexOf("Metadata");
                         httpfile = httpfile.Remove(0, i);
@@ -226,21 +223,6 @@ namespace SI_GUI
                         else
                             httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
 
-                    }
-                    else if (older_branch)
-                    {
-                        int i = httpfile.IndexOf(">Parent Directory<");
-                        httpfile = httpfile.Remove(0, i);
-                        i = httpfile.IndexOf("a href");
-                        i += 8;
-                        httpfile = httpfile.Remove(0, i);
-                        i = httpfile.IndexOf("/");
-                        httpfile = httpfile.Remove(i);
-                        url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                        if (helppack)
-                            httpfile = "LibO_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
-                        else
-                            httpfile = "LibO_" + httpfile + "_Win_x86_install_multi.msi";
                     }
 
                     startDL(httpfile, url, master, helppack);

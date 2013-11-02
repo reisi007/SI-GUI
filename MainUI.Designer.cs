@@ -522,8 +522,11 @@
             // dl_versions
             // 
             this.dl_versions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dl_versions.DropDownWidth = 130;
             this.dl_versions.FormattingEnabled = true;
+            this.dl_versions.IntegralHeight = false;
             this.dl_versions.Location = new System.Drawing.Point(7, 20);
+            this.dl_versions.MaxDropDownItems = 20;
             this.dl_versions.Name = "dl_versions";
             this.dl_versions.Size = new System.Drawing.Size(104, 21);
             this.dl_versions.TabIndex = 1;
@@ -633,7 +636,7 @@
             this.show_gb_bs.UseVisualStyleBackColor = true;
             this.show_gb_bs.Click += new System.EventHandler(this.show_gb_bs_Click);
             // 
-            // Form1
+            // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -650,7 +653,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(447, 547);
             this.MinimumSize = new System.Drawing.Size(447, 547);
-            this.Name = "Form1";
+            this.Name = "MainUI";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Install GUI";
             this.Load += new System.EventHandler(this.MainUI_Load);

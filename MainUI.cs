@@ -214,7 +214,7 @@ namespace SI_GUI
              * 
              * */
             prepareDLSpecial.AddRange(new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master" });
-            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB39Master, enum4DL_MoreDaily.TB6MasterDBG, enum4DL_MoreDaily.TB09_41 })
+            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB47TDF_Master, enum4DL_MoreDaily.TB9_41})
                 prepareDLSpecial.Add(tb.ToString());
             prepareDLSpecial.Add("---");
             dl_special = prepareDLSpecial.ToArray();
@@ -795,15 +795,12 @@ namespace SI_GUI
                         break;
                     // Selected Thinderboxes
                     case (4):
-                        asyncdl_wrapper(enum4DL_MoreDaily.TB39Master);
+                        asyncdl_wrapper(enum4DL_MoreDaily.TB47TDF_Master);
                         break;
                     case (5):
-                        asyncdl_wrapper(enum4DL_MoreDaily.TB6MasterDBG);
+                        asyncdl_wrapper(enum4DL_MoreDaily.TB9_41);
                         break;
                     case (6):
-                        asyncdl_wrapper(enum4DL_MoreDaily.TB09_41);
-                        break;
-                    case (7):
                         //Do nothing
                         break;
 
