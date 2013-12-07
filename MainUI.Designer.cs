@@ -65,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.create_lnk = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.downloadAnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_about = new System.Windows.Forms.ToolStripMenuItem();
             this.m_man = new System.Windows.Forms.ToolStripMenuItem();
             this.m_help = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,10 +119,10 @@
             this.path_main.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_main.Location = new System.Drawing.Point(209, 16);
             this.path_main.Name = "path_main";
-            this.path_main.ReadOnly = true;
             this.path_main.Size = new System.Drawing.Size(111, 20);
             this.path_main.TabIndex = 8;
             this.path_main.TextChanged += new System.EventHandler(this.validate_filename);
+            this.path_main.Validating += new System.ComponentModel.CancelEventHandler(this.checkFileExists);
             // 
             // path_help
             // 
@@ -130,10 +131,10 @@
             this.path_help.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_help.Location = new System.Drawing.Point(209, 50);
             this.path_help.Name = "path_help";
-            this.path_help.ReadOnly = true;
             this.path_help.Size = new System.Drawing.Size(111, 20);
             this.path_help.TabIndex = 10;
             this.path_help.TextChanged += new System.EventHandler(this.validate_filename);
+            this.path_help.Validating += new System.ComponentModel.CancelEventHandler(this.checkFileExists);
             // 
             // button2
             // 
@@ -190,10 +191,10 @@
             this.path_installdir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.path_installdir.Location = new System.Drawing.Point(209, 80);
             this.path_installdir.Name = "path_installdir";
-            this.path_installdir.ReadOnly = true;
             this.path_installdir.Size = new System.Drawing.Size(192, 20);
             this.path_installdir.TabIndex = 12;
             this.path_installdir.TextChanged += new System.EventHandler(this.savesettings);
+            this.path_installdir.Validating += new System.ComponentModel.CancelEventHandler(this.validateInstalldir);
             // 
             // button4
             // 
@@ -389,6 +390,7 @@
             // menu
             // 
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.downloadAnyToolStripMenuItem,
             this.m_about,
             this.m_man,
             this.m_help});
@@ -397,6 +399,14 @@
             this.menu.Size = new System.Drawing.Size(431, 24);
             this.menu.TabIndex = 37;
             this.menu.Text = "menuStrip1";
+            // 
+            // downloadAnyToolStripMenuItem
+            // 
+            this.downloadAnyToolStripMenuItem.Enabled = false;
+            this.downloadAnyToolStripMenuItem.Name = "downloadAnyToolStripMenuItem";
+            this.downloadAnyToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.downloadAnyToolStripMenuItem.Text = "Download any";
+            this.downloadAnyToolStripMenuItem.Click += new System.EventHandler(this.downloadAnyToolStripMenuItem_Click);
             // 
             // m_about
             // 
@@ -722,6 +732,7 @@
         private System.Windows.Forms.LinkLabel version;
         private System.Windows.Forms.Button cancel_dl;
         private System.Windows.Forms.Button show_gb_bs;
+        private System.Windows.Forms.ToolStripMenuItem downloadAnyToolStripMenuItem;
     }
 }
 

@@ -114,12 +114,11 @@ namespace SI_GUI
                 {
                     if (!hp_or_installer) // Main installer
                         path_main.Text = filename;
-                    else
+                    else // Helppack
                         path_help.Text = filename;
 
                     if (progressBar.Value == progressBar.Maximum)
                         resetDL();
-
                 }
                 else
                 {
@@ -211,7 +210,12 @@ namespace SI_GUI
                     {
                         int i = httpfile.IndexOf("Metadata");
                         httpfile = httpfile.Remove(0, i);
-                        for (int j = 0; j < 3; j++)
+                        int max;
+                        if (older_branch)
+                            max = 2;
+                        else
+                            max = 3;
+                        for (int j = 0; j < max; j++)
                         {
                             i = httpfile.IndexOf("href=");
                             httpfile = httpfile.Remove(0, i + 6);
@@ -378,7 +382,7 @@ namespace SI_GUI
             // Get the version numbers of LibreOffice
             i = httpfile.IndexOf("Details") + 7;
             httpfile = httpfile.Remove(0, i);
-            i = httpfile.IndexOf("latest");
+            i = httpfile.IndexOf("sdremote-1.0.0");
             httpfile = httpfile.Remove(i);
             while (goon)
             {

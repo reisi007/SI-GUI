@@ -214,7 +214,7 @@ namespace SI_GUI
              * 
              * */
             prepareDLSpecial.AddRange(new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master" });
-            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB47TDF_Master, enum4DL_MoreDaily.TB9_41})
+            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB47TDF_Master, enum4DL_MoreDaily.TB9_41 })
                 prepareDLSpecial.Add(tb.ToString());
             prepareDLSpecial.Add("---");
             dl_special = prepareDLSpecial.ToArray();
@@ -330,18 +330,21 @@ namespace SI_GUI
 
         private void start_install_Click(object sender, EventArgs e)
         {
-
+            doInstall(path_main.Text, path_help.Text, path_installdir.Text);
+        }
+        public void doInstall(string main, string help, string dir)
+        {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_Start);
             bool install_main = false;
             bool install_help = false;
             bool install_path = false;
             bool go_on = true;
             // Check settings
-            if (path_main.TextLength > 0)
+            if (main.Length > 0)
                 install_main = true;
-            if (path_help.TextLength > 0)
+            if (help.Length > 0)
                 install_help = true;
-            if (path_installdir.TextLength > 0)
+            if (dir.Length > 0)
                 install_path = true;
             Process p = new Process();
             // Throw an exeption, when no installdir choosen and a warning if no LibreOffice was choosen.
@@ -375,10 +378,7 @@ namespace SI_GUI
                 bool okay = false;
                 try
                 {
-                    string path_to_soffice = path_installdir.Text;
-                    if (cb_subfolder.Checked)
-                        path_to_soffice = Path.Combine(path_to_soffice, subfolder.Text);
-                    System.IO.File.OpenRead(Path.Combine(path_to_soffice, @"program\soffice.exe"));
+                    System.IO.File.OpenRead(dir);
                 }
                 catch (Exception)
                 {
@@ -392,17 +392,15 @@ namespace SI_GUI
                 if (go_on)
                 {
                     // Install
-                    executeInstallation(install_main, install_help);
+                    String bspath = executeInstallation(install_main, install_help, main, help, getFinalInstalldir());
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
-                    openbootstrap_ini(true);
+                    openbootstrap_ini(true, bspath);
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
                 }
 
             }
         }
-        private string final_installpath { get; set; }
-
-        private void executeInstallation(bool install_libo, bool install_help)
+        private String getFinalInstalldir()
         {
             string path = path_installdir.Text;
             if (cb_subfolder.Checked && (subfolder.Text != ""))
@@ -410,18 +408,22 @@ namespace SI_GUI
 
                 path += "\\" + subfolder.Text;
             }
-            path = path.Replace("\\\\", "\\");
-            final_installpath = path;
+            return path.Replace("\\\\", "\\");
+        }
+
+        private String executeInstallation(bool install_libo, bool install_help, String main, String help, String dir)
+        {
+            MessageBox.Show(dir);
             Process p = new Process();
             if (install_libo)
             {
-                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /norestart /a \"" + path_main.Text + "\" TARGETDIR=\"" + path + "\"");
+                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /norestart /a \"" + main + "\" TARGETDIR=\"" + dir + "\"");
                 p.Start();
                 p.WaitForExit();
             }
             if (install_help)
             {
-                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /a \"" + path_help.Text + "\" TARGETDIR=\"" + path + "\"");
+                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /a \"" + help + "\" TARGETDIR=\"" + dir + "\"");
                 p.Start();
                 p.WaitForExit();
             }
@@ -429,11 +431,11 @@ namespace SI_GUI
             {
                 // If installation finished --> Add to manager...
                 SETTINGS temp = set.open_settings();
-                temp.manager_versions = set.update_manager_array(temp.manager_versions, path);
+                temp.manager_versions = set.update_manager_array(temp.manager_versions, dir);
                 set.save_settings(temp);
                 // Create path to soffice.exe
-                path += "\\program\\soffice.exe";
-                path_to_exe.Text = path;
+                dir += "\\program\\soffice.exe";
+                path_to_exe.Text = dir;
             }
             catch (System.IO.DirectoryNotFoundException)
             {
@@ -447,32 +449,47 @@ namespace SI_GUI
             {
                 exceptionmessage(ex.Message);
             }
+            return getbsINIPath();
+
+        }
+        private String getbsINIPath()
+        {
+           return path_to_exe.Text.Replace("soffice.exe", "bootstrap.ini");
         }
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
-            openbootstrap_ini(false);
+            openbootstrap_iniFO();
         }
-
+        private bool openbootstrap_iniFO()
+        {
+            if (open_bootstrap.ShowDialog() == DialogResult.OK)
+                    
+                       return secondtry(open_bootstrap.FileName);
+            else  return false;
+                    
+        }
+       
         private bool openbootstrap_ini(bool autoEditenabled)
+        {
+            return openbootstrap_ini(autoEditenabled,getbsINIPath());
+        }
+        
+        private bool openbootstrap_ini(bool autoEditenabled, String file)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
             bool working = true;
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "abc.txt";
-            if (final_installpath != null)
-                path = final_installpath + "\\program\\bootstrap.ini";
+            if (file == null)
+                file = Environment.GetFolderPath(Environment.SpecialFolder.CommonMusic);
             try
             {
-                bootstrap_text.Text = System.IO.File.ReadAllText(path);
+                bootstrap_text.Text = System.IO.File.ReadAllText(file);
             }
             catch (System.IO.DirectoryNotFoundException)
             {
                 working = false;
                 if (!autoEditenabled)
                 {
-                    if (open_bootstrap.ShowDialog() == DialogResult.OK)
-                    {
-                        working = secondtry(open_bootstrap.FileName);
-                    }
+                    
                     return working;
                 }
             }
@@ -501,7 +518,7 @@ namespace SI_GUI
             if (working)
             {
                 save_file.Enabled = true;
-                bootinipath.Text = path;
+                bootinipath.Text = file;
                 if (autoEditenabled)
                     editbs();
             }
@@ -887,5 +904,67 @@ namespace SI_GUI
             else
                 show_gb_bs.Text = gb_bootstrap.Text;
         }
+
+        private void checkFileExists(object sender, CancelEventArgs e)
+        {
+            // Checking of installer and help package
+            TextBox t = (TextBox)sender;
+            t.Text = doValidateInstaller(t.Text);
+
+        }
+        private String doValidateInstaller(String file)
+        {
+            if (file != "")
+            {
+                FileStream f = null;
+                try
+                {
+                    f = System.IO.File.Open(file, System.IO.FileMode.Open);
+                }
+                catch (System.IO.FileNotFoundException ex)
+                {
+                    file = "";
+                    exceptionmessage(ex.Message);
+                }
+                finally
+                {
+                    if (f != null)
+                        f.Close();
+                }
+            }
+            return file;
+        }
+
+        private void validateInstalldir(object sender, CancelEventArgs e)
+        {
+
+            TextBox t = (TextBox)sender;
+            if (t.Text != "" && !System.IO.Directory.Exists(t.Text))
+            {
+                DialogResult dr = MessageBox.Show(getstring("no_installdir") + Environment.NewLine + getstring("createdir").Replace("%folder%", t.Text), getstring("Error"), MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (dr != System.Windows.Forms.DialogResult.Yes)
+                {
+                    t.Text = "";
+                }
+                else
+                {
+                    try
+                    {
+                        System.IO.Directory.CreateDirectory(t.Text);
+                    }
+                    catch (Exception)
+                    {
+                        t.Text = "";
+                    }
+
+                }
+            }
+        }
+
+        private void downloadAnyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
