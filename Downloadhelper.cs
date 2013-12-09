@@ -362,7 +362,6 @@ namespace SI_GUI
                 StreamReader httpreader = new StreamReader(httptextraw);
                 httpfile = httpreader.ReadToEnd();
                 httptextraw.Close();
-                httpreader.Close();
 
             }
             catch (System.Net.WebException ex)
