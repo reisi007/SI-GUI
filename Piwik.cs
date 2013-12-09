@@ -21,12 +21,20 @@ namespace SI_GUI
         List<string> pending_requests = new List<string>();
         ~TDFPiwik()
         {
-            Dispose();
+            Dispose(false);
         }
-
         public void Dispose()
         {
-            bw.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool dispose)
+        {
+            if (dispose && bw != null)
+            {
+                bw.Dispose();
+                bw = null;
+            }
         }
         public TDFPiwik(string allowed_title, string allowed_txt)
         {
