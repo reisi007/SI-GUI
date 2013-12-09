@@ -330,7 +330,7 @@ namespace SI_GUI
 
         private void start_install_Click(object sender, EventArgs e)
         {
-            doInstall(path_main.Text, path_help.Text, path_installdir.Text);
+            doInstall(path_main.Text, path_help.Text, getFinalInstalldir());
         }
         public void doInstall(string main, string help, string dir)
         {
@@ -963,7 +963,7 @@ namespace SI_GUI
 
         private void downloadAnyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            openDownloadAny();
         }
 
     }

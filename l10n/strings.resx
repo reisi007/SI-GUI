@@ -444,4 +444,16 @@
   <data name="createdir" xml:space="preserve">
     <value>Should the folder %folder% be created automatically?</value>
   </data>
+  <data name="dia_wrongURL" xml:space="preserve">
+    <value>Wrong URL. Retry please.</value>
+  </data>
+  <data name="dla_button" xml:space="preserve">
+    <value>Start download and installing</value>
+  </data>
+  <data name="dla_label" xml:space="preserve">
+    <value>URL:</value>
+  </data>
+  <data name="dla_tit" xml:space="preserve">
+    <value>Download anything</value>
+  </data>
 </root>

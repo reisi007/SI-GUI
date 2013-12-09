@@ -151,6 +151,15 @@ namespace SI_GUI.l10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wrong URL. Retry please..
+        /// </summary>
+        internal static string dia_wrongURL {
+            get {
+                return ResourceManager.GetString("dia_wrongURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Directory does not exist!.
         /// </summary>
         internal static string dirnotfound {
@@ -201,6 +210,33 @@ namespace SI_GUI.l10n {
         internal static string dl_started_title {
             get {
                 return ResourceManager.GetString("dl_started_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start download and installing.
+        /// </summary>
+        internal static string dla_button {
+            get {
+                return ResourceManager.GetString("dla_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL:.
+        /// </summary>
+        internal static string dla_label {
+            get {
+                return ResourceManager.GetString("dla_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download anything.
+        /// </summary>
+        internal static string dla_tit {
+            get {
+                return ResourceManager.GetString("dla_tit", resourceCulture);
             }
         }
         

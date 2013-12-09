@@ -104,5 +104,17 @@ namespace SI_GUI
             AdvancedFilenames = fm.getAdvancedRenamingChecked;
         }
 
+        private void openDownloadAny()
+        {
+            string[] l10n = new string[] { getstring("dla_tit"), getstring("dla_label"), getstring("dla_button") ,getstring("dia_wrongURL"),getstring("Error")};
+            DownloadAny window = new DownloadAny(l10n);
+            DialogResult dr = window.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                doInstall(window.getURLonDISC(), "", getFinalInstalldir());
+            }
+
+        }
+
     }
 }
