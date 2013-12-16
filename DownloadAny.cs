@@ -13,7 +13,7 @@ namespace SI_GUI
     {
         string[] l10n;
         bool valid;
-        public DownloadAny(string[] l10n)
+        public DownloadAny(string[] l10n, string path_4_download)
         {
             this.l10n = l10n;
             InitializeComponent();

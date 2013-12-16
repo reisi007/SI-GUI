@@ -214,7 +214,7 @@ namespace SI_GUI
              * 
              * */
             prepareDLSpecial.AddRange(new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master" });
-            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.TB47TDF_Master, enum4DL_MoreDaily.TB9_41 })
+            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.Daily_41, enum4DL_MoreDaily.Daily_42 })
                 prepareDLSpecial.Add(tb.ToString());
             prepareDLSpecial.Add("---");
             dl_special = prepareDLSpecial.ToArray();
@@ -413,7 +413,6 @@ namespace SI_GUI
 
         private String executeInstallation(bool install_libo, bool install_help, String main, String help, String dir)
         {
-            MessageBox.Show(dir);
             Process p = new Process();
             if (install_libo)
             {
@@ -454,7 +453,7 @@ namespace SI_GUI
         }
         private String getbsINIPath()
         {
-           return path_to_exe.Text.Replace("soffice.exe", "bootstrap.ini");
+            return path_to_exe.Text.Replace("soffice.exe", "bootstrap.ini");
         }
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
@@ -463,17 +462,17 @@ namespace SI_GUI
         private bool openbootstrap_iniFO()
         {
             if (open_bootstrap.ShowDialog() == DialogResult.OK)
-                    
-                       return secondtry(open_bootstrap.FileName);
-            else  return false;
-                    
+
+                return secondtry(open_bootstrap.FileName);
+            else return false;
+
         }
-       
+
         private bool openbootstrap_ini(bool autoEditenabled)
         {
-            return openbootstrap_ini(autoEditenabled,getbsINIPath());
+            return openbootstrap_ini(autoEditenabled, getbsINIPath());
         }
-        
+
         private bool openbootstrap_ini(bool autoEditenabled, String file)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
@@ -489,7 +488,7 @@ namespace SI_GUI
                 working = false;
                 if (!autoEditenabled)
                 {
-                    
+
                     return working;
                 }
             }
@@ -812,10 +811,14 @@ namespace SI_GUI
                         break;
                     // Selected Thinderboxes
                     case (4):
-                        asyncdl_wrapper(enum4DL_MoreDaily.TB47TDF_Master);
+                        if (cb_installer.Checked)
+                            asyncdl_wrapper(enum4DL_MoreDaily.Daily_41);
+                        if (cb_help.Checked)
+                            asyncdl_wrapper(enum4DL_MoreDaily.Daily_41, true);
                         break;
                     case (5):
-                        asyncdl_wrapper(enum4DL_MoreDaily.TB9_41);
+                        if (cb_installer.Checked)
+                            asyncdl_wrapper(enum4DL_MoreDaily.Daily_42);
                         break;
                     case (6):
                         //Do nothing

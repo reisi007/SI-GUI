@@ -27,14 +27,14 @@
     <InstallUrl>http://dev-builds.libreoffice.org/si-gui/</InstallUrl>
     <UpdateUrl>http://dev-builds.libreoffice.org/si-gui/</UpdateUrl>
     <SupportUrl>http://libreoffice-server-installation-gui.5927.n7.nabble.com/</SupportUrl>
-    <ErrorReportUrl>https://bugs.freedesktop.org/enter_bug.cgi%3falias=&amp;assigned_to=reisi007%2540gmail.com&amp;attach_text=&amp;blocked=&amp;bug_file_loc=http%253A%252F%252Fflosmind.wordpress.com%252Flibreoffice-server-install-gui%252F&amp;bug_severity=normal&amp;bug_status=UNCONFIRMED&amp;comment=&amp;component=Extensions&amp;contenttypeentry=&amp;contenttypemethod=list&amp;contenttypeselection=text%252Fplain&amp;data=&amp;dependson=&amp;description=&amp;form_name=enter_bug&amp;keywords=&amp;maketemplate=Remember%2520values%2520as%2520bookmarkable%2520template&amp;op_sys=Windows%2520%2528All%2529&amp;priority=medium&amp;product=LibreOffice&amp;qa_contact=&amp;rep_platform=All&amp;short_desc=%255Bsi-gui%255D&amp;version=unspecified</ErrorReportUrl>
+    <ErrorReportUrl>https://bugs.libreoffice.org/enter_bug.cgi%3falias=&amp;assigned_to=reisi007%2540gmail.com&amp;attach_text=&amp;blocked=&amp;bug_file_loc=http%253A%252F%252Fflosmind.wordpress.com%252Flibreoffice-server-install-gui%252F&amp;bug_severity=normal&amp;bug_status=UNCONFIRMED&amp;comment=&amp;component=Extensions&amp;contenttypeentry=&amp;contenttypemethod=list&amp;contenttypeselection=text%252Fplain&amp;data=&amp;dependson=&amp;description=&amp;form_name=enter_bug&amp;keywords=&amp;maketemplate=Remember%2520values%2520as%2520bookmarkable%2520template&amp;op_sys=Windows%2520%2528All%2529&amp;priority=medium&amp;product=LibreOffice&amp;qa_contact=&amp;rep_platform=All&amp;short_desc=%255Bsi-gui%255D&amp;version=unspecified</ErrorReportUrl>
     <ProductName>Server Install GUI</ProductName>
     <PublisherName>Reisisoft</PublisherName>
     <SuiteName>LibreOffice Tools</SuiteName>
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>4.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

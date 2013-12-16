@@ -41,16 +41,20 @@ namespace SI_GUI
                     break;
             }
         }
-        enum enum4DL_MoreDaily { TB9_41, TB47TDF_Master }
+        enum enum4DL_MoreDaily { Daily_41, Daily_42 }
         void asyncdl_wrapper(enum4DL_MoreDaily version)
+        {
+            asyncdl_wrapper(version, false);
+        }
+        void asyncdl_wrapper(enum4DL_MoreDaily version, bool helppack)
         {
             switch (version)
             {
-                case (enum4DL_MoreDaily.TB9_41):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-1/Win-x86_9-Voreppe/current/", false, true, false, false);
+                case (enum4DL_MoreDaily.Daily_41):
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-1/Win-x86_9-Voreppe/current/", false, true, false, false,helppack);
                     break;
-                case (enum4DL_MoreDaily.TB47TDF_Master):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@47-TDF/current/", false, true, false, false);
+                case (enum4DL_MoreDaily.Daily_42):
+                    startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-2/Win-x86@42/current/", false, true, false, false);
                     break;
             }
         }
@@ -186,6 +190,16 @@ namespace SI_GUI
                         }
                         starting_position = httpfile.IndexOf(".msi");
                         httpfile = httpfile.Remove(starting_position + 4);
+                        
+                        if (helppack && (httpfile.Length != 2))
+                        {
+                            string vers2 = httpfile;
+                            string insert = "_helppack_" + lang + ".msi";
+                            starting_position = vers2.IndexOf("x86") + 3;
+                            vers2 = vers2.Remove(starting_position);
+                            vers2 += insert;
+                            httpfile = vers2;
+                        }
                     }
                     else if (testing)
                     {
