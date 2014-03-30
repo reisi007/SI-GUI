@@ -34,8 +34,8 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>4.2.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>4.2.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -114,11 +114,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DownloadAny.cs">
+    <Compile Include="ChangingDLInfo.cs" />
+    <Compile Include="SaveSettingsHelper.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DownloadAny.Designer.cs">
-      <DependentUpon>DownloadAny.cs</DependentUpon>
     </Compile>
     <Compile Include="settings.cs" />
     <Compile Include="MainUI.cs">
@@ -190,9 +188,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.sl.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DownloadAny.resx">
-      <DependentUpon>DownloadAny.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>

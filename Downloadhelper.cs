@@ -41,22 +41,9 @@ namespace SI_GUI
                     break;
             }
         }
-        enum enum4DL_MoreDaily { Daily_41, Daily_42 }
-        void asyncdl_wrapper(enum4DL_MoreDaily version)
+        void asyncdl_wrapper(string url, bool helppack)
         {
-            asyncdl_wrapper(version, false);
-        }
-        void asyncdl_wrapper(enum4DL_MoreDaily version, bool helppack)
-        {
-            switch (version)
-            {
-                case (enum4DL_MoreDaily.Daily_41):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-1/Win-x86_9-Voreppe/current/", false, true, false, false,helppack);
-                    break;
-                case (enum4DL_MoreDaily.Daily_42):
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/libreoffice-4-2/Win-x86@42/current/", false, true, false, false);
-                    break;
-            }
+            startasyncdownload(url, false, true, false, false, helppack);
         }
 
         // List of all web clients
@@ -159,12 +146,12 @@ namespace SI_GUI
             // Download
             bool cont = true;
             string[] version = new string[2];
-            string lang = Convert.ToString(choose_lang.SelectedItem.ToString());
+            string lang = (choose_lang.SelectedItem == null?null:choose_lang.SelectedItem.ToString());
             try
             {
                 if (helppack)
                 {
-                    if (lang == "")
+                    if (lang == null||lang == "")
                     {
                         cont = false;
                         throw new System.InvalidOperationException(getstring("error_langpack_nolang"));
@@ -323,6 +310,8 @@ namespace SI_GUI
                     if (!helppack)
                         subfolder.Text = originalFilename;
                 }
+                else
+                    start_dl.Enabled = true;
             }
             else
             {
@@ -367,23 +356,8 @@ namespace SI_GUI
         }
         private string downloadfile(string url)
         {
-            WebClient httpfileclient = new WebClient();
-            Uri urlhttp = new Uri(url);
-            string httpfile = "error";
-            try
-            {
-                Stream httptextraw = httpfileclient.OpenRead(urlhttp);
-                StreamReader httpreader = new StreamReader(httptextraw);
-                httpfile = httpreader.ReadToEnd();
-                httptextraw.Close();
-
-            }
-            catch (System.Net.WebException ex)
-            {
-                exceptionmessage(ex.Message);
-
-            }
-            return httpfile;
+            WebClient wc = getPreparedWebClient();
+            return wc.DownloadString(url);
         }
         private string[] getLibO_List_of_DL()
         {

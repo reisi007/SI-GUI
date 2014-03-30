@@ -65,7 +65,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.create_lnk = new System.Windows.Forms.Button();
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.downloadAnyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.m_about = new System.Windows.Forms.ToolStripMenuItem();
             this.m_man = new System.Windows.Forms.ToolStripMenuItem();
             this.m_help = new System.Windows.Forms.ToolStripMenuItem();
@@ -390,7 +389,6 @@
             // menu
             // 
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.downloadAnyToolStripMenuItem,
             this.m_about,
             this.m_man,
             this.m_help});
@@ -399,14 +397,6 @@
             this.menu.Size = new System.Drawing.Size(431, 24);
             this.menu.TabIndex = 37;
             this.menu.Text = "menuStrip1";
-            // 
-            // downloadAnyToolStripMenuItem
-            // 
-            this.downloadAnyToolStripMenuItem.Enabled = false;
-            this.downloadAnyToolStripMenuItem.Name = "downloadAnyToolStripMenuItem";
-            this.downloadAnyToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.downloadAnyToolStripMenuItem.Text = "Download any";
-            this.downloadAnyToolStripMenuItem.Click += new System.EventHandler(this.downloadAnyToolStripMenuItem_Click);
             // 
             // m_about
             // 
@@ -666,6 +656,7 @@
             this.Name = "MainUI";
             this.RightToLeftLayout = true;
             this.Text = "LibreOffice Server Install GUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.tidyUponClose);
             this.Load += new System.EventHandler(this.MainUI_Load);
             this.gb_bootstrap.ResumeLayout(false);
             this.gb_bootstrap.PerformLayout();
@@ -732,7 +723,6 @@
         private System.Windows.Forms.LinkLabel version;
         private System.Windows.Forms.Button cancel_dl;
         private System.Windows.Forms.Button show_gb_bs;
-        private System.Windows.Forms.ToolStripMenuItem downloadAnyToolStripMenuItem;
     }
 }
 

@@ -125,6 +125,7 @@ namespace SI_GUI
             cb_autoedit_bs = true;
             DL_saved_settings.cb_help = false;
             DL_saved_settings.cb_installer = true;
+            DL_saved_settings.changingVersion = new ChangingDLInfo[0];
             Piwik.manually_set = false;
             Piwik.tracking_allowed = false;
         }
@@ -145,6 +146,7 @@ namespace SI_GUI
         public bool cb_help;
         public int versions_last_version;
         public string download_path;
+        public ChangingDLInfo[] changingVersion;
     }
 
     public struct TDFPiwik_Settings

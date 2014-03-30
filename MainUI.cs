@@ -92,6 +92,7 @@ namespace SI_GUI
         #endregion
         private bool rtl_layout = false;
         string[] dl_special;
+        ChangingDLInfo[] dlInfos;
         access_settings set = new access_settings();
         ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
         TDFPiwik piwik;
@@ -207,17 +208,12 @@ namespace SI_GUI
              Update version information */
             version.Text = "LibreOffice Server Install GUI " + set.program_version();
             // Load settings
-            List<string> prepareDLSpecial = new List<string>();
             /*
              * 
              *    Set special download
              * 
              * */
-            prepareDLSpecial.AddRange(new string[] { getstring("m_l10n_lb"), getstring("m_l10n_ob"), getstring("m_l10n_t"), "Master" });
-            foreach (enum4DL_MoreDaily tb in new enum4DL_MoreDaily[] { enum4DL_MoreDaily.Daily_41, enum4DL_MoreDaily.Daily_42 })
-                prepareDLSpecial.Add(tb.ToString());
-            prepareDLSpecial.Add("---");
-            dl_special = prepareDLSpecial.ToArray();
+            dl_special = new string[] { /*getstring("m_l10n_lb"), getstring("m_l10n_ob"),*/"LibO Fresh", "LibO Stable", getstring("m_l10n_t"), "Master", "---" };
             /*
             * 
             *    Set special download end
@@ -277,12 +273,14 @@ namespace SI_GUI
                 path_to_exe.Text = toapply.FilesFolders.lastSofficeEXE;
                 path_main.Text = toapply.FilesFolders.MainInstalldir;
                 path_help.Text = toapply.FilesFolders.HelpInstalldir;
-                dl_versions.Items.AddRange(dl_special);
-                if (toapply.DL_saved_settings.versions != null)
-                {
-                    dl_list = toapply.DL_saved_settings.versions;
-                    dl_versions.Items.AddRange(dl_list);
-                }
+                dl_list = toapply.DL_saved_settings.versions;
+                if (dl_list == null)
+                    dl_list = new string[0];
+                dlInfos = toapply.DL_saved_settings.changingVersion;
+                if (dlInfos == null)
+                    dlInfos = new ChangingDLInfo[0];
+
+                loadVersionstoList();
                 try
                 {
                     dl_versions.SelectedIndex = toapply.DL_saved_settings.versions_last_version;
@@ -647,38 +645,7 @@ namespace SI_GUI
         }
 
         // Function, which prepares the data, which should be saved for next startup
-        private void savesettings(object sender, EventArgs e)
-        {
-            savesettings();
-            // Enable or disable the DL button
-            if (cb_installer.Checked || cb_help.Checked)
-                start_dl.Enabled = true;
-            else
-                start_dl.Enabled = false;
-        }
 
-        private void savesettings()
-        {
-            // Changing text of version
-            tb_version.Text = subfolder.Text;
-            // Really save settings
-            SETTINGS thingstosave = set.open_settings();
-            thingstosave.cb_create_subfolder = cb_subfolder.Checked;
-            thingstosave.lang = choose_lang.SelectedIndex;
-            // Save download settings
-            thingstosave.DL_saved_settings.cb_help = cb_help.Checked;
-            thingstosave.DL_saved_settings.cb_installer = cb_installer.Checked;
-            thingstosave.DL_saved_settings.versions = dl_list;
-            thingstosave.DL_saved_settings.versions_last_version = dl_versions.SelectedIndex;
-            // Save paths and filenames
-            thingstosave.FilesFolders.InstallFolder = path_installdir.Text;
-            thingstosave.FilesFolders.nameSubfolder = subfolder.Text;
-            thingstosave.FilesFolders.lastSofficeEXE = path_to_exe.Text;
-            thingstosave.FilesFolders.HelpInstalldir = path_help.Text;
-            thingstosave.FilesFolders.MainInstalldir = path_main.Text;
-            // Finally save to file
-            set.save_settings(thingstosave);
-        }
 
         private void create_ink_Click(object sender, EventArgs e)
         {
@@ -752,79 +719,103 @@ namespace SI_GUI
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Update_ListOfVersion);
             dl_list = getLibO_List_of_DL();
-            selected_item = dl_versions.SelectedIndex;
+            update_changingVersions();
+            loadVersionstoList();
+        }
+        private void loadVersionstoList()
+        {
             dl_versions.BeginUpdate();
+            selected_item = dl_versions.SelectedIndex;
             dl_versions.Items.Clear();
-            dl_versions.Items.AddRange(dl_special);
+            foreach (string s in dl_special)
+                dl_versions.Items.Add(s);
+            foreach (ChangingDLInfo item in dlInfos)
+                dl_versions.Items.Add(item.ToString());
+            dl_versions.Items.Add("---");
             dl_versions.Items.AddRange(dl_list);
             dl_versions.SelectedIndex = selected_item;
             dl_versions.EndUpdate();
             savesettings();
         }
+        private void update_changingVersions()
+        {
+            string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/info.txt";
+            System.Net.WebClient wc = getPreparedWebClient();
+            string[] info = wc.DownloadString(url).Replace("\r\n", "\n").Split(new char[] { '\n' });
+            dlInfos = ChangingDLInfo.Parse(info);
+        }
 
+        private static int versionsFixed = 4;
         private void start_dl_Click(object sender, EventArgs e)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.StartDL);
             if (dl_versions.SelectedItem != null)
             {
-                switch (dl_versions.SelectedIndex)
+                int index = dl_versions.SelectedIndex;
+                if ((index == versionsFixed || (index == (versionsFixed + dlInfos.Length + 1))))
+                    return;
+                if (index < versionsFixed)
                 {
-                    case (0):
-                        // Latest branch
-                        if (cb_installer.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.LB, false);
-                        }
-                        if (cb_help.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.LB, true);
-                        }
-                        break;
-                    case (1):
-                        // Older branch
-                        if (cb_installer.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.OB, false);
-                        }
-                        if (cb_help.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.OB, true);
-                        }
-                        break;
-                    case (2):
-                        // Testing
-                        if (cb_installer.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.T, false);
-                        }
-                        if (cb_help.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.T, true);
-                        }
-                        break;
-                    case (3):
-                        // Master
-                        if (cb_installer.Checked)
-                        {
-                            asyncdl_wrapper(enum4DL_Special.M, false);
-                        }
-                        break;
+                    switch (index)
+                    {
+                        case (0):
+                            // Latest branch
+                            if (cb_installer.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.LB, false);
+                            }
+                            if (cb_help.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.LB, true);
+                            }
+                            break;
+                        case (1):
+                            // Older branch
+                            if (cb_installer.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.OB, false);
+                            }
+                            if (cb_help.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.OB, true);
+                            }
+                            break;
+                        case (2):
+                            // Testing
+                            if (cb_installer.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.T, false);
+                            }
+                            if (cb_help.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.T, true);
+                            }
+                            break;
+                        case (3):
+                            // Master
+                            if (cb_installer.Checked)
+                            {
+                                asyncdl_wrapper(enum4DL_Special.M, false);
+                            }
+                            break;
+                    }
+                }
+                else
+                {
                     // Selected Thinderboxes
-                    case (4):
+                    if (index <= versionsFixed + dlInfos.Length)
+                    {
+                        ChangingDLInfo info = dlInfos[index - (versionsFixed + 1)];
+                        bool helppack = info.helppackAvailable && cb_help.Checked;
                         if (cb_installer.Checked)
-                            asyncdl_wrapper(enum4DL_MoreDaily.Daily_41);
-                        if (cb_help.Checked)
-                            asyncdl_wrapper(enum4DL_MoreDaily.Daily_41, true);
-                        break;
-                    case (5):
-                        if (cb_installer.Checked)
-                            asyncdl_wrapper(enum4DL_MoreDaily.Daily_42);
-                        break;
-                    case (6):
-                        //Do nothing
-                        break;
+                            // asyncdl_wrapper(info.url,false);
+                            download_any_version(info.url, false);
+                        if (helppack)
+                            download_any_version(info.url, true);
+                    }
+                    else
+                    {
 
-                    default:
                         string link = get_final_link(true, dl_versions.SelectedItem.ToString());
                         if (cb_installer.Checked)
                         {
@@ -834,7 +825,7 @@ namespace SI_GUI
                         {
                             download_any_version(link, true);
                         }
-                        break;
+                    }
                 }
             }
 
@@ -964,10 +955,9 @@ namespace SI_GUI
             }
         }
 
-        private void downloadAnyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tidyUponClose(object sender, FormClosingEventArgs e)
         {
-            openDownloadAny();
+            savesettings();
         }
-
     }
 }
