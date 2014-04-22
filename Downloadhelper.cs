@@ -19,7 +19,7 @@ namespace SI_GUI
 {
     public partial class MainUI : Form
     {
-        enum enum4DL_Special { LB, OB, T, M };
+        enum enum4DL_Special { LB, OB, T};
         void asyncdl_wrapper(enum4DL_Special version, bool helppack)
         {
             switch (version)
@@ -32,12 +32,6 @@ namespace SI_GUI
                     break;
                 case (enum4DL_Special.T):
                     startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/?C=S;O=D", true, false, false, false, helppack);
-                    break;
-                case (enum4DL_Special.M):
-                    //if (Environment.OSVersion.Version.Major > 5) // Vista and newer
-                    startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@47-TDF/current/", false, true, false, false);
-                    /*else
-                        startasyncdownload("http://dev-builds.libreoffice.org/daily/master/Win-x86@6-debug/current/", false, true, false, false); // XP and older*/
                     break;
             }
         }

@@ -213,7 +213,7 @@ namespace SI_GUI
              *    Set special download
              * 
              * */
-            dl_special = new string[] { /*getstring("m_l10n_lb"), getstring("m_l10n_ob"),*/"LibO Fresh", "LibO Stable", getstring("m_l10n_t"), "Master", "---" };
+            dl_special = new string[] { /*getstring("m_l10n_lb"), getstring("m_l10n_ob"),*/"LibO Fresh", "LibO Stable", getstring("m_l10n_t"), "---" };
             /*
             * 
             *    Set special download end
@@ -745,7 +745,7 @@ namespace SI_GUI
             dlInfos = ChangingDLInfo.Parse(info);
         }
 
-        private static int versionsFixed = 4;
+        private static int versionsFixed = 3;
         private void start_dl_Click(object sender, EventArgs e)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.StartDL);
@@ -789,13 +789,6 @@ namespace SI_GUI
                             if (cb_help.Checked)
                             {
                                 asyncdl_wrapper(enum4DL_Special.T, true);
-                            }
-                            break;
-                        case (3):
-                            // Master
-                            if (cb_installer.Checked)
-                            {
-                                asyncdl_wrapper(enum4DL_Special.M, false);
                             }
                             break;
                     }
