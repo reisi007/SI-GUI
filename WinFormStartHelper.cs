@@ -23,7 +23,7 @@ namespace SI_GUI
             "Sl",
             "Da",
             "He",
-            "Pt",
+            "Pt-PT",
             "Nl",
             "Gl",
             "It", 

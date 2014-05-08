@@ -213,7 +213,7 @@ namespace SI_GUI
              *    Set special download
              * 
              * */
-            dl_special = new string[] { /*getstring("m_l10n_lb"), getstring("m_l10n_ob"),*/"LibO Fresh", "LibO Stable", getstring("m_l10n_t"), "---" };
+            dl_special = new string[] { getstring("liboFresh"),getstring("liboStable"), getstring("m_l10n_t"), "---" };
             /*
             * 
             *    Set special download end
@@ -631,7 +631,7 @@ namespace SI_GUI
         }
         public string getstring(string strMessage)
         {
-            string rt = "???";
+            string rt = "??? + ("+strMessage+")";
             try
             {
                 rt = rm.GetString(strMessage).Replace(":n:", Environment.NewLine).Replace(":nl:", Environment.NewLine);

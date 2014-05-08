@@ -35,7 +35,7 @@
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>4.2.2.%2a</ApplicationVersion>
+    <ApplicationVersion>4.2.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -188,6 +188,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.sl.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="l10n\strings.pt-PT.resx" />
     <EmbeddedResource Include="MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,7 +236,6 @@
     <EmbeddedResource Include="l10n\strings.lo-LA.resx" />
     <EmbeddedResource Include="l10n\strings.mt-MT.resx" />
     <EmbeddedResource Include="l10n\strings.nl.resx" />
-    <EmbeddedResource Include="l10n\strings.pt.resx" />
     <EmbeddedResource Include="l10n\strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.Designer.cs</LastGenOutput>
