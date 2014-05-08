@@ -291,10 +291,10 @@ namespace SI_GUI
                     int k = 0;
                     if (!master)
                     {
-                        k = originalFilename.IndexOf("_") + 1;
+                        k = originalFilename.IndexOf("~") + 1;
                         originalFilename = originalFilename.Remove(0, k);
                         k = originalFilename.IndexOf("_");
-                        originalFilename = originalFilename.Remove(k);
+                        originalFilename = "master~"+originalFilename.Remove(k);
                     }
                     else
                     {
