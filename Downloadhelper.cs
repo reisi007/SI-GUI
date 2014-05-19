@@ -19,7 +19,7 @@ namespace SI_GUI
 {
     public partial class MainUI : Form
     {
-        enum enum4DL_Special { LB, OB, T};
+        enum enum4DL_Special { LB, OB, T };
         void asyncdl_wrapper(enum4DL_Special version, bool helppack)
         {
             switch (version)
@@ -140,12 +140,12 @@ namespace SI_GUI
             // Download
             bool cont = true;
             string[] version = new string[2];
-            string lang = (choose_lang.SelectedItem == null?null:choose_lang.SelectedItem.ToString());
+            string lang = (choose_lang.SelectedItem == null ? null : choose_lang.SelectedItem.ToString());
             try
             {
                 if (helppack)
                 {
-                    if (lang == null||lang == "")
+                    if (lang == null || lang == "")
                     {
                         cont = false;
                         throw new System.InvalidOperationException(getstring("error_langpack_nolang"));
@@ -171,7 +171,7 @@ namespace SI_GUI
                         }
                         starting_position = httpfile.IndexOf(".msi");
                         httpfile = httpfile.Remove(starting_position + 4);
-                        
+
                         if (helppack && (httpfile.Length != 2))
                         {
                             string vers2 = httpfile;
@@ -291,10 +291,9 @@ namespace SI_GUI
                     int k = 0;
                     if (!master)
                     {
-                        k = originalFilename.IndexOf("~") + 1;
-                        originalFilename = originalFilename.Remove(0, k);
-                        k = originalFilename.IndexOf("_");
-                        originalFilename = "master~"+originalFilename.Remove(k);
+                        k = originalFilename.IndexOf('~');
+                        k = originalFilename.IndexOf('_', k + 1);
+                        originalFilename = originalFilename.Substring(0, k);
                     }
                     else
                     {
@@ -317,6 +316,8 @@ namespace SI_GUI
         {
             // Get the final download links and initialize the download
             string httpfile = downloadfile(LinktoFile + "?C=S;O=D");
+            if (httpfile == null)
+                return;
             int tmp = httpfile.IndexOf("Parent");
             httpfile = httpfile.Remove(0, tmp);
             tmp = httpfile.IndexOf("href") + 6;
@@ -350,8 +351,16 @@ namespace SI_GUI
         }
         private string downloadfile(string url)
         {
-            WebClient wc = getPreparedWebClient();
-            return wc.DownloadString(url);
+            try
+            {
+                WebClient wc = getPreparedWebClient();
+                return wc.DownloadString(url);
+            }
+            catch (WebException e)
+            {
+                exceptionmessage(e.Message);
+                return null;
+            }
         }
         private string[] getLibO_List_of_DL()
         {
