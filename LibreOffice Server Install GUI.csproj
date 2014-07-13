@@ -34,7 +34,7 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>4.2.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChangingDLInfo.cs" />
+    <Compile Include="Downloader.cs" />
     <Compile Include="SaveSettingsHelper.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +125,6 @@
     </Compile>
     <Compile Include="MainUI.Designer.cs">
       <DependentUpon>MainUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Downloadhelper.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinFormStartHelper.cs">
       <SubType>Form</SubType>

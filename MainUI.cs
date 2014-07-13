@@ -91,13 +91,15 @@ namespace SI_GUI
         };
         #endregion
         private bool rtl_layout = false;
-        string[] dl_special;
-        ChangingDLInfo[] dlInfos;
-        access_settings set = new access_settings();
-        ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
-        TDFPiwik piwik;
-        string path_4_download = Path.GetTempPath();
-        bool AdvancedFilenames;
+        private string[] dl_special;
+        private ChangingDLInfo[] dlInfos;
+        private access_settings set = new access_settings();
+        private ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
+        private TDFPiwik piwik;
+        private string path_4_download = Path.GetTempPath();
+        private bool AdvancedFilenames;
+        //Download backend
+        private Downloader downloader;
         string siguiTitle
         {
             get
@@ -107,16 +109,15 @@ namespace SI_GUI
         }
         public MainUI()
         {
-
             //l10n import
             string[] rtl = new string[] { "He" };
-            SETTINGS temp = new SETTINGS();
+            SETTINGS settings = new SETTINGS();
             try
             {
-                temp = set.open_settings();
-                if (temp.DL_saved_settings.download_path != null)
-                    path_4_download = temp.DL_saved_settings.download_path;
-                string lang = temp.l10n;
+                settings = set.open_settings();
+                if (settings.DL_saved_settings.download_path != null)
+                    path_4_download = settings.DL_saved_settings.download_path;
+                string lang = settings.l10n;
                 if (lang != null)
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
                 else
@@ -133,8 +134,8 @@ namespace SI_GUI
                     }
                     catch (Exception) { i = 0; }
                     lang = langAvailable[i];
-                    temp.l10n = lang;
-                    set.save_settings(temp);
+                    settings.l10n = lang;
+                    set.save_settings(settings);
                 }
                 piwik = new TDFPiwik(getstring("ga_allowed_title"), getstring("ga_allowed_text"));
                 piwik.sendStartupStats(lang);
@@ -148,7 +149,9 @@ namespace SI_GUI
 
             InitializeComponent();
 
-            openfile.InitialDirectory = temp.DL_saved_settings.download_path;
+            downloader = new Downloader(settings,set.program_version(),progressBar,this,percent,start_dl,choose_lang);
+
+            openfile.InitialDirectory = settings.DL_saved_settings.download_path;
             openfile2.InitialDirectory = openfile.InitialDirectory;
             choose_lang.Items.AddRange(alllang);
             try
@@ -213,7 +216,7 @@ namespace SI_GUI
              *    Set special download
              * 
              * */
-            dl_special = new string[] { getstring("liboFresh"),getstring("liboStable"), getstring("m_l10n_t"), "---" };
+            dl_special = new string[] { getstring("liboFresh"), getstring("liboStable"), getstring("m_l10n_t"), "---" };
             /*
             * 
             *    Set special download end
@@ -246,6 +249,8 @@ namespace SI_GUI
             give_message.BalloonTipClosed += new EventHandler(gm_do);
             give_message.Click += new EventHandler(gm_do);
             give_message.DoubleClick += new EventHandler(gm_do);
+
+            this.BringToFront();
         }
 
         public static ToolTip get_ToolTip(Control c, string text)
@@ -257,6 +262,14 @@ namespace SI_GUI
             tt.UseAnimation = true;
 
             return tt;
+        }
+        public void sendStats(string hplang)
+        {
+            piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedText, hplang);
+        }
+        public void sendStatsFilename(Uri filename)
+        {
+            piwik.sendDLfilename(filename.ToString());
         }
 
         private void loadsettings()
@@ -292,6 +305,10 @@ namespace SI_GUI
             }
             catch (Exception e)
             { MessageBox.Show(e.Message); }
+        }
+        public void issueNotifyBallon(int timeout,string title,string text)
+        {
+            give_message.ShowBalloonTip(timeout, title, text, ToolTipIcon.Info);  
         }
 
         private void gm_do(Object sender, EventArgs e)
@@ -631,7 +648,7 @@ namespace SI_GUI
         }
         public string getstring(string strMessage)
         {
-            string rt = "??? + ("+strMessage+")";
+            string rt = "??? + (" + strMessage + ")";
             try
             {
                 rt = rm.GetString(strMessage).Replace(":n:", Environment.NewLine).Replace(":nl:", Environment.NewLine);
@@ -718,7 +735,7 @@ namespace SI_GUI
         private void update_versions_Click(object sender, EventArgs e)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Update_ListOfVersion);
-            dl_list = getLibO_List_of_DL();
+            dl_list = downloader.getLibOListOfDL();
             update_changingVersions();
             loadVersionstoList();
         }
@@ -739,8 +756,8 @@ namespace SI_GUI
         }
         private void update_changingVersions()
         {
-            string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/info.txt";
-            System.Net.WebClient wc = getPreparedWebClient();
+            string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/"+(set.program_version().EndsWith("ing")?"beta":"info")+".txt";
+            System.Net.WebClient wc = downloader.getPreparedWebClient();
             string[] info = wc.DownloadString(url).Replace("\r\n", "\n").Split(new char[] { '\n' });
             dlInfos = ChangingDLInfo.Parse(info);
         }
@@ -762,34 +779,35 @@ namespace SI_GUI
                             // Latest branch
                             if (cb_installer.Checked)
                             {
-                                asyncdl_wrapper(enum4DL_Special.LB, false);
+                                downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.MAIN);
                             }
                             if (cb_help.Checked)
                             {
-                                asyncdl_wrapper(enum4DL_Special.LB, true);
+                                downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.HP);
                             }
                             break;
                         case (1):
                             // Older branch
                             if (cb_installer.Checked)
                             {
-                                asyncdl_wrapper(enum4DL_Special.OB, false);
+                                downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.MAIN);
                             }
                             if (cb_help.Checked)
                             {
-                                asyncdl_wrapper(enum4DL_Special.OB, true);
+                                downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.HP);
                             }
                             break;
                         case (2):
                             // Testing
                             if (cb_installer.Checked)
                             {
-                                asyncdl_wrapper(enum4DL_Special.T, false);
+                                downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.MAIN);
                             }
                             if (cb_help.Checked)
                             {
-                                asyncdl_wrapper(enum4DL_Special.T, true);
+                                downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.HP);
                             }
+                        default:
                             break;
                     }
                 }
@@ -799,25 +817,23 @@ namespace SI_GUI
                     if (index <= versionsFixed + dlInfos.Length)
                     {
                         ChangingDLInfo info = dlInfos[index - (versionsFixed + 1)];
-                        bool helppack = info.helppackAvailable && cb_help.Checked;
                         if (cb_installer.Checked)
                             // asyncdl_wrapper(info.url,false);
-                            download_any_version(info.url, false);
-                        if (helppack)
-                            download_any_version(info.url, true);
+                            downloader.downloadAnyVersion(info.url, Downloader.Version.MAIN);
+                        if (info.helppackAvailable && cb_help.Checked)
+                            downloader.downloadAnyVersion(info.url, Downloader.Version.HP);
                     }
                     else
                     {
-
-                        string link = get_final_link(true, dl_versions.SelectedItem.ToString());
                         if (cb_installer.Checked)
                         {
-                            download_any_version(link, false);
+                            downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.MAIN);
                         }
                         if (cb_help.Checked)
                         {
-                            download_any_version(link, true);
+                            downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.HP);
                         }
+                        //TODO SDK
                     }
                 }
             }
@@ -877,7 +893,7 @@ namespace SI_GUI
 
         private void cancel_dl_Click(object sender, EventArgs e)
         {
-            resetDL();
+            downloader.resetDL();
         }
 
         private void show_gb_bs_Click(object sender, EventArgs e)
@@ -952,5 +968,23 @@ namespace SI_GUI
         {
             savesettings();
         }
+        public void setPathMain(string newPath)
+        {
+            path_main.Text = newPath;
+        }
+        public void setPathHelp(string newPath)
+        {
+            path_help.Text = newPath;
+        }
+        public void setPathSDK(string newPath)
+        {
+            //TODO
+        }
+        public void setSubfolder(string subFolderName)
+        {
+            subfolder.Text = (subFolderName == null ? subfolder.Text : subFolderName);
+        }
     }
 }
+
+

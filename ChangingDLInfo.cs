@@ -9,18 +9,19 @@ namespace SI_GUI
     public class ChangingDLInfo
     {
         public ChangingDLInfo()
-            : this("", "", false)
+            : this("", "", false,false)
         {
 
         }
-        private ChangingDLInfo(string name, string url, bool helppack)
+        private ChangingDLInfo(string name, string url, bool helppack,bool sdk)
         {
             this.name = name;
             this.url = url;
             this.helppackAvailable = helppack;
+            this.sdkAvailable = sdk;
         }
-        public string name, url;
-        public bool helppackAvailable;
+        public  readonly string name, url;
+        public readonly bool helppackAvailable,sdkAvailable;
         public override string ToString()
         {
             return name;
@@ -32,7 +33,7 @@ namespace SI_GUI
             {
                 string line = s[i];
                 string[] tmp = line.Split(new char[] { '#' });
-                list.Add(new ChangingDLInfo(tmp[2], tmp[0], Convert.ToBoolean(tmp[1])));
+                list.Add(new ChangingDLInfo(tmp[3], tmp[0], Convert.ToBoolean(tmp[1]),Convert.ToBoolean(tmp[2])));
             }
 
             return list.ToArray();

@@ -12,45 +12,89 @@ using System.Windows.Forms;
 using System.Net;
 using System.Xml.Serialization;
 using System.IO;
-/*
- * This files contains all data for downloading data or files
- */
+
 namespace SI_GUI
 {
-    public partial class MainUI : Form
+    public class Downloader
     {
-        enum enum4DL_Special { LB, OB, T };
-        void asyncdl_wrapper(enum4DL_Special version, bool helppack)
+        // Enum which things should be downloaded
+        public enum Branch { M, LB, OB, T };
+        public enum Version { MAIN, HP, SDK };
+        //Easy file names --> Setting
+        private static string hp_easy = "libo_help", main_easy = "libo_main", sdk_easy = "libo_sdk";
+        //The folder to save the files in
+        private string folder;
+        //Should the easy file names be used
+        private bool easyFilenames;
+        //UI components used, which is used to show the progess
+        private ProgressBar progress;
+        private MainUI mainui;
+        private Label percentLabel;
+        private Button startDownload;
+        private ComboBox languages;
+        private string programVersion;
+        public void setEasyFileNames(bool efn)
         {
-            switch (version)
-            {
-                case (enum4DL_Special.LB):
-                    startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, true, false, helppack);
-                    break;
-                case (enum4DL_Special.OB):
-                    startasyncdownload("http://download.documentfoundation.org/libreoffice/stable/", false, false, false, true, helppack);
-                    break;
-                case (enum4DL_Special.T):
-                    startasyncdownload("http://dev-builds.libreoffice.org/pre-releases/win/x86/?C=S;O=D", true, false, false, false, helppack);
-                    break;
-            }
+            easyFilenames = efn;
         }
-        void asyncdl_wrapper(string url, bool helppack)
+        public void setFolderPath(string path)
         {
-            startasyncdownload(url, false, true, false, false, helppack);
+            folder = path;
+        }
+        public string getstring(string s)
+        {
+            return mainui.getstring(s);
+        }
+        public void exceptionmessage(string s)
+        {
+            mainui.exceptionmessage(s);
+        }
+        public Downloader(SETTINGS s, string version, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages)
+            : this(s.DL_saved_settings.download_path, !s.cb_advanced_filenames, pb, ui, percentage, startDownload, languages, version)
+        { }
+        public Downloader(string folder, bool easyFilenames, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages, string version)
+        {
+            this.folder = folder;
+            this.easyFilenames = easyFilenames;
+            progress = pb;
+            mainui = ui;
+            percentLabel = percentage;
+            this.languages = languages;
+            programVersion = version;
+            this.startDownload = startDownload;
         }
 
+        public void startStaticDL(Branch branch, Version td)
+        {
+            string url;
+            switch (branch)
+            {
+                case (Branch.LB):
+                    url = "http://download.documentfoundation.org/libreoffice/stable/";
+                    break;
+                case (Branch.OB):
+                    url = "http://download.documentfoundation.org/libreoffice/stable/";
+                    break;
+                case (Branch.T):
+                    url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
+                    break;
+                default:
+                    url = "";
+                    break;
+            }
+            startAsyncDownload(url, branch, td);
+        }
         // List of all web clients
         List<WebClient> list_wc = new List<WebClient>();
-        #region Process for DL of main program
         Dictionary<int, long> dl_manager_current = new Dictionary<int, long>();
         Dictionary<int, long> dl_manager_total = new Dictionary<int, long>();
-        Dictionary<int, bool> dl_is_hp = new Dictionary<int, bool>();
+        Dictionary<int, Version> dl_type = new Dictionary<int, Version>();
         float sum_current, sum_total;
         float percentage;
 
         void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
+
             sum_current = 0;
             sum_total = 0;
             if (dl_manager_current.ContainsKey(sender.GetHashCode()))
@@ -61,10 +105,11 @@ namespace SI_GUI
             else
             {
                 // New download
-                bool isHP = false;
-                if (e.TotalBytesToReceive < 104857600)
-                    isHP = true;
-                dl_is_hp.Add(sender.GetHashCode(), isHP);
+                Version v = Version.MAIN;
+                if (e.TotalBytesToReceive < 20971520) //HP < 20 MB
+                    v = Version.HP;
+                else if (e.TotalBytesToReceive < 52428800) //  20 MB < SDK < 50 MB
+                    dl_type.Add(sender.GetHashCode(), v);
                 dl_manager_total.Add(sender.GetHashCode(), e.TotalBytesToReceive);
             }
             // Set already downloaded bytes
@@ -80,29 +125,31 @@ namespace SI_GUI
             try
             {
                 percentage = 100f * sum_current / sum_total;
-                progressBar.Value = (int)(percentage * 100);
-                percent.Text = Math.Round(percentage, 2).ToString() + " %";
+                progress.Value = (int)(percentage * 100);
+                percentLabel.Text = Math.Round(percentage, 2).ToString() + " %";
             }
             catch (Exception) { }
         }
-        bool hp_or_installer; // hp if true
-        Dictionary<int, string> dllocation = new Dictionary<int, string>();
+
+        Dictionary<int, string> dllocation = new Dictionary<int, string>(); //TODO improve
         void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            if (!AdvancedFilenames)
-                start_dl.Enabled = true;
+            Version v;
+            if (!easyFilenames)
+                startDownload.Enabled = true;
             string filename;
             if (!e.Cancelled && dllocation.TryGetValue(sender.GetHashCode(), out filename))
             {
-                give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
-                if (dl_is_hp.TryGetValue(sender.GetHashCode(), out hp_or_installer))
+                mainui.issueNotifyBallon(10000, getstring("dl_finished_title"), getstring("dl_finished"));
+                if (dl_type.TryGetValue(sender.GetHashCode(), out v))
                 {
-                    if (!hp_or_installer) // Main installer
-                        path_main.Text = filename;
-                    else // Helppack
-                        path_help.Text = filename;
-
-                    if (progressBar.Value == progressBar.Maximum)
+                    if (v == Version.MAIN) // Main installer
+                        mainui.setPathMain(filename);
+                    else if (v == Version.HP)  // Helppack
+                        mainui.setPathHelp(filename);
+                    else //SDK
+                        mainui.setPathSDK(filename);
+                    if (progress.Value == progress.Maximum)
                         resetDL();
                 }
                 else
@@ -113,42 +160,32 @@ namespace SI_GUI
             else
                 resetDL();
         }
-        private void resetDL()
+        public void resetDL()
         {
             foreach (WebClient wc in list_wc)
                 if (wc.IsBusy)
                     wc.CancelAsync();
             dl_manager_current.Clear();
             dl_manager_total.Clear();
-            dl_is_hp.Clear();
+            dl_type.Clear();
             dllocation.Clear();
             list_wc.Clear();
-            progressBar.Value = 0;
-            percent.Text = "0 %";
+            progress.Value = 0;
+            percentLabel.Text = "0 %";
         }
-        #endregion
-
-
-        #region Download of Master, Testing, Latest as well as Older branch
-        public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch)
-        {
-            startasyncdownload(url, testing, master, latest_branch, older_branch, false);
-        }
-
-        public void startasyncdownload(string url, bool testing, bool master, bool latest_branch, bool older_branch, bool helppack)
+        public void startAsyncDownload(string url, Branch branch, Version version)
         {
             // Download
             bool cont = true;
-            string[] version = new string[2];
-            string lang = (choose_lang.SelectedItem == null ? null : choose_lang.SelectedItem.ToString());
+            string lang = (languages.SelectedItem == null ? null : languages.SelectedItem.ToString());
             try
             {
-                if (helppack)
+                if (version == Version.HP)
                 {
                     if (lang == null || lang == "")
                     {
                         cont = false;
-                        throw new System.InvalidOperationException(getstring("error_langpack_nolang"));
+                        throw new ArgumentException();
                     }
                 }
             }
@@ -158,10 +195,10 @@ namespace SI_GUI
             }
             if (cont)
             {
-                string httpfile = downloadfile(url);
+                string httpfile = downloadFile(url);
                 if (httpfile != "error")
                 {
-                    if (master)
+                    if (branch == Branch.M)
                     {
                         int starting_position;
                         for (int i = 0; i < 6; i++)
@@ -172,7 +209,7 @@ namespace SI_GUI
                         starting_position = httpfile.IndexOf(".msi");
                         httpfile = httpfile.Remove(starting_position + 4);
 
-                        if (helppack && (httpfile.Length != 2))
+                        if (version == Version.HP && (httpfile.Length != 2))
                         {
                             string vers2 = httpfile;
                             string insert = "_helppack_" + lang + ".msi";
@@ -182,7 +219,7 @@ namespace SI_GUI
                             httpfile = vers2;
                         }
                     }
-                    else if (testing)
+                    else if (branch == Branch.T)
                     {
                         int starting_position = httpfile.IndexOf("Lib");
                         url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
@@ -190,7 +227,7 @@ namespace SI_GUI
                         starting_position = httpfile.IndexOf("msi") + 3;
                         httpfile = httpfile.Remove(starting_position);
 
-                        if (helppack && (httpfile.Length != 2))
+                        if (version == Version.HP && (httpfile.Length != 2))
                         {
                             string vers2 = httpfile;
                             string insert = "_helppack_" + lang + ".msi";
@@ -201,12 +238,12 @@ namespace SI_GUI
                         }
 
                     }
-                    else if (latest_branch || older_branch)
+                    else if (branch == Branch.LB || branch == Branch.OB)
                     {
                         int i = httpfile.IndexOf("Metadata");
                         httpfile = httpfile.Remove(0, i);
                         int max;
-                        if (older_branch)
+                        if (branch == Branch.OB)
                             max = 2;
                         else
                             max = 3;
@@ -217,52 +254,53 @@ namespace SI_GUI
                         }
                         httpfile = httpfile.Remove(5);
                         url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                        if (helppack)
+                        if (version == Version.HP)
                             httpfile = "LibreOffice_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
                         else
                             httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
-
                     }
-
-                    startDL(httpfile, url, master, helppack);
-
+                    startDL(httpfile, url, branch, version);
                 }
             }
         }
-        #endregion
-        private WebClient getPreparedWebClient()
+
+        public WebClient getPreparedWebClient()
         {
             WebClient webc = new WebClient();
-            webc.Headers["User-Agent"] = "LibreOffice Server Install Gui " + set.program_version();
+            webc.Headers["User-Agent"] = "LibreOffice Server Install Gui " + programVersion;
             webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
             webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
             return webc;
         }
 
-        private void startDL(string programFilename, string finallink, bool master, bool helppack)
+        private void startDL(string programFilename, string finallink, Branch branch, Version version)
         {
+            string path = folder;
             list_wc.Add(getPreparedWebClient());
             int wc = list_wc.Count - 1;
-            string path = path_4_download;
             Uri uritofile = new Uri(finallink + programFilename);
             string originalFilename = programFilename;
-            if (!AdvancedFilenames)
+            if (easyFilenames)
             {
                 if (programFilename.Contains("msi"))
                 {
-                    if (helppack)
+                    if (version == Version.HP)
                         programFilename = "libo_hp.msi";
+                    else if (version == Version.SDK)
+                        programFilename = "libo_sdk.msi";
                     else
                         programFilename = "libo_installer.msi";
                 }
                 else
                 {
-                    if (helppack)
+                    if (version == Version.HP)
                         programFilename = "libo_hp.exe";
+                    else if (version == Version.SDK)
+                        programFilename = "libo_sdk.exe";
                     else
                         programFilename = "libo_installer.exe";
                 }
-                start_dl.Enabled = false;
+                startDownload.Enabled = false;
             }
             path = Path.Combine(path, programFilename);
             string mb_question = getstring("versiondl");
@@ -274,22 +312,22 @@ namespace SI_GUI
                 if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     // Send stats
-                    if (!helppack)
+                    if (version != Version.HP)
                     {
-                        piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), "");
+                        mainui.sendStats("");
                     }
-                    if (!master && helppack)
+                    else
                     {
-                        piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), choose_lang.SelectedItem.ToString());
+                        mainui.sendStats(languages.SelectedItem.ToString());
                     }
-                    piwik.sendDLfilename(uritofile.ToString());
+                    mainui.sendStatsFilename(uritofile);
                     // End send stats
-                    give_message.ShowBalloonTip(5000, getstring("dl_started_title"), getstring("dl_started"), ToolTipIcon.Info);
+                    mainui.issueNotifyBallon(5000, getstring("dl_started_title"), getstring("dl_started"));
                     set_progressbar();
                     list_wc[wc].DownloadFileAsync(uritofile, path);
                     dllocation.Add(list_wc[wc].GetHashCode(), path);
                     int k = 0;
-                    if (!master)
+                    if (branch != Branch.M)
                     {
                         k = originalFilename.IndexOf('~');
                         k = originalFilename.IndexOf('_', k + 1);
@@ -300,11 +338,11 @@ namespace SI_GUI
                         k = originalFilename.IndexOf("_");
                         originalFilename = originalFilename.Remove(k);
                     }
-                    if (!helppack)
-                        subfolder.Text = originalFilename;
+                    if (version == Version.MAIN)
+                        mainui.setSubfolder(originalFilename);
                 }
                 else
-                    start_dl.Enabled = true;
+                    startDownload.Enabled = true;
             }
             else
             {
@@ -312,10 +350,10 @@ namespace SI_GUI
             }
         }
 
-        private void download_any_version(string LinktoFile, bool helppack)
+        public void downloadAnyVersion(string linkToFile, Version version)
         {
             // Get the final download links and initialize the download
-            string httpfile = downloadfile(LinktoFile + "?C=S;O=D");
+            string httpfile = downloadFile(linkToFile + "?C=S;O=D");
             if (httpfile == null)
                 return;
             int tmp = httpfile.IndexOf("Parent");
@@ -324,7 +362,7 @@ namespace SI_GUI
             httpfile = httpfile.Remove(0, tmp);
             tmp = httpfile.IndexOf("\"");
             httpfile = httpfile.Remove(tmp);
-            if (helppack)
+            if (version == Version.HP)
             {
                 // Helppack only
 
@@ -332,24 +370,25 @@ namespace SI_GUI
                 if (httpfile.Contains("install_all"))
                 {
                     // Old format
-                    httpfile = httpfile.Replace("install_all_lang", "helppack_" + choose_lang.SelectedItem.ToString());
+                    httpfile = httpfile.Replace("install_all_lang", "helppack_" + languages.SelectedItem.ToString());
                 }
                 else if (httpfile.Contains("install_multi"))
                 {
                     // Newer format
-                    httpfile = httpfile.Replace("install_multi", "helppack_" + choose_lang.SelectedItem.ToString());
+                    httpfile = httpfile.Replace("install_multi", "helppack_" + languages.SelectedItem.ToString());
                 }
                 else
                 {
                     // New format
-                    httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + choose_lang.SelectedItem.ToString());
+                    httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + languages.SelectedItem.ToString());
                 }
 
                 // Start download
             }
-            startDL(httpfile, LinktoFile, false, helppack);
+            startDL(httpfile, linkToFile, Branch.M, version);
+            //  startDL(httpfile, LinktoFile, false, helppack);
         }
-        private string downloadfile(string url)
+        public string downloadFile(string url)
         {
             try
             {
@@ -362,11 +401,11 @@ namespace SI_GUI
                 return null;
             }
         }
-        private string[] getLibO_List_of_DL()
+        public string[] getLibOListOfDL()
         {
             string link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
             List<string> versions = new List<string>();
-            string httpfile = httpfile = downloadfile(link), tmp;
+            string httpfile = httpfile = downloadFile(link), tmp;
             int i;
             bool goon = true;
             // Get the version numbers of LibreOffice
@@ -391,20 +430,24 @@ namespace SI_GUI
             }
             return versions.ToArray();
         }
-        private string get_final_link(bool libo, string version)
+        private string get_final_link(string version)
         {
-            if (libo)
                 return "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win/x86/";
-            else
-                return "???";
+
+        }
+
+        public void startArchiveDownload(string vName,Version version)
+        {
+            downloadAnyVersion(get_final_link(vName), version);
         }
         private void set_progressbar()
         {
-            if (progressBar.Value == progressBar.Maximum || progressBar.Value == 0)
+            if (progress.Value == progress.Maximum || progress.Value == 0)
             {
-                progressBar.Maximum = 10000;
-                progressBar.Value = 0;
+                progress.Maximum = 10000;
+                progress.Value = 0;
             }
         }
     }
+
 }
