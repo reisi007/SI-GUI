@@ -149,7 +149,7 @@ namespace SI_GUI
 
             InitializeComponent();
 
-            downloader = new Downloader(settings,set.program_version(),progressBar,this,percent,start_dl,choose_lang);
+            downloader = new Downloader(settings, set.program_version(), progressBar, this, percent, start_dl, choose_lang);
 
             openfile.InitialDirectory = settings.DL_saved_settings.download_path;
             openfile2.InitialDirectory = openfile.InitialDirectory;
@@ -306,9 +306,9 @@ namespace SI_GUI
             catch (Exception e)
             { MessageBox.Show(e.Message); }
         }
-        public void issueNotifyBallon(int timeout,string title,string text)
+        public void issueNotifyBallon(int timeout, string title, string text)
         {
-            give_message.ShowBalloonTip(timeout, title, text, ToolTipIcon.Info);  
+            give_message.ShowBalloonTip(timeout, title, text, ToolTipIcon.Info);
         }
 
         private void gm_do(Object sender, EventArgs e)
@@ -756,7 +756,7 @@ namespace SI_GUI
         }
         private void update_changingVersions()
         {
-            string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/"+(set.program_version().EndsWith("ing")?"beta":"info")+".txt";
+            string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/" + (set.program_version().EndsWith("ing")/*testing versions*/ ? "beta" : "info") + ".txt";
             System.Net.WebClient wc = downloader.getPreparedWebClient();
             string[] info = wc.DownloadString(url).Replace("\r\n", "\n").Split(new char[] { '\n' });
             dlInfos = ChangingDLInfo.Parse(info);
@@ -765,79 +765,90 @@ namespace SI_GUI
         private static int versionsFixed = 3;
         private void start_dl_Click(object sender, EventArgs e)
         {
-            piwik.sendFeatreUseageStats(TDFPiwik.Features.StartDL);
+
             if (dl_versions.SelectedItem != null)
             {
-                int index = dl_versions.SelectedIndex;
-                if ((index == versionsFixed || (index == (versionsFixed + dlInfos.Length + 1))))
-                    return;
-                if (index < versionsFixed)
+                try
                 {
-                    switch (index)
+                    int index = dl_versions.SelectedIndex;
+                    if ((index == versionsFixed || (index == (versionsFixed + dlInfos.Length + 1))))
+                        return;
+                    if (index < versionsFixed)
                     {
-                        case (0):
-                            // Latest branch
-                            if (cb_installer.Checked)
-                            {
-                                downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.MAIN);
-                            }
-                            if (cb_help.Checked)
-                            {
-                                downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.HP);
-                            }
-                            break;
-                        case (1):
-                            // Older branch
-                            if (cb_installer.Checked)
-                            {
-                                downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.MAIN);
-                            }
-                            if (cb_help.Checked)
-                            {
-                                downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.HP);
-                            }
-                            break;
-                        case (2):
-                            // Testing
-                            if (cb_installer.Checked)
-                            {
-                                downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.MAIN);
-                            }
-                            if (cb_help.Checked)
-                            {
-                                downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.HP);
-                            }
-                        default:
-                            break;
-                    }
-                }
-                else
-                {
-                    // Selected Thinderboxes
-                    if (index <= versionsFixed + dlInfos.Length)
-                    {
-                        ChangingDLInfo info = dlInfos[index - (versionsFixed + 1)];
-                        if (cb_installer.Checked)
-                            // asyncdl_wrapper(info.url,false);
-                            downloader.downloadAnyVersion(info.url, Downloader.Version.MAIN);
-                        if (info.helppackAvailable && cb_help.Checked)
-                            downloader.downloadAnyVersion(info.url, Downloader.Version.HP);
+                        switch (index)
+                        {
+                            case (0):
+                                // Latest branch
+                                if (cb_installer.Checked)
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.MAIN);
+                                }
+                                if (cb_help.Checked)
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.HP);
+                                }
+                                break;
+                            case (1):
+                                // Older branch
+                                if (cb_installer.Checked)
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.MAIN);
+                                }
+                                if (cb_help.Checked)
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.HP);
+                                }
+                                break;
+                            case (2):
+                                // Testing
+                                if (cb_installer.Checked)
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.MAIN);
+                                }
+                                if (cb_help.Checked)
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.HP);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
                     }
                     else
                     {
-                        if (cb_installer.Checked)
+                        // Selected Thinderboxes
+                        if (index <= versionsFixed + dlInfos.Length)
                         {
-                            downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.MAIN);
+                            ChangingDLInfo info = dlInfos[index - (versionsFixed + 1)];
+                            if (cb_installer.Checked)
+                                // asyncdl_wrapper(info.url,false);
+                                downloader.downloadAnyVersion(info.url, Downloader.Version.MAIN);
+                            if (info.helppackAvailable && cb_help.Checked)
+                                downloader.downloadAnyVersion(info.url, Downloader.Version.HP);
                         }
-                        if (cb_help.Checked)
+                        else
                         {
-                            downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.HP);
+                            if (cb_installer.Checked)
+                            {
+                                downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.MAIN);
+                            }
+                            if (cb_help.Checked)
+                            {
+                                downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.HP);
+                            }
+                            //TODO SDK
                         }
-                        //TODO SDK
                     }
+                    piwik.sendFeatreUseageStats(TDFPiwik.Features.StartDL);
+                }
+                catch (DownloadNotAvailableException dnae)
+                {
+                    if (dnae.getBranch() == Downloader.Branch.T)
+                        MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        exceptionmessage(dnae.Message);
                 }
             }
-
         }
 
         private void reset_pathMain_Click(object sender, EventArgs e)

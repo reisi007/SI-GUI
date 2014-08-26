@@ -173,7 +173,8 @@ namespace SI_GUI
             progress.Value = 0;
             percentLabel.Text = "0 %";
         }
-        public void startAsyncDownload(string url, Branch branch, Version version)
+        //throws DownloadNotAvailableException
+        public void startAsyncDownload(string url, Branch branch, Version version) 
         {
             // Download
             bool cont = true;
@@ -222,6 +223,9 @@ namespace SI_GUI
                     else if (branch == Branch.T)
                     {
                         int starting_position = httpfile.IndexOf("Lib");
+                        // Show an error box, if no testing build is available
+                        if (starting_position == -1)                           
+                            throw new DownloadNotAvailableException(branch);
                         url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
                         httpfile = httpfile.Remove(0, starting_position);
                         starting_position = httpfile.IndexOf("msi") + 3;
@@ -432,11 +436,11 @@ namespace SI_GUI
         }
         private string get_final_link(string version)
         {
-                return "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win/x86/";
+            return "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win/x86/";
 
         }
 
-        public void startArchiveDownload(string vName,Version version)
+        public void startArchiveDownload(string vName, Version version)
         {
             downloadAnyVersion(get_final_link(vName), version);
         }

@@ -34,8 +34,8 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>4.2.3.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>4.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="ChangingDLInfo.cs" />
     <Compile Include="Downloader.cs" />
+    <Compile Include="DownloadNotAvailableException.cs" />
     <Compile Include="SaveSettingsHelper.cs">
       <SubType>Form</SubType>
     </Compile>
