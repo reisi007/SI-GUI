@@ -126,6 +126,7 @@ namespace SI_GUI
             DL_saved_settings.cb_help = false;
             DL_saved_settings.cb_installer = true;
             DL_saved_settings.changingVersion = new ChangingDLInfo[0];
+            DL_saved_settings.download_path = Path.GetTempPath();
             Piwik.manually_set = false;
             Piwik.tracking_allowed = false;
         }
@@ -144,6 +145,7 @@ namespace SI_GUI
         public string[] versions;
         public bool cb_installer;
         public bool cb_help;
+        public bool cb_sdk;
         public int versions_last_version;
         public string download_path;
         public ChangingDLInfo[] changingVersion;

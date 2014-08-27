@@ -18,6 +18,7 @@ using System.Resources;
 using System.Reflection;
 using System.Globalization;
 using System.Xml.Serialization;
+using SI_GUI.exceptions;
 // Create lnk
 using IWshRuntimeLibrary;
 
@@ -95,8 +96,7 @@ namespace SI_GUI
         private ChangingDLInfo[] dlInfos;
         private access_settings set = new access_settings();
         private ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
-        private TDFPiwik piwik;
-        private string path_4_download = Path.GetTempPath();
+        public TDFPiwik piwik;
         private bool AdvancedFilenames;
         //Download backend
         private Downloader downloader;
@@ -115,8 +115,6 @@ namespace SI_GUI
             try
             {
                 settings = set.open_settings();
-                if (settings.DL_saved_settings.download_path != null)
-                    path_4_download = settings.DL_saved_settings.download_path;
                 string lang = settings.l10n;
                 if (lang != null)
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang, false);
@@ -150,58 +148,40 @@ namespace SI_GUI
             InitializeComponent();
 
             downloader = new Downloader(settings, set.program_version(), progressBar, this, percent, start_dl, choose_lang);
-
             openfile.InitialDirectory = settings.DL_saved_settings.download_path;
             openfile2.InitialDirectory = openfile.InitialDirectory;
             choose_lang.Items.AddRange(alllang);
-            try
-            {
-                Directory.CreateDirectory(path_4_download);
-            }
-            catch (Exception e)
-            {
-                exceptionmessage(e.Message);
-            }
-
         }
         private void MainUI_Load(object sender, EventArgs e)
         {
             if (rtl_layout)
             {
                 // Which texts should stay LTR, when using a RTL language
-                bootinipath.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                bootstrap_text.RightToLeft = System.Windows.Forms.RightToLeft.No;
+
                 subfolder.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_main.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                userinstallation.RightToLeft = System.Windows.Forms.RightToLeft.No;
+
             }
 
             //l10n start
             b_open_libo_installer.Text = getstring("open_installer");
-            button2.Text = getstring("open_help");
-            button3.Text = getstring("config_installdir");
-            button4.Text = getstring("open_bootstrap_ini");
-            cb_help.Text = getstring("gb_dl_help");
-            cb_installer.Text = getstring("gb_dl_installer");
+            b_open_libo_help.Text = getstring("open_help");
+            b_configInstalldir.Text = getstring("config_installdir");
             cb_subfolder.Text = getstring("subfolder_do");
             choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
             create_lnk.Text = getstring("b_create_shortcut");
             dl_versions.Text = getstring("s_version");
-            gb_bootstrap.Text = getstring("edit_bs_ini");
             gb_create_lnk.Text = create_lnk.Text;
             gb_download.Text = getstring("m_l10n_dl");
             gb_installation.Text = getstring("gb_parallel_install");
-            // give_message.Text = siguiTitle;
             label1.Text = getstring("s_version");
             labelProgress.Text = getstring("progress");
             m_about.Text = getstring("about");
             m_help.Text = getstring("help");
             m_man.Text = getstring("man_title");
-            open_bootstrap.Title = getstring("open_bootstrap_title");
-            save_file.Text = getstring("save_bootstrap_ini");
-            show_gb_bs.Text = gb_bootstrap.Text;
+            show_gb_bs.Text = getstring("edit_bs_ini");
             start_dl.Text = getstring("gb_dl_begindl");
             start_install.Text = getstring("start_install");
             this.Text = siguiTitle;
@@ -227,29 +207,32 @@ namespace SI_GUI
             // Position choose_lang
             choose_lang.Location = new Point(choose_lang_label.Location.X + choose_lang_label.Width + 6, choose_lang_label.Location.Y - 3);
             // Position startdl
-            start_dl.Location = new Point(choose_lang.Width + choose_lang.Location.X + 6, choose_lang.Location.Y);
-            start_dl.Width = 397 - start_dl.Location.X;
+            /* start_dl.Location = new Point(choose_lang.Width + choose_lang.Location.X + 6, choose_lang.Location.Y);
+             start_dl.Width = 397 - start_dl.Location.X;*/
             // Specify the starting folder for FileOpen dialogs
             openfile.InitialDirectory = Path.GetTempPath();
             openfile2.InitialDirectory = openfile.InitialDirectory;
             // Position progressbar 1
             // Start Setting tooltips
             ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
-            ToolTip bootstrapini = get_ToolTip(bootstrap_text, getstring("tt_bootstrap"));
             ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
             ToolTip manuallyUpdate = get_ToolTip(version, getstring("tt_autoupdate"));
-            ToolTip go1 = get_ToolTip(go_patHhelp, getstring("tt_go"));
+            ToolTip go1 = get_ToolTip(go_patHelp, getstring("tt_go"));
             ToolTip go2 = get_ToolTip(go_pathMain, getstring("tt_go"));
-            /* End Setting tooltips
-             * Change progressbar location */
-            progressBar.Location = new Point(labelProgress.Location.X + 6 + labelProgress.Size.Width, progressBar.Location.Y);
-            progressBar.Size = new System.Drawing.Size(cancel_dl.Location.X - progressBar.Location.X - 6, progressBar.Size.Height);
+            // End Setting tooltips
+            //Add all available download options
+            availableDLOptions.Add(getstring("gb_dl_installer"));
+            availableDLOptions.Add(getstring("gb_dl_help"));
+            //availableDLOptions.Add("SDK"); //Enable this line for SDK
+            availableDLOptions.Add(""); // Delete this line for the SDK
+            clb_downloadSelector.DataSource = availableDLOptions;
             // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
             give_message.BalloonTipClosed += new EventHandler(gm_do);
             give_message.Click += new EventHandler(gm_do);
             give_message.DoubleClick += new EventHandler(gm_do);
-
+            bootstrapui = createBootstrapUI();
+            setDlButtonState();
             this.BringToFront();
         }
 
@@ -300,8 +283,9 @@ namespace SI_GUI
                 }
                 catch (Exception)
                 { }
-                cb_installer.Checked = toapply.DL_saved_settings.cb_installer;
-                cb_help.Checked = toapply.DL_saved_settings.cb_help;
+                setInstallerSelected(toapply.DL_saved_settings.cb_installer);
+                setHelpSelected(toapply.DL_saved_settings.cb_help);
+                setSDKSelected(toapply.DL_saved_settings.cb_sdk);
             }
             catch (Exception e)
             { MessageBox.Show(e.Message); }
@@ -409,7 +393,7 @@ namespace SI_GUI
                     // Install
                     String bspath = executeInstallation(install_main, install_help, main, help, getFinalInstalldir());
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
-                    openbootstrap_ini(true, bspath);
+                    bootstrapui.openbootstrap_ini(true, bspath);
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
                 }
 
@@ -466,177 +450,17 @@ namespace SI_GUI
             return getbsINIPath();
 
         }
-        private String getbsINIPath()
+        public String getbsINIPath()
         {
             return path_to_exe.Text.Replace("soffice.exe", "bootstrap.ini");
         }
-        private void open_bootstrap_Click(object sender, EventArgs e)
-        {
-            openbootstrap_iniFO();
-        }
-        private bool openbootstrap_iniFO()
-        {
-            if (open_bootstrap.ShowDialog() == DialogResult.OK)
 
-                return secondtry(open_bootstrap.FileName);
-            else return false;
 
-        }
 
-        private bool openbootstrap_ini(bool autoEditenabled)
-        {
-            return openbootstrap_ini(autoEditenabled, getbsINIPath());
-        }
 
-        private bool openbootstrap_ini(bool autoEditenabled, String file)
-        {
-            piwik.sendFeatreUseageStats(TDFPiwik.Features.OpenBootstrap);
-            bool working = true;
-            if (file == null)
-                file = Environment.GetFolderPath(Environment.SpecialFolder.CommonMusic);
-            try
-            {
-                bootstrap_text.Text = System.IO.File.ReadAllText(file);
-            }
-            catch (System.IO.DirectoryNotFoundException)
-            {
-                working = false;
-                if (!autoEditenabled)
-                {
 
-                    return working;
-                }
-            }
-            catch (System.IO.FileNotFoundException)
-            {
-                working = false;
-                if (!autoEditenabled)
-                {
-                    if (open_bootstrap.ShowDialog() == DialogResult.OK)
-                    {
-                        working = secondtry(open_bootstrap.FileName);
-                    }
-                    return working;
-                }
-            }
 
-            catch (Exception ex)
-            {
-                working = false;
-                if (!autoEditenabled)
-                {
-                    exceptionmessage(ex.Message);
-                    return working;
-                }
-            }
-            if (working)
-            {
-                save_file.Enabled = true;
-                bootinipath.Text = file;
-                if (autoEditenabled)
-                    editbs();
-            }
-            return working;
-        }
 
-        private bool secondtry(string path)
-        {
-            bool working = true;
-            try
-            {
-                bootstrap_text.Text = System.IO.File.ReadAllText(path);
-            }
-            catch (Exception ex)
-            {
-                working = false;
-                exceptionmessage(ex.Message);
-            }
-            if (working)
-            {
-                save_file.Enabled = true;
-                bootinipath.Text = path;
-            }
-            return working;
-
-        }
-        private void editbs()
-        {
-            give_message.ShowBalloonTip(2000, getstring("tt_editbs_tit"), getstring("tt_editbs_txt"), ToolTipIcon.Info);
-            int start = bootstrap_text.Text.IndexOf("UserInstallation");
-            int end = bootstrap_text.Text.IndexOf(Environment.NewLine, start);
-            string substring = bootstrap_text.Text.Substring(start, end - start);
-            bootstrap_text.Text = bootstrap_text.Text.Replace(substring, "UserInstallation=$ORIGIN/..");
-            save_bootstrap(true);
-            bootinipath.Text = "";
-            bootstrap_text.Text = "";
-        }
-        private void save_bootstrap(object sender, EventArgs e)
-        {
-            save_bootstrap(false);
-        }
-        private void save_bootstrap(bool quiet)
-        {
-            bool working = true;
-            string exeptiontext = "";
-            // Save bootstrap.ini
-            try
-            {
-                System.IO.File.WriteAllText(bootinipath.Text, bootstrap_text.Text);
-            }
-            catch (System.IO.DirectoryNotFoundException ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:DNF";
-            }
-            catch (System.IO.FileNotFoundException ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:FNF";
-            }
-            catch (System.IO.IOException ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:IOE";
-            }
-            catch (System.UnauthorizedAccessException ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:UAE" + Environment.NewLine + Environment.NewLine + getstring("help_runasadmin");
-            }
-            catch (System.NotSupportedException ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:NSE";
-            }
-            catch (System.Security.SecurityException ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:SE";
-            }
-            catch (Exception ex)
-            {
-                working = false;
-                exeptiontext = ex.Message + " Error:???";
-            }
-            finally
-            {
-
-                if (working)
-                {
-                    piwik.sendFeatreUseageStats(TDFPiwik.Features.SaveBootstrap);
-                    if (!quiet)
-                        MessageBox.Show(getstring("filesave"), getstring("title_filesave"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-                else
-                {
-                    exceptionmessage(exeptiontext);
-                }
-            }
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            userinstallation.Text = "UserInstallation=$ORIGIN/..";
-        }
         private void open_installer_Click(object sender, EventArgs e)
         {
             openfile.ShowDialog();
@@ -728,7 +552,6 @@ namespace SI_GUI
             }
             path_main.Update();
             path_help.Update();
-            savesettings();
         }
         private string[] dl_list;
         private int selected_item;
@@ -752,7 +575,6 @@ namespace SI_GUI
             dl_versions.Items.AddRange(dl_list);
             dl_versions.SelectedIndex = selected_item;
             dl_versions.EndUpdate();
-            savesettings();
         }
         private void update_changingVersions()
         {
@@ -779,35 +601,47 @@ namespace SI_GUI
                         {
                             case (0):
                                 // Latest branch
-                                if (cb_installer.Checked)
+                                if (isInstallerSelected())
                                 {
                                     downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.MAIN);
                                 }
-                                if (cb_help.Checked)
+                                if (isHelpSelected())
                                 {
                                     downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.HP);
+                                }
+                                if (isSDKSelected())
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.SDK);
                                 }
                                 break;
                             case (1):
                                 // Older branch
-                                if (cb_installer.Checked)
+                                if (isInstallerSelected())
                                 {
                                     downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.MAIN);
                                 }
-                                if (cb_help.Checked)
+                                if (isHelpSelected())
                                 {
                                     downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.HP);
+                                }
+                                if (isSDKSelected())
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.SDK);
                                 }
                                 break;
                             case (2):
                                 // Testing
-                                if (cb_installer.Checked)
+                                if (isInstallerSelected())
                                 {
                                     downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.MAIN);
                                 }
-                                if (cb_help.Checked)
+                                if (isHelpSelected())
                                 {
                                     downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.HP);
+                                }
+                                if (isSDKSelected())
+                                {
+                                    downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.SDK);
                                 }
                                 break;
                             default:
@@ -820,23 +654,27 @@ namespace SI_GUI
                         if (index <= versionsFixed + dlInfos.Length)
                         {
                             ChangingDLInfo info = dlInfos[index - (versionsFixed + 1)];
-                            if (cb_installer.Checked)
-                                // asyncdl_wrapper(info.url,false);
+                            if (isInstallerSelected())
                                 downloader.downloadAnyVersion(info.url, Downloader.Version.MAIN);
-                            if (info.helppackAvailable && cb_help.Checked)
+                            if (info.helppackAvailable && isHelpSelected())
                                 downloader.downloadAnyVersion(info.url, Downloader.Version.HP);
+                            if (info.sdkAvailable && isSDKSelected())
+                                downloader.downloadAnyVersion(info.url, Downloader.Version.SDK);
                         }
                         else
                         {
-                            if (cb_installer.Checked)
+                            if (isInstallerSelected())
                             {
                                 downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.MAIN);
                             }
-                            if (cb_help.Checked)
+                            if (isInstallerSelected())
                             {
                                 downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.HP);
                             }
-                            //TODO SDK
+                            if (isSDKSelected())
+                            {
+                                downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.SDK);
+                            }
                         }
                     }
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.StartDL);
@@ -847,6 +685,12 @@ namespace SI_GUI
                         MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                         exceptionmessage(dnae.Message);
+                    setDlButtonState();
+                }
+                catch (MissingSettingException mse)
+                {
+                    exceptionmessage(mse.Message + "[ERR:SETTING_NOTSET]");
+                    setDlButtonState();
                 }
             }
         }
@@ -909,14 +753,9 @@ namespace SI_GUI
 
         private void show_gb_bs_Click(object sender, EventArgs e)
         {
-            gb_bootstrap.Visible = !gb_bootstrap.Visible;
-            gb_create_lnk.Visible = !gb_create_lnk.Visible;
-            gb_download.Visible = !gb_download.Visible;
-            gb_installation.Visible = !gb_installation.Visible;
-            if (gb_bootstrap.Visible)
-                show_gb_bs.Text = getstring("back");
-            else
-                show_gb_bs.Text = gb_bootstrap.Text;
+            if (bootstrapui == null)
+                createBootstrapUI();
+            bootstrapui.ShowDialog();
         }
 
         private void checkFileExists(object sender, CancelEventArgs e)
@@ -982,18 +821,43 @@ namespace SI_GUI
         public void setPathMain(string newPath)
         {
             path_main.Text = newPath;
+            setDlButtonState();
         }
         public void setPathHelp(string newPath)
         {
             path_help.Text = newPath;
+            setDlButtonState();
         }
         public void setPathSDK(string newPath)
         {
-            //TODO
+            path_sdk.Text = newPath;
+            setDlButtonState();
         }
         public void setSubfolder(string subFolderName)
         {
             subfolder.Text = (subFolderName == null ? subfolder.Text : subFolderName);
+        }
+
+        private void resetPathSDK_Click(object sender, EventArgs e)
+        {
+            path_sdk.Text = "";
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.FreeInstallerField);
+        }
+
+        private void enableDLbutton(object sender, EventArgs e)
+        {
+            setDlButtonState();
+        }
+        private void setDlButtonState()
+        {
+            // Enable or disable the DL button
+            start_dl.Enabled = isInstallerSelected() || isHelpSelected() || isSDKSelected();
+        }
+
+        private void b_open_libo_sdk_Click(object sender, EventArgs e)
+        {
+            openfile3.ShowDialog();
+            piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_SDK);
         }
     }
 }

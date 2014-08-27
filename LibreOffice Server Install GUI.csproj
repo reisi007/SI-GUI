@@ -34,7 +34,7 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>4.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -114,10 +114,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="exceptions\MissingSettingException.cs" />
     <Compile Include="res\Pictures.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Pictures.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\BootstrapIniUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\BootstrapIniUI.Designer.cs">
+      <DependentUpon>BootstrapIniUI.cs</DependentUpon>
     </Compile>
     <Compile Include="xml\ChangingDLInfo.cs" />
     <Compile Include="utils\Downloader.cs" />
@@ -188,6 +195,9 @@
       <DependentUpon>strings.sl.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="l10n\strings.pt-PT.resx" />
+    <EmbeddedResource Include="ui\BootstrapIniUI.resx">
+      <DependentUpon>BootstrapIniUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>
     </EmbeddedResource>

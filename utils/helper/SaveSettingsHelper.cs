@@ -8,14 +8,30 @@ namespace SI_GUI
 {
     public partial class MainUI : Form
     {
-        private void savesettings(object sender, EventArgs e)
+        private List<string> availableDLOptions = new List<string>();
+        private bool isInstallerSelected()
         {
-            savesettings();
-            // Enable or disable the DL button
-            if (cb_installer.Checked || cb_help.Checked)
-                start_dl.Enabled = true;
-            else
-                start_dl.Enabled = false;
+            return clb_downloadSelector.CheckedItems.Contains(availableDLOptions[(int)Downloader.Version.MAIN]);
+        }
+        private bool isHelpSelected()
+        {
+            return clb_downloadSelector.CheckedItems.Contains(availableDLOptions[(int)Downloader.Version.HP]);
+        }
+        private bool isSDKSelected()
+        {
+            return clb_downloadSelector.CheckedItems.Contains(availableDLOptions[(int)Downloader.Version.SDK]);
+        }
+        private void setInstallerSelected(bool isSelected)
+        {
+            clb_downloadSelector.SetItemCheckState((int)Downloader.Version.MAIN, isSelected ? CheckState.Checked : CheckState.Unchecked);
+        }
+        private void setHelpSelected(bool isSelected)
+        {
+            clb_downloadSelector.SetItemCheckState((int)Downloader.Version.HP, isSelected ? CheckState.Checked : CheckState.Unchecked);
+        }
+        private void setSDKSelected(bool isSelected)
+        {
+            clb_downloadSelector.SetItemCheckState((int)Downloader.Version.SDK, isSelected ? CheckState.Checked : CheckState.Unchecked);
         }
 
         private void savesettings()
@@ -27,11 +43,13 @@ namespace SI_GUI
             thingstosave.cb_create_subfolder = cb_subfolder.Checked;
             thingstosave.lang = choose_lang.SelectedIndex;
             // Save download settings
-            thingstosave.DL_saved_settings.cb_help = cb_help.Checked;
-            thingstosave.DL_saved_settings.cb_installer = cb_installer.Checked;
+            thingstosave.DL_saved_settings.cb_help = isHelpSelected();
+            thingstosave.DL_saved_settings.cb_installer = isInstallerSelected();
+            thingstosave.DL_saved_settings.cb_sdk = isSDKSelected();
             thingstosave.DL_saved_settings.versions = dl_list;
             thingstosave.DL_saved_settings.versions_last_version = dl_versions.SelectedIndex;
-            thingstosave.DL_saved_settings.changingVersion =( dlInfos == null? new ChangingDLInfo[0]:dlInfos);
+            if (dlInfos != null)
+                thingstosave.DL_saved_settings.changingVersion = dlInfos;
             // Save paths and filenames
             thingstosave.FilesFolders.InstallFolder = path_installdir.Text;
             thingstosave.FilesFolders.nameSubfolder = subfolder.Text;

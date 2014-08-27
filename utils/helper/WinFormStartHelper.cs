@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using SI_GUI.ui;
 
 namespace SI_GUI
 {
     // This file helps to start all the subwindows with the right l10n strings
     partial class MainUI : Form
     {
+        BootstrapIniUI bootstrapui;
         string[] langAvailable = new string[] {
             "En",
             "De",
@@ -100,8 +102,23 @@ namespace SI_GUI
             l10n[27] = getstring("it");
             AboutUI fm = new AboutUI(l10n, rtl_layout, langAvailable);
             fm.ShowDialog();
-            path_4_download = fm.get_download_location;
+            downloader.setDownloadFolderPath(fm.get_download_location);
             AdvancedFilenames = fm.getAdvancedRenamingChecked;
+        }
+        private BootstrapIniUI createBootstrapUI()
+        {
+            string[] l10n = new string[10];
+            l10n[0] = getstring("open_bootstrap_ini");
+            l10n[1] = getstring("edit_bs_ini");
+            l10n[2] = getstring("save_bootstrap_ini");
+            l10n[3] = getstring("open_bootstrap_title");
+            l10n[4] = getstring("tt_editbs_tit");
+            l10n[5] = getstring("tt_editbs_txt");
+            l10n[6] = getstring("tt_bootstrap");
+            l10n[7] = getstring("filesave");
+            l10n[8] = getstring("title_filesave");
+            l10n[9] = getstring("help_runasadmin");
+            return new BootstrapIniUI(rtl_layout, l10n, this);
         }
     }
 }

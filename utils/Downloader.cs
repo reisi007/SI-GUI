@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Xml.Serialization;
 using System.IO;
+using SI_GUI.exceptions;
 
 namespace SI_GUI
 {
@@ -19,11 +20,11 @@ namespace SI_GUI
     {
         // Enum which things should be downloaded
         public enum Branch { M, LB, OB, T };
-        public enum Version { MAIN, HP, SDK };
+        public enum Version { MAIN = 0, HP = 1, SDK = 2 };
         //Easy file names --> Setting
         private static string hp_easy = "libo_help", main_easy = "libo_main", sdk_easy = "libo_sdk";
         //The folder to save the files in
-        private string folder;
+        private string dlFolder;
         //Should the easy file names be used
         private bool easyFilenames;
         //UI components used, which is used to show the progess
@@ -37,9 +38,9 @@ namespace SI_GUI
         {
             easyFilenames = efn;
         }
-        public void setFolderPath(string path)
+        public void setDownloadFolderPath(string path)
         {
-            folder = path;
+            dlFolder = path;
         }
         public string getstring(string s)
         {
@@ -52,9 +53,9 @@ namespace SI_GUI
         public Downloader(SETTINGS s, string version, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages)
             : this(s.DL_saved_settings.download_path, !s.cb_advanced_filenames, pb, ui, percentage, startDownload, languages, version)
         { }
-        public Downloader(string folder, bool easyFilenames, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages, string version)
+        public Downloader(string dlFolder, bool easyFilenames, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages, string version)
         {
-            this.folder = folder;
+            this.dlFolder = dlFolder;
             this.easyFilenames = easyFilenames;
             progress = pb;
             mainui = ui;
@@ -109,7 +110,8 @@ namespace SI_GUI
                 if (e.TotalBytesToReceive < 20971520) //HP < 20 MB
                     v = Version.HP;
                 else if (e.TotalBytesToReceive < 52428800) //  20 MB < SDK < 50 MB
-                    dl_type.Add(sender.GetHashCode(), v);
+                    v = Version.SDK;
+                dl_type.Add(sender.GetHashCode(), v);
                 dl_manager_total.Add(sender.GetHashCode(), e.TotalBytesToReceive);
             }
             // Set already downloaded bytes
@@ -174,7 +176,7 @@ namespace SI_GUI
             percentLabel.Text = "0 %";
         }
         //throws DownloadNotAvailableException
-        public void startAsyncDownload(string url, Branch branch, Version version) 
+        public void startAsyncDownload(string url, Branch branch, Version version)
         {
             // Download
             bool cont = true;
@@ -224,7 +226,7 @@ namespace SI_GUI
                     {
                         int starting_position = httpfile.IndexOf("Lib");
                         // Show an error box, if no testing build is available
-                        if (starting_position == -1)                           
+                        if (starting_position == -1)
                             throw new DownloadNotAvailableException(branch);
                         url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
                         httpfile = httpfile.Remove(0, starting_position);
@@ -279,7 +281,6 @@ namespace SI_GUI
 
         private void startDL(string programFilename, string finallink, Branch branch, Version version)
         {
-            string path = folder;
             list_wc.Add(getPreparedWebClient());
             int wc = list_wc.Count - 1;
             Uri uritofile = new Uri(finallink + programFilename);
@@ -306,7 +307,9 @@ namespace SI_GUI
                 }
                 startDownload.Enabled = false;
             }
-            path = Path.Combine(path, programFilename);
+            if (dlFolder == null)
+                throw new MissingSettingException("Download path is not set");
+            string path = Path.Combine(dlFolder, programFilename);
             string mb_question = getstring("versiondl");
             mb_question = mb_question.Replace("%version", originalFilename);
 
@@ -347,10 +350,6 @@ namespace SI_GUI
                 }
                 else
                     startDownload.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
