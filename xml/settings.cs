@@ -129,6 +129,7 @@ namespace SI_GUI
             DL_saved_settings.download_path = Path.GetTempPath();
             Piwik.manually_set = false;
             Piwik.tracking_allowed = false;
+            FilesFolders.OpenFileStoredDir = new string[3];
         }
         public bool cb_create_subfolder;
         public bool cb_advanced_filenames;
@@ -164,6 +165,7 @@ namespace SI_GUI
         public string lastSofficeEXE;
         public string MainInstalldir;
         public string HelpInstalldir;
+        public string[] OpenFileStoredDir;
     }
     #endregion
 }

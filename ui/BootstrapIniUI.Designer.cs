@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BootstrapIniUI));
             this.gb_bootstrap = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.save_file = new System.Windows.Forms.Button();
@@ -123,7 +124,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 469);
             this.Controls.Add(this.gb_bootstrap);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BootstrapIniUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "BootstrapIniUI";
             this.gb_bootstrap.ResumeLayout(false);
             this.gb_bootstrap.PerformLayout();

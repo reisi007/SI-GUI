@@ -93,6 +93,7 @@ namespace SI_GUI
         #endregion
         private bool rtl_layout = false;
         private string[] dl_special;
+        private string[] initialDir;
         private ChangingDLInfo[] dlInfos;
         private access_settings set = new access_settings();
         private ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
@@ -146,10 +147,14 @@ namespace SI_GUI
                 RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 
             InitializeComponent();
+            initialDir = settings.FilesFolders.OpenFileStoredDir;
+            if (initialDir == null)
+                initialDir = new string[3];
+            for (int i = 0; i < initialDir.Length; i++)
+                if (initialDir[i] == null)
+                    initialDir[i] = Path.GetTempPath();
 
             downloader = new Downloader(settings, set.program_version(), progressBar, this, percent, start_dl, choose_lang);
-            openfile.InitialDirectory = settings.DL_saved_settings.download_path;
-            openfile2.InitialDirectory = openfile.InitialDirectory;
             choose_lang.Items.AddRange(alllang);
         }
         private void MainUI_Load(object sender, EventArgs e)
@@ -168,6 +173,7 @@ namespace SI_GUI
             //l10n start
             b_open_libo_installer.Text = getstring("open_installer");
             b_open_libo_help.Text = getstring("open_help");
+            b_open_libo_sdk.Text = getstring("open_sdk");
             b_configInstalldir.Text = getstring("config_installdir");
             cb_subfolder.Text = getstring("subfolder_do");
             choose_lang_label.Text = getstring("m_l10n_langhelptxt") + ":";
@@ -181,7 +187,7 @@ namespace SI_GUI
             m_about.Text = getstring("about");
             m_help.Text = getstring("help");
             m_man.Text = getstring("man_title");
-            show_gb_bs.Text = getstring("edit_bs_ini");
+            b_edit_bs.Text = getstring("edit_bs_ini");
             start_dl.Text = getstring("gb_dl_begindl");
             start_install.Text = getstring("start_install");
             this.Text = siguiTitle;
@@ -206,10 +212,7 @@ namespace SI_GUI
             percent.Text = "0 %";
             // Position choose_lang
             choose_lang.Location = new Point(choose_lang_label.Location.X + choose_lang_label.Width + 6, choose_lang_label.Location.Y - 3);
-            // Position startdl
-            /* start_dl.Location = new Point(choose_lang.Width + choose_lang.Location.X + 6, choose_lang.Location.Y);
-             start_dl.Width = 397 - start_dl.Location.X;*/
-            // Specify the starting folder for FileOpen dialogs
+            choose_lang.Size = new System.Drawing.Size(dl_versions.Location.X + dl_versions.Size.Width - choose_lang.Location.X, choose_lang.Size.Height);
             openfile.InitialDirectory = Path.GetTempPath();
             openfile2.InitialDirectory = openfile.InitialDirectory;
             // Position progressbar 1
@@ -223,8 +226,7 @@ namespace SI_GUI
             //Add all available download options
             availableDLOptions.Add(getstring("gb_dl_installer"));
             availableDLOptions.Add(getstring("gb_dl_help"));
-            //availableDLOptions.Add("SDK"); //Enable this line for SDK
-            availableDLOptions.Add(""); // Delete this line for the SDK
+            availableDLOptions.Add("SDK");
             clb_downloadSelector.DataSource = availableDLOptions;
             // Setup message baloon
             give_message.BalloonTipClicked += new EventHandler(gm_do);
@@ -304,9 +306,12 @@ namespace SI_GUI
         {
             string filename_install = openfile.FileName;
             path_main.Text = filename_install;
+            initialDir[(int)Downloader.Version.MAIN] = Path.GetDirectoryName(filename_install);
+            openfile.InitialDirectory = initialDir[(int)Downloader.Version.MAIN];
         }
         private void openLibohelp(object sender, EventArgs e)
         {
+            openfile2.InitialDirectory = initialDir[(int)Downloader.Version.HP];
             openfile2.ShowDialog();
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_Help);
         }
@@ -315,6 +320,8 @@ namespace SI_GUI
         {
             string filename_help = openfile2.FileName;
             path_help.Text = filename_help;
+            initialDir[(int)Downloader.Version.HP] = Path.GetDirectoryName(filename_help);
+            openfile2.InitialDirectory = initialDir[(int)Downloader.Version.HP];
         }
 
         private void config_installdir(object sender, EventArgs e)
@@ -329,22 +336,16 @@ namespace SI_GUI
 
         private void start_install_Click(object sender, EventArgs e)
         {
-            doInstall(path_main.Text, path_help.Text, getFinalInstalldir());
+            doInstall(path_main.Text, path_help.Text, path_sdk.Text, getFinalInstalldir());
         }
-        public void doInstall(string main, string help, string dir)
+        public void doInstall(string main, string help, string sdk, string dir)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_Start);
-            bool install_main = false;
-            bool install_help = false;
-            bool install_path = false;
+            bool install_main = main.Length > 0;
+            bool install_help = help.Length > 0;
+            bool install_path = dir.Length > 0;
+            bool install_sdk = sdk.Length > 0;
             bool go_on = true;
-            // Check settings
-            if (main.Length > 0)
-                install_main = true;
-            if (help.Length > 0)
-                install_help = true;
-            if (dir.Length > 0)
-                install_path = true;
             Process p = new Process();
             // Throw an exeption, when no installdir choosen and a warning if no LibreOffice was choosen.
             try
@@ -391,7 +392,7 @@ namespace SI_GUI
                 if (go_on)
                 {
                     // Install
-                    String bspath = executeInstallation(install_main, install_help, main, help, getFinalInstalldir());
+                    String bspath = executeInstallation(install_main, install_help, install_sdk, main, help, sdk, getFinalInstalldir());
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
                     bootstrapui.openbootstrap_ini(true, bspath);
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
@@ -410,7 +411,7 @@ namespace SI_GUI
             return path.Replace("\\\\", "\\");
         }
 
-        private String executeInstallation(bool install_libo, bool install_help, String main, String help, String dir)
+        private String executeInstallation(bool install_libo, bool install_help, bool install_sdk, string main, string help, string sdk, string dir)
         {
             Process p = new Process();
             if (install_libo)
@@ -422,6 +423,12 @@ namespace SI_GUI
             if (install_help)
             {
                 p.StartInfo = new ProcessStartInfo("msiexec", "/qr /a \"" + help + "\" TARGETDIR=\"" + dir + "\"");
+                p.Start();
+                p.WaitForExit();
+            }
+            if (install_sdk)
+            {
+                p.StartInfo = new ProcessStartInfo("msiexec", "/qr /a \"" + sdk + "\" TARGETDIR=\"" + dir + "\"");
                 p.Start();
                 p.WaitForExit();
             }
@@ -463,6 +470,7 @@ namespace SI_GUI
 
         private void open_installer_Click(object sender, EventArgs e)
         {
+            openfile.InitialDirectory = initialDir[(int)Downloader.Version.MAIN];
             openfile.ShowDialog();
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_Installer);
         }
@@ -738,7 +746,7 @@ namespace SI_GUI
             try
             {
                 System.Net.WebClient wc = new System.Net.WebClient();
-                string file = Path.Combine(Path.GetTempPath(), "si-gui.application");
+                string file = Path.Combine(Path.GetTempPath(), "update.application");
                 wc.DownloadFile("http://dev-builds.libreoffice.org/si-gui/LibreOffice%20Server%20Install%20GUI.application", file);
                 Process.Start(file);
                 Environment.Exit(0);
@@ -856,10 +864,59 @@ namespace SI_GUI
 
         private void b_open_libo_sdk_Click(object sender, EventArgs e)
         {
+            openfile3.InitialDirectory = initialDir[(int)Downloader.Version.SDK];
             openfile3.ShowDialog();
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_SDK);
         }
+
+        private void updateCreateShortCutText(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb_version.Text = tb.Text;
+        }
+
+        private void openfile3_FileOk(object sender, CancelEventArgs e)
+        {
+            string filename_sdk = openfile3.FileName;
+            path_sdk.Text = filename_sdk;
+            initialDir[(int)Downloader.Version.SDK] = Path.GetDirectoryName(filename_sdk);
+            openfile.InitialDirectory = initialDir[(int)Downloader.Version.SDK];
+        }
+        private void b_open_libo_installer_DragDrop(object sender, DragEventArgs e)
+        {
+            acceptDnDMsiExe(path_main, e);
+        }
+        private void b_open_libo_help_DragDrop(object sender, DragEventArgs e)
+        {
+            acceptDnDMsiExe(path_help, e);
+        }
+        private void b_open_libo_sdk_DragDrop(object sender, DragEventArgs e)
+        {
+            acceptDnDMsiExe(path_sdk, e);
+        }
+
+        private void checkDnDExtensionMsiExe(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.FileDrop))
+            {
+                string s = ((string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop))[0];
+                if (s.EndsWith("exe") || s.EndsWith("msi"))
+                {
+                    e.Effect = DragDropEffects.Copy;
+                    return;
+                }
+            }
+            e.Effect = DragDropEffects.None;
+
+        }
+        private void acceptDnDMsiExe(TextBox t, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.FileDrop))
+            {
+                string s = ((string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop))[0];
+                if (s.EndsWith("exe") || s.EndsWith("msi"))
+                    t.Text = s;
+            }
+        }
     }
 }
-
-

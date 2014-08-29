@@ -56,6 +56,7 @@ namespace SI_GUI
             thingstosave.FilesFolders.lastSofficeEXE = path_to_exe.Text;
             thingstosave.FilesFolders.HelpInstalldir = path_help.Text;
             thingstosave.FilesFolders.MainInstalldir = path_main.Text;
+            thingstosave.FilesFolders.OpenFileStoredDir = initialDir;
             // Finally save to file
             set.save_settings(thingstosave);
         }

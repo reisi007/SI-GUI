@@ -107,7 +107,7 @@ namespace SI_GUI
         }
         private BootstrapIniUI createBootstrapUI()
         {
-            string[] l10n = new string[10];
+            string[] l10n = new string[11];
             l10n[0] = getstring("open_bootstrap_ini");
             l10n[1] = getstring("edit_bs_ini");
             l10n[2] = getstring("save_bootstrap_ini");
@@ -118,6 +118,7 @@ namespace SI_GUI
             l10n[7] = getstring("filesave");
             l10n[8] = getstring("title_filesave");
             l10n[9] = getstring("help_runasadmin");
+            l10n[10] = getstring("edit_bs_ini");
             return new BootstrapIniUI(rtl_layout, l10n, this);
         }
     }

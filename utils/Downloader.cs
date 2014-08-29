@@ -201,28 +201,7 @@ namespace SI_GUI
                 string httpfile = downloadFile(url);
                 if (httpfile != "error")
                 {
-                    if (branch == Branch.M)
-                    {
-                        int starting_position;
-                        for (int i = 0; i < 6; i++)
-                        {
-                            starting_position = httpfile.IndexOf("<a href=");
-                            httpfile = httpfile.Remove(0, 9 + starting_position);
-                        }
-                        starting_position = httpfile.IndexOf(".msi");
-                        httpfile = httpfile.Remove(starting_position + 4);
-
-                        if (version == Version.HP && (httpfile.Length != 2))
-                        {
-                            string vers2 = httpfile;
-                            string insert = "_helppack_" + lang + ".msi";
-                            starting_position = vers2.IndexOf("x86") + 3;
-                            vers2 = vers2.Remove(starting_position);
-                            vers2 += insert;
-                            httpfile = vers2;
-                        }
-                    }
-                    else if (branch == Branch.T)
+                    if (branch == Branch.T)
                     {
                         int starting_position = httpfile.IndexOf("Lib");
                         // Show an error box, if no testing build is available
@@ -264,6 +243,11 @@ namespace SI_GUI
                             httpfile = "LibreOffice_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
                         else
                             httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
+                    }
+                    //Treat SDK
+                    if (version == Version.SDK)
+                    {
+                        httpfile = httpfile.Replace("Win_x86", "Win_x86_sdk");
                     }
                     startDL(httpfile, url, branch, version);
                 }
@@ -319,13 +303,17 @@ namespace SI_GUI
                 if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     // Send stats
-                    if (version != Version.HP)
+                    switch (version)
                     {
-                        mainui.sendStats("");
-                    }
-                    else
-                    {
-                        mainui.sendStats(languages.SelectedItem.ToString());
+                        case Version.HP:
+                            mainui.sendStats(languages.SelectedItem.ToString());
+                            break;
+                        case Version.SDK:
+                            mainui.sendStats("sdk");
+                            break;
+                        default:
+                            mainui.sendStats("");
+                            break;
                     }
                     mainui.sendStatsFilename(uritofile);
                     // End send stats
@@ -365,31 +353,39 @@ namespace SI_GUI
             httpfile = httpfile.Remove(0, tmp);
             tmp = httpfile.IndexOf("\"");
             httpfile = httpfile.Remove(tmp);
-            if (version == Version.HP)
+            switch (version)
             {
-                // Helppack only
-
-                //LibreOffice helppack
-                if (httpfile.Contains("install_all"))
-                {
-                    // Old format
-                    httpfile = httpfile.Replace("install_all_lang", "helppack_" + languages.SelectedItem.ToString());
-                }
-                else if (httpfile.Contains("install_multi"))
-                {
-                    // Newer format
-                    httpfile = httpfile.Replace("install_multi", "helppack_" + languages.SelectedItem.ToString());
-                }
-                else
-                {
-                    // New format
-                    httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + languages.SelectedItem.ToString());
-                }
-
-                // Start download
+                case Version.HP:
+                    if (httpfile.Contains("install_all"))
+                    {
+                        // Old format
+                        httpfile = httpfile.Replace("install_all_lang", "helppack_" + languages.SelectedItem.ToString());
+                    }
+                    else if (httpfile.Contains("install_multi"))
+                    {
+                        // Old format
+                        httpfile = httpfile.Replace("install_multi", "helppack_" + languages.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        // New format
+                        httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + languages.SelectedItem.ToString());
+                    }
+                    break;
+                case Version.SDK:
+                    if (httpfile.StartsWith("LibO"))
+                    {
+                        httpfile = httpfile.Replace("LibO", "LibO-SDK");
+                    }
+                    else
+                    {
+                        httpfile = httpfile.Replace("x86", "x86_sdk");
+                    }
+                    break;
+                default:
+                    break;
             }
             startDL(httpfile, linkToFile, Branch.M, version);
-            //  startDL(httpfile, LinktoFile, false, helppack);
         }
         public string downloadFile(string url)
         {

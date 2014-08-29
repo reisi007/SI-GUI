@@ -120,7 +120,11 @@ namespace SI_GUI
                 default:
                     break;
             }
-            if (hp_lang != "")
+            if (hp_lang.Equals("sdk"))
+            {
+                submitGA("download", sversion, hp_lang);
+            }
+            else if (hp_lang != "")
             {
                 sversion += "-hp";
                 submitGA("download", sversion, hp_lang);

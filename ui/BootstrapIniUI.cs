@@ -29,6 +29,7 @@ namespace SI_GUI.ui
             save_file.Text = l10n[2];
             open_bootstrap.Title = l10n[3];
             ToolTip bootstrapini = MainUI.get_ToolTip(bootstrap_text, l10n[6]);
+            this.Text = l10n[10];
         }
 
         public bool openbootstrap_ini(bool autoEditenabled)
