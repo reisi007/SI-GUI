@@ -116,19 +116,19 @@
 		<value>Poderá ajudar executar este programa como administrador.</value>
 	</data>
 	<data name="installerror" xml:space="preserve">
-		<value>A instalação não pôde iniciar devido ao seguinte erro:</value>
+		<value>A instalação não foi iniciada devido ao seguinte erro:</value>
 	</data>
 	<data name="installnostart" xml:space="preserve">
-		<value>A instalação não pôde iniciar!</value>
+		<value>A instalação não foi iniciada !</value>
 	</data>
 	<data name="no_installdir" xml:space="preserve">
-		<value>Sem pasta de instalação escolhida!</value>
+		<value>Não escolheu a pasta de instalação!</value>
 	</data>
 	<data name="no_installfile" xml:space="preserve">
 		<value>Você não escolheu um ficheiro de instalação LibreOffice!</value>
 	</data>
 	<data name="si" xml:space="preserve">
-		<value>Problema de Segurança</value>
+		<value>Problema de segurança</value>
 	</data>
 	<data name="si_message" xml:space="preserve">
 		<value>Não tem permissão para escrever nesta pasta.</value>
@@ -143,31 +143,31 @@
 		<value>Aviso!</value>
 	</data>
 	<data name="de" xml:space="preserve">
-		<value>Alemão:</value>
+		<value>Alemão</value>
 	</data>
 	<data name="en" xml:space="preserve">
-		<value>Inglês:</value>
+		<value>Inglês</value>
 	</data>
 	<data name="fr" xml:space="preserve">
-		<value>Francês:</value>
+		<value>Francês</value>
 	</data>
 	<data name="lang" xml:space="preserve">
-		<value>Idioma:</value>
+		<value>Idioma</value>
 	</data>
 	<data name="programmer" xml:space="preserve">
-		<value>Programador:</value>
+		<value>Programador</value>
 	</data>
 	<data name="translations" xml:space="preserve">
 		<value>--- Traduções ---</value>
 	</data>
 	<data name="translator" xml:space="preserve">
-		<value>Tradutor:</value>
+		<value>Tradutor</value>
 	</data>
 	<data name="about" xml:space="preserve">
-		<value>Sobre / Definições</value>
+		<value>Sobre/Definições</value>
 	</data>
 	<data name="tt_tb" xml:space="preserve">
-		<value>Última compilação de testes</value>
+		<value>Última compilação de teste.</value>
 	</data>
 	<data name="language_change_success" xml:space="preserve">
 		<value>A definição de idioma será aplicada no próximo arranque!</value>
@@ -179,13 +179,13 @@
 		<value>Pode usar o seguinte em vez da linha que começa com “UserInstallation=” a partir do campo de texto acima de modo a não alterar o seu perfil de utilizador.</value>
 	</data>
 	<data name="update_lang" xml:space="preserve">
-		<value>Alterar idioma:</value>
+		<value>Mudar idioma:</value>
 	</data>
 	<data name="versiondl" xml:space="preserve">
 		<value>A versão %version deve ser transferida?</value>
 	</data>
 	<data name="open_help" xml:space="preserve">
-		<value>Abrir instalador de ajuda LO</value>
+		<value>Abrir instalador da ajuda LO</value>
 	</data>
 	<data name="config_installdir" xml:space="preserve">
 		<value>Configurar pasta de instalação</value>
@@ -224,16 +224,16 @@
 		<value>Espanhol:</value>
 	</data>
 	<data name="sl" xml:space="preserve">
-		<value>Esloveno:</value>
+		<value>Esloveno</value>
 	</data>
 	<data name="da" xml:space="preserve">
-		<value>Dinamarquês:</value>
+		<value>Dinamarquês</value>
 	</data>
 	<data name="help" xml:space="preserve">
 		<value>Ajuda</value>
 	</data>
 	<data name="dl_finished" xml:space="preserve">
-		<value>A transferência acabou e está pronta para ser instalada.</value>
+		<value>A transferência está terminada e pronta para ser instalada.</value>
 	</data>
 	<data name="dl_finished_title" xml:space="preserve">
 		<value>Transferência concluída!</value>
@@ -242,13 +242,13 @@
 		<value>Começou uma transferência!</value>
 	</data>
 	<data name="dl_started_title" xml:space="preserve">
-		<value>Transferência iniciou!</value>
+		<value>Transferência iniciada!</value>
 	</data>
 	<data name="he" xml:space="preserve">
-		<value>Hebraico:</value>
+		<value>Hebraico</value>
 	</data>
 	<data name="pt" xml:space="preserve">
-		<value>Português:</value>
+		<value>Português</value>
 	</data>
 	<data name="error_langpack_nolang" xml:space="preserve">
 		<value>Deve escolher um idioma antes de iniciar a transferência!</value>
@@ -281,7 +281,7 @@
 		<value>Gestor</value>
 	</data>
 	<data name="ink_des" xml:space="preserve">
-		<value>Atalho para um LibreOffice %version paralelo instalado.</value>
+		<value>Atalho para o LibreOffice %version paralelo instalado.</value>
 	</data>
 	<data name="ink_error_1" xml:space="preserve">
 		<value>Nenhuma versão indicada!</value>
@@ -293,7 +293,7 @@
 		<value>Caminho para soffice.exe da instalação paralela (Adicionado automaticamente)</value>
 	</data>
 	<data name="b_create_shortcut" xml:space="preserve">
-		<value>Criar Atalho</value>
+		<value>Criar atalho</value>
 	</data>
 	<data name="msb_lnk_title" xml:space="preserve">
 		<value>Atalho criado!</value>
@@ -302,10 +302,10 @@
 		<value>O atalho foi criado com sucesso!</value>
 	</data>
 	<data name="nl" xml:space="preserve">
-		<value>Holandês:</value>
+		<value>Holandês</value>
 	</data>
 	<data name="s_version" xml:space="preserve">
-		<value>Versão:</value>
+		<value>Versão</value>
 	</data>
 	<data name="s_and" xml:space="preserve">
 		<value>e</value>
@@ -314,13 +314,13 @@
 		<value>Não existe versão de teste!</value>
 	</data>
 	<data name="notest_txt" xml:space="preserve">
-		<value>Não existe uma versão de teste disponível neste momento!</value>
+		<value>De momento, não existem versões de teste.</value>
 	</data>
 	<data name="m_l10n_dl" xml:space="preserve">
 		<value>Transferir</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>Pacote de Ajuda</value>
+		<value>Pacote de ajuda</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
 		<value>Instalador</value>
@@ -353,16 +353,16 @@
 		<value>Atualizar lista de versões</value>
 	</data>
 	<data name="gb_parallel_install" xml:space="preserve">
-		<value>Instalação em paralelo</value>
+		<value>Instalação paralela</value>
 	</data>
 	<data name="any_libo_version" xml:space="preserve">
-		<value>Todas as versões do LibreOffice</value>
+		<value>Todas as versões LibO</value>
 	</data>
 	<data name="ink_error_2" xml:space="preserve">
 		<value>Não foi encontrado o caminho para soffice.exe!</value>
 	</data>
 	<data name="ga_allowed_text" xml:space="preserve">
-		<value>Caro(a) utilizador(a),:nl:Este programa utiliza o "TDF Piwik" para rastrear a sua utilização deste programa.:nl:Foi criada uma identificação única para esta instalação. A identificação da sua instalação é::nl:%trackingID:nl: Conforme pode verificar, isto não inclui nenhuma informação pessoal.  Selecione "Sim" para permitir o rastreio, "Não" para o proibir.</value>
+		<value>Caro(a) utilizador(a),:Este programa utiliza o "TDF Piwik" para obter as esastísticas de utilização deste programa Foi criada uma identificação única para esta instalação. A identificação da sua instalação é %trackingID Conforme pode verificar, isto não inclui nenhuma informação pessoal. Selecione "Sim" para permitir o rastreio, "Não" para o proibir.</value>
 	</data>
 	<data name="ga_allowed_title" xml:space="preserve">
 		<value>Estatisticas fornecidas pelo "TDF Piwik"</value>
@@ -374,28 +374,28 @@
 		<value>Selecionar pasta de transferências</value>
 	</data>
 	<data name="install_err1_tit" xml:space="preserve">
-		<value>Instalação de Servidor vai ser sobre-escrita!</value>
+		<value>Substituir versão existente!</value>
 	</data>
 	<data name="install_err1_txt" xml:space="preserve">
-		<value>Vai sobre-escrever uma Instalação de Servidor. Continuar?</value>
+		<value>A instalação de servidor existente será substituida. Continuar?</value>
 	</data>
 	<data name="cb_advanced_file" xml:space="preserve">
-		<value>Alteração de nomes de ficheiros avançada</value>
+		<value>Renomeação avançada de ficheiros</value>
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Se esta opção for ativada, os ficheiros serão guardados com o nome original. Se estiver desativada, apenas um ficheiro de instalação e um pacote de ajuda serão mantidos no disco.</value>
+		<value>Se ativa, os ficheiros serão guardados com o nome original. Se inativa, apenas um ficheiro de instalação e um pacote de ajuda serão mantidos no disco.</value>
 	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
 		<value>SI GUI - Bootstrap.ini autoeditado</value>
 	</data>
 	<data name="tt_editbs_txt" xml:space="preserve">
-		<value>O ficheiro bootstrap.ini foi editado automaticamente. Pode desligar isto nas definições.</value>
+		<value>O ficheiro bootstrap.ini foi editado automaticamente. Pode desativar a opção nas definições.</value>
 	</data>
 	<data name="cb_autoedit" xml:space="preserve">
-		<value>Autoeditar bootstrap.ini</value>
+		<value>Editar bootstrap.ini automaticamente</value>
 	</data>
 	<data name="tt_autoupdate" xml:space="preserve">
-		<value>Quer procurar manualmente por atualizações? Isto fechará o programa!</value>
+		<value>Quer procurar manualmente as atualizações? A aplicação será encerrada!</value>
 	</data>
 	<data name="tt_go" xml:space="preserve">
 		<value>Instalar LibreOffice (não paralelo)</value>
@@ -420,5 +420,14 @@
 	</data>
 	<data name="siguislogan" xml:space="preserve">
 		<value>Instalação paralela fácil</value>
+	</data>
+	<data name="liboFresh" xml:space="preserve">
+		<value>LibreOffice Fresh</value>
+	</data>
+	<data name="liboStable" xml:space="preserve">
+		<value>LibreOffice Stable</value>
+	</data>
+	<data name="open_sdk" xml:space="preserve">
+		<value>Abrir o LibreOffice SDK</value>
 	</data>
 </root>

@@ -190,7 +190,7 @@
     <value>Dernière version de test.</value>
   </data>
 	<data name="language_change_success" xml:space="preserve">
-    <value>Les paramètres de langue s'appliqueront au prochain démarrage !</value>
+    <value>Les paramètres linguistiques s'appliqueront au prochain démarrage !</value>
   </data>
 	<data name="success" xml:space="preserve">
     <value>Installation réussie !</value>
@@ -349,7 +349,7 @@
 		<value>Dernière branche</value>
 	</data>
 	<data name="m_l10n_ob" xml:space="preserve">
-		<value>Ancienne branch</value>
+		<value>Ancienne branche</value>
 	</data>
 	<data name="m_l10n_t" xml:space="preserve">
 		<value>Version de test</value>
@@ -404,5 +404,50 @@
 	</data>
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Renommage de fichier avancé</value>
+	</data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+		<value>SI GUI - Bootstrap.ini édité automatiquement</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>Le fichier bootstrap.ini a été édité automatiquement. Vous pouvez désactiver ceci dans les paramètres.</value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>Éditer automatiquement bootstrap.ini</value>
+	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>Voulez-vous vérifier les mises à jour manuellement ? Cela fermera le programme !</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Installer LibreOffice (pas en parallèle)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Retour</value>
+	</data>
+	<data name="gl" xml:space="preserve">
+		<value>Galicien</value>
+	</data>
+	<data name="it" xml:space="preserve">
+		<value>Italien</value>
+	</data>
+	<data name="lo" xml:space="preserve">
+		<value>Lao</value>
+	</data>
+	<data name="mt" xml:space="preserve">
+		<value>Maltais</value>
+	</data>
+	<data name="tr" xml:space="preserve">
+		<value>Turc</value>
+	</data>
+	<data name="siguislogan" xml:space="preserve">
+		<value>Installation parallèle facilitée</value>
+	</data>
+	<data name="liboFresh" xml:space="preserve">
+		<value>LibreOffice Évolution</value>
+	</data>
+	<data name="liboStable" xml:space="preserve">
+		<value>LibreOffice Stable</value>
+	</data>
+	<data name="open_sdk" xml:space="preserve">
+		<value>LibreOffice SDK</value>
 	</data>
 </root>

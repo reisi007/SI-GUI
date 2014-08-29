@@ -160,7 +160,7 @@
 		<value>File salvato</value>
 	</data>
 	<data name="warning" xml:space="preserve">
-		<value>Attenzione! </value>
+		<value>Attenzione!</value>
 	</data>
 	<data name="de" xml:space="preserve">
 		<value>Tedesco:</value>
@@ -298,7 +298,7 @@
 		<value>Gestione</value>
 	</data>
 	<data name="ink_des" xml:space="preserve">
-		<value>Collegamento all'installazione parallela di LibreOffice </value>
+		<value>Collegamento all'installazione parallela di LibreOffice</value>
 	</data>
 	<data name="ink_error_1" xml:space="preserve">
 		<value>Nessuna versione specificata!</value>
@@ -406,7 +406,7 @@
 		<value>Se attivato i files saranno archiviati con i loro nomi originali.:n:Se disattivato, solamente un programma di installazione ed una sola guida saranno conservate sul disco,</value>
 	</data>
 	<data name="tt_editbs_txt" xml:space="preserve">
-		<value>Il file bootstrap.ini è stato modificato automaticamente. Puoi disabilitare questa impostazione nelle opzioni. </value>
+		<value>Il file bootstrap.ini è stato modificato automaticamente. Puoi disabilitare questa impostazione nelle opzioni.</value>
 	</data>
 	<data name="cb_autoedit" xml:space="preserve">
 		<value>Modifica automatica del file bootstrap.ini</value>

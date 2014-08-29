@@ -118,13 +118,13 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="dirnotfound" xml:space="preserve">
-		<value>Directory bestaat niet!</value>
+		<value>Map bestaat niet!</value>
 	</data>
 	<data name="dirnotfoundmessage" xml:space="preserve">
-		<value>Gelieve uw gekozen directory na te kijken!</value>
+		<value>Gelieve uw gekozen map na te kijken!</value>
 	</data>
 	<data name="Error" xml:space="preserve">
-		<value>Error!</value>
+		<value>Fout!</value>
 	</data>
 	<data name="filesave" xml:space="preserve">
 		<value>Het bestand is succesvol opgeslagen!</value>
@@ -404,5 +404,47 @@
 	</data>
 	<data name="tt_advanced_file" xml:space="preserve">
 		<value>Als u dit toestaat, worden de bestanden opgeslagen met hun originele bestandsnaam.:n:Als u dit niet toestaat, wordt er enkel één installer en één helppack op uw hardeschijf bewaard.</value>
+	</data>
+	<data name="tt_editbs_tit" xml:space="preserve">
+		<value>SI GUI - Bootstrap.ini automatisch gewijzigd</value>
+	</data>
+	<data name="tt_editbs_txt" xml:space="preserve">
+		<value>Het bestand: bootstrap.ini is automatisch gewijzigd. In Instellingen kan u deze optie uitschakelen.</value>
+	</data>
+	<data name="cb_autoedit" xml:space="preserve">
+		<value>Automatisch wijzigen bootstratp.ini</value>
+	</data>
+	<data name="tt_autoupdate" xml:space="preserve">
+		<value>Wilt u handmatig op updates controleren? Dit zal het programma sluiten!</value>
+	</data>
+	<data name="tt_go" xml:space="preserve">
+		<value>Installeer LibreOffice (niet in parallel)</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Ga terug?</value>
+	</data>
+	<data name="gl" xml:space="preserve">
+		<value>Galicische</value>
+	</data>
+	<data name="it" xml:space="preserve">
+		<value>Italiaans</value>
+	</data>
+	<data name="lo" xml:space="preserve">
+		<value>Lao</value>
+	</data>
+	<data name="mt" xml:space="preserve">
+		<value>Maltees</value>
+	</data>
+	<data name="tr" xml:space="preserve">
+		<value>Turks</value>
+	</data>
+	<data name="siguislogan" xml:space="preserve">
+		<value>Eenvoudig een parallelle installatie</value>
+	</data>
+	<data name="liboFresh" xml:space="preserve">
+		<value>LibreOffice Fresh</value>
+	</data>
+	<data name="liboStable" xml:space="preserve">
+		<value>LibreOffice Stable</value>
 	</data>
 </root>

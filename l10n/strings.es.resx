@@ -184,7 +184,7 @@
 		<value>Traductor</value>
 	</data>
 	<data name="about" xml:space="preserve">
-		<value>Acerca de / Cambiar idioma</value>
+		<value>Acerca de / Configuración</value>
 	</data>
 	<data name="tt_tb" xml:space="preserve">
 		<value>Compilación para pruebas más reciente.</value>
@@ -340,7 +340,7 @@
 		<value>Descargar</value>
 	</data>
 	<data name="m_l10n_helppack" xml:space="preserve">
-		<value>Paq. de ayuda</value>
+		<value>Paquete de ayuda</value>
 	</data>
 	<data name="m_l10n_installer" xml:space="preserve">
 		<value>Instalador</value>
@@ -437,5 +437,17 @@
 	</data>
 	<data name="tr" xml:space="preserve">
 		<value>Turco</value>
+	</data>
+	<data name="siguislogan" xml:space="preserve">
+		<value>Instalación en paralelo fácil</value>
+	</data>
+	<data name="liboFresh" xml:space="preserve">
+		<value>LibreOffice Fresh</value>
+	</data>
+	<data name="liboStable" xml:space="preserve">
+		<value>LibreOffice Estable</value>
+	</data>
+	<data name="open_sdk" xml:space="preserve">
+		<value>Abrir SDK de LibreOffice</value>
 	</data>
 </root>

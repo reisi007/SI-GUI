@@ -127,7 +127,7 @@
     <value>Error!</value>
   </data>
 	<data name="filesave" xml:space="preserve">
-    <value>The file has successfully been saved!</value>
+    <value>The file has been saved successfully!</value>
   </data>
 	<data name="go_back" xml:space="preserve">
     <value>Go back?</value>
@@ -403,7 +403,7 @@
     <value>Advanced file renaming</value>
   </data>
 	<data name="tt_advanced_file" xml:space="preserve">
-    <value>If enabled the files will be stored with their original filename.nIf disabled, only one installer and one help pack will be kept on the disk.</value>
+    <value>If enabled, the files will be stored with their original filename.nIf disabled. Only one installer and one help pack will be kept on the disk.</value>
   </data>
 	<data name="tt_editbs_tit" xml:space="preserve">
     <value>SI GUI - Bootstrap.ini auto edited</value>
@@ -442,9 +442,12 @@
     <value>Parallel installation with ease</value>
   </data>
 	<data name="liboFresh" xml:space="preserve">
-		<value>LibreOffice Fresh</value>
-	</data>
+    <value>LibreOffice Fresh</value>
+  </data>
 	<data name="liboStable" xml:space="preserve">
-		<value>LibreOffice Stable</value>
-	</data>
+    <value>LibreOffice Stable</value>
+  </data>
+	<data name="open_sdk" xml:space="preserve">
+    <value>Open LibreOffice SDK</value>
+  </data>
 </root>

@@ -403,4 +403,31 @@
 	<data name="back" xml:space="preserve">
 		<value>חזרה</value>
 	</data>
+	<data name="gl" xml:space="preserve">
+		<value>גליסית</value>
+	</data>
+	<data name="it" xml:space="preserve">
+		<value>איטלקית</value>
+	</data>
+	<data name="lo" xml:space="preserve">
+		<value>לאית</value>
+	</data>
+	<data name="mt" xml:space="preserve">
+		<value>מלטית</value>
+	</data>
+	<data name="tr" xml:space="preserve">
+		<value>טורקית</value>
+	</data>
+	<data name="siguislogan" xml:space="preserve">
+		<value>התקנה במקביל בקלות</value>
+	</data>
+	<data name="liboFresh" xml:space="preserve">
+		<value>LibreOffice רענן</value>
+	</data>
+	<data name="liboStable" xml:space="preserve">
+		<value>LibreOffice יציב</value>
+	</data>
+	<data name="open_sdk" xml:space="preserve">
+		<value>פתיחת ה־SDK של LibreOffice</value>
+	</data>
 </root>
