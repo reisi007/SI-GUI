@@ -112,6 +112,7 @@
             // 
             // path_main
             // 
+            this.path_main.AllowDrop = true;
             this.path_main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.path_main.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -121,10 +122,13 @@
             this.path_main.Size = new System.Drawing.Size(179, 20);
             this.path_main.TabIndex = 8;
             this.path_main.TextChanged += new System.EventHandler(this.validate_filename);
+            this.path_main.DragDrop += new System.Windows.Forms.DragEventHandler(this.tb_DnD_drop);
+            this.path_main.DragEnter += new System.Windows.Forms.DragEventHandler(this.checkDnDExtensionMsiExe);
             this.path_main.Validating += new System.ComponentModel.CancelEventHandler(this.checkFileExists);
             // 
             // path_help
             // 
+            this.path_help.AllowDrop = true;
             this.path_help.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.path_help.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -134,6 +138,8 @@
             this.path_help.Size = new System.Drawing.Size(179, 20);
             this.path_help.TabIndex = 10;
             this.path_help.TextChanged += new System.EventHandler(this.validate_filename);
+            this.path_help.DragDrop += new System.Windows.Forms.DragEventHandler(this.tb_DnD_drop);
+            this.path_help.DragEnter += new System.Windows.Forms.DragEventHandler(this.checkDnDExtensionMsiExe);
             this.path_help.Validating += new System.ComponentModel.CancelEventHandler(this.checkFileExists);
             // 
             // b_open_libo_help
@@ -179,6 +185,7 @@
             // 
             // b_configInstalldir
             // 
+            this.b_configInstalldir.AllowDrop = true;
             this.b_configInstalldir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.b_configInstalldir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.b_configInstalldir.Location = new System.Drawing.Point(5, 104);
@@ -188,17 +195,22 @@
             this.b_configInstalldir.Text = "Configure installation directory";
             this.b_configInstalldir.UseVisualStyleBackColor = true;
             this.b_configInstalldir.Click += new System.EventHandler(this.config_installdir);
+            this.b_configInstalldir.DragDrop += new System.Windows.Forms.DragEventHandler(this.b_configInstalldir_DragDrop);
+            this.b_configInstalldir.DragEnter += new System.Windows.Forms.DragEventHandler(this.checkDnDFolder);
             // 
             // path_installdir
             // 
+            this.path_installdir.AllowDrop = true;
             this.path_installdir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.path_installdir.BackColor = System.Drawing.Color.WhiteSmoke;
             this.path_installdir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.path_installdir.Location = new System.Drawing.Point(209, 107);
+            this.path_installdir.Location = new System.Drawing.Point(211, 107);
             this.path_installdir.Name = "path_installdir";
             this.path_installdir.Size = new System.Drawing.Size(255, 20);
             this.path_installdir.TabIndex = 12;
+            this.path_installdir.DragDrop += new System.Windows.Forms.DragEventHandler(this.acceptDnDFolder);
+            this.path_installdir.DragEnter += new System.Windows.Forms.DragEventHandler(this.checkDnDFolder);
             this.path_installdir.Validating += new System.ComponentModel.CancelEventHandler(this.validateInstalldir);
             // 
             // cb_subfolder
@@ -359,7 +371,6 @@
             this.clb_downloadSelector.Name = "clb_downloadSelector";
             this.clb_downloadSelector.Size = new System.Drawing.Size(131, 49);
             this.clb_downloadSelector.TabIndex = 21;
-            this.clb_downloadSelector.SelectedValueChanged += new System.EventHandler(this.enableDLbutton);
             // 
             // choose_lang
             // 
@@ -535,6 +546,7 @@
             // 
             // path_sdk
             // 
+            this.path_sdk.AllowDrop = true;
             this.path_sdk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.path_sdk.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -543,6 +555,8 @@
             this.path_sdk.Name = "path_sdk";
             this.path_sdk.Size = new System.Drawing.Size(179, 20);
             this.path_sdk.TabIndex = 21;
+            this.path_sdk.DragDrop += new System.Windows.Forms.DragEventHandler(this.tb_DnD_drop);
+            this.path_sdk.DragEnter += new System.Windows.Forms.DragEventHandler(this.checkDnDExtensionMsiExe);
             // 
             // go_patHelp
             // 

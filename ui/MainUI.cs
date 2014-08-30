@@ -234,7 +234,6 @@ namespace SI_GUI
             give_message.Click += new EventHandler(gm_do);
             give_message.DoubleClick += new EventHandler(gm_do);
             bootstrapui = createBootstrapUI();
-            setDlButtonState();
             this.BringToFront();
         }
 
@@ -595,7 +594,12 @@ namespace SI_GUI
         private static int versionsFixed = 3;
         private void start_dl_Click(object sender, EventArgs e)
         {
-
+            bool dl_allowed = start_dl.Enabled = (!downloader.isEasyFileNames() || progressBar.Value == 0) && (isInstallerSelected() || isHelpSelected() || isSDKSelected());
+            if (!dl_allowed)
+            {
+                exceptionmessage("Download not allowed ATM");
+                return;
+            }
             if (dl_versions.SelectedItem != null)
             {
                 try
@@ -663,11 +667,11 @@ namespace SI_GUI
                         {
                             ChangingDLInfo info = dlInfos[index - (versionsFixed + 1)];
                             if (isInstallerSelected())
-                                downloader.downloadAnyVersion(info.url, Downloader.Version.MAIN);
+                                downloader.downloadAnyVersion(info.url, Downloader.Version.MAIN, Downloader.Branch.M);
                             if (info.helppackAvailable && isHelpSelected())
-                                downloader.downloadAnyVersion(info.url, Downloader.Version.HP);
+                                downloader.downloadAnyVersion(info.url, Downloader.Version.HP, Downloader.Branch.M);
                             if (info.sdkAvailable && isSDKSelected())
-                                downloader.downloadAnyVersion(info.url, Downloader.Version.SDK);
+                                downloader.downloadAnyVersion(info.url, Downloader.Version.SDK, Downloader.Branch.M);
                         }
                         else
                         {
@@ -693,12 +697,10 @@ namespace SI_GUI
                         MessageBox.Show(getstring("notest_txt"), getstring("notest_ti"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                         exceptionmessage(dnae.Message);
-                    setDlButtonState();
                 }
                 catch (MissingSettingException mse)
                 {
                     exceptionmessage(mse.Message + "[ERR:SETTING_NOTSET]");
-                    setDlButtonState();
                 }
             }
         }
@@ -756,7 +758,7 @@ namespace SI_GUI
 
         private void cancel_dl_Click(object sender, EventArgs e)
         {
-            downloader.resetDL();
+            downloader.cancel();
         }
 
         private void show_gb_bs_Click(object sender, EventArgs e)
@@ -829,17 +831,14 @@ namespace SI_GUI
         public void setPathMain(string newPath)
         {
             path_main.Text = newPath;
-            setDlButtonState();
         }
         public void setPathHelp(string newPath)
         {
             path_help.Text = newPath;
-            setDlButtonState();
         }
         public void setPathSDK(string newPath)
         {
             path_sdk.Text = newPath;
-            setDlButtonState();
         }
         public void setSubfolder(string subFolderName)
         {
@@ -850,16 +849,6 @@ namespace SI_GUI
         {
             path_sdk.Text = "";
             piwik.sendFeatreUseageStats(TDFPiwik.Features.FreeInstallerField);
-        }
-
-        private void enableDLbutton(object sender, EventArgs e)
-        {
-            setDlButtonState();
-        }
-        private void setDlButtonState()
-        {
-            // Enable or disable the DL button
-            start_dl.Enabled = isInstallerSelected() || isHelpSelected() || isSDKSelected();
         }
 
         private void b_open_libo_sdk_Click(object sender, EventArgs e)
@@ -918,5 +907,49 @@ namespace SI_GUI
                     t.Text = s;
             }
         }
+
+        private void tb_DnD_drop(object sender, DragEventArgs e)
+        {
+            acceptDnDMsiExe((TextBox)sender, e);
+        }
+
+        private void checkDnDFolder(object sender, DragEventArgs e)
+        {
+            e.Effect = (getFolder(e) == null ? DragDropEffects.None : DragDropEffects.Copy);
+        }
+        private string getFolder(DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.FileDrop))
+            {
+                string s = ((string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop))[0];
+                try
+                {
+                    FileAttributes attributes = System.IO.File.GetAttributes(s);
+                    if (!((attributes & FileAttributes.Directory) == FileAttributes.Directory))
+                    {
+                        //If s is not a dir
+                        s = Path.GetDirectoryName(s);
+                    }
+                    if (s.Length > 0)
+                        return s;
+                }
+                catch (ArgumentException) { }
+                catch (IOException) { }
+            }
+            return null;
+        }
+
+        private void b_configInstalldir_DragDrop(object sender, DragEventArgs e)
+        {
+            acceptDnDFolder(path_installdir, e);
+        }
+
+        private void acceptDnDFolder(object sender, DragEventArgs e)
+        {
+            string s = getFolder(e);
+            if (s != null)
+                ((TextBox)sender).Text = s;
+        }
+
     }
 }

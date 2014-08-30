@@ -34,7 +34,7 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>4.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -126,6 +126,7 @@
     <Compile Include="ui\BootstrapIniUI.Designer.cs">
       <DependentUpon>BootstrapIniUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="utils\helper\DLFile.cs" />
     <Compile Include="xml\ChangingDLInfo.cs" />
     <Compile Include="utils\Downloader.cs" />
     <Compile Include="exceptions\DownloadNotAvailableException.cs" />

@@ -13,13 +13,14 @@ using System.Net;
 using System.Xml.Serialization;
 using System.IO;
 using SI_GUI.exceptions;
+using SI_GUI.utils.helper;
 
 namespace SI_GUI
 {
     public class Downloader
     {
         // Enum which things should be downloaded
-        public enum Branch { M, LB, OB, T };
+        public enum Branch { M, LB, OB, T, ARCHIVE };
         public enum Version { MAIN = 0, HP = 1, SDK = 2 };
         //Easy file names --> Setting
         private static string hp_easy = "libo_help", main_easy = "libo_main", sdk_easy = "libo_sdk";
@@ -49,6 +50,10 @@ namespace SI_GUI
         public void exceptionmessage(string s)
         {
             mainui.exceptionmessage(s);
+        }
+        public bool isEasyFileNames()
+        {
+            return easyFilenames;
         }
         public Downloader(SETTINGS s, string version, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages)
             : this(s.DL_saved_settings.download_path, !s.cb_advanced_filenames, pb, ui, percentage, startDownload, languages, version)
@@ -86,94 +91,92 @@ namespace SI_GUI
             startAsyncDownload(url, branch, td);
         }
         // List of all web clients
-        List<WebClient> list_wc = new List<WebClient>();
-        Dictionary<int, long> dl_manager_current = new Dictionary<int, long>();
-        Dictionary<int, long> dl_manager_total = new Dictionary<int, long>();
-        Dictionary<int, Version> dl_type = new Dictionary<int, Version>();
-        float sum_current, sum_total;
-        float percentage;
+        List<DLFile> allDownloads = new List<DLFile>();
+        long sum_current, sum_total;
+
 
         void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-
+            if (cancelDl)
+            {
+                WebClient wc = (WebClient)sender;
+                wc.CancelAsync();
+                // Remove current download
+                allDownloads.Remove(getDLfileFromHashCode(wc.GetHashCode()));
+                cancelDl = allDownloads.Count != 0;
+                return;
+            }
             sum_current = 0;
-            sum_total = 0;
-            if (dl_manager_current.ContainsKey(sender.GetHashCode()))
+            int hash = sender.GetHashCode();
+            for (int i = 0; i < allDownloads.Count; i++)
             {
-                // Known dl
-                dl_manager_current.Remove(sender.GetHashCode());
-            }
-            else
-            {
-                // New download
-                Version v = Version.MAIN;
-                if (e.TotalBytesToReceive < 20971520) //HP < 20 MB
-                    v = Version.HP;
-                else if (e.TotalBytesToReceive < 52428800) //  20 MB < SDK < 50 MB
-                    v = Version.SDK;
-                dl_type.Add(sender.GetHashCode(), v);
-                dl_manager_total.Add(sender.GetHashCode(), e.TotalBytesToReceive);
-            }
-            // Set already downloaded bytes
-            dl_manager_current.Add(sender.GetHashCode(), e.BytesReceived);
-            foreach (KeyValuePair<int, long> kvp in dl_manager_current)
-            {
-                sum_current += kvp.Value;
-            }
-            foreach (KeyValuePair<int, long> kvp in dl_manager_total)
-            {
-                sum_total += kvp.Value;
+                DLFile download = allDownloads[i];
+                if (download.hashCodeWC == hash)
+                {
+                    download.received = e.BytesReceived;
+                    if (download.totalToreceive == 0)
+                    {
+                        download.totalToreceive = e.TotalBytesToReceive;
+                        sum_total += download.totalToreceive;
+                    }
+                }
+                sum_current += download.received;
             }
             try
             {
-                percentage = 100f * sum_current / sum_total;
+                double percentage = (100d * sum_current) / sum_total;
                 progress.Value = (int)(percentage * 100);
                 percentLabel.Text = Math.Round(percentage, 2).ToString() + " %";
             }
             catch (Exception) { }
+            finally
+            {
+                set_progressbar();
+            }
         }
 
-        Dictionary<int, string> dllocation = new Dictionary<int, string>(); //TODO improve
         void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            Version v;
-            if (!easyFilenames)
-                startDownload.Enabled = true;
-            string filename;
-            if (!e.Cancelled && dllocation.TryGetValue(sender.GetHashCode(), out filename))
+            DLFile currentDownload = getDLfileFromHashCode(sender.GetHashCode());
+            if (currentDownload != null)
             {
-                mainui.issueNotifyBallon(10000, getstring("dl_finished_title"), getstring("dl_finished"));
-                if (dl_type.TryGetValue(sender.GetHashCode(), out v))
+                switch (currentDownload.version)
                 {
-                    if (v == Version.MAIN) // Main installer
-                        mainui.setPathMain(filename);
-                    else if (v == Version.HP)  // Helppack
-                        mainui.setPathHelp(filename);
-                    else //SDK
-                        mainui.setPathSDK(filename);
-                    if (progress.Value == progress.Maximum)
-                        resetDL();
+                    case Version.MAIN:
+                        mainui.setPathMain(currentDownload.location);
+                        break;
+                    case Version.HP:
+                        mainui.setPathHelp(currentDownload.location);
+                        break;
+                    case Version.SDK:
+                        mainui.setPathSDK(currentDownload.location);
+                        break;
+                    default:
+                        break;
                 }
-                else
+                allDownloads.Remove(currentDownload);
+                if (allDownloads.Count == 0)
                 {
-                    resetDL();
+                    cancel();
                 }
             }
-            else
-                resetDL();
         }
-        public void resetDL()
+        private DLFile getDLfileFromHashCode(int hashCode)
         {
-            foreach (WebClient wc in list_wc)
-                if (wc.IsBusy)
-                    wc.CancelAsync();
-            dl_manager_current.Clear();
-            dl_manager_total.Clear();
-            dl_type.Clear();
-            dllocation.Clear();
-            list_wc.Clear();
+            foreach (DLFile download in allDownloads)
+                if (download.hashCodeWC == hashCode)
+                    return download;
+            return null;
+        }
+        private bool cancelDl = false;
+        public void cancel()
+        {
+            cancelDl = true;
             progress.Value = 0;
             percentLabel.Text = "0 %";
+            sum_total = 0;
+            sum_current = 0;
+            set_progressbar();
         }
         //throws DownloadNotAvailableException
         public void startAsyncDownload(string url, Branch branch, Version version)
@@ -265,83 +268,71 @@ namespace SI_GUI
 
         private void startDL(string programFilename, string finallink, Branch branch, Version version)
         {
-            list_wc.Add(getPreparedWebClient());
-            int wc = list_wc.Count - 1;
+            WebClient wc = getPreparedWebClient();
             Uri uritofile = new Uri(finallink + programFilename);
             string originalFilename = programFilename;
             if (easyFilenames)
             {
-                if (programFilename.Contains("msi"))
+                switch (version)
                 {
-                    if (version == Version.HP)
-                        programFilename = "libo_hp.msi";
-                    else if (version == Version.SDK)
-                        programFilename = "libo_sdk.msi";
-                    else
-                        programFilename = "libo_installer.msi";
+                    case Version.MAIN:
+                        programFilename = main_easy;
+                        break;
+                    case Version.HP:
+                        programFilename = hp_easy;
+                        break;
+                    case Version.SDK:
+                        programFilename = sdk_easy;
+                        break;
                 }
-                else
-                {
-                    if (version == Version.HP)
-                        programFilename = "libo_hp.exe";
-                    else if (version == Version.SDK)
-                        programFilename = "libo_sdk.exe";
-                    else
-                        programFilename = "libo_installer.exe";
-                }
-                startDownload.Enabled = false;
+                programFilename = originalFilename.EndsWith(".msi") ? ".msi" : ".exe";
             }
             if (dlFolder == null)
                 throw new MissingSettingException("Download path is not set");
             string path = Path.Combine(dlFolder, programFilename);
             string mb_question = getstring("versiondl");
             mb_question = mb_question.Replace("%version", originalFilename);
-
-            // If filename is TY, then no testing build is available
-            if (programFilename.Contains("exe") || programFilename.Contains("msi"))
+            // Start send stats
+            if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
+                return;
+            switch (version)
             {
-                if (MessageBox.Show(mb_question, getstring("startdl"), MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    // Send stats
-                    switch (version)
-                    {
-                        case Version.HP:
-                            mainui.sendStats(languages.SelectedItem.ToString());
-                            break;
-                        case Version.SDK:
-                            mainui.sendStats("sdk");
-                            break;
-                        default:
-                            mainui.sendStats("");
-                            break;
-                    }
-                    mainui.sendStatsFilename(uritofile);
-                    // End send stats
-                    mainui.issueNotifyBallon(5000, getstring("dl_started_title"), getstring("dl_started"));
-                    set_progressbar();
-                    list_wc[wc].DownloadFileAsync(uritofile, path);
-                    dllocation.Add(list_wc[wc].GetHashCode(), path);
-                    int k = 0;
-                    if (branch != Branch.M)
-                    {
-                        k = originalFilename.IndexOf('~');
-                        k = originalFilename.IndexOf('_', k + 1);
-                        originalFilename = originalFilename.Substring(0, k);
-                    }
-                    else
-                    {
-                        k = originalFilename.IndexOf("_");
-                        originalFilename = originalFilename.Remove(k);
-                    }
-                    if (version == Version.MAIN)
-                        mainui.setSubfolder(originalFilename);
-                }
-                else
-                    startDownload.Enabled = true;
+                case Version.HP:
+                    mainui.sendStats(languages.SelectedItem.ToString());
+                    break;
+                case Version.SDK:
+                    mainui.sendStats("sdk");
+                    break;
+                default:
+                    mainui.sendStats("");
+                    break;
             }
+            mainui.sendStatsFilename(uritofile);
+            // End send stats
+            mainui.issueNotifyBallon(5000, getstring("dl_started_title"), getstring("dl_started"));
+            wc.DownloadFileAsync(uritofile, path);
+            DLFile download = new DLFile(path, version, wc.GetHashCode());
+            allDownloads.Add(download);
+            int k = 0;
+            switch (branch)
+            {
+                case Branch.M:
+                    k = originalFilename.IndexOf('~');
+                    k = originalFilename.IndexOf('_', k + 1);
+                    originalFilename = originalFilename.Substring(0, k);
+                    break;
+                default:
+                    k = originalFilename.IndexOf("_");
+                    originalFilename = originalFilename.Remove(0, k + 1);
+                    k = originalFilename.IndexOf("_");
+                    originalFilename = "LibreOffice " + originalFilename.Remove(k);
+                    break;
+            }
+            if (version == Version.MAIN)
+                mainui.setSubfolder(originalFilename);
         }
 
-        public void downloadAnyVersion(string linkToFile, Version version)
+        public void downloadAnyVersion(string linkToFile, Version version, Branch branch)
         {
             // Get the final download links and initialize the download
             string httpfile = downloadFile(linkToFile + "?C=S;O=D");
@@ -385,7 +376,7 @@ namespace SI_GUI
                 default:
                     break;
             }
-            startDL(httpfile, linkToFile, Branch.M, version);
+            startDL(httpfile, linkToFile, branch, version);
         }
         public string downloadFile(string url)
         {
@@ -437,15 +428,14 @@ namespace SI_GUI
 
         public void startArchiveDownload(string vName, Version version)
         {
-            downloadAnyVersion(get_final_link(vName), version);
+            downloadAnyVersion(get_final_link(vName), version, Branch.ARCHIVE);
         }
         private void set_progressbar()
         {
-            if (progress.Value == progress.Maximum || progress.Value == 0)
-            {
+            if (progress.Maximum != 10000)
                 progress.Maximum = 10000;
+            if (progress.Value == progress.Maximum)
                 progress.Value = 0;
-            }
         }
     }
 
