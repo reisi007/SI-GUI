@@ -379,9 +379,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>שינוי שמות קבצים מתקדם</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>אם אפשרות זו פעילה הקבצים יאוחסנו עם שמם המקורי.nאם תנוטרל, ישמרו רק תכנית התקנה אחת וחבילת עזרה אחת בכונן.</value>
-	</data>
 	<data name="settings_select_dl_folder" xml:space="preserve">
 		<value>נא לבחור בתיקיית הורדה</value>
 	</data>

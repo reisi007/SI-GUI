@@ -402,9 +402,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Renombramiento avanzado de archivos</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Si se activa, los archivos se guardarán con su nombre de archivo original.nSi se desactiva, solo se conservará un instalador y un paquete de ayuda en el disco.</value>
-	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
 		<value>SI GUI - Se editó automáticamente bootstrap.ini</value>
 	</data>

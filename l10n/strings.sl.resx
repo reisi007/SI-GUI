@@ -403,9 +403,6 @@ je::nl:%trackingID:nl:Kot lahko vidite, slednji ne vsebuje nobenih osebnih podat
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Napredno preimenovanje datotek</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Če je polje potrjeno, bodo datoteke shranjene pod svojim izvirnim imenom.:n:Če polje ni potrjeno, bo na disku ohranjen le en namestitveni paket in en paket pomoči.</value>
-	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
 		<value>Up. vmesnik SI - samodejno urejen bootstrap.ini</value>
 	</data>

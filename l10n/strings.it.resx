@@ -402,9 +402,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Rinominazione avanzata dei file</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Se attivato i files saranno archiviati con i loro nomi originali.:n:Se disattivato, solamente un programma di installazione ed una sola guida saranno conservate sul disco,</value>
-	</data>
 	<data name="tt_editbs_txt" xml:space="preserve">
 		<value>Il file bootstrap.ini è stato modificato automaticamente. Puoi disabilitare questa impostazione nelle opzioni.</value>
 	</data>

@@ -396,9 +396,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
     <value>Erweiterte Dateibenennung aktivieren</value>
   </data>
-	<data name="tt_advanced_file" xml:space="preserve">
-    <value>Wenn aktiviert, werden die Dateien mit dem Originalnamen gespeichert.nWenn deaktiviert, werden nur eine Hauptinstallationsdatei und eine Hilfeinstallationsdatei gleichzeitig auf der Festplatte gespeichert.</value>
-  </data>
 	<data name="install_err1_tit" xml:space="preserve">
     <value>Überschreiben einer exestierenden Parallelinstallation</value>
   </data>

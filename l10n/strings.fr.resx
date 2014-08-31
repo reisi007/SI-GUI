@@ -399,9 +399,6 @@
 	<data name="install_err1_txt" xml:space="preserve">
 		<value>Vous êtes sur le point d'écraser une installation serveur existante. Continuer ?</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Si activé, les fichiers seront stockés sous leur nom d'origine.nSi désactivé, un seul installeur et un seul fichier d'aide seront conservés sur le disque.</value>
-	</data>
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Renommage de fichier avancé</value>
 	</data>

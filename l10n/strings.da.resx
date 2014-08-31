@@ -403,9 +403,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Avanceret omdøbning</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Hvis aktiveret vil filer blive gemt med deres originale filnavne.n If deaktiveret vil kun en enkelt installation og en hjælpepakke blive gemt på disken.</value>
-	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
 		<value>SI GUI - Bootstrap.ini blev automastisk ændret</value>
 	</data>

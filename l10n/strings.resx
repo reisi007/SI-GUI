@@ -402,8 +402,8 @@
 	<data name="cb_advanced_file" xml:space="preserve">
     <value>Advanced file renaming</value>
   </data>
-	<data name="tt_advanced_file" xml:space="preserve">
-    <value>If enabled, the files will be stored with their original filename.nIf disabled. Only one installer and one help pack will be kept on the disk.</value>
+	<data name="tt_advanced_filename" xml:space="preserve">
+    <value>If enabled, the files will be stored with their original filename.%nl%If disabled, only one installer, help pack and SDK will be kept on the disk.</value>
   </data>
 	<data name="tt_editbs_tit" xml:space="preserve">
     <value>SI GUI - Bootstrap.ini auto edited</value>
@@ -449,5 +449,14 @@
   </data>
 	<data name="open_sdk" xml:space="preserve">
     <value>Open LibreOffice SDK</value>
+  </data>
+	<data name="dl_forbidded_easyNames" xml:space="preserve">
+    <value>Could not start download. Another download is running and you enabled easy file names. Please try again, when the download has been finished</value>
+  </data>
+	<data name="dl_forbidded_selection" xml:space="preserve">
+    <value>Could not start download. Please specify what to download!</value>
+  </data>
+	<data name="dl_forbidden_other" xml:space="preserve">
+    <value>Could not start download. This should not happen! Please make a screenshot of this message and send it to me. Debug info: %s</value>
   </data>
 </root>

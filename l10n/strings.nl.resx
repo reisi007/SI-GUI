@@ -402,9 +402,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Geavanceerd bestand hernoemen</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>Als u dit toestaat, worden de bestanden opgeslagen met hun originele bestandsnaam.:n:Als u dit niet toestaat, wordt er enkel één installer en één helppack op uw hardeschijf bewaard.</value>
-	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
 		<value>SI GUI - Bootstrap.ini automatisch gewijzigd</value>
 	</data>
@@ -446,5 +443,8 @@
 	</data>
 	<data name="liboStable" xml:space="preserve">
 		<value>LibreOffice Stable</value>
+	</data>
+	<data name="open_sdk" xml:space="preserve">
+		<value>Open LibreOffice SDK</value>
 	</data>
 </root>

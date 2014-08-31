@@ -402,9 +402,6 @@
 	<data name="cb_advanced_file" xml:space="preserve">
 		<value>Renomeo avanzado de ficheiro</value>
 	</data>
-	<data name="tt_advanced_file" xml:space="preserve">
-		<value>De estar activado, os ficheiros gardaranse cos seus nomes orixinais.nDe estar desactivado, soamente se gardará un instalador e un paquete de axuda no disco.</value>
-	</data>
 	<data name="tt_editbs_tit" xml:space="preserve">
 		<value>SI IGU - Bootstrap.ini autoeditado</value>
 	</data>
