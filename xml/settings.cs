@@ -125,6 +125,7 @@ namespace SI_GUI
             cb_autoedit_bs = true;
             DL_saved_settings.cb_help = false;
             DL_saved_settings.cb_installer = true;
+            DL_saved_settings.cb_sdk = false;
             DL_saved_settings.changingVersion = new ChangingDLInfo[0];
             DL_saved_settings.download_path = Path.GetTempPath();
             Piwik.manually_set = false;
@@ -165,6 +166,7 @@ namespace SI_GUI
         public string lastSofficeEXE;
         public string MainInstalldir;
         public string HelpInstalldir;
+        public string SDKInstalldir;
         public string[] OpenFileStoredDir;
     }
     #endregion

@@ -35,6 +35,7 @@ namespace SI_GUI
         private Button startDownload;
         private ComboBox languages;
         private string programVersion;
+        private readonly string sortString = "?C=S;O=D";
         public void setEasyFileNames(bool efn)
         {
             easyFilenames = efn;
@@ -94,8 +95,11 @@ namespace SI_GUI
         List<DLFile> allDownloads = new List<DLFile>();
         long sum_current, sum_total;
 
-
-        void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        public bool isDownloading()
+        {
+            return allDownloads.Count > 0;
+        }
+        private void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             if (cancelDl)
             {
@@ -135,8 +139,11 @@ namespace SI_GUI
             }
         }
 
-        void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+
+        private void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
+            if(!e.Cancelled)
+               mainui.give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
             DLFile currentDownload = getDLfileFromHashCode(sender.GetHashCode());
             if (currentDownload != null)
             {
@@ -214,17 +221,6 @@ namespace SI_GUI
                         httpfile = httpfile.Remove(0, starting_position);
                         starting_position = httpfile.IndexOf("msi") + 3;
                         httpfile = httpfile.Remove(starting_position);
-
-                        if (version == Version.HP && (httpfile.Length != 2))
-                        {
-                            string vers2 = httpfile;
-                            string insert = "_helppack_" + lang + ".msi";
-                            starting_position = vers2.IndexOf("x86") + 3;
-                            vers2 = vers2.Remove(starting_position);
-                            vers2 += insert;
-                            httpfile = vers2;
-                        }
-
                     }
                     else if (branch == Branch.LB || branch == Branch.OB)
                     {
@@ -242,16 +238,24 @@ namespace SI_GUI
                         }
                         httpfile = httpfile.Remove(5);
                         url = "http://download.documentfoundation.org/libreoffice/stable/" + httpfile + "/win/x86/";
-                        if (version == Version.HP)
-                            httpfile = "LibreOffice_" + httpfile + "_Win_x86_helppack_" + lang + ".msi";
-                        else
-                            httpfile = "LibreOffice_" + httpfile + "_Win_x86.msi";
+                        httpfile = downloadFile(url + sortString);
+                        int hrefs = 5; // Number of hrefs before we find the needed string
+                        string searchString = "href=";
+                        httpfile = httpfile.Remove(0, httpfile.IndexOf("<body>"));
+                        for (int j = 0; j < hrefs; j++)
+                        {
+                            i = httpfile.IndexOf(searchString) + 1;
+                            httpfile = httpfile.Remove(0, i);
+                        }
+                        i = httpfile.IndexOf('"');
+                        httpfile = httpfile.Remove(0, i);
+                        httpfile = httpfile.Substring(1, httpfile.IndexOf("msi") + 2);
                     }
+                    if (version == Version.HP)
+                        httpfile = httpfile.Replace("Win_x86", "Win_x86_helppack_" + lang);
                     //Treat SDK
                     if (version == Version.SDK)
-                    {
                         httpfile = httpfile.Replace("Win_x86", "Win_x86_sdk");
-                    }
                     startDL(httpfile, url, branch, version);
                 }
             }
@@ -268,6 +272,17 @@ namespace SI_GUI
 
         private void startDL(string programFilename, string finallink, Branch branch, Version version)
         {
+            //Check if DL folder exists
+            try
+            {
+                Directory.CreateDirectory(dlFolder);
+            }
+            catch (Exception e)
+            {
+                dlFolder = Path.GetTempPath();
+                exceptionmessage(e.Message);
+            }
+            //Start download
             WebClient wc = getPreparedWebClient();
             Uri uritofile = new Uri(finallink + programFilename);
             string originalFilename = programFilename;
@@ -285,7 +300,7 @@ namespace SI_GUI
                         programFilename = sdk_easy;
                         break;
                 }
-                programFilename = originalFilename.EndsWith(".msi") ? ".msi" : ".exe";
+                programFilename += originalFilename.EndsWith(".msi") ? ".msi" : ".exe";
             }
             if (dlFolder == null)
                 throw new MissingSettingException("Download path is not set");
@@ -335,7 +350,7 @@ namespace SI_GUI
         public void downloadAnyVersion(string linkToFile, Version version, Branch branch)
         {
             // Get the final download links and initialize the download
-            string httpfile = downloadFile(linkToFile + "?C=S;O=D");
+            string httpfile = downloadFile(linkToFile + sortString);
             if (httpfile == null)
                 return;
             int tmp = httpfile.IndexOf("Parent");

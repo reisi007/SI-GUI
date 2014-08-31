@@ -98,7 +98,6 @@ namespace SI_GUI
         private access_settings set = new access_settings();
         private ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
         public TDFPiwik piwik;
-        private bool AdvancedFilenames;
         //Download backend
         private Downloader downloader;
         string siguiTitle
@@ -256,41 +255,7 @@ namespace SI_GUI
             piwik.sendDLfilename(filename.ToString());
         }
 
-        private void loadsettings()
-        {
-            try
-            {
-                SETTINGS toapply = set.open_settings();
-                //Apply settings
-                cb_subfolder.Checked = toapply.cb_create_subfolder;
-                AdvancedFilenames = toapply.cb_advanced_filenames;
-                path_installdir.Text = toapply.FilesFolders.InstallFolder;
-                subfolder.Text = toapply.FilesFolders.nameSubfolder;
-                choose_lang.SelectedIndex = toapply.lang;
-                path_to_exe.Text = toapply.FilesFolders.lastSofficeEXE;
-                path_main.Text = toapply.FilesFolders.MainInstalldir;
-                path_help.Text = toapply.FilesFolders.HelpInstalldir;
-                dl_list = toapply.DL_saved_settings.versions;
-                if (dl_list == null)
-                    dl_list = new string[0];
-                dlInfos = toapply.DL_saved_settings.changingVersion;
-                if (dlInfos == null)
-                    dlInfos = new ChangingDLInfo[0];
 
-                loadVersionstoList();
-                try
-                {
-                    dl_versions.SelectedIndex = toapply.DL_saved_settings.versions_last_version;
-                }
-                catch (Exception)
-                { }
-                setInstallerSelected(toapply.DL_saved_settings.cb_installer);
-                setHelpSelected(toapply.DL_saved_settings.cb_help);
-                setSDKSelected(toapply.DL_saved_settings.cb_sdk);
-            }
-            catch (Exception e)
-            { MessageBox.Show(e.Message); }
-        }
         public void issueNotifyBallon(int timeout, string title, string text)
         {
             give_message.ShowBalloonTip(timeout, title, text, ToolTipIcon.Info);
@@ -339,10 +304,11 @@ namespace SI_GUI
         }
         public void doInstall(string main, string help, string sdk, string dir)
         {
+
             piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_Start);
             bool install_main = main.Length > 0;
             bool install_help = help.Length > 0;
-            bool install_path = dir.Length > 0;
+            bool install_path = dir != null;
             bool install_sdk = sdk.Length > 0;
             bool go_on = true;
             Process p = new Process();
@@ -391,7 +357,7 @@ namespace SI_GUI
                 if (go_on)
                 {
                     // Install
-                    String bspath = executeInstallation(install_main, install_help, install_sdk, main, help, sdk, getFinalInstalldir());
+                    string bspath = executeInstallation(install_main, install_help, install_sdk, main, help, sdk, getFinalInstalldir());
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_OK);
                     bootstrapui.openbootstrap_ini(true, bspath);
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
@@ -399,9 +365,13 @@ namespace SI_GUI
 
             }
         }
-        private String getFinalInstalldir()
+        private string getFinalInstalldir()
         {
             string path = path_installdir.Text;
+            if (path.Length == 0)
+            {
+                return null;
+            }
             if (cb_subfolder.Checked && (subfolder.Text != ""))
             {
 
@@ -410,7 +380,7 @@ namespace SI_GUI
             return path.Replace("\\\\", "\\");
         }
 
-        private String executeInstallation(bool install_libo, bool install_help, bool install_sdk, string main, string help, string sdk, string dir)
+        private string executeInstallation(bool install_libo, bool install_help, bool install_sdk, string main, string help, string sdk, string dir)
         {
             Process p = new Process();
             if (install_libo)
@@ -475,7 +445,7 @@ namespace SI_GUI
         }
         public void exceptionmessage(string ex_message)
         {
-            MessageBox.Show(getstring("standarderror") + " " + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(getstring("standarderror") + ":" + Environment.NewLine + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public string getstring(string strMessage)
         {
@@ -594,10 +564,19 @@ namespace SI_GUI
         private static int versionsFixed = 3;
         private void start_dl_Click(object sender, EventArgs e)
         {
-            bool dl_allowed = start_dl.Enabled = (!downloader.isEasyFileNames() || progressBar.Value == 0) && (isInstallerSelected() || isHelpSelected() || isSDKSelected());
+            bool dl_allowed = (!downloader.isEasyFileNames() || progressBar.Value == 0) && (isInstallerSelected() || isHelpSelected() || isSDKSelected());
             if (!dl_allowed)
             {
-                exceptionmessage("Download not allowed ATM");
+                if (!(isHelpSelected() || isInstallerSelected() || isSDKSelected()))
+                    exceptionmessage(getstring("dl_forbidded_selection"));
+                else if (downloader.isEasyFileNames() && downloader.isDownloading())
+                    exceptionmessage(getstring("dl_forbidded_easyNames"));
+                else
+                {
+                    string debuginfo = "dl_allowed=false;progressbar.Value=" + progressBar.Value + "[checkstates|sdk:" + isSDKSelected() + "|help" + isHelpSelected() + "|Main" + isInstallerSelected() + "]";
+                    exceptionmessage(getstring("dl_forbidden_other").Replace("%s", debuginfo));
+
+                }
                 return;
             }
             if (dl_versions.SelectedItem != null)
@@ -784,7 +763,7 @@ namespace SI_GUI
                 {
                     f = System.IO.File.Open(file, System.IO.FileMode.Open);
                 }
-                catch (System.IO.FileNotFoundException ex)
+                catch (System.IO.IOException ex)
                 {
                     file = "";
                     exceptionmessage(ex.Message);

@@ -56,9 +56,46 @@ namespace SI_GUI
             thingstosave.FilesFolders.lastSofficeEXE = path_to_exe.Text;
             thingstosave.FilesFolders.HelpInstalldir = path_help.Text;
             thingstosave.FilesFolders.MainInstalldir = path_main.Text;
+            thingstosave.FilesFolders.SDKInstalldir = path_sdk.Text;
             thingstosave.FilesFolders.OpenFileStoredDir = initialDir;
             // Finally save to file
             set.save_settings(thingstosave);
+        }
+        private void loadsettings()
+        {
+            try
+            {
+                SETTINGS toapply = set.open_settings();
+                //Apply settings
+                cb_subfolder.Checked = toapply.cb_create_subfolder;
+                downloader.setEasyFileNames(!toapply.cb_advanced_filenames);
+                path_installdir.Text = toapply.FilesFolders.InstallFolder;
+                subfolder.Text = toapply.FilesFolders.nameSubfolder;
+                choose_lang.SelectedIndex = toapply.lang;
+                path_to_exe.Text = toapply.FilesFolders.lastSofficeEXE;
+                path_main.Text = toapply.FilesFolders.MainInstalldir;
+                path_help.Text = toapply.FilesFolders.HelpInstalldir;
+                path_sdk.Text = toapply.FilesFolders.SDKInstalldir;
+                dl_list = toapply.DL_saved_settings.versions;
+                if (dl_list == null)
+                    dl_list = new string[0];
+                dlInfos = toapply.DL_saved_settings.changingVersion;
+                if (dlInfos == null)
+                    dlInfos = new ChangingDLInfo[0];
+
+                loadVersionstoList();
+                try
+                {
+                    dl_versions.SelectedIndex = toapply.DL_saved_settings.versions_last_version;
+                }
+                catch (Exception)
+                { }
+                setInstallerSelected(toapply.DL_saved_settings.cb_installer);
+                setHelpSelected(toapply.DL_saved_settings.cb_help);
+                setSDKSelected(toapply.DL_saved_settings.cb_sdk);
+            }
+            catch (Exception e)
+            { MessageBox.Show(e.Message); }
         }
     }
 }

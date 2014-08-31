@@ -29,9 +29,6 @@ namespace SI_GUI
             "Nl",
             "Gl",
             "It", 
-            /*"Lo-LA",
-            "Mt-MT",
-            "Tr" Not translated ATM*/
           };
         // Opens Help
         private void openHelp()
@@ -94,7 +91,7 @@ namespace SI_GUI
             l10n[19] = getstring("ga_cb_allowed");
             l10n[20] = getstring("settings_select_dl_folder");
             l10n[21] = getstring("cb_advanced_file");
-            l10n[22] = getstring("tt_advanced_file");
+            l10n[22] = getstring("tt_advanced_filename").Replace("%nl%", Environment.NewLine);
             l10n[23] = getstring("okay");
             l10n[24] = getstring("cb_autoedit");
             l10n[25] = getstring("help");
@@ -103,7 +100,7 @@ namespace SI_GUI
             AboutUI fm = new AboutUI(l10n, rtl_layout, langAvailable);
             fm.ShowDialog();
             downloader.setDownloadFolderPath(fm.get_download_location);
-            AdvancedFilenames = fm.getAdvancedRenamingChecked;
+            downloader.setEasyFileNames(!fm.isAdvancedRenamingChecked);
         }
         private BootstrapIniUI createBootstrapUI()
         {

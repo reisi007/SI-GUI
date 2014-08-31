@@ -124,7 +124,7 @@ namespace SI_GUI
             bOk.Text = l10n[23];
             cb_bs_autoedit.Text = l10n[24];
         }
-        public bool getAdvancedRenamingChecked
+        public bool isAdvancedRenamingChecked
         {
             get
             {
