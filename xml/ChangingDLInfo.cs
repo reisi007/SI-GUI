@@ -1,4 +1,12 @@
-﻿using System;
+﻿#region Licence
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
+ * which is licenced under LGPL v3+. You may find a copy in the source,
+ * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
+
+#endregion Licence
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +21,8 @@ namespace SI_GUI
         public ChangingDLInfo()
             : this("---", "---", false, false)
         {
-
         }
+
         private ChangingDLInfo(string name, string url, bool helppack, bool sdk)
         {
             this.name = name;
@@ -22,18 +30,24 @@ namespace SI_GUI
             this.helppackAvailable = helppack;
             this.sdkAvailable = sdk;
         }
+
         [XmlElement(ElementName = "name")]
         public string name;
-         [XmlElement(ElementName = "url")]
+
+        [XmlElement(ElementName = "url")]
         public string url;
-         [XmlElement(ElementName = "hp")]
+
+        [XmlElement(ElementName = "hp")]
         public bool helppackAvailable;
-         [XmlElement(ElementName = "sdk")]
+
+        [XmlElement(ElementName = "sdk")]
         public bool sdkAvailable;
+
         public override string ToString()
         {
             return name;
         }
+
         public static ChangingDLInfo[] Parse(string[] s)
         {
             List<ChangingDLInfo> list = new List<ChangingDLInfo>();

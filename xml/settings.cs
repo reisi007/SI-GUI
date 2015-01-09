@@ -1,19 +1,20 @@
 ﻿#region Licence
-/*This file is part of the project "Reisisoft Server Install GUI",
+/*This file is part of the project "Reisisoft Separate Install GUI",
  * which is licenced under LGPL v3+. You may find a copy in the source,
  * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
-#endregion
+#endregion Licence
+
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml.Serialization;
-using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace SI_GUI
 {
-    class access_settings
+    internal class access_settings
     {
         public SETTINGS open_settings()
         {
@@ -48,15 +49,17 @@ namespace SI_GUI
 
             return value;
         }
+
         private string getpath()
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Reisisoft/Server Installation GUI");
-
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"Reisisoft/" + MainUI.productname);
         }
+
         private string getfilename()
         {
             return Path.Combine(getpath(), "sigui.settings");
         }
+
         public string program_version()
         {
             if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
@@ -91,9 +94,9 @@ namespace SI_GUI
                     str.Close();
                 }
             }
-
             catch { }
         }
+
         public string[] update_manager_array(string[] oldarray, string toadd)
         {
             if (oldarray == null || !oldarray.Contains(toadd))
@@ -110,10 +113,11 @@ namespace SI_GUI
                 return newarray;
             }
             return oldarray;
-
         }
     }
+
     # region SETTINGS (File-format)
+
     // Setting file format definition
     public class SETTINGS
     {
@@ -132,6 +136,7 @@ namespace SI_GUI
             Piwik.tracking_allowed = false;
             FilesFolders.OpenFileStoredDir = new string[3];
         }
+
         public bool cb_create_subfolder;
         public bool cb_advanced_filenames;
         public bool cb_autoedit_bs;
@@ -142,6 +147,7 @@ namespace SI_GUI
         public TDFPiwik_Settings Piwik;
         public FFNames FilesFolders;
     }
+
     public struct DL_UI_settings
     {
         public string[] versions;
@@ -159,6 +165,7 @@ namespace SI_GUI
         public bool tracking_allowed;
         public bool manually_set;
     }
+
     public struct FFNames
     {
         public string InstallFolder;
@@ -169,5 +176,6 @@ namespace SI_GUI
         public string SDKInstalldir;
         public string[] OpenFileStoredDir;
     }
+
     #endregion
 }

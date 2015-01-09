@@ -1,36 +1,41 @@
 ﻿#region Licence
-/*This file is part of the project "Reisisoft Server Install GUI",
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
  * which is licenced under LGPL v3+. You may find a copy in the source,
  * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
-#endregion
+
+#endregion Licence
+
+// Create lnk
+using IWshRuntimeLibrary;
+using SI_GUI.exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.IO;
-using System.Threading;
-using System.Resources;
-using System.Reflection;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Resources;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 using System.Xml.Serialization;
-using SI_GUI.exceptions;
-// Create lnk
-using IWshRuntimeLibrary;
 
-
-//Used for translation: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor 
+//Used for translation: http://www.codeproject.com/Articles/16068/Zeta-Resource-Editor
 
 namespace SI_GUI
 {
     public partial class MainUI : Form
     {
-        #region String[] alllnag
-        string[] alllang = new string[]
+        public static String productname = "Separate Installation GUI";
+
+        #region string[] alllnag
+
+        private string[] alllang = new string[]
         {
             "ast",
             "bg",
@@ -90,7 +95,9 @@ namespace SI_GUI
             "zh-CN",
             "zh-TW"
         };
-        #endregion
+
+        #endregion string[] alllnag
+
         private bool rtl_layout = false;
         private string[] dl_special;
         private string[] initialDir;
@@ -98,15 +105,18 @@ namespace SI_GUI
         private access_settings set = new access_settings();
         private ResourceManager rm = new ResourceManager("SI_GUI.l10n.strings", Assembly.GetExecutingAssembly());
         public TDFPiwik piwik;
+
         //Download backend
         private Downloader downloader;
-        string siguiTitle
+
+        private string siguiTitle
         {
             get
             {
-                return "Server Install GUI - " + getstring("siguislogan");
+                return productname + " - " + getstring("siguislogan");
             }
         }
+
         public MainUI()
         {
             //l10n import
@@ -156,6 +166,7 @@ namespace SI_GUI
             downloader = new Downloader(settings, set.program_version(), progressBar, this, percent, start_dl, choose_lang);
             choose_lang.Items.AddRange(alllang);
         }
+
         private void MainUI_Load(object sender, EventArgs e)
         {
             if (rtl_layout)
@@ -166,7 +177,6 @@ namespace SI_GUI
                 path_installdir.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_help.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 path_main.RightToLeft = System.Windows.Forms.RightToLeft.No;
-
             }
 
             //l10n start
@@ -194,18 +204,18 @@ namespace SI_GUI
             wheretoinstall.Description = getstring("where_to_install");
             /* l10n end
              Update version information */
-            version.Text = "LibreOffice Server Install GUI " + set.program_version();
+            version.Text = productname + " " + set.program_version();
             // Load settings
             /*
-             * 
+             *
              *    Set special download
-             * 
+             *
              * */
             dl_special = new string[] { getstring("liboFresh"), getstring("liboStable"), getstring("m_l10n_t"), "---" };
             /*
-            * 
+            *
             *    Set special download end
-            * 
+            *
             * */
             loadsettings();
             percent.Text = "0 %";
@@ -214,8 +224,7 @@ namespace SI_GUI
             choose_lang.Size = new System.Drawing.Size(dl_versions.Location.X + dl_versions.Size.Width - choose_lang.Location.X, choose_lang.Size.Height);
             openfile.InitialDirectory = Path.GetTempPath();
             openfile2.InitialDirectory = openfile.InitialDirectory;
-            // Position progressbar 1
-            // Start Setting tooltips
+            // Position progressbar 1 Start Setting tooltips
             ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
             ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
             ToolTip manuallyUpdate = get_ToolTip(version, getstring("tt_autoupdate"));
@@ -246,15 +255,16 @@ namespace SI_GUI
 
             return tt;
         }
+
         public void sendStats(string hplang)
         {
             piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedText, hplang);
         }
+
         public void sendStatsFilename(Uri filename)
         {
             piwik.sendDLfilename(filename.ToString());
         }
-
 
         public void issueNotifyBallon(int timeout, string title, string text)
         {
@@ -273,6 +283,7 @@ namespace SI_GUI
             initialDir[(int)Downloader.Version.MAIN] = Path.GetDirectoryName(filename_install);
             openfile.InitialDirectory = initialDir[(int)Downloader.Version.MAIN];
         }
+
         private void openLibohelp(object sender, EventArgs e)
         {
             openfile2.InitialDirectory = initialDir[(int)Downloader.Version.HP];
@@ -302,9 +313,9 @@ namespace SI_GUI
         {
             doInstall(path_main.Text, path_help.Text, path_sdk.Text, getFinalInstalldir());
         }
+
         public void doInstall(string main, string help, string sdk, string dir)
         {
-
             piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_Start);
             bool install_main = main.Length > 0;
             bool install_help = help.Length > 0;
@@ -318,7 +329,6 @@ namespace SI_GUI
                 if (!install_path)
                     throw new Exception(getstring("no_installdir"));
             }
-
             catch (Exception ex)
             {
                 exceptionmessage(ex.Message);
@@ -334,7 +344,6 @@ namespace SI_GUI
                             throw new Exception(getstring("go_back"));
                     }
                 }
-
                 catch (Exception) { go_on = false; }
             }
             if (go_on)
@@ -362,9 +371,9 @@ namespace SI_GUI
                     bootstrapui.openbootstrap_ini(true, bspath);
                     piwik.sendFeatreUseageStats(TDFPiwik.Features.ParallelInstall_End);
                 }
-
             }
         }
+
         private string getFinalInstalldir()
         {
             string path = path_installdir.Text;
@@ -374,7 +383,6 @@ namespace SI_GUI
             }
             if (cb_subfolder.Checked && (subfolder.Text != ""))
             {
-
                 path += "\\" + subfolder.Text;
             }
             return path.Replace("\\\\", "\\");
@@ -424,18 +432,12 @@ namespace SI_GUI
                 exceptionmessage(ex.Message);
             }
             return getbsINIPath();
-
         }
+
         public String getbsINIPath()
         {
             return path_to_exe.Text.Replace("soffice.exe", "bootstrap.ini");
         }
-
-
-
-
-
-
 
         private void open_installer_Click(object sender, EventArgs e)
         {
@@ -443,10 +445,12 @@ namespace SI_GUI
             openfile.ShowDialog();
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Open_Installer);
         }
+
         public void exceptionmessage(string ex_message)
         {
             MessageBox.Show(getstring("standarderror") + ":" + Environment.NewLine + ex_message, getstring("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
         public string getstring(string strMessage)
         {
             string rt = "??? + (" + strMessage + ")";
@@ -459,11 +463,9 @@ namespace SI_GUI
                 exceptionmessage("An error in the l10n part occured!");
             }
             return rt;
-
         }
 
         // Function, which prepares the data, which should be saved for next startup
-
 
         private void create_ink_Click(object sender, EventArgs e)
         {
@@ -494,7 +496,6 @@ namespace SI_GUI
                 if (ok)
                     MessageBox.Show(getstring("msb_lnk_txt"), getstring("msb_lnk_title"), MessageBoxButtons.OK);
             }
-
         }
 
         private void m_about_Click(object sender, EventArgs e)
@@ -511,6 +512,7 @@ namespace SI_GUI
         {
             openHelp();
         }
+
         private void validate_filename(object sender, EventArgs e)
         {
             if (path_main.Text.Contains("exe") || path_help.Text.Contains("exe"))
@@ -530,8 +532,10 @@ namespace SI_GUI
             path_main.Update();
             path_help.Update();
         }
+
         private string[] dl_list;
         private int selected_item;
+
         private void update_versions_Click(object sender, EventArgs e)
         {
             piwik.sendFeatreUseageStats(TDFPiwik.Features.Update_ListOfVersion);
@@ -539,6 +543,7 @@ namespace SI_GUI
             update_changingVersions();
             loadVersionstoList();
         }
+
         private void loadVersionstoList()
         {
             dl_versions.BeginUpdate();
@@ -553,6 +558,7 @@ namespace SI_GUI
             dl_versions.SelectedIndex = selected_item;
             dl_versions.EndUpdate();
         }
+
         private void update_changingVersions()
         {
             string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/" + (set.program_version().EndsWith("ing")/*testing versions*/ ? "beta" : "info") + ".txt";
@@ -562,6 +568,7 @@ namespace SI_GUI
         }
 
         private static int versionsFixed = 3;
+
         private void start_dl_Click(object sender, EventArgs e)
         {
             bool dl_allowed = (!downloader.isEasyFileNames() || progressBar.Value == 0) && (isInstallerSelected() || isHelpSelected() || isSDKSelected());
@@ -575,7 +582,6 @@ namespace SI_GUI
                 {
                     string debuginfo = "dl_allowed=false;progressbar.Value=" + progressBar.Value + "[checkstates|sdk:" + isSDKSelected() + "|help" + isHelpSelected() + "|Main" + isInstallerSelected() + "]";
                     exceptionmessage(getstring("dl_forbidden_other").Replace("%s", debuginfo));
-
                 }
                 return;
             }
@@ -605,6 +611,7 @@ namespace SI_GUI
                                     downloader.startStaticDL(Downloader.Branch.LB, Downloader.Version.SDK);
                                 }
                                 break;
+
                             case (1):
                                 // Older branch
                                 if (isInstallerSelected())
@@ -620,6 +627,7 @@ namespace SI_GUI
                                     downloader.startStaticDL(Downloader.Branch.OB, Downloader.Version.SDK);
                                 }
                                 break;
+
                             case (2):
                                 // Testing
                                 if (isInstallerSelected())
@@ -635,6 +643,7 @@ namespace SI_GUI
                                     downloader.startStaticDL(Downloader.Branch.T, Downloader.Version.SDK);
                                 }
                                 break;
+
                             default:
                                 break;
                         }
@@ -728,7 +737,7 @@ namespace SI_GUI
             {
                 System.Net.WebClient wc = new System.Net.WebClient();
                 string file = Path.Combine(Path.GetTempPath(), "update.application");
-                wc.DownloadFile("http://dev-builds.libreoffice.org/si-gui/LibreOffice%20Server%20Install%20GUI.application", file);
+                wc.DownloadFile("http://dev-builds.libreoffice.org/si-gui/LibreOffice%20Separate%20Install%20GUI.application", file);
                 Process.Start(file);
                 Environment.Exit(0);
             }
@@ -752,8 +761,8 @@ namespace SI_GUI
             // Checking of installer and help package
             TextBox t = (TextBox)sender;
             t.Text = doValidateInstaller(t.Text);
-
         }
+
         private String doValidateInstaller(String file)
         {
             if (file != "")
@@ -779,7 +788,6 @@ namespace SI_GUI
 
         private void validateInstalldir(object sender, CancelEventArgs e)
         {
-
             TextBox t = (TextBox)sender;
             if (t.Text != "" && !System.IO.Directory.Exists(t.Text))
             {
@@ -798,7 +806,6 @@ namespace SI_GUI
                     {
                         t.Text = "";
                     }
-
                 }
             }
         }
@@ -807,18 +814,22 @@ namespace SI_GUI
         {
             savesettings();
         }
+
         public void setPathMain(string newPath)
         {
             path_main.Text = newPath;
         }
+
         public void setPathHelp(string newPath)
         {
             path_help.Text = newPath;
         }
+
         public void setPathSDK(string newPath)
         {
             path_sdk.Text = newPath;
         }
+
         public void setSubfolder(string subFolderName)
         {
             subfolder.Text = (subFolderName == null ? subfolder.Text : subFolderName);
@@ -850,14 +861,17 @@ namespace SI_GUI
             initialDir[(int)Downloader.Version.SDK] = Path.GetDirectoryName(filename_sdk);
             openfile.InitialDirectory = initialDir[(int)Downloader.Version.SDK];
         }
+
         private void b_open_libo_installer_DragDrop(object sender, DragEventArgs e)
         {
             acceptDnDMsiExe(path_main, e);
         }
+
         private void b_open_libo_help_DragDrop(object sender, DragEventArgs e)
         {
             acceptDnDMsiExe(path_help, e);
         }
+
         private void b_open_libo_sdk_DragDrop(object sender, DragEventArgs e)
         {
             acceptDnDMsiExe(path_sdk, e);
@@ -875,8 +889,8 @@ namespace SI_GUI
                 }
             }
             e.Effect = DragDropEffects.None;
-
         }
+
         private void acceptDnDMsiExe(TextBox t, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.FileDrop))
@@ -896,6 +910,7 @@ namespace SI_GUI
         {
             e.Effect = (getFolder(e) == null ? DragDropEffects.None : DragDropEffects.Copy);
         }
+
         private string getFolder(DragEventArgs e)
         {
             if (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.FileDrop))
@@ -929,6 +944,5 @@ namespace SI_GUI
             if (s != null)
                 ((TextBox)sender).Text = s;
         }
-
     }
 }

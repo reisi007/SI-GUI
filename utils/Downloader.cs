@@ -1,19 +1,22 @@
 ﻿#region Licence
-/*This file is part of the project "Reisisoft Server Install GUI",
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
  * which is licenced under LGPL v3+. You may find a copy in the source,
  * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
-#endregion
-using System;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Net;
-using System.Xml.Serialization;
-using System.IO;
+
+#endregion Licence
+
 using SI_GUI.exceptions;
 using SI_GUI.utils.helper;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace SI_GUI
 {
@@ -21,44 +24,57 @@ namespace SI_GUI
     {
         // Enum which things should be downloaded
         public enum Branch { M, LB, OB, T, ARCHIVE };
+
         public enum Version { MAIN = 0, HP = 1, SDK = 2 };
+
         //Easy file names --> Setting
         private static string hp_easy = "libo_help", main_easy = "libo_main", sdk_easy = "libo_sdk";
+
         //The folder to save the files in
         private string dlFolder;
+
         //Should the easy file names be used
         private bool easyFilenames;
+
         //UI components used, which is used to show the progess
         private ProgressBar progress;
+
         private MainUI mainui;
         private Label percentLabel;
         private Button startDownload;
         private ComboBox languages;
         private string programVersion;
         private readonly string sortString = "?C=S;O=D";
+
         public void setEasyFileNames(bool efn)
         {
             easyFilenames = efn;
         }
+
         public void setDownloadFolderPath(string path)
         {
             dlFolder = path;
         }
+
         public string getstring(string s)
         {
             return mainui.getstring(s);
         }
+
         public void exceptionmessage(string s)
         {
             mainui.exceptionmessage(s);
         }
+
         public bool isEasyFileNames()
         {
             return easyFilenames;
         }
+
         public Downloader(SETTINGS s, string version, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages)
             : this(s.DL_saved_settings.download_path, !s.cb_advanced_filenames, pb, ui, percentage, startDownload, languages, version)
         { }
+
         public Downloader(string dlFolder, bool easyFilenames, ProgressBar pb, MainUI ui, Label percentage, Button startDownload, ComboBox languages, string version)
         {
             this.dlFolder = dlFolder;
@@ -79,26 +95,32 @@ namespace SI_GUI
                 case (Branch.LB):
                     url = "http://download.documentfoundation.org/libreoffice/stable/";
                     break;
+
                 case (Branch.OB):
                     url = "http://download.documentfoundation.org/libreoffice/stable/";
                     break;
+
                 case (Branch.T):
                     url = "http://dev-builds.libreoffice.org/pre-releases/win/x86/";
                     break;
+
                 default:
                     url = "";
                     break;
             }
             startAsyncDownload(url, branch, td);
         }
+
         // List of all web clients
-        List<DLFile> allDownloads = new List<DLFile>();
-        long sum_current, sum_total;
+        private List<DLFile> allDownloads = new List<DLFile>();
+
+        private long sum_current, sum_total;
 
         public bool isDownloading()
         {
             return allDownloads.Count > 0;
         }
+
         private void download_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             if (cancelDl)
@@ -139,11 +161,10 @@ namespace SI_GUI
             }
         }
 
-
         private void download_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            if(!e.Cancelled)
-               mainui.give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
+            if (!e.Cancelled)
+                mainui.give_message.ShowBalloonTip(10000, getstring("dl_finished_title"), getstring("dl_finished"), ToolTipIcon.Info);
             DLFile currentDownload = getDLfileFromHashCode(sender.GetHashCode());
             if (currentDownload != null)
             {
@@ -152,12 +173,15 @@ namespace SI_GUI
                     case Version.MAIN:
                         mainui.setPathMain(currentDownload.location);
                         break;
+
                     case Version.HP:
                         mainui.setPathHelp(currentDownload.location);
                         break;
+
                     case Version.SDK:
                         mainui.setPathSDK(currentDownload.location);
                         break;
+
                     default:
                         break;
                 }
@@ -168,6 +192,7 @@ namespace SI_GUI
                 }
             }
         }
+
         private DLFile getDLfileFromHashCode(int hashCode)
         {
             foreach (DLFile download in allDownloads)
@@ -175,7 +200,9 @@ namespace SI_GUI
                     return download;
             return null;
         }
+
         private bool cancelDl = false;
+
         public void cancel()
         {
             cancelDl = true;
@@ -185,6 +212,7 @@ namespace SI_GUI
             sum_current = 0;
             set_progressbar();
         }
+
         //throws DownloadNotAvailableException
         public void startAsyncDownload(string url, Branch branch, Version version)
         {
@@ -205,6 +233,7 @@ namespace SI_GUI
             catch (Exception ex)
             {
                 exceptionmessage(ex.Message);
+                cont = false;
             }
             if (cont)
             {
@@ -293,9 +322,11 @@ namespace SI_GUI
                     case Version.MAIN:
                         programFilename = main_easy;
                         break;
+
                     case Version.HP:
                         programFilename = hp_easy;
                         break;
+
                     case Version.SDK:
                         programFilename = sdk_easy;
                         break;
@@ -315,9 +346,11 @@ namespace SI_GUI
                 case Version.HP:
                     mainui.sendStats(languages.SelectedItem.ToString());
                     break;
+
                 case Version.SDK:
                     mainui.sendStats("sdk");
                     break;
+
                 default:
                     mainui.sendStats("");
                     break;
@@ -336,6 +369,7 @@ namespace SI_GUI
                     k = originalFilename.IndexOf('_', k + 1);
                     originalFilename = originalFilename.Substring(0, k);
                     break;
+
                 default:
                     k = originalFilename.IndexOf("_");
                     originalFilename = originalFilename.Remove(0, k + 1);
@@ -378,6 +412,7 @@ namespace SI_GUI
                         httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + languages.SelectedItem.ToString());
                     }
                     break;
+
                 case Version.SDK:
                     if (httpfile.StartsWith("LibO"))
                     {
@@ -388,11 +423,13 @@ namespace SI_GUI
                         httpfile = httpfile.Replace("x86", "x86_sdk");
                     }
                     break;
+
                 default:
                     break;
             }
             startDL(httpfile, linkToFile, branch, version);
         }
+
         public string downloadFile(string url)
         {
             try
@@ -406,6 +443,7 @@ namespace SI_GUI
                 return null;
             }
         }
+
         public string[] getLibOListOfDL()
         {
             string link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
@@ -435,16 +473,17 @@ namespace SI_GUI
             }
             return versions.ToArray();
         }
+
         private string get_final_link(string version)
         {
             return "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win/x86/";
-
         }
 
         public void startArchiveDownload(string vName, Version version)
         {
             downloadAnyVersion(get_final_link(vName), version, Branch.ARCHIVE);
         }
+
         private void set_progressbar()
         {
             if (progress.Maximum != 10000)
@@ -453,5 +492,4 @@ namespace SI_GUI
                 progress.Value = 0;
         }
     }
-
 }

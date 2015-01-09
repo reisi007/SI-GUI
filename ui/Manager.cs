@@ -1,26 +1,30 @@
 ﻿#region Licence
-/*This file is part of the project "Reisisoft Server Install GUI",
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
  * which is licenced under LGPL v3+. You may find a copy in the source,
  * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
-#endregion
+
+#endregion Licence
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
-using System.Resources;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace SI_GUI
 {
     public partial class Manager : Form
     {
-        access_settings set = new access_settings();
-        bool RTL = false;
+        private access_settings set = new access_settings();
+        private bool RTL = false;
+
         public Manager(string[] l10n, string[] l10n_mai, bool rtl)
         {
             if (rtl)
@@ -32,7 +36,8 @@ namespace SI_GUI
             this.l10n_mai = l10n_mai;
             InitializeComponent();
         }
-        string[] l10n, l10n_mai;
+
+        private string[] l10n, l10n_mai;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -48,6 +53,7 @@ namespace SI_GUI
             button2.Text = l10n[3];
             update_selector();
         }
+
         public void exeptionmessage(string ex_message)
         {
             MessageBox.Show(l10n[4] + ex_message, l10n[5], MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,9 +70,7 @@ namespace SI_GUI
                 {
                     manager_list.Items.Add(s);
                 }
-
         }
-
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -80,7 +84,6 @@ namespace SI_GUI
                 set.save_settings(temp);
                 update_selector();
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -124,6 +127,5 @@ namespace SI_GUI
 
             update_selector();
         }
-
     }
 }

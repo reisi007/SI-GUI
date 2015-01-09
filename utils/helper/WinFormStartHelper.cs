@@ -1,23 +1,27 @@
 ﻿#region Licence
-/*This file is part of the project "Reisisoft Server Install GUI",
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
  * which is licenced under LGPL v3+. You may find a copy in the source,
  * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
-#endregion
+
+#endregion Licence
+
+using SI_GUI.ui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Threading;
-using SI_GUI.ui;
+using System.Windows.Forms;
 
 namespace SI_GUI
 {
     // This file helps to start all the subwindows with the right l10n strings
     partial class MainUI : Form
     {
-        BootstrapIniUI bootstrapui;
-        string[] langAvailable = new string[] {
+        private BootstrapIniUI bootstrapui;
+
+        private string[] langAvailable = new string[] {
             "En",
             "De",
             "Fr",
@@ -28,8 +32,9 @@ namespace SI_GUI
             "Pt-PT",
             "Nl",
             "Gl",
-            "It", 
+            "It",
           };
+
         // Opens Help
         private void openHelp()
         {
@@ -41,6 +46,7 @@ namespace SI_GUI
             HelpUI fm = new HelpUI(l10n, rtl_layout, Thread.CurrentThread.CurrentUICulture.Name.ToLower());
             fm.ShowDialog();
         }
+
         // Opens Manager
         private void openManager()
         {
@@ -102,6 +108,7 @@ namespace SI_GUI
             downloader.setDownloadFolderPath(fm.get_download_location);
             downloader.setEasyFileNames(!fm.isAdvancedRenamingChecked);
         }
+
         private BootstrapIniUI createBootstrapUI()
         {
             string[] l10n = new string[11];

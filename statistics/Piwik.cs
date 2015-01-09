@@ -1,33 +1,44 @@
-﻿using System;
+﻿#region Licence
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
+ * which is licenced under LGPL v3+. You may find a copy in the source,
+ * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
+
+#endregion Licence
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using System.Security.Cryptography;
-using System.Net;
-using System.IO;
-using System.ComponentModel;
 
 namespace SI_GUI
 {
     public class TDFPiwik : IDisposable
     {
-        const string websiteID = "58";
+        private const string websiteID = "58";
         private access_settings aSet;
         private SETTINGS Set;
-        string sallowed_txt;
-        string sallowed_title;
-        BackgroundWorker bw;
-        List<string> pending_requests = new List<string>();
+        private string sallowed_txt;
+        private string sallowed_title;
+        private BackgroundWorker bw;
+        private List<string> pending_requests = new List<string>();
+
         ~TDFPiwik()
         {
             Dispose(false);
         }
+
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
         protected virtual void Dispose(bool dispose)
         {
             if (dispose && bw != null)
@@ -36,6 +47,7 @@ namespace SI_GUI
                 bw = null;
             }
         }
+
         public TDFPiwik(string allowed_title, string allowed_txt)
         {
             aSet = new access_settings();
@@ -60,8 +72,9 @@ namespace SI_GUI
             bw.DoWork += new DoWorkEventHandler(submit_piwik);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(todo);
         }
+
         // After doing work, check if work is pending
-        void todo(object sender, RunWorkerCompletedEventArgs e)
+        private void todo(object sender, RunWorkerCompletedEventArgs e)
         {
             try
             {
@@ -69,13 +82,14 @@ namespace SI_GUI
                 pending_requests.RemoveAt(0);
             }
             catch (Exception) { }
-
         }
+
         // Submit data to Piwik
-        void submit_piwik(object sender, DoWorkEventArgs e)
+        private void submit_piwik(object sender, DoWorkEventArgs e)
         {
             request(e.Argument.ToString());
         }
+
         private bool Tracking_allowed()
         {
             if (MessageBox.Show(sallowed_txt, sallowed_title, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
@@ -83,11 +97,14 @@ namespace SI_GUI
             else
                 return false;
         }
+
         public enum Features { ParallelInstall_Start, ParallelInstall_OK, ParallelInstall_End, Manager, CreateInk, StartDL, OpenBootstrap, SaveBootstrap, Open_Installer, Open_Help, Open_SDK, Config_Dir, OpenDialog_Help, OpenDialog_Manager, OpenDialog_About, OpenDialogManuallyAddInstallation, Update_ListOfVersion, RunInstaller, FreeInstallerField };
+
         public void sendFeatreUseageStats(Features feature)
         {
             submitGA("feature_useage", feature.ToString());
         }
+
         public void sendStartupStats(string l10n)
         {
             if (l10n == null)
@@ -96,7 +113,9 @@ namespace SI_GUI
         }
 
         // Functions for download stats grabbing
+
         #region DL_Stats
+
         public void sendDLstats(int version, string sversion, string hp_lang)
         {
             switch (version)
@@ -105,18 +124,22 @@ namespace SI_GUI
                     //LB
                     sversion = "LB";
                     break;
+
                 case (1):
                     //OB
                     sversion = "OB";
                     break;
+
                 case (2):
                     //T
                     sversion = "T";
                     break;
+
                 case (3):
                     //M
                     sversion = "M";
                     break;
+
                 default:
                     break;
             }
@@ -139,10 +162,14 @@ namespace SI_GUI
         {
             submitRequest2Queue(defaultPOST + "&url=" + filename + "&download=" + filename);
         }
-        #endregion
+
+        #endregion DL_Stats
+
         // Background functiond for sending data to GAnalytics
-        uint i = 0;
+        private uint i = 0;
+
         private string defaultPOST { get { return "apiv=1&idsite=" + websiteID + "&rec=1&_id = " + Set.Piwik.trackingID; } }
+
         private void submitGA(string ec, string ea, string el = "", string manualPOST = "")
         {
             string POST_Data = defaultPOST + "&url=http://si-gui.libreoffice.org&action_name=" + ec + "/" + ea;
@@ -154,6 +181,7 @@ namespace SI_GUI
             POST_Data += "}";
             submitRequest2Queue(POST_Data);
         }
+
         private void submitRequest2Queue(string POST)
         {
             if (bw.IsBusy)
@@ -186,6 +214,7 @@ namespace SI_GUI
                 }
             }
         }
+
         private string getJSON(string key, string value)
         {
             i++;

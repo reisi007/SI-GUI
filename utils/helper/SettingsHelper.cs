@@ -1,4 +1,12 @@
-﻿using System;
+﻿#region Licence
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
+ * which is licenced under LGPL v3+. You may find a copy in the source,
+ * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
+
+#endregion Licence
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,26 +17,32 @@ namespace SI_GUI
     public partial class MainUI : Form
     {
         private List<string> availableDLOptions = new List<string>();
+
         private bool isInstallerSelected()
         {
             return clb_downloadSelector.CheckedItems.Contains(availableDLOptions[(int)Downloader.Version.MAIN]);
         }
+
         private bool isHelpSelected()
         {
             return clb_downloadSelector.CheckedItems.Contains(availableDLOptions[(int)Downloader.Version.HP]);
         }
+
         private bool isSDKSelected()
         {
             return clb_downloadSelector.CheckedItems.Contains(availableDLOptions[(int)Downloader.Version.SDK]);
         }
+
         private void setInstallerSelected(bool isSelected)
         {
             clb_downloadSelector.SetItemCheckState((int)Downloader.Version.MAIN, isSelected ? CheckState.Checked : CheckState.Unchecked);
         }
+
         private void setHelpSelected(bool isSelected)
         {
             clb_downloadSelector.SetItemCheckState((int)Downloader.Version.HP, isSelected ? CheckState.Checked : CheckState.Unchecked);
         }
+
         private void setSDKSelected(bool isSelected)
         {
             clb_downloadSelector.SetItemCheckState((int)Downloader.Version.SDK, isSelected ? CheckState.Checked : CheckState.Unchecked);
@@ -61,6 +75,7 @@ namespace SI_GUI
             // Finally save to file
             set.save_settings(thingstosave);
         }
+
         private void loadsettings()
         {
             try

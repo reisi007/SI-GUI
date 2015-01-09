@@ -1,4 +1,12 @@
-﻿using System;
+﻿#region Licence
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
+ * which is licenced under LGPL v3+. You may find a copy in the source,
+ * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
+
+#endregion Licence
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,8 +19,9 @@ namespace SI_GUI.ui
 {
     public partial class BootstrapIniUI : Form
     {
-        MainUI parent;
-        string[] l10n;
+        private MainUI parent;
+        private string[] l10n;
+
         public BootstrapIniUI(bool rtl, string[] l10n, MainUI parent)
         {
             this.parent = parent;
@@ -52,7 +61,6 @@ namespace SI_GUI.ui
                 working = false;
                 if (!autoEditenabled)
                 {
-
                     return working;
                 }
             }
@@ -68,7 +76,6 @@ namespace SI_GUI.ui
                     return working;
                 }
             }
-
             catch (Exception ex)
             {
                 working = false;
@@ -87,6 +94,7 @@ namespace SI_GUI.ui
             }
             return working;
         }
+
         private bool secondtry(string path)
         {
             bool working = true;
@@ -105,8 +113,8 @@ namespace SI_GUI.ui
                 bootinipath.Text = path;
             }
             return working;
-
         }
+
         private void open_bootstrap_Click(object sender, EventArgs e)
         {
             openbootstrap_iniFO();
@@ -123,10 +131,12 @@ namespace SI_GUI.ui
             bootinipath.Text = "";
             bootstrap_text.Text = "";
         }
+
         private void save_bootstrap(object sender, EventArgs e)
         {
             save_bootstrap(false);
         }
+
         private void save_bootstrap(bool quiet)
         {
             bool working = true;
@@ -173,7 +183,6 @@ namespace SI_GUI.ui
             }
             finally
             {
-
                 if (working)
                 {
                     parent.piwik.sendFeatreUseageStats(TDFPiwik.Features.SaveBootstrap);
@@ -186,18 +195,18 @@ namespace SI_GUI.ui
                 }
             }
         }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             userinstallation.Text = "UserInstallation=$ORIGIN/..";
         }
+
         private bool openbootstrap_iniFO()
         {
             if (open_bootstrap.ShowDialog() == DialogResult.OK)
 
                 return secondtry(open_bootstrap.FileName);
             else return false;
-
         }
-
     }
 }

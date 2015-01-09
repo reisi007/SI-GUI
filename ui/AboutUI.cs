@@ -1,30 +1,34 @@
 ﻿#region Licence
-/*This file is part of the project "Reisisoft Server Install GUI",
+
+/*This file is part of the project "Reisisoft Separate Install GUI",
  * which is licenced under LGPL v3+. You may find a copy in the source,
  * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
-#endregion
+
+#endregion Licence
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Resources;
 using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using System.Threading;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Resources;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace SI_GUI
 {
     public partial class AboutUI : Form
     {
-        access_settings set = new access_settings();
+        private access_settings set = new access_settings();
 
-        ToolTip TTadvanced_file_renaming;
+        private ToolTip TTadvanced_file_renaming;
+
         public AboutUI(string[] l10n, bool rtl, string[] lang)
         {
             if (rtl)
@@ -59,13 +63,15 @@ namespace SI_GUI
             cb_bs_autoedit.Checked = s.cb_autoedit_bs;
         }
 
-        void ga_tracking_CheckedChanged(object sender, EventArgs e)
+        private void ga_tracking_CheckedChanged(object sender, EventArgs e)
         {
             SETTINGS settings = set.open_settings();
             settings.Piwik.tracking_allowed = ga_tracking.Checked;
             set.save_settings(settings);
         }
+
         private string[] l10n;
+
         private void Form2_Load(object sender, EventArgs e)
         {
             ga_tracking.Text = l10n[19];
@@ -91,8 +97,7 @@ namespace SI_GUI
             string carmor = "Carlos Moreira";
             string sopgau = "Sophie Gautier";
             string kenbio = "Ken Biondi";
-            // Get the final string
-            // Begin programmers
+            // Get the final string Begin programmers
             abouttxt = programmer + Environment.NewLine;
             abouttxt += "- " + florei + Environment.NewLine;
             //End programmers
@@ -124,6 +129,7 @@ namespace SI_GUI
             bOk.Text = l10n[23];
             cb_bs_autoedit.Text = l10n[24];
         }
+
         public bool isAdvancedRenamingChecked
         {
             get
@@ -131,6 +137,7 @@ namespace SI_GUI
                 return cb_advancedFilenames.Checked;
             }
         }
+
         public void exeptionmessage(string ex_message)
         {
             MessageBox.Show(l10n[15] + ex_message, l10n[16], MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -164,8 +171,5 @@ namespace SI_GUI
             s.cb_autoedit_bs = cb_bs_autoedit.Checked;
             set.save_settings(s);
         }
-
-
-
     }
 }

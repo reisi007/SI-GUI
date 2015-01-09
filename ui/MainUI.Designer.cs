@@ -7,7 +7,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         #region Licence
-        /*This file is part of the project "Reisisoft Server Install GUI",
+        /*This file is part of the project "Reisisoft Separate Install GUI",
         * which is licenced under LGPL v3+. You may find a copy in the source,
         * or obtain one at http://www.gnu.org/licenses/lgpl-3.0-standalone.html */
         #endregion
@@ -619,7 +619,7 @@
             this.version.Size = new System.Drawing.Size(188, 13);
             this.version.TabIndex = 38;
             this.version.TabStop = true;
-            this.version.Text = "LibreOffice Server Install GUI v x.y.z.w";
+            this.version.Text = "LibreOffice Seperate Install GUI v x.y.z.w";
             this.version.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.checkUpdate);
             // 
             // openfile3
