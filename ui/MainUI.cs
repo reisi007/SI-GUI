@@ -667,7 +667,7 @@ namespace SI_GUI
                             {
                                 downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.MAIN);
                             }
-                            if (isInstallerSelected())
+                            if (isHelpSelected())
                             {
                                 downloader.startArchiveDownload(dl_versions.SelectedItem.ToString(), Downloader.Version.HP);
                             }
