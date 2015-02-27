@@ -145,6 +145,7 @@ namespace SI_GUI
             }
             if (hp_lang.Equals("sdk"))
             {
+                sversion += "-sdk";
                 submitGA("download", sversion, hp_lang);
             }
             else if (hp_lang != "")

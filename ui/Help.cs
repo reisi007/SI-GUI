@@ -50,7 +50,7 @@ namespace SI_GUI
                     break;
             }
             this.Text = l10n[2];
-            string url = "http://dev-builds.libreoffice.org/si-gui/help/" + code + ".html";
+            string url = "http://tdf.io/siguihelp" + code;
             help_browser.Navigate(url, false);
         }
 

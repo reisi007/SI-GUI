@@ -31,7 +31,7 @@ namespace SI_GUI
 {
     public partial class MainUI : Form
     {
-        public static String productname = "Separate Installation GUI";
+        public static String productname = "Separate Install GUI";
 
         #region string[] alllnag
 
@@ -561,7 +561,7 @@ namespace SI_GUI
 
         private void update_changingVersions()
         {
-            string url = "http://dev-builds.libreoffice.org/si-gui/.dlinfo/" + (set.program_version().EndsWith("ing")/*testing versions*/ ? "beta" : "info") + ".txt";
+            string url = "http://tdf.io/siguidlinfo" + (set.program_version().EndsWith("ing")/*testing versions*/ ? "beta" : "");
             System.Net.WebClient wc = downloader.getPreparedWebClient();
             string[] info = wc.DownloadString(url).Replace("\r\n", "\n").Split(new char[] { '\n' });
             dlInfos = ChangingDLInfo.Parse(info);
@@ -737,7 +737,7 @@ namespace SI_GUI
             {
                 System.Net.WebClient wc = new System.Net.WebClient();
                 string file = Path.Combine(Path.GetTempPath(), "update.application");
-                wc.DownloadFile("http://dev-builds.libreoffice.org/si-gui/LibreOffice%20Separate%20Install%20GUI.application", file);
+                wc.DownloadFile("http://tdf.io/siguiupdate", file);
                 Process.Start(file);
                 Environment.Exit(0);
             }
