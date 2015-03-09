@@ -224,7 +224,10 @@ namespace SI_GUI
             choose_lang.Size = new System.Drawing.Size(dl_versions.Location.X + dl_versions.Size.Width - choose_lang.Location.X, choose_lang.Size.Height);
             openfile.InitialDirectory = Path.GetTempPath();
             openfile2.InitialDirectory = openfile.InitialDirectory;
-            // Position progressbar 1 Start Setting tooltips
+            // Position progressbar
+            progressBar.Location = new Point(labelProgress.Location.X + labelProgress.Size.Width + 6, progressBar.Location.Y);
+            progressBar.Size = new System.Drawing.Size(percent.Location.X - 6 - progressBar.Location.X, progressBar.Height);
+            //Start Setting tooltips
             ToolTip ink = get_ToolTip(create_lnk, getstring("tt_ink"));
             ToolTip pathtoexe = get_ToolTip(path_to_exe, getstring("tt_path_to_exe"));
             ToolTip manuallyUpdate = get_ToolTip(version, getstring("tt_autoupdate"));
