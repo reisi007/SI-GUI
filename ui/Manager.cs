@@ -98,18 +98,26 @@ namespace SI_GUI
             }
 
             string[] array = list.ToArray();
+            if (array.Length == 0)
+                return;
             deleteFileProgress.Visible = true;
             deleteFileProgress.Minimum = 0;
-            deleteFileProgress.Maximum = array.Length - 1;
+            deleteFileProgress.Maximum = array.Length + 1;
+            deleteFileProgress.Value = 1;
+            deleteFileProgress.Step = 1;
+            deleteFileProgress.Refresh();
+
             for (int i = 0; i < array.Length; i++)
             {
-                deleteFileProgress.Value = i;
+                deleteFileProgress.PerformStep();
+                deleteFileProgress.Refresh();
                 try
                 {
                     System.IO.Directory.Delete(array[i], true);
                 }
                 catch (Exception) { }
             }
+            deleteFileProgress.PerformStep();
             object[] o_array = list_o.ToArray();
             foreach (object o in o_array)
             {
