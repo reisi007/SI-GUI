@@ -34,8 +34,8 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>10</ApplicationRevision>
-    <ApplicationVersion>4.4.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>5.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -126,6 +126,12 @@
     <Compile Include="ui\BootstrapIniUI.Designer.cs">
       <DependentUpon>BootstrapIniUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\dialogs\Architecture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\dialogs\Architecture.Designer.cs">
+      <DependentUpon>Architecture.cs</DependentUpon>
+    </Compile>
     <Compile Include="utils\helper\DLFile.cs" />
     <Compile Include="xml\ChangingDLInfo.cs" />
     <Compile Include="utils\Downloader.cs" />
@@ -199,6 +205,9 @@
     <EmbeddedResource Include="l10n\strings.pt-PT.resx" />
     <EmbeddedResource Include="ui\BootstrapIniUI.resx">
       <DependentUpon>BootstrapIniUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\dialogs\Architecture.resx">
+      <DependentUpon>Architecture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\MainUI.resx">
       <DependentUpon>MainUI.cs</DependentUpon>

@@ -7,16 +7,14 @@
 #endregion Licence
 
 using SI_GUI.exceptions;
+using SI_GUI.ui.dialogs;
 using SI_GUI.utils.helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace SI_GUI
 {
@@ -476,7 +474,23 @@ namespace SI_GUI
 
         private string get_final_link(string version)
         {
-            return "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win/x86/";
+            string url = "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win";
+            string tmpVersion = downloadFile(url);
+            bool x64 = false;
+            bool needDecision = tmpVersion.Contains("x86_64");
+            if (needDecision)
+            {
+                DialogResult result = DialogResult.Abort;
+                Architecture a = new Architecture();
+                while (!(result == DialogResult.Yes || result == DialogResult.No))
+                {
+                    result = a.ShowDialog();
+                }
+                if (result == DialogResult.No)
+                    x64 = true;
+            }
+
+            return url + "/" + (x64 ? "x86_64" : "x86") + "/";
         }
 
         public void startArchiveDownload(string vName, Version version)

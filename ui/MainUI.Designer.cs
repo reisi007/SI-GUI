@@ -91,8 +91,8 @@
             // openfile
             // 
             this.openfile.DefaultExt = "msi";
-            this.openfile.Filter = "LibreOffice installation file|Lib*Win_x86*.msi;*LibO-Dev*Win_x86*.msi;libreoffice" +
-    "*.msi;master~*LibreOffice*Win*.msi";
+            this.openfile.Filter = "LibreOffice installation file|Lib*Win_x*.msi;*LibO-Dev*Win_x*.msi;libreoffice*.ms" +
+    "i;master~*LibreOffice*Win*.msi";
             this.openfile.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // b_open_libo_installer
@@ -160,7 +160,7 @@
             // openfile2
             // 
             this.openfile2.DefaultExt = "msi";
-            this.openfile2.Filter = "LibreOffice help installation file | *Win_x86_helppack_*.msi";
+            this.openfile2.Filter = "LibreOffice help installation file | *Win_x*_helppack_*.msi";
             this.openfile2.FileOk += new System.ComponentModel.CancelEventHandler(this.openfile2_FileOk);
             // 
             // start_install
@@ -455,6 +455,7 @@
             this.dl_versions.Name = "dl_versions";
             this.dl_versions.Size = new System.Drawing.Size(163, 21);
             this.dl_versions.TabIndex = 1;
+            this.dl_versions.SelectedIndexChanged += new System.EventHandler(this.dl_versions_SelectedIndexChanged);
             // 
             // labelProgress
             // 
@@ -616,7 +617,7 @@
             this.version.AutoSize = true;
             this.version.Location = new System.Drawing.Point(298, 526);
             this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(188, 13);
+            this.version.Size = new System.Drawing.Size(200, 13);
             this.version.TabIndex = 38;
             this.version.TabStop = true;
             this.version.Text = "LibreOffice Seperate Install GUI v x.y.z.w";
@@ -625,7 +626,7 @@
             // openfile3
             // 
             this.openfile3.DefaultExt = "msi";
-            this.openfile3.Filter = "LibreOffice SDK installation file | *Win_x86_sdk.msi";
+            this.openfile3.Filter = "LibreOffice SDK installation file | *Win_x*_sdk.msi";
             this.openfile3.FileOk += new System.ComponentModel.CancelEventHandler(this.openfile3_FileOk);
             // 
             // b_edit_bs
