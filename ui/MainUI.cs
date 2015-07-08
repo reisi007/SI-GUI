@@ -261,7 +261,7 @@ namespace SI_GUI
 
         public void sendStats(string hplang)
         {
-            piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedText, hplang);
+            piwik.sendDLstats(dl_versions.SelectedIndex, dl_versions.SelectedItem.ToString(), hplang);
         }
 
         public void sendStatsFilename(Uri filename)

@@ -291,6 +291,8 @@ namespace SI_GUI
         public WebClient getPreparedWebClient()
         {
             WebClient webc = new WebClient();
+            webc.Proxy = WebRequest.DefaultWebProxy;
+            webc.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
             webc.Headers["User-Agent"] = "LibreOffice Server Install Gui " + programVersion;
             webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
             webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
@@ -407,7 +409,7 @@ namespace SI_GUI
                     else
                     {
                         // New format
-                        httpfile = httpfile.Insert(httpfile.IndexOf("86") + 2, "_helppack_" + languages.SelectedItem.ToString());
+                        httpfile = httpfile.Insert(httpfile.IndexOf("x") + 3, "_helppack_" + languages.SelectedItem.ToString());
                     }
                     break;
 
@@ -419,6 +421,7 @@ namespace SI_GUI
                     else
                     {
                         httpfile = httpfile.Replace("x86", "x86_sdk");
+                        httpfile = httpfile.Replace("x64", "x64_sdk");
                     }
                     break;
 
@@ -446,13 +449,13 @@ namespace SI_GUI
         {
             string link = "http://downloadarchive.documentfoundation.org/libreoffice/old/";
             List<string> versions = new List<string>();
-            string httpfile = httpfile = downloadFile(link), tmp;
+            string httpfile = downloadFile(link), tmp;
             int i;
             bool goon = true;
             // Get the version numbers of LibreOffice
             i = httpfile.IndexOf("Details") + 7;
             httpfile = httpfile.Remove(0, i);
-            i = httpfile.IndexOf("sdremote-1.0.0");
+            i = httpfile.IndexOf("loviewer");
             httpfile = httpfile.Remove(i);
             while (goon)
             {
