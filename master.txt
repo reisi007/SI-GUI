@@ -1,6 +1,5 @@
 URL#helppack#SDK#Name
-http://dev-builds.libreoffice.org/daily/libreoffice-5-0/Win-x86@62-merge-TDF/current/#true#true#Daily 5.0 x86 [62-merge-TDF]
-http://dev-builds.libreoffice.org/daily/libreoffice-5-1/Win-x86@62-merge-TDF/current/#true#true#Daily 5.1 x86 [62-merge-TDF]
-http://dev-builds.libreoffice.org/daily/master/Win-x86@62-merge-TDF/current/#true#true#Master x86 [62-merge]
+http://dev-builds.libreoffice.org/daily/libreoffice-5-2/Win-x86_64@62-TDF/current/#true#true#Daily 5.2 x64 [62-TDF]
 http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/#false#false#Master x86 [39]
+http://dev-builds.libreoffice.org/daily/master/Win-x86@42/current/#true#true#Master x86 [42]
 http://dev-builds.libreoffice.org/daily/master/Win-x86_64@62-TDF/current/#true#true#Master x86_64 [62-TDF]
