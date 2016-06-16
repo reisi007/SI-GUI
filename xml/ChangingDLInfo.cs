@@ -55,7 +55,10 @@ namespace SI_GUI
             {
                 string line = s[i];
                 string[] tmp = line.Split(new char[] { '#' });
-                list.Add(new ChangingDLInfo(tmp[3], tmp[0], Convert.ToBoolean(tmp[1]), Convert.ToBoolean(tmp[2])));
+                if (tmp.Length == 4)
+                {
+                    list.Add(new ChangingDLInfo(tmp[3], tmp[0], Convert.ToBoolean(tmp[1]), Convert.ToBoolean(tmp[2])));
+                }
             }
 
             return list.ToArray();
