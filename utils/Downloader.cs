@@ -387,12 +387,24 @@ namespace SI_GUI
             string httpfile = downloadFile(linkToFile + sortString);
             if (httpfile == null)
                 return;
-            int tmp = httpfile.IndexOf("Parent");
-            httpfile = httpfile.Remove(0, tmp);
-            tmp = httpfile.IndexOf("href") + 6;
-            httpfile = httpfile.Remove(0, tmp);
-            tmp = httpfile.IndexOf("\"");
-            httpfile = httpfile.Remove(tmp);
+            if (branch == Branch.M)
+            {
+                string msi = ".msi\">";
+                int end = httpfile.IndexOf(msi) + msi.Length - 2;
+                httpfile = httpfile.Substring(0, end);
+                string href = "href=\"";
+                int start = httpfile.LastIndexOf(href) + href.Length;
+                httpfile = httpfile.Substring(start);
+            }
+            else
+            {
+                int tmp = httpfile.IndexOf("Parent");
+                httpfile = httpfile.Remove(0, tmp);
+                tmp = httpfile.IndexOf("href") + 6;
+                httpfile = httpfile.Remove(0, tmp);
+                tmp = httpfile.IndexOf("\"");
+                httpfile = httpfile.Remove(tmp);
+            }
             switch (version)
             {
                 case Version.HP:
