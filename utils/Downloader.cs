@@ -393,7 +393,20 @@ namespace SI_GUI
                 int end = httpfile.IndexOf(msi) + msi.Length - 2;
                 httpfile = httpfile.Substring(0, end);
                 string href = "href=\"";
-                int start = httpfile.LastIndexOf(href) + href.Length;
+                string title = "title=\"";
+                int posHref = httpfile.LastIndexOf(href);
+                int posTitle = httpfile.LastIndexOf(title);
+
+                int start;
+
+                if(posHref > posTitle)
+                {
+                    start = posHref + href.Length;
+                } else
+                {
+                    start = posTitle + title.Length;
+                }
+
                 httpfile = httpfile.Substring(start);
             }
             else
