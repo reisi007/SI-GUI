@@ -290,6 +290,7 @@ namespace SI_GUI
 
         public WebClient getPreparedWebClient()
         {
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TSL 1.2
             WebClient webc = new WebClient();
             webc.Proxy = WebRequest.DefaultWebProxy;
             webc.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
