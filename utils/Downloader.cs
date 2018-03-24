@@ -292,7 +292,8 @@ namespace SI_GUI
         {
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TSL 1.2
             WebClient webc = new WebClient();
-            webc.Proxy = WebRequest.GetSystemWebProxy();
+            webc.Proxy = WebRequest.DefaultWebProxy;
+            webc.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
             webc.Headers["User-Agent"] = "LibreOffice Server Install Gui " + programVersion;
             webc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(download_DownloadProgressChanged);
             webc.DownloadFileCompleted += new AsyncCompletedEventHandler(download_DownloadFileCompleted);
