@@ -1,6 +1,3 @@
 URL#helppack#SDK#Name
-http://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/#false#false#Master x86 [39]
-http://dev-builds.libreoffice.org/daily/master/Win-x86@42/current/#false#true#Master x86 [42]
-http://dev-builds.libreoffice.org/daily/master/Win-x86_64@42/current/#false#true#Master x86_64 [42]
-http://dev-builds.libreoffice.org/daily/master/Win-x86@62-TDF/current/#true#true#Master x86 [62-TDF]
-http://dev-builds.libreoffice.org/daily/master/Win-x86_64@62-TDF/current/#true#true#Master x86_64 [62-TDF]
+https://dev-builds.libreoffice.org/daily/master/Win-x86_64@tb77-TDF/current/#true#true#Master x86_64 [TB77-TDF]
+https://dev-builds.libreoffice.org/daily/master/Win-x86@39/current/#false#true#Master x86 [TB39]
