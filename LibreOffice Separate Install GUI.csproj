@@ -34,7 +34,7 @@
     <MinimumRequiredVersion>4.0.0.6</MinimumRequiredVersion>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>5.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -243,6 +243,7 @@
     <EmbeddedResource Include="l10n\strings.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="l10n\strings.es.resx">
       <Generator>ResXFileCodeGenerator</Generator>

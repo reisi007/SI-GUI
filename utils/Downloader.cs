@@ -432,10 +432,14 @@ namespace SI_GUI
                         // Old format
                         httpfile = httpfile.Replace("install_multi", "helppack_" + languages.SelectedItem.ToString());
                     }
-                    else
+                    else if(httpfile.Contains("x64"))
                     {
-                        // New format
+                        // "New" old format
                         httpfile = httpfile.Insert(httpfile.IndexOf("x") + 3, "_helppack_" + languages.SelectedItem.ToString());
+                    } else
+                    {
+                        // LibO 7.5+
+                        httpfile = httpfile.Insert(httpfile.IndexOf(".msi"), "_helppack_" + languages.SelectedItem.ToString());
                     }
                     break;
 
@@ -444,10 +448,14 @@ namespace SI_GUI
                     {
                         httpfile = httpfile.Replace("LibO", "LibO-SDK");
                     }
+                    else if(httpfile.Contains("x86-64")){
+                        httpfile = httpfile.Replace("x86-64", "x86-64_sdk");
+                    }
                     else
                     {
                         httpfile = httpfile.Replace("x86", "x86_sdk");
                         httpfile = httpfile.Replace("x64", "x64_sdk");
+                       
                     }
                     break;
 
@@ -506,7 +514,9 @@ namespace SI_GUI
             string url = "http://downloadarchive.documentfoundation.org/libreoffice/old/" + version + "/win";
             string tmpVersion = downloadFile(url);
             bool x64 = false;
-            bool needDecision = tmpVersion.Contains("x86_64");
+            bool underscore = tmpVersion.Contains("x86_64");
+            bool needDecision = underscore  || tmpVersion.Contains("x86-64");
+
             if (needDecision)
             {
                 DialogResult result = DialogResult.Abort;
@@ -519,7 +529,7 @@ namespace SI_GUI
                     x64 = true;
             }
 
-            return url + "/" + (x64 ? "x86_64" : "x86") + "/";
+            return url + "/" + (x64 ? ("x86_64") : "x86") + "/";
         }
 
         public void startArchiveDownload(string vName, Version version)
