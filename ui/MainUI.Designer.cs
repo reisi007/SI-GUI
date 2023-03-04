@@ -455,7 +455,6 @@
             this.dl_versions.Name = "dl_versions";
             this.dl_versions.Size = new System.Drawing.Size(163, 21);
             this.dl_versions.TabIndex = 1;
-            this.dl_versions.SelectedIndexChanged += new System.EventHandler(this.dl_versions_SelectedIndexChanged);
             // 
             // labelProgress
             // 

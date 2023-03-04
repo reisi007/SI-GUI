@@ -382,8 +382,60 @@ namespace SI_GUI
                 mainui.setSubfolder(originalFilename);
         }
 
+        public void downloadCollabora(string linkToFile,Version version,Branch branch)
+        {
+            string httpfile = downloadFile(linkToFile + sortString);
+            if (httpfile == null)
+                return;
+
+            bool x64 = false;
+            DialogResult result = DialogResult.Abort;
+            Architecture a = new Architecture();
+            while (!(result == DialogResult.Yes || result == DialogResult.No))
+            {
+                result = a.ShowDialog();
+            }
+            if (result == DialogResult.No)
+            {
+                x64 = true;
+            }
+
+            string msi = ".msi\">";
+            int end = httpfile.IndexOf(msi) + msi.Length - 2;
+            httpfile = httpfile.Substring(0, end);
+            string href = "href=\"";
+            string title = "title=\"";
+            int posHref = httpfile.LastIndexOf(href);
+            int posTitle = httpfile.LastIndexOf(title);
+
+            int start;
+
+            if (posHref > posTitle)
+            {
+                start = posHref + href.Length;
+            }
+            else
+            {
+                start = posTitle + title.Length;
+            }
+
+            httpfile = httpfile.Substring(start);
+
+            if (!x64)
+                httpfile = httpfile.Replace("x64", "x86");
+
+
+            startDL(httpfile, linkToFile, branch, version);
+        }
+
         public void downloadAnyVersion(string linkToFile, Version version, Branch branch)
         {
+            if (linkToFile.Contains("collaboraoffice"))
+            {
+                downloadCollabora(linkToFile, version, branch);
+                return;
+            }
+
             // Get the final download links and initialize the download
             string httpfile = downloadFile(linkToFile + sortString);
             if (httpfile == null)

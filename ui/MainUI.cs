@@ -948,8 +948,5 @@ namespace SI_GUI
                 ((TextBox)sender).Text = s;
         }
 
-        private void dl_versions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
     }
 }
